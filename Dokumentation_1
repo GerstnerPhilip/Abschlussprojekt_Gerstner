@@ -1,0 +1,216 @@
+
+ 	Meisterschule für Handwerker
+Kaiserslautern	 
+
+Thema: Getränkeautomat
+
+Klasse:			FSTEL24
+Schulform:				Vollzeit
+Abgabetermin:	 	30.04.2026
+Schule:			Meisterschule für Handwerker
+Betreuer:			Herr Benz
+
+
+Ausgearbeitet von:	Ausbildungsschule:
+Phillip Gerstner	Meisterschule für Handwerker
+
+
+
+
+
+
+
+
+
+
+Inhalt
+Planung	3
+Ideen Sammeln:	3
+Modul Zeichnung:	4
+Pins Benötigt:	4
+Planung:	5
+Grunddaten der Module:	5
+Modul 0/1: Grundmodul / Spannung und Esp Modul	5
+Bauteile dieses Modules:	5
+3D-Druck Plan:	5
+Modul 2: Wage Modul	6
+Bauteile dieses Modules:	6
+3D-Druck Plan:	7
+Modul 3: Ventil und Relay Modul	7
+3D-Druck Plan:	8
+Modul 4: Abstandshalter und Dokumente Modul	8
+3D-Druck Plan:	8
+Modul 5: Pumpe und Controller	8
+3D-Druck Plan:	8
+Modul 6: Roterie Entcoder, Taster	8
+3D-Druck Plan:	8
+Materialliste:	9
+
+
+
+
+
+
+
+
+
+Planung:
+Was soll der Getränkeautomat können:
+Es soll alle möglichen Flüssigkeiten abfüllen können. (Bsp: Bier, Saft, Sirup, Wasser, …)
+Es sollen 9 verschiedene Flüssigkeiten abgefüllt werden.
+Genauigkeit: ±5 ml  (Das Glass wird Gewogen)
+Es sollen Glässer bis 20 cm Höhe befüllt werden.
+Zeiten:
+Ein Getränk mit nur einer Flüssigkeiten soll ein 500 ml Glass in unter 15 Sekunden füllen.
+Ein Getränk mit mehreren Flüssigkeiten in unter 30 Sekunden füllen.
+Auswahl der Getränke: Am Automat selbst und durch den Browser.
+Reinigungsmodus
+Glass Größe Auswahl mit 3 Tastern einstellbar
+
+
+Ideen Sammeln: 
+Alles auf einzelne Module Aufteilen.
+Insgesamt soll es 6 Module geben.
+1: Spannung und Esp Modul
+2: Wage Modul
+3: Abstandshalter und Dokumente Modul
+4: Ventil und Relay Modul
+5: Pumpe und Controller
+6: Bildschirm, Roterie Entcoder, Taster
+Modul Zeichnung:
+ 
+Die einzelnen Module unterscheiden sich etwas, dies ist aber der Grundaufbau
+ 
+Pins Benötigt:
+Die Anzahl kann sich noch ändern 
+2 Wage, 3 Motor Controller, 10 Relais, 2 Bildchirm, 3 Roterie Entcoder, 3 Taster Glasauswahl, 1 Taster Start/Stopp, 1 Taster Tara für Wage = 25 Pins  
+
+Planung:
+Grunddaten der Module:
+Breite: AZ-Delivery Display 9,8 cm, GIAK KY-040 Rotary Encoder 1,9 cm, Wasserdichte Drucktaster Momentanen Edelstahl 1,6 cm = 13,3 cm
+Zum Auslegen der Bauteile und Wandstärke der Module, erweitere ich es auf 15 cm
+
+Länge: ICQUANZX Relay 2,65 cm breit mal 5 = 13,25 cm
+Zum Auslegen der Bauteile und Wandstärke der Module, erweitere ich es auf 15 cm
+
+Modul 0/1 hat eine andere Länge : 15 cm plus BRIMETI LED Trafo 2 cm Länge = 17 cm
+Zum Auslegen der Bauteile und Wandstärke des Modules, erweitere ich es auf 20 cm
+
+Die Normalen Module:15 cm x 15 cm
+Modul 0/1: 15 cm x 20 cm
+
+Höhe Modul 0/1: BRIMETI LED Trafo 13,3 cm 
+Da die Leitung aus dem BRIMETI LED Trafo oben und unten herauskommen braucht man mehr Platz und da die Endhöhe des Getränkeautomaten noch nicht bekannt ist setze ich es auf 21 cm fest 20 cm für das Modul 0/1 und 1 cm für den Boden für die Stabilität.
+
+Modul 0/1: Grundmodul / Spannung und Esp Modul
+Bauteile dieses Modules:
+1 mal XTVTX ESP S3 ESP-1-N16R8 S3-DevKitC-1 Entwicklung Boards mit WiFi, Bluetooth 5.0 für Arduino
+1 mal Youmile 2 Stück DC 8-35V bis DC 5V USB C DC Konverter Buck Modul 12V/24V bis 5V 3A 15W USB Ausgang Step Down Spannungsregler Ladegerät mit Knopfkappe
+1 mal BRIMETI LED Trafo 24V 150W Wasserdicht IP67 LED Treiber Netzteil 6,25A Mit Stecker Schaltnetzteil Transformator AC 230V auf DC 24 Volt Außenbereich, Kompakter Dünner Konstantspannung Niedervolttrafo
+2 mal 7x5 cm AZDelivery Lochrasterplatte
+4 mal M3 schraube 
+2 mal M2 schraube
+3D-Druck Plan:
+Skizzen:
+ 
+Übersichts Ansicht:
+ 
+Fusion 360 Datei: 
+ 
+Modul 2: Wage Modul
+Bauteile dieses Modules:
+1 mal ALAMSCN 2 Stück 5kg Wägezelle
+1 mal HX711 Wägezelle Gewicht Sensor Modul für Arduino
+2 mal M3 schraube 
+4 mal M4 schraube 
+3D-Druck Plan:
+Skizzen:
+ 
+Übersichts Ansicht:
+ 
+Fusion 360 Datei: 
+ 
+Modul 3: Ventil und Relay Modul
+Bauteile: 
+2 m Coop Schlauchtechnik® Silikonschlauch 5mm Innen-Ø
+100 g Verbatim PP-Filament 3D-Druck, 1,75 mm, 500 g
+10 mal ICQUANZX 5 STÜCKE 5 V EIN Kanal Relaismodul
+10 mal Normalerweise Offenes Micro Wasser Luftstrom Ventil
+20 mal M4 schraube 
+3D-Druck Plan:
+
+Modul 4: Abstandshalter und Dokumente Modul
+So designen das man von der Seite aufmachen kann um Papiere reinzulegen und einfach wieder rauszuholen kann.
+3D-Druck Plan:
+
+Modul 5: Pumpe und Controller
+Bauteile: 
+1 mal Kamoer KDS3000-ST Schlauchpumpe mit hohem Durchfluss
+1 mal COVVY TB6600 4 A 9-42 V Schrittmotorsteuerung
+3D-Druck Plan:
+
+
+Modul 6: Roterie Entcoder, Taster
+Bauteile: 
+1 mal AZDelivery HD44780 2004 LCD Display
+1 mal GIAK KY-040 Rotary Encoder Modul Drehgeber
+5 mal Gebildet 5Stücke Wasserdichte Drucktaster
+3D-Druck Plan:
+
+
+
+
+
+
+
+
+
+
+
+
+Materialliste:
+Youmile 2 Stück DC 8-35V bis DC 5V USB C DC DC Konverter Buck Modul 12V/24V bis 5V 3A 15W USB Ausgang Step Down Spannungsregler Ladegerät mit Knopfkappe
+ 
+Quelle: Youmile 2 Stück DC 8-35V bis DC 5V USB C DC DC Konverter Buck Modul 12V/24V bis 5V 3A 15W USB Ausgang Step Down Spannungsregler Ladegerät mit Knopfkappe: Amazon.de: Elektronik & Foto
+BRIMETI LED Trafo 24V 150W Wasserdicht IP67 LED Treiber Netzteil 6,25A Mit Stecker Schaltnetzteil Transformator AC 230V auf DC 24 Volt Außenbereich, Kompakter Dünner Konstantspannung Niedervolttrafo
+ 
+Quelle: BRIMETI LED Trafo 24V 150W Wasserdicht IP67 LED Treiber Netzteil 6,25A Mit Stecker Schaltnetzteil Transformator AC 230V auf DC 24 Volt Außenbereich, Kompakter Dünner Konstantspannung Niedervolttrafo : Amazon.de: Gewerbe, Industrie & Wissenschaft
+Kamoer KDS3000-ST Schlauchpumpe mit hohem Durchfluss, 24 V, langlebige, hochpräzise Dosierpumpe mit Schrittmotor und einstellbarer Geschwindigkeit 0–1800 ml/min für Laborfabriken
+ 
+Quelle: Kamoer KDS3000-ST Schlauchpumpe mit hohem Durchfluss, 24 V, langlebige, hochpräzise Dosierpumpe mit Schrittmotor und einstellbarer Geschwindigkeit 0–1800 ml/min für Laborfabriken : Amazon.de: Gewerbe, Industrie & Wissenschaft
+COVVY TB6600 4 A 9-42 V Schrittmotorsteuerung, CNC-Controller, 32 Segmente, 2/4 Phasen, Hybrid-Schrittmotorsteuerplatine
+ 
+Quelle: COVVY TB6600 4 A 9-42 V Schrittmotorsteuerung, CNC-Controller, 32 Segmente, 2/4 Phasen, Hybrid-Schrittmotorsteuerplatine : Amazon.de: Gewerbe, Industrie & Wissenschaft
+ALAMSCN 2 Stück 5kg Wägezelle Gewichtssensoren Digitaler Waage Wägezelle + 2 Stück HX711 Wägezelle Gewicht Sensor Modul für Arduino Mikrocontroller DIY (5kg+HX711)
+ 
+Quelle: ALAMSCN 2 Stück 5kg Wägezelle Gewichtssensoren Digitaler Waage Wägezelle + 2 Stück HX711 Wägezelle Gewicht Sensor Modul für Arduino Mikrocontroller DIY (5kg+HX711) : Amazon.de: Gewerbe, Industrie & Wissenschaft
+Coop Schlauchtechnik® Silikonschlauch 5mm Innen-Ø | 10 Meter | hohe Qualität | lebensmittelecht | geschmacksneutral |-40 bis 220 °C | ideal für Lebensmittel, Haushalt, Aquaristik, Labor, Industrie
+ 
+Quelle: Coop Schlauchtechnik® Silikonschlauch 5mm Innen-Ø | 10 Meter | hohe Qualität | lebensmittelecht | geschmacksneutral |-40 bis 220 °C | ideal für Lebensmittel, Haushalt, Aquaristik, Labor, Industrie : Amazon.de: Gewerbe, Industrie & Wissenschaft
+Normalerweise Offenes Micro Wasser Luftstrom Ventil Mini Elektrische Magnetventil DIY Kehren Roboter Sprayer Aromatherapie Maschine DC 12V
+ 
+Quelle: Normalerweise Offenes Micro Wasser Luftstrom Ventil Mini Elektrische Magnetventil DIY Kehren Roboter Sprayer Aromatherapie Maschine DC 12V - AliExpress 13
+Low-Level Trigger Relais 4 Channel 3.3V 3V kompatibel mit Arduino, Raspberry Pi ESP32
+ 
+Quelle: MakerMind Low-Level Trigger Relais 4 Channel 3.3V 3V kompatibel mit Arduino, Raspberry Pi ESP32 : Amazon.de: Gewerbe, Industrie & Wissenschaft
+AZDelivery HD44780 2004 LCD Display Bundle Blau 4x20 mit weißen Zeichen mit I2C Schnittstelle kompatibel mit Arduino und Raspberry Pi inklusive E-Book!
+ 
+Quelle: AZDelivery HD44780 2004 LCD Display Bundle Blau 4x20 mit weißen Zeichen mit I2C Schnittstelle kompatibel mit Arduino und Raspberry Pi inklusive E-Book! : Amazon.de: Elektronik & Foto
+GIAK KY-040 Rotary Encoder Modul Drehgeber 5 Stück 360 Grad Drehgeber Drehwinkelgeber Mit Druckknopf Für Automobilelektronik Multimedia-Audio
+ 
+Quelle: GIAK KY-040 Rotary Encoder Modul Drehgeber 5 Stück 360 Grad Drehgeber Drehwinkelgeber Mit Druckknopf Für Automobilelektronik Multimedia-Audio : Amazon.de: Gewerbe, Industrie & Wissenschaft
+Gebildet 5Stücke Wasserdichte Drucktaster Momentanen Edelstahl Taster EIN Aus 12mm 2A/12V/24V/125V/250V mit Draht (Hervorstehend)
+ 
+Quelle: Gebildet 5Stücke Wasserdichte Drucktaster Momentanen Edelstahl Taster EIN Aus 12mm 2A/12V/24V/125V/250V mit Draht (Hervorstehend) : Amazon.de: Baumarkt
+XTVTX ESP S3 ESP-1-N16R8 S3-DevKitC-1 Entwicklung Boards mit WiFi, Bluetooth 5.0 für Arduino
+ 
+Quelle: https://www.amazon.de/ESP32-S3-WROOM-1-N16R8-ESP32-S3-DevKitC-1-Entwicklung-Bluetooth/dp/B0C6KN35L2
+120 Stück Schlauchschellen Federklemmen, Schlauchklemmen für Benzinschlauch Luftschlauch Wasserrohr Schlauchschelle Verschluss - 5/6/7/8/9/10/11/12/13/14mm 
+Quelle: https://www.amazon.de/dp/B09VBCPRCD?ref=ppx_yo2ov_dt_b_fed_asin_title
+VIGRUE 1080Pcs Schrauben und Muttern Set, 304 Edelstahl Metrische Schrauben Set, M2 M3 M4 Schraubensortiment Sechskopf-Knopf Gewindeschrauben,Maschinenschrauben
+ 
+Quelle: VIGRUE 1080Pcs Schrauben und Muttern Set, 304 Edelstahl Metrische Schrauben Set, M2 M3 M4 Schraubensortiment Sechskopf-Knopf Gewindeschrauben,Maschinenschrauben : Amazon.de: Baumarkt
+ANYCUBIC PLA Plus Filament 1.75mm Schwarz, PLA+ 3D Drucker Filament, RFID für Intelligentes Drucken, Filament-3D-Druckmaterialien 1kg
+ 
+Quelle: ANYCUBIC PLA Plus Filament 1.75mm Schwarz, PLA+ 3D Drucker Filament, RFID für Intelligentes Drucken, Filament-3D-Druckmaterialien 1kg : Amazon.de: Gewerbe, Industrie & Wissenschaft
+
