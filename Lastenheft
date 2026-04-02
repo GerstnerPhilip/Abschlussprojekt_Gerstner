@@ -1,0 +1,106 @@
+Zielformulierung & Lastenheft –Abschlussprojekt
+Projekt: Modularer Getränkeautomat
+Schüler: Phillip Gerstner
+Klasse: FSTEL24 – Meisterschule für Handwerker (Kaiserslautern)
+
+
+
+Inhalt
+Zielformulierung & Lastenheft –Abschlussprojekt	1
+Projektziel	2
+Weg zum Ziel (Projektstrategie)	3
+Arbeitsschritte, Zeitplanung & Endprodukte	4
+Strukturplan & Abhängigkeiten	4
+Flaschenhalsanalyse (Risiken & Gegenmaßnahmen)	5
+Besonderheit & Bachelor-Niveau	5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Projektziel
+Ziel dieses Abschlussprojekts ist die Planung, Entwicklung und der Bau eines modularen, Getränkeautomaten, der sowohl funktional als auch technisch den Anforderungen eines Projekts auf Techniker- bzw. Bachelor-Niveau entspricht.
+Der Getränkeautomat soll in der Lage sein, bis zu neun unterschiedliche Flüssigkeiten (z. B. Wasser, Sirup, Saft oder andere Getränke) zu verarbeiten und daraus Einzel- oder Mischgetränke automatisch herzustellen. Die Dosierung erfolgt nicht nur zeitbasiert, sondern primär über eine integrierte Waage, um eine hohe Genauigkeit und Reproduzierbarkeit der Füllmengen zu gewährleisten.
+Ein zentrales Ziel ist es, den Automaten modular aufzubauen. Jedes Modul erfüllt eine klar definierte Funktion, etwa Spannungsversorgung, Sensorik, Aktorik, Pumpensteuerung oder Benutzerbedienung. Dadurch wird das System übersichtlich, wartungsfreundlich, erweiterbar und leichter zu testen.
+Zusätzlich soll der Automat über verschiedene Bedienmöglichkeiten verfügen: lokale Steuerung über Taster, Rotary-Encoder und Display sowie eine optionale Browser-Anbindung zur Konfiguration oder Getränkeauswahl.
+Das Endprodukt ist ein funktionsfähiger Prototyp eines Getränkeautomaten, inklusive Mechanik, Elektronik, Software, Benutzeroberfläche und vollständiger Projektdokumentation.
+Ziel des Projekts ist die Entwicklung und der Bau eines modularen, programmierbaren Getränkeautomaten, der:
+•	bis zu 9 verschiedene Flüssigkeiten dosieren kann,
+•	Getränke mit hoher Genauigkeit über eine integrierte Waage abfüllt,
+•	Einzel- und Mischgetränke in vorgegebenen Zeiten zubereitet,
+•	verschiedene Glasgrößen erkennt bzw. einstellbar macht,
+•	über Taster, Rotary-Encoder, Display und Browser bedienbar ist,
+•	einen Reinigungsmodus besitzt,
+•	in austauschbare Module unterteilt ist (Elektronik, Waage, Pumpen, Ventile, Bedienung, Mechanik).
+Ergebnis (Produkt): Funktionsfähiger Prototyp eines modularen Getränkeautomaten inklusive Software, Gehäuse, Elektronik, Dokumentation und Stückliste.
+
+Weg zum Ziel (Projektstrategie)
+Um das Projekt strukturiert, effizient und technisch sauber umzusetzen, wurde der Getränkeautomat bewusst in klar abgegrenzte Funktionsmodule unterteilt. Diese modulare Projektstrategie ermöglicht es, einzelne Systembereiche unabhängig voneinander zu entwickeln, zu testen und bei Bedarf zu optimieren oder auszutauschen. Dadurch wird die Fehlersuche vereinfacht, die Wartbarkeit verbessert und die Erweiterbarkeit des Systems sichergestellt.
+Jedes Modul übernimmt eine klar definierte Aufgabe innerhalb des Gesamtsystems:
+1.	Spannungsversorgung & Mikrocontroller (ESP32)
+Dieses Modul stellt die zentrale Energieversorgung für alle elektronischen Komponenten sicher und beinhaltet den Mikrocontroller (ESP32) als Hauptsteuereinheit. Der ESP32 verarbeitet Sensordaten, steuert Aktoren (Pumpen, Ventile, Relais) und übernimmt die Kommunikation mit der Benutzeroberfläche sowie optional mit einem Webbrowser.
+2.	Waagenmodul (Gewichtserfassung)
+Das Waagenmodul dient zur präzisen Gewichtsmessung des befüllten Glases. Über Wägezellen und einen HX711-Verstärker werden Gewichtsdaten erfasst und an den Mikrocontroller übertragen. Diese Daten ermöglichen eine exakte Dosierung der Getränke, wodurch eine konstante Füllmenge und hohe Wiederholgenauigkeit erreicht wird.
+3.	Leermodul für Höhengewinn
+
+4.	Ventil- & Relaismodul (Flüssigkeitssteuerung)
+In diesem Modul werden die Magnetventile und Relais untergebracht, die den Flüssigkeitsfluss steuern. Die Relais schalten die Ventile abhängig vom gewählten Getränk und der programmierten Rezeptur. Dieses Modul ist entscheidend für die korrekte Auswahl und Mischung der verschiedenen Flüssigkeiten.
+5.	Pumpen- & Motorsteuerungsmodul
+Dieses Modul steuert die Förderpumpen sowie die zugehörigen Motorcontroller. Es regelt die Durchflussmenge, die Fördergeschwindigkeit und das zeitliche Zusammenspiel mit den Ventilen. Damit ist es ein zentraler Bestandteil für eine gleichmäßige, kontrollierte und schnelle Befüllung der Getränke.
+6.	Bedienmodul (Display, Encoder, Taster)
+Das Bedienmodul bildet die Schnittstelle zwischen Benutzer und Maschine. Über ein Display, Rotary-Encoder und Drucktaster kann der Benutzer Getränke auswählen, Glasgrößen einstellen, den Füllvorgang starten oder stoppen sowie Wartungsfunktionen wie den Reinigungsmodus aktivieren.
+Durch diese modulare Aufteilung kann das Projekt systematisch umgesetzt werden: Zunächst werden die einzelnen Module entwickelt und getestet, anschließend erfolgt die Integration in das Gesamtsystem. Diese Strategie reduziert technische Risiken, erleichtert die Dokumentation.
+
+Arbeitsschritte, Zeitplanung & Endprodukte
+Schritt	Aufgabe	Geschätzte Zeit	Endprodukt
+1	Projektplanung & Konzept	6 h	Lastenheft, Blockdiagramm
+2	Mechanisches Design (Fusion 360)	20 h	CAD-Dateien, Moduldesign
+3	3D-Druck der Module	140 h	Gedruckte Gehäuseteile
+4	Elektronik-Aufbau (ESP32, Relais, Waage)	8 h	Verdrahtete Elektronik
+5	Pumpen- & Ventilintegration	6 h	Flüssigkeitssystem
+6	Softwareentwicklung	15 h	Steuerungssoftware
+7	UI-Programmierung (Display, Encoder)	5 h	Benutzeroberfläche
+8	Systemintegration	10 h	Komplett montiertes System
+9	Test, Kalibrierung & Optimierung	6 h	Funktionsfähiger Prototyp
+10	Dokumentation & Präsentation	10 h	Abschlussbericht
+Gesamtzeit: ca. 86 Stunden, die Druck Zeit ist hier nicht mitgerechnet
+
+Strukturplan & Abhängigkeiten
+Lineare Abhängigkeiten
+•	CAD-Design → 3D-Druck → Montage
+•	Elektronik-Hardware → Software-Programmierung → Funktionstest
+•	Pumpen/Ventile → Kalibrierung → Mischlogik
+Parallel mögliche Arbeiten
+•	Software kann teilweise parallel zum Gehäusebau entwickelt werden
+•	Dokumentation kann fortlaufend ergänzt werden
+Kritische Abhängigkeiten
+•	Funktion der Waage beeinflusst Dosiergenauigkeit
+•	Zuverlässigkeit der Pumpen und Ventile bestimmt Funktionsfähigkeit
+•	Software-Stabilität ist zentral für den Gesamtbetrieb
+
+Flaschenhalsanalyse (Risiken & Gegenmaßnahmen)
+Risiko	Auswirkung	Gegenmaßnahme
+Ungenaue Waage	Fehlende Dosiergenauigkeit	Frühe Kalibrierung
+Pumpenleistung instabil	Ungleichmäßige Füllmengen	Durchfluss-Tests
+Softwarefehler	Systemausfälle	Modularer Code & Debugging
+Leckagen im Schlauchsystem	Funktions- & Hygienerisiko	Dichtigkeitsprüfung
+Zeitüberschreitung	Projektverzug	Priorisierung wichtiger Funktionen
+Strom-/Spannungsprobleme	Schäden an Elektronik	Last- & Sicherheitstests
+Kritisch früh zu klären: Sensorik, Pumpenverhalten, Steuerungslogik, Dichtheit, Kalibrierung.
+Besonderheit & Bachelor-Niveau
+Dieses Projekt erreicht Techniker-/Bachelor-Niveau, weil es:
+•	mehrere Ingenieursdisziplinen kombiniert (Elektrotechnik, Mechanik, Software, Automatisierung),
+•	ein modulares Produktdesign verfolgt,
+•	reale Industrie-Komponenten nutzt (Motorsteuerung, Pumpen, Sensorik),
+•	Benutzerinterface + Web-Anbindung integriert,
+•	eine neuartige Anwendung (intelligenter, modularer Getränkeautomat) realisiert,
+Innovationskern: Kombination aus modularer Bauweise, Gewichtsgesteuerter Dosierung, digitaler Steuerung und konfigurierbarer Getränkemischung.
