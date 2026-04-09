@@ -10,7 +10,7 @@
     "name": "Gin Tonic",
     "ingredients": [
       { "fluid_name": "Gin", "amount_ml": 50 },
-      { "fluid_name": "Tonic Water", "amount_ml": 150 }
+      { "fluid_name": "Tonic_Water", "amount_ml": 150 }
     ]
   }
 ]
