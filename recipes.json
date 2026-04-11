@@ -2,15 +2,40 @@
   {
     "name": "Vodka Orange",
     "ingredients": [
-      { "fluid_name": "Vodka", "amount_ml": 50 },
-      { "fluid_name": "Orangensaft", "amount_ml": 150 }
+      {
+        "fluid_name": "Vodka",
+        "amount_ml": 50
+      },
+      {
+        "fluid_name": "Orangensaft",
+        "amount_ml": 150
+      }
     ]
   },
   {
     "name": "Gin Tonic",
     "ingredients": [
-      { "fluid_name": "Gin", "amount_ml": 50 },
-      { "fluid_name": "Tonic_Water", "amount_ml": 150 }
+      {
+        "fluid_name": "Gin",
+        "amount_ml": 50
+      },
+      {
+        "fluid_name": "Tonic_Water",
+        "amount_ml": 150
+      }
+    ]
+  },
+  {
+    "name": "Test_1",
+    "ingredients": [
+      {
+        "fluid": "Vodka",
+        "amount": 50
+      },
+      {
+        "fluid": "Wasser",
+        "amount": 50
+      }
     ]
   }
 ]
