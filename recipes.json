@@ -37,5 +37,22 @@
         "amount": 50
       }
     ]
+  },
+  {
+    "name": "Test_2",
+    "ingredients": [
+      {
+        "fluid": "Vodka",
+        "amount": 500
+      },
+      {
+        "fluid": "Kokoslikoer",
+        "amount": 50
+      },
+      {
+        "fluid": "Grenadinesirup",
+        "amount": 50
+      }
+    ]
   }
 ]
