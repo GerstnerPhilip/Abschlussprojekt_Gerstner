@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cocktail-Automat</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- mqtt.js via CDN – kein Build-Tool notwendig -->
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>🍹 Cocktail-Automat</h1>
+    <div style="display:flex;align-items:center;gap:0.6rem">
+      <!-- Kleines Glas-Widget immer sichtbar -->
+      <div class="glassWidget">
+        <svg id="glassSvg" viewBox="0 0 100 160" xmlns="http://www.w3.org/2000/svg">
+          <defs><clipPath id="glassClip"><polygon points="22,8 78,8 68,145 32,145"/></clipPath></defs>
+          <rect id="glassFill" x="0" y="145" width="100" height="0" clip-path="url(#glassClip)" fill="#7c6af7" opacity="0.9"/>
+          <ellipse id="glassFoam" cx="50" cy="145" rx="22" ry="4" clip-path="url(#glassClip)" fill="#a89cf7" opacity="0"/>
+          <polygon points="22,8 78,8 68,145 32,145" fill="none" stroke="#4ecca3" stroke-width="3" stroke-linejoin="round"/>
+          <line x1="32" y1="145" x2="68" y2="145" stroke="#4ecca3" stroke-width="3"/>
+          <line x1="50" y1="145" x2="50" y2="153" stroke="#4ecca3" stroke-width="2"/>
+          <line x1="40" y1="153" x2="60" y2="153" stroke="#4ecca3" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="28" y1="22" x2="25" y2="55" stroke="white" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
+        </svg>
+        <div id="glassPercent" class="glassPercent">0%</div>
+      </div>
+      <div id="connStatus" class="badge badge-disconnected">Verbinde...</div>
+    </div>
+  </header>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav>
+    <button class="navBtn active" onclick="showSection('status')">Status</button>
+    <button class="navBtn" onclick="showSection('offlineRecipes')">Offline&nbsp;Rezepte</button>
+    <button class="navBtn" onclick="showSection('onlineRecipes')">Online&nbsp;Rezepte</button>
+    <button class="navBtn" onclick="showSection('fluids')">Flüssigkeiten</button>
+    <button class="navBtn" onclick="showSection('manual')">Manuell</button>
+  </nav>
+
+  <!-- ===== SECTION: STATUS ===== -->
+  <section id="status" class="section active">
+    <h2>Live-Status</h2>
+
+    <div class="card">
+      <h3>🔧 Pumpe / Modus</h3>
+      <div id="pumpDisplay">Unbekannt</div>
+    </div>
+
+    <div class="card">
+      <h3>🥃 Glaserkennung</h3>
+      <div id="glassStatus"><span style="opacity:.5">Warte auf Daten...</span></div>
+    </div>
+
+    <div class="card">
+      <h3>🔌 Relays (1–10)</h3>
+      <div id="relayGrid" class="relayGrid">
+        <!-- Wird von app.js befüllt -->
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Menü-Zustand</h3>
+      <div id="menuDisplay" class="small">Unbekannt</div>
+    </div>
+
+    <!-- Ergebnis nach Rezeptende -->
+    <div id="recipeResultCard" class="card resultCard" style="display:none">
+      <h3>✅ Letztes Ergebnis</h3>
+      <div id="recipeResultBody"></div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION: OFFLINE REZEPTE ===== -->
+  <section id="offlineRecipes" class="section">
+    <h2>Offline Rezepte</h2>
+    <p class="hint">Rezepte sind im ESP32 gespeichert. Nur kompatible Rezepte können gestartet werden.</p>
+    <div id="offlineRecipeList" class="recipeList">
+      <p class="loading">Warte auf Daten...</p>
+    </div>
+  </section>
+
+  <!-- ===== SECTION: ONLINE REZEPTE ===== -->
+  <section id="onlineRecipes" class="section">
+    <h2>Online Rezepte</h2>
+    <p class="hint">Vom GitHub Gist geladen. Klicke "Aktualisieren" damit der ESP32 die Gist-Datei lädt.</p>
+    <button class="btnPrimary" onclick="refreshOnlineRecipes()">🔄 Aktualisieren</button>
+    <div id="onlineRecipeList" class="recipeList" style="margin-top:1rem">
+      <p class="loading">Noch nicht geladen – klicke "Aktualisieren".</p>
+    </div>
+  </section>
+
+  <!-- ===== SECTION: FLÜSSIGKEITEN ===== -->
+  <section id="fluids" class="section">
+    <h2>Flüssigkeiten konfigurieren</h2>
+    <p class="hint">Wähle für jeden der 9 Schläuche die eingehängte Flüssigkeit.</p>
+    <div id="fluidSlots">
+      <!-- Wird von app.js befüllt -->
+    </div>
+    <button class="btnPrimary" style="margin-top:1rem" onclick="saveAllFluids()">💾 Alle speichern</button>
+  </section>
+
+  <!-- ===== SECTION: MANUELLE STEUERUNG ===== -->
+  <section id="manual" class="section">
+    <h2>Manuelle Steuerung</h2>
+
+    <!-- ── Neues Rezept erstellen ── -->
+    <div class="card">
+      <h3>🆕 Neues Rezept erstellen</h3>
+      <p class="hint">Zusammenstellen, direkt starten oder auf GitHub speichern.</p>
+      <input type="text" id="newRecipeName" placeholder="Rezeptname (z.B. Hugo)" style="width:100%;margin-bottom:.7rem;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:7px 10px;font-size:.9rem">
+      <div id="newRecipeRows"></div>
+      <button class="btnSecondary" style="width:100%;margin-top:.4rem" onclick="addIngredientRow()">＋ Zutat hinzufügen</button>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem">
+        <button class="btnPrimary" onclick="startManualRecipe()">▶ Starten</button>
+        <button class="btnSecondary" onclick="saveRecipeToGitHub()">☁ GitHub</button>
+        <button class="btnSecondary" onclick="copyRecipeJSON()">📋 Kopieren</button>
+      </div>
+    </div>
+
+    <!-- ── GitHub-Einstellungen ── -->
+    <div class="card">
+      <h3>⚙️ GitHub-Einstellungen</h3>
+      <p class="hint">Für "☁ GitHub" – Token wird lokal im Browser (localStorage) gespeichert.</p>
+      <div style="display:flex;flex-direction:column;gap:.5rem">
+        <label class="ghLabel">Personal Access Token (repo-Scope):
+          <input type="password" id="ghToken" placeholder="ghp_...">
+        </label>
+        <label class="ghLabel">Owner/Repo:
+          <input type="text" id="ghRepo" value="GerstnerPhilip/Abschlussprojekt_Gerstner">
+        </label>
+        <label class="ghLabel">Dateipfad:
+          <input type="text" id="ghPath" value="recipes.json">
+        </label>
+        <label class="ghLabel">Branch:
+          <input type="text" id="ghBranch" value="main">
+        </label>
+        <button class="btnSecondary" onclick="saveGitHubSettings()">💾 Einstellungen speichern</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🔌 Relays einzeln schalten</h3>
+      <div id="manualRelayBtns" class="relayBtnGrid">
+        <!-- Wird von app.js befüllt -->
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚙️ Motor</h3>
+      <label>Schritte: <input type="number" id="motorSteps" value="800" min="1" max="64000" step="100"></label>
+      <div style="margin-top:0.5rem;display:flex;gap:0.5rem;flex-wrap:wrap">
+        <button class="btnSecondary" onclick="motorCmd('forward')">▶ Vorwärts</button>
+        <button class="btnSecondary" onclick="motorCmd('backward')">◀ Rückwärts</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🧹 Reinigung</h3>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+        <button class="btnDanger" onclick="sendCmd('cocktailbot/command/cleaning/start', '{}')">▶ Reinigung starten</button>
+        <button class="btnSecondary" onclick="sendCmd('cocktailbot/command/cleaning/stop', '{}')">⏹ Stoppen</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚖️ Waage Kalibrierung</h3>
+      <p class="hint">Rohwert ÷ Gramm. Aktuell: <strong id="scaleFactorDisplay">408</strong></p>
+      <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap">
+        <label>Faktor: <input type="number" id="scaleFactorInput" value="408" min="1" max="9999" step="1" style="width:90px"></label>
+        <button class="btnSecondary" onclick="saveScaleCalibration()">💾 Setzen</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🧪 Fluid Kalibrierung</h3>
+      <p class="hint">ml pro 1000 Motorschritte &amp; Schlauch-Korrekturfaktor pro Slot.</p>
+      <div style="margin-bottom:0.6rem">
+        <label>Slot:
+          <select id="calSlotSelect" onchange="updateCalibrationDisplay()" style="margin-left:0.3rem">
+            <option value="0">Slot 1</option><option value="1">Slot 2</option>
+            <option value="2">Slot 3</option><option value="3">Slot 4</option>
+            <option value="4">Slot 5</option><option value="5">Slot 6</option>
+            <option value="6">Slot 7</option><option value="7">Slot 8</option>
+            <option value="8">Slot 9</option>
+          </select>
+        </label>
+        <span id="calSlotName" style="margin-left:0.6rem;opacity:0.7;font-size:0.85rem"></span>
+      </div>
+      <div style="display:flex;gap:0.8rem;flex-wrap:wrap;align-items:center">
+        <label>ml/1000 Schritte: <input type="number" id="calFluidMl" value="10" min="0.1" max="100" step="0.1" style="width:80px"></label>
+        <label>Korrekturfaktor (ml): <input type="number" id="calKorrektur" value="10" min="0" max="100" step="1" style="width:70px"></label>
+        <button class="btnSecondary" onclick="saveFluidCalibration()">💾 Speichern</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GLASGRÖSSE MODAL ===== -->
+  <div id="glassSizeModal" class="modalOverlay hidden" role="dialog" aria-modal="true" aria-label="Glasgröße auswählen">
+    <div class="modalBox">
+      <h3>🥤 Glasgröße wählen</h3>
+      <p class="hint" id="glassSizeHint">Bitte Glasgröße für das Rezept auswählen.</p>
+      <div class="glassSizeBtns">
+        <button class="glassSizeBtn" onclick="confirmGlassSize('klein')">
+          <span class="glassSizeIcon">🥃</span>
+          <span class="glassSizeLabel">Klein</span>
+          <span class="glassSizeSub">200ml</span>
+        </button>
+        <button class="glassSizeBtn" onclick="confirmGlassSize('mittel')">
+          <span class="glassSizeIcon">🥤</span>
+          <span class="glassSizeLabel">Mittel</span>
+          <span class="glassSizeSub">400ml</span>
+        </button>
+        <button class="glassSizeBtn glassSizeBtnHighlight" onclick="confirmGlassSize('normal')">
+          <span class="glassSizeIcon">🍹</span>
+          <span class="glassSizeLabel">Normal</span>
+          <span class="glassSizeSub">500ml</span>
+        </button>
+        <button class="glassSizeBtn" onclick="confirmGlassSize('gross')">
+          <span class="glassSizeIcon">🍺</span>
+          <span class="glassSizeLabel">Groß</span>
+          <span class="glassSizeSub">750ml</span>
+        </button>
+        <button class="glassSizeBtn" onclick="confirmGlassSize('original')">
+          <span class="glassSizeIcon">⭐</span>
+          <span class="glassSizeLabel">Original</span>
+          <span class="glassSizeSub" id="glassSizeOrigSub">exakt</span>
+        </button>
+      </div>
+      <button class="btnSecondary" style="margin-top:1rem;width:100%" onclick="closeGlassSizeModal()">✕ Abbrechen</button>
+    </div>
+  </div>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

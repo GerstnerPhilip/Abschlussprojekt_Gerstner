@@ -1,0 +1,403 @@
+/* ===================================================
+   Cocktail-Automat Web-Interface — Dark Theme CSS
+   Optimiert für Smartphone (Handy-Hotspot Nutzung)
+   =================================================== */
+
+:root {
+  --bg:       #0f1117;
+  --surface:  #1a1d27;
+  --card:     #22263a;
+  --accent:   #7c6af7;
+  --accent2:  #4ecca3;
+  --danger:   #e74c3c;
+  --warn:     #f39c12;
+  --text:     #e8eaf0;
+  --muted:    #888da8;
+  --radius:   12px;
+  --border:   #2e3150;
+}
+
+/* ---- Glas-Widget im Header (klein, immer sichtbar) ---- */
+.glassWidget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+#glassSvg {
+  width: 72px;
+  height: 114px;
+  filter: drop-shadow(0 0 5px rgba(124,106,247,0.5));
+}
+#glassFill {
+  transition: y 0.6s cubic-bezier(0.4,0,0.2,1),
+              height 0.6s cubic-bezier(0.4,0,0.2,1),
+              fill 0.8s ease;
+}
+#glassFoam {
+  transition: cy 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease;
+}
+.glassPercent {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+/* ---- Header ---- */
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: 0.02em; }
+
+/* ---- Connection badge ---- */
+.badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+.badge-connected    { background: #1a3a2a; color: var(--accent2); border: 1px solid var(--accent2); }
+.badge-disconnected { background: #3a1a1a; color: var(--danger);  border: 1px solid var(--danger); }
+
+/* ---- Navigation ---- */
+nav {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+nav::-webkit-scrollbar { display: none; }
+.navBtn {
+  flex-shrink: 0;
+  background: var(--card);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.navBtn:hover, .navBtn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ---- Sections ---- */
+.section { display: none; padding: 1rem; max-width: 600px; margin: 0 auto; }
+.section.active { display: block; }
+.section h2 { font-size: 1.15rem; margin-bottom: 0.8rem; color: var(--accent2); }
+
+/* ---- Cards ---- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 0.9rem;
+}
+.card h3 { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.6rem; font-weight: 600; }
+
+/* ---- Big value display (Waage) ---- */
+.bigValue {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent2);
+  text-align: center;
+  padding: 0.4rem 0;
+  letter-spacing: 0.05em;
+}
+
+/* ---- Relay grid (Status-Anzeige) ---- */
+.relayGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+.relayPill {
+  border-radius: 8px;
+  padding: 6px 4px;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+}
+.relayPill.on  { background: #1a3a2a; color: var(--accent2); border-color: var(--accent2); }
+.relayPill.off { background: #2a1515; color: #e55; border-color: #e55; }
+
+/* ---- Manual relay buttons ---- */
+.relayBtnGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+.relayToggleBtn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 8px;
+  color: var(--text);
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+}
+.relayToggleBtn.active {
+  background: #1a3a2a;
+  border-color: var(--accent2);
+  color: var(--accent2);
+}
+
+/* ---- Rezept-Ergebnis ---- */
+.resultCard { border-color: var(--accent2); }
+.resultHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+.resultName  { font-weight: 700; font-size: 1rem; color: var(--accent2); }
+.resultTotal { font-size: 0.82rem; color: var(--muted); }
+.resultTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.resultTable th {
+  text-align: left;
+  color: var(--muted);
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+}
+.resultTable td { padding: 5px 6px; border-bottom: 1px solid var(--border); }
+.resultTable tr.ok   td:last-child { color: var(--accent2); }
+.resultTable tr.under td:last-child { color: var(--warn); }
+.resultTable tr.over  td:last-child { color: var(--danger); }
+.resultTable tr:last-child td { border-bottom: none; }
+
+/* ---- Recipe list ---- */
+.recipeList { display: flex; flex-direction: column; gap: 0.6rem; }
+.recipeCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.recipeCard.incompatible { opacity: 0.45; }
+.recipeInfo { flex: 1; min-width: 0; }
+.recipeName { font-weight: 600; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.recipeIngredients { font-size: 0.75rem; color: var(--muted); margin-top: 3px; }
+
+/* ---- Fluid slot selectors ---- */
+.fluidSlot {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.fluidSlot label { font-size: 0.82rem; color: var(--muted); min-width: 60px; }
+.fluidSlot select {
+  flex: 1;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+}
+.fluidSlot select:focus { outline: none; border-color: var(--accent); }
+
+/* ---- Buttons ---- */
+.btnPrimary {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btnPrimary:hover { opacity: 0.85; }
+.btnPrimary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btnSecondary {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btnSecondary:hover { background: var(--surface); }
+
+.btnDanger {
+  background: #3a1a1a;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+.btnDanger:hover { background: #5a1a1a; }
+
+/* ---- Motor input ---- */
+input[type="number"] {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  width: 120px;
+}
+input[type="number"]:focus { outline: none; border-color: var(--accent); }
+
+/* ---- Helpers ---- */
+.hint  { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.75rem; line-height: 1.4; }
+.small { font-size: 0.82rem; color: var(--muted); }
+.loading { color: var(--muted); font-style: italic; font-size: 0.9rem; }
+
+/* ---- Toast notification ---- */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  z-index: 999;
+  transition: opacity 0.3s;
+}
+.toast.hidden { opacity: 0; pointer-events: none; }
+
+/* ── GLASGRÖSSE MODAL ─────────────────────────────────── */
+.modalOverlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.65);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+  transition: opacity .2s;
+}
+.modalOverlay.hidden { display: none; }
+.modalBox {
+  background: #1e1e2e;
+  border: 1px solid #4ecca3;
+  border-radius: 12px;
+  padding: 1.6rem 1.4rem 1.2rem;
+  width: min(92vw, 360px);
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,.6);
+}
+.modalBox h3 { margin: 0 0 .4rem; color: #4ecca3; font-size: 1.1rem; }
+.glassSizeBtns {
+  display: flex; gap: .7rem; justify-content: center;
+  margin-top: .9rem;
+}
+.glassSizeBtn {
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center;
+  gap: .25rem;
+  padding: .75rem .4rem;
+  background: #2a2a3e;
+  border: 2px solid #4a4a6a;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: border-color .15s, background .15s;
+}
+.glassSizeBtn:hover { border-color: #4ecca3; background: #2e2e48; }
+.glassSizeBtnHighlight { border-color: #4ecca3; background: #2e3e3a; }
+.glassSizeIcon { font-size: 1.8rem; }
+.glassSizeLabel { font-weight: 700; font-size: .95rem; }
+.glassSizeSub { font-size: .75rem; opacity: .65; }
+
+/* ── Manuelle Rezept-Erstellung ─────────────────────── */
+.ingredientRow {
+  display: flex;
+  gap: .4rem;
+  align-items: center;
+  margin-bottom: .45rem;
+}
+.ingredientRow select {
+  flex: 1;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 0.82rem;
+}
+.ingredientRow select:focus { outline: none; border-color: var(--accent); }
+.ingredientRow .ingredientAmount { width: 68px; }
+.btnDel {
+  background: #3a1a1a;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: .85rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.btnDel:hover { background: #5a1a1a; }
+
+/* ── GitHub-Einstellungen ────────────────────────────── */
+.ghLabel {
+  font-size: .82rem;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+.ghLabel input {
+  width: 100%;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: .85rem;
+}
+.ghLabel input:focus { outline: none; border-color: var(--accent); }
