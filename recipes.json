@@ -468,5 +468,14 @@
         "amount": 50
       }
     ]
+  },
+  {
+    "name": "Test_2",
+    "ingredients": [
+      {
+        "fluid": "Vodka",
+        "amount": 50
+      }
+    ]
   }
 ]
