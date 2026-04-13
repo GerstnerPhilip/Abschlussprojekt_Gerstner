@@ -2,194 +2,441 @@
   {
     "name": "Mojito",
     "ingredients": [
-      {"fluid": "Weisser_Rum", "amount": 45},
-      {"fluid": "Limettensaft", "amount": 20},
-      {"fluid": "Minzsirup", "amount": 20},
-      {"fluid": "Soda_Wasser", "amount": 100}
+      {
+        "fluid": "Weisser_Rum",
+        "amount": 45
+      },
+      {
+        "fluid": "Limettensaft",
+        "amount": 20
+      },
+      {
+        "fluid": "Minzsirup",
+        "amount": 20
+      },
+      {
+        "fluid": "Soda_Wasser",
+        "amount": 100
+      }
     ]
   },
   {
     "name": "Cosmopolitan",
     "ingredients": [
-      {"fluid": "Vodka", "amount": 40},
-      {"fluid": "Triple_Sec", "amount": 15},
-      {"fluid": "Cranberrysaft", "amount": 30},
-      {"fluid": "Limettensaft", "amount": 15}
+      {
+        "fluid": "Vodka",
+        "amount": 40
+      },
+      {
+        "fluid": "Triple_Sec",
+        "amount": 15
+      },
+      {
+        "fluid": "Cranberrysaft",
+        "amount": 30
+      },
+      {
+        "fluid": "Limettensaft",
+        "amount": 15
+      }
     ]
   },
   {
     "name": "Pina Colada",
     "ingredients": [
-      {"fluid": "Weisser_Rum", "amount": 50},
-      {"fluid": "Ananassaft", "amount": 50},
-      {"fluid": "Kokoslikoer", "amount": 30}
+      {
+        "fluid": "Weisser_Rum",
+        "amount": 50
+      },
+      {
+        "fluid": "Ananassaft",
+        "amount": 50
+      },
+      {
+        "fluid": "Kokoslikoer",
+        "amount": 30
+      }
     ]
   },
   {
     "name": "Margarita",
     "ingredients": [
-      {"fluid": "Tequila", "amount": 50},
-      {"fluid": "Triple_Sec", "amount": 20},
-      {"fluid": "Limettensaft", "amount": 15}
+      {
+        "fluid": "Tequila",
+        "amount": 50
+      },
+      {
+        "fluid": "Triple_Sec",
+        "amount": 20
+      },
+      {
+        "fluid": "Limettensaft",
+        "amount": 15
+      }
     ]
   },
   {
     "name": "Daiquiri",
     "ingredients": [
-      {"fluid": "Weisser_Rum", "amount": 60},
-      {"fluid": "Limettensaft", "amount": 20},
-      {"fluid": "Zuckersirup", "amount": 15}
+      {
+        "fluid": "Weisser_Rum",
+        "amount": 60
+      },
+      {
+        "fluid": "Limettensaft",
+        "amount": 20
+      },
+      {
+        "fluid": "Zuckersirup",
+        "amount": 15
+      }
     ]
   },
   {
     "name": "Mai Tai",
     "ingredients": [
-      {"fluid": "Weisser_Rum", "amount": 60},
-      {"fluid": "Limettensaft", "amount": 30},
-      {"fluid": "Amaretto", "amount": 20},
-      {"fluid": "Zuckersirup", "amount": 10}
+      {
+        "fluid": "Weisser_Rum",
+        "amount": 60
+      },
+      {
+        "fluid": "Limettensaft",
+        "amount": 30
+      },
+      {
+        "fluid": "Amaretto",
+        "amount": 20
+      },
+      {
+        "fluid": "Zuckersirup",
+        "amount": 10
+      }
     ]
   },
   {
     "name": "Screwdriver",
     "ingredients": [
-      {"fluid": "Vodka", "amount": 50},
-      {"fluid": "Orangensaft", "amount": 150}
+      {
+        "fluid": "Vodka",
+        "amount": 50
+      },
+      {
+        "fluid": "Orangensaft",
+        "amount": 150
+      }
     ]
   },
   {
     "name": "Sex on the Beach",
     "ingredients": [
-      {"fluid": "Vodka", "amount": 40},
-      {"fluid": "Pfirsichsaft", "amount": 20},
-      {"fluid": "Orangensaft", "amount": 40},
-      {"fluid": "Cranberrysaft", "amount": 40}
+      {
+        "fluid": "Vodka",
+        "amount": 40
+      },
+      {
+        "fluid": "Pfirsichsaft",
+        "amount": 20
+      },
+      {
+        "fluid": "Orangensaft",
+        "amount": 40
+      },
+      {
+        "fluid": "Cranberrysaft",
+        "amount": 40
+      }
     ]
   },
   {
     "name": "Long Island Iced Tea",
     "ingredients": [
-      {"fluid": "Weisser_Rum", "amount": 15},
-      {"fluid": "Vodka", "amount": 15},
-      {"fluid": "Gin", "amount": 15},
-      {"fluid": "Tequila", "amount": 15},
-      {"fluid": "Triple_Sec", "amount": 15},
-      {"fluid": "Zitronensaft", "amount": 25},
-      {"fluid": "Zuckersirup", "amount": 30},
-      {"fluid": "Cola", "amount": 100}
+      {
+        "fluid": "Weisser_Rum",
+        "amount": 15
+      },
+      {
+        "fluid": "Vodka",
+        "amount": 15
+      },
+      {
+        "fluid": "Gin",
+        "amount": 15
+      },
+      {
+        "fluid": "Tequila",
+        "amount": 15
+      },
+      {
+        "fluid": "Triple_Sec",
+        "amount": 15
+      },
+      {
+        "fluid": "Zitronensaft",
+        "amount": 25
+      },
+      {
+        "fluid": "Zuckersirup",
+        "amount": 30
+      },
+      {
+        "fluid": "Cola",
+        "amount": 100
+      }
     ]
   },
   {
     "name": "Tom Collins",
     "ingredients": [
-      {"fluid": "Gin", "amount": 50},
-      {"fluid": "Zitronensaft", "amount": 40},
-      {"fluid": "Zuckersirup", "amount": 20},
-      {"fluid": "Soda_Wasser", "amount": 100}
+      {
+        "fluid": "Gin",
+        "amount": 50
+      },
+      {
+        "fluid": "Zitronensaft",
+        "amount": 40
+      },
+      {
+        "fluid": "Zuckersirup",
+        "amount": 20
+      },
+      {
+        "fluid": "Soda_Wasser",
+        "amount": 100
+      }
     ]
   },
   {
     "name": "Gimlet",
     "ingredients": [
-      {"fluid": "Gin", "amount": 50},
-      {"fluid": "Limettensaft", "amount": 30},
-      {"fluid": "Zuckersirup", "amount": 20}
+      {
+        "fluid": "Gin",
+        "amount": 50
+      },
+      {
+        "fluid": "Limettensaft",
+        "amount": 30
+      },
+      {
+        "fluid": "Zuckersirup",
+        "amount": 20
+      }
     ]
   },
   {
     "name": "Old Fashioned",
     "ingredients": [
-      {"fluid": "Whiskey", "amount": 50},
-      {"fluid": "Zuckersirup", "amount": 10},
-      {"fluid": "Angostura_Bitter", "amount": 5}
+      {
+        "fluid": "Whiskey",
+        "amount": 50
+      },
+      {
+        "fluid": "Zuckersirup",
+        "amount": 10
+      },
+      {
+        "fluid": "Angostura_Bitter",
+        "amount": 5
+      }
     ]
   },
   {
     "name": "Espresso Martini",
     "ingredients": [
-      {"fluid": "Vodka", "amount": 50},
-      {"fluid": "Kaffeelikoer", "amount": 30},
-      {"fluid": "Zuckersirup", "amount": 10}
+      {
+        "fluid": "Vodka",
+        "amount": 50
+      },
+      {
+        "fluid": "Kaffeelikoer",
+        "amount": 30
+      },
+      {
+        "fluid": "Zuckersirup",
+        "amount": 10
+      }
     ]
   },
   {
     "name": "Caipirinha",
     "ingredients": [
-      {"fluid": "Weisser_Rum", "amount": 60},
-      {"fluid": "Limettensaft", "amount": 30},
-      {"fluid": "Zuckersirup", "amount": 20}
+      {
+        "fluid": "Weisser_Rum",
+        "amount": 60
+      },
+      {
+        "fluid": "Limettensaft",
+        "amount": 30
+      },
+      {
+        "fluid": "Zuckersirup",
+        "amount": 20
+      }
     ]
   },
   {
     "name": "Hurricane",
     "ingredients": [
-      {"fluid": "Weisser_Rum", "amount": 70},
-      {"fluid": "Limettensaft", "amount": 30},
-      {"fluid": "Orangensaft", "amount": 30},
-      {"fluid": "Zuckersirup", "amount": 20}
+      {
+        "fluid": "Weisser_Rum",
+        "amount": 70
+      },
+      {
+        "fluid": "Limettensaft",
+        "amount": 30
+      },
+      {
+        "fluid": "Orangensaft",
+        "amount": 30
+      },
+      {
+        "fluid": "Zuckersirup",
+        "amount": 20
+      }
     ]
   },
   {
     "name": "Dark & Stormy",
     "ingredients": [
-      {"fluid": "Dunckler_Rum", "amount": 60},
-      {"fluid": "Ginger_Ale", "amount": 120}
+      {
+        "fluid": "Dunckler_Rum",
+        "amount": 60
+      },
+      {
+        "fluid": "Ginger_Ale",
+        "amount": 120
+      }
     ]
   },
   {
     "name": "Tequila Sunrise",
     "ingredients": [
-      {"fluid": "Tequila", "amount": 45},
-      {"fluid": "Orangensaft", "amount": 90},
-      {"fluid": "Grenadinesirup", "amount": 15}
+      {
+        "fluid": "Tequila",
+        "amount": 45
+      },
+      {
+        "fluid": "Orangensaft",
+        "amount": 90
+      },
+      {
+        "fluid": "Grenadinesirup",
+        "amount": 15
+      }
     ]
   },
   {
     "name": "Moscow Mule",
     "ingredients": [
-      {"fluid": "Vodka", "amount": 45},
-      {"fluid": "Ginger_Ale", "amount": 120},
-      {"fluid": "Limettensaft", "amount": 10}
+      {
+        "fluid": "Vodka",
+        "amount": 45
+      },
+      {
+        "fluid": "Ginger_Ale",
+        "amount": 120
+      },
+      {
+        "fluid": "Limettensaft",
+        "amount": 10
+      }
     ]
   },
   {
     "name": "Whiskey Sour",
     "ingredients": [
-      {"fluid": "Whiskey", "amount": 45},
-      {"fluid": "Zitronensaft", "amount": 25},
-      {"fluid": "Zuckersirup", "amount": 20}
+      {
+        "fluid": "Whiskey",
+        "amount": 45
+      },
+      {
+        "fluid": "Zitronensaft",
+        "amount": 25
+      },
+      {
+        "fluid": "Zuckersirup",
+        "amount": 20
+      }
     ]
   },
   {
     "name": "Gin Tonic",
     "ingredients": [
-      {"fluid": "Gin", "amount": 50},
-      {"fluid": "Tonic_Water", "amount": 150}
+      {
+        "fluid": "Gin",
+        "amount": 50
+      },
+      {
+        "fluid": "Tonic_Water",
+        "amount": 150
+      }
     ]
   },
   {
     "name": "Paloma",
     "ingredients": [
-      {"fluid": "Tequila", "amount": 50},
-      {"fluid": "Grapefruitsaft", "amount": 100},
-      {"fluid": "Limettensaft", "amount": 15},
-      {"fluid": "Soda_Wasser", "amount": 30}
+      {
+        "fluid": "Tequila",
+        "amount": 50
+      },
+      {
+        "fluid": "Grapefruitsaft",
+        "amount": 100
+      },
+      {
+        "fluid": "Limettensaft",
+        "amount": 15
+      },
+      {
+        "fluid": "Soda_Wasser",
+        "amount": 30
+      }
     ]
   },
   {
     "name": "Amaretto Sour",
     "ingredients": [
-      {"fluid": "Amaretto", "amount": 50},
-      {"fluid": "Zitronensaft", "amount": 25},
-      {"fluid": "Zuckersirup", "amount": 10}
+      {
+        "fluid": "Amaretto",
+        "amount": 50
+      },
+      {
+        "fluid": "Zitronensaft",
+        "amount": 25
+      },
+      {
+        "fluid": "Zuckersirup",
+        "amount": 10
+      }
     ]
   },
   {
     "name": "Sidecar",
     "ingredients": [
-      {"fluid": "Brandy", "amount": 50},
-      {"fluid": "Triple_Sec", "amount": 20},
-      {"fluid": "Zitronensaft", "amount": 20}
+      {
+        "fluid": "Brandy",
+        "amount": 50
+      },
+      {
+        "fluid": "Triple_Sec",
+        "amount": 20
+      },
+      {
+        "fluid": "Zitronensaft",
+        "amount": 20
+      }
+    ]
+  },
+  {
+    "name": "Vertraumirmische",
+    "ingredients": [
+      {
+        "fluid": "Vodka",
+        "amount": 700
+      },
+      {
+        "fluid": "Brandy",
+        "amount": 50
+      }
     ]
   }
 ]
