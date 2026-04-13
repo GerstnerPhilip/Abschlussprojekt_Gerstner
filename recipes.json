@@ -451,5 +451,22 @@
         "amount": 50
       }
     ]
+  },
+  {
+    "name": "Test_1",
+    "ingredients": [
+      {
+        "fluid": "Vodka",
+        "amount": 50
+      },
+      {
+        "fluid": "Limettensaft",
+        "amount": 50
+      },
+      {
+        "fluid": "Kamille_Tee",
+        "amount": 50
+      }
+    ]
   }
 ]
