@@ -440,19 +440,6 @@
     ]
   },
   {
-    "name": "Vertraumirmische",
-    "ingredients": [
-      {
-        "fluid": "Vodka",
-        "amount": 700
-      },
-      {
-        "fluid": "Brandy",
-        "amount": 50
-      }
-    ]
-  },
-  {
     "name": "Test_1",
     "ingredients": [
       {
