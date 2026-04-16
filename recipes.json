@@ -473,5 +473,22 @@
         "amount": 50
       }
     ]
+  },
+  {
+    "name": "JO",
+    "ingredients": [
+      {
+        "fluid": "Vodka",
+        "amount": 50
+      },
+      {
+        "fluid": "Limettensaft",
+        "amount": 50
+      },
+      {
+        "fluid": "Amaretto",
+        "amount": 50
+      }
+    ]
   }
 ]
