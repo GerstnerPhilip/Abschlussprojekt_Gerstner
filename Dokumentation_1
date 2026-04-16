@@ -227,3 +227,104 @@ https://www.amazon.de/dp/B0BZS5P2CM?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1
 48 Stück Aquarium Luftpumpe Zubehör Aquarium Schlauchverbinder Steckverbinder Fish Tank Luftschlauch Adapter I/L/T/Y Förmige Schlauch Verbinder für 6mm Aquarienluftschlauch
 https://www.amazon.de/dp/B07Z614W65?ref=ppx_yo2ov_dt_b_fed_asin_title
 
+
+Materialbegründung:
+
+Spannungsversorgung & Elektronikbasis
+
+BRIMETI LED Trafo 24V 150W (IP67)
+Als Hauptnetzteil wurde ein 24V-Trafo gewählt, da die Schlauchpumpe (Kamoer KDS3000-ST) sowie die Magnetventile mit 24V bzw. 12V betrieben werden. Mit 150W bietet das Netzteil ausreichend Reserve für alle angeschlossenen Verbraucher gleichzeitig. Die IP67-Zertifizierung schützt das Gerät vor Feuchtigkeit – ein wichtiger Faktor in einem Getränkeautomaten, der regelmäßig mit Flüssigkeiten in Berührung kommt.
+
+BuyWeek DC-DC-Wandler 24V auf 12V, 5A
+Die Magnetventile und einige weitere Komponenten benötigen 12V. Anstatt ein zweites Netzteil zu verwenden, wird die 24V-Schiene über einen Buck-Konverter auf 12V geregelt. Das spart Platz, reduziert den Verkabelungsaufwand und nutzt die vorhandene 24V-Versorgung effizient.
+
+Youmile DC-DC Buck Modul 24V auf 5V (USB-C)
+Der ESP32 und weitere Logikkomponenten (Display, Encoder, HX711) arbeiten mit 5V bzw. 3,3V. Dieses kompakte Step-Down-Modul wandelt die 24V-Versorgung zuverlässig auf 5V um und kann über USB-C direkt das Entwicklungsboard versorgen.
+
+QUARKZMAN DC 12V auf 3,3V, 3A
+Bestimmte Signalleitungen und Sensoren benötigen exakt 3,3V. Dieser kompakte Wandler stellt die notwendige Spannung mit ausreichend Strom zur Verfügung und ist durch seine IP67-Schutzklasse auch in feuchter Umgebung einsetzbar.
+
+
+Mikrocontroller & Erweiterung
+
+XTVTX ESP32-S3 DevKitC-1 (N16R8)
+Der ESP32-S3 wurde als Hauptsteuereinheit gewählt, weil er neben den zahlreichen GPIO-Pins (notwendig für Relais, Ventile, Encoder, Display, Waage) auch integriertes WLAN und Bluetooth 5.0 bietet. Damit lässt sich die geforderte Browser-Anbindung zur Getränkeauswahl ohne zusätzliche Hardware realisieren. Die Variante mit 16 MB Flash und 8 MB PSRAM bietet zudem genug Speicher für Rezepte, Webserver und OTA-Updates.
+
+Diymore ESP32-S3 Erweiterungsplatine
+Diese Erweiterungsplatine erleichtert den Anschluss aller Peripheriekomponenten erheblich, da sie die Pins des DevKitC-1 herausführt und mit Stiftleisten versieht. Das reduziert die Anzahl der Lötverbindungen und macht den Aufbau übersichtlicher und wartungsfreundlicher.
+
+
+Pumpe & Motorsteuerung
+
+Kamoer KDS3000-ST Schlauchpumpe (24V, 0–1800 ml/min)
+Die Kamoer-Schlauchpumpe wurde gezielt ausgewählt, weil sie einen Schrittmotor verwendet. Das ermöglicht eine präzise Drehzahlregelung und damit eine kontrollierbare Durchflussmenge. Mit bis zu 1800 ml/min erfüllt sie die Anforderung, ein 500-ml-Glas in unter 15 Sekunden zu befüllen. Schlauchpumpen haben zudem den Vorteil, dass das Fördergut nur mit dem Schlauch in Berührung kommt – ideal für Lebensmittelanwendungen.
+
+COVVY TB6600 Schrittmotorsteuerung (9–42V, 4A)
+Der TB6600 ist ein bewährter Schrittmotortreiber, der mit dem Schrittmotor der Kamoer-Pumpe kompatibel ist. Er unterstützt Mikroschritte (bis 1/32), was eine besonders feinfühlige Geschwindigkeitsregelung erlaubt. Der breite Spannungsbereich (9–42V) und der hohe Stromwert (4A) passen zur 24V-Betriebsspannung und den Anforderungen der Pumpe.
+
+
+Ventile & Relais
+
+Normalerweise offenes Micro-Magnetventil (DC 12V)
+Für jede der neun Flüssigkeiten wird ein eigenes Magnetventil eingesetzt. Normalerweise offene Ventile wurden gewählt, damit bei Stromausfall keine Flüssigkeit in der Leitung eingesperrt bleibt – ein wichtiger Sicherheitsaspekt. Der 12V-Betrieb passt zur geregelten 12V-Versorgungsschiene.
+
+Low-Level Trigger Relais (3,3V, 4-Kanal)
+Die Magnetventile werden über Relais vom ESP32-GPIO gesteuert. Low-Level-Trigger-Relais wurden gewählt, da der ESP32-S3 mit 3,3V-Logik arbeitet und diese Relaisbauart direkt mit 3,3V-Signalen ansteuerbar ist – ohne zusätzliche Pegelwandler. Die 4-Kanal-Variante erlaubt die Bündelung mehrerer Ventile pro Modul.
+
+
+Sensorik
+
+ALAMSCN 5kg Wägezelle + HX711
+Die gewichtsbasierte Dosierung ist ein zentrales Merkmal des Automaten. Zwei 5-kg-Wägezellen im Doppelbrückenaufbau ermöglichen eine gleichmäßige Lastverteilung und erreichen in Kombination mit dem HX711-24-Bit-ADC eine Auflösung, die die geforderte Genauigkeit von ±5 ml zuverlässig unterschreitet. Das HX711-Modul kommuniziert direkt über zwei GPIOs mit dem ESP32.
+
+
+Bedienung & Anzeige
+
+AZDelivery HD44780 2004 LCD Display (I²C, 4×20 Zeichen)
+Das 4-zeilige Display bietet genug Platz, um Getränkename, Füllstatus, Glasgröße und Systemmeldungen gleichzeitig anzuzeigen. Die I²C-Schnittstelle reduziert den Pinverbrauch auf nur zwei Leitungen (SDA/SCL), was bei dem bereits hohen GPIO-Bedarf des Systems ein entscheidender Vorteil ist.
+
+GIAK KY-040 Rotary Encoder
+Der Drehgeber ermöglicht eine intuitive Navigation durch die Getränkemenüs ohne viele Taster. Er liefert Richtungs- und Schrittinformation sowie einen integrierten Druckknopf zur Bestätigung – ideal für eine kompakte Bedieneinheit.
+
+Gebildet Wasserdichte Edelstahl-Drucktaster (12mm)
+Für die Glasgrößenauswahl sowie Start/Stopp wurden robuste, wasserdichte Metalltaster gewählt. Da der Automat mit Flüssigkeiten arbeitet, ist die Spritzwasserbeständigkeit ein wichtiges Kriterium. Die Edelstahlausführung ist langlebig und optisch ansprechend.
+
+
+Schlauchsystem & Verbindungen
+
+Coop Silikonschlauch 5mm Innen-Ø (lebensmittelecht)
+Silikonschläuche sind geschmacksneutral, lebensmittelecht und temperaturbeständig (-40 bis 220 °C). Sie sind flexibel genug für den Einbau in das modulare Gehäuse und eignen sich hervorragend für den Transport aller verwendeten Flüssigkeiten.
+
+Silikonschlauch 10mm Innen-Ø
+Für den Hauptförderstrang der Pumpe wurde ein größerer Innendurchmesser gewählt, um den Durchfluss zu maximieren und den Strömungswiderstand zu minimieren.
+
+LYTIVAGEN Schlauchverbinder I/L/T/Y (6mm) & Schlauchverbinder 5–12mm
+Diese Verbindungsstücke ermöglichen flexible Leitungsführung innerhalb der Module (Richtungsänderungen, Verzweigungen) ohne Leckagestellen. Die verschiedenen Formen (T, Y, L) decken alle nötigen Verbindungsszenarien ab.
+
+300-teiliges Federklemmen-Set (5–18mm)
+Federklemmen sichern die Schlauchverbindungen dauerhaft und leckagefrei. Das Set mit Montagezange deckt alle im Projekt verwendeten Schlauchdurchmesser ab.
+
+
+Elektroinstallation
+
+WAGO 221 Verbindungsklemmen-Set
+WAGO-Klemmen ermöglichen eine werkzeuglose, sichere und wiederholbar lösbare Verbindung von Leitern verschiedener Querschnitte. Sie sind in der Industrie Standard und erhöhen die Wartungsfreundlichkeit erheblich.
+
+Lapp H05V-K 1×0,75mm² (schwarz)
+Diese flexible PVC-Aderleitung eignet sich für die Verdrahtung der Niedervoltkomponenten (12V/24V). Der Querschnitt von 0,75mm² ist ausreichend für die auftretenden Ströme und lässt sich gut in engen Modulgehäusen verlegen.
+
+Aderendhülsen-Set mit Crimpzange (1200-teilig)
+Aderendhülsen werden auf alle Litzen gecrimpt, bevor sie in Klemmen oder Anschlussblöcke eingeführt werden. Das verhindert aufgespleißte Drähte, Kurzschlüsse und erhöht die Kontaktsicherheit.
+
+ZDE Jumper-Wire-Kabel (Female, 40cm)
+Für die Verbindung zwischen ESP32-Erweiterungsplatine und den Modulen (Relais, Display, Encoder, HX711) wurden konfektionierte Steckbrückenkabel verwendet. Sie ermöglichen schnellen Umbau während der Entwicklungsphase und müssen nicht gelötet werden.
+
+
+Befestigung & Gehäuse
+
+VIGRUE Schrauben- und Muttern-Set (M2/M3/M4, Edelstahl)
+Ein umfangreiches Schraubensortiment in Edelstahl deckt alle Befestigungsanforderungen der 3D-gedruckten Module ab. M3- und M4-Schrauben werden für die Modul-zu-Modul-Verbindungen und die Befestigung der Elektronikplatinen verwendet.
+
+ANYCUBIC PLA+ Filament 1,75mm (Schwarz, 1kg)
+PLA+ wurde als Druckmaterial für alle Gehäuseteile gewählt, weil es einfach zu drucken, maßhaltig und für Innenanwendungen ausreichend temperaturbeständig ist. Im Vergleich zu ABS ist es verzugsärmer und erfordert keine beheizte Kammer. Die schwarze Farbe verleiht dem Gerät ein einheitliches, professionelles Erscheinungsbild.
+
