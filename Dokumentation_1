@@ -54,6 +54,15 @@ Materialliste:	9
 
 
 
+Vorplanung:
+Wie bin ich vorgegangen:
+Als erstes habe ich mir Gedanken gemacht, wie man so ein Projekt angehen kann.
+Mir sind zwei Wege eingefallen erstens alles in einem Großen Modul zusammenbauen und zweitens es in einzelne Module zu teilen.
+Ich habe mich dazu entschieden es in einzelne Module zu teilen dies ermöglicht es ein Modul fertig zu stellen und es sofort zu testen.
+Als erstes habe ich mal alles heruntergeschrieben, was ich alles brauche und was in welchem Modul ist.
+Die Bilder sind von Samsung Notes und geben meine ersten groben Gedanken da.
+
+
 Planung:
 Was soll der Getränkeautomat können:
 Es soll alle möglichen Flüssigkeiten abfüllen können. (Bsp: Bier, Saft, Sirup, Wasser, …)
