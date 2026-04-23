@@ -12,7 +12,7 @@
 // - 4x20 LCD Display (I2C)
 // - HX711 Wägezelle-Verstärker (für genaue Dosierung)
 // - Schrittmotor (Nemar 23) für Pumpenantrieb Motorstrom 1,8A, 1,8° Schrittwinkel
-// - TB6600 4 A 9-42 V Schrittmotorsteuerung 1,5A, 1,7A Spitze, 24V, 800 Schritte/Umdrehung 
+// - TB6600 4 A 9-42 V Schrittmotorsteuerung 2A, 2,2A Spitze, 24V, 800 Schritte/Umdrehung 
 // - 10 Relays (9x Flüssigkeiten, 1x Luft zum Entlüften)
 // - Rotary Encoder (mit 1 Button) für Benutzernavigation
 //
@@ -118,6 +118,7 @@ const int   WIFI_TIMEOUT_MS = 10000;  // Max. Wartezeit bei WiFi-Verbindung (10s
 
 // Web-Server OK (IP: 192.168.31.17)
 // Wie komme ich auf die Web-Oberfläche? → IP-Adresse im Browser eingeben (z.B. 192.168.31.17)
+// Anderer Esp32 192.168.31.88
 
 // MQTT Broker: HiveMQ öffentlicher Broker (kein Account nötig)
 const char* MQTT_BROKER    = "broker.hivemq.com";
@@ -227,25 +228,31 @@ struct Fluid
 // Sortierung: Nach Häufigkeit der Verwendung in populären Cocktails
 const String FLUID_NAMES[100] = 
 {
-  // Alkoholische Getränke - Spirituosen (Indizes 0-7)
+  // Alkoholische Getränke - Spirituosen (Indizes 0-11)
   // Sortierung nach Häufigkeit: Vodka, Rum, Gin, Tequila sind am populärsten
-  "Vodka","Weisser_Rum","Gin","Tequila","Triple_Sec",
-  "Brandy","Whiskey","Dunckler_Rum",
-  
-  // Säfte - Zitrusfrüchte & Beeren (Indizes 8-15)
+  "Vodka","Weisser_Rum","Gin","Tequila","Triple_Sec",        // 0-4
+  "Brandy","Whiskey","Dunkler_Rum",                          // 5-7
+  "Prosecco","Champagner","Bier","Aperol",                   // 8-11
+
+  // Säfte - Zitrusfrüchte & Beeren (Indizes 12-23)
   // Zitrus-Säfte sind in fast jedem Cocktail vorhanden
-  "Limettensaft","Zitronensaft","Orangensaft","Cranberrysaft",
-  "Ananassaft","Grapefruitsaft","Preiselbeersaft","Pfirsichsaft",
+  "Limettensaft","Zitronensaft","Orangensaft","Cranberrysaft",// 12-15
+  "Ananassaft","Grapefruitsaft","Preiselbeersaft","Pfirsichsaft",// 16-19
+  "Mangosaft","Maracujasaft","Apfelsaft","Tomatensaft",      // 20-23
 
-  // Sirups & Liköre (Indizes 16-23)
+  // Sirups & Liköre (Indizes 24-35)
   // Diese geben den Cocktails ihre charakteristischen Geschmäcke
-  "Zuckersirup","Grenadinesirup","Kokoslikoer","Minzsirup",
-  "Kaffeelikoer","Amaretto","Vanillesirup","Ingwersirup",
+  "Zuckersirup","Grenadinesirup","Kokoslikoer","Minzsirup",  // 24-27
+  "Kaffeelikoer","Amaretto","Vanillesirup","Ingwersirup",    // 28-31
+  "Erdbeersirup","Himbeersirup","Litschigeist","Maracujasirup",// 32-35
 
-  // Bitters & Sonstige Getränke (Indizes 24-31)
-  // Für Würze und Geschmackstiefen sowie Mixer
-  "Angostura_Bitter","Soda_Wasser","Tonic_Water","Ginger_Ale",
-  "Cola","Wasser","Bitterzitronen_Limonade","Kamille_Tee"
+  // Bitters & Sonstige Getränke / Softdrinks (Indizes 36-55)
+  // Für Würze, Geschmackstiefen sowie alkoholfreie Mixer
+  "Angostura_Bitter","Soda_Wasser","Tonic_Water","Ginger_Ale",// 36-39
+  "Cola","Wasser","Bitterzitronen_Limonade","Kamille_Tee",   // 40-43
+  "Sprite","Eistee_Zitrone","Eistee_Pfirsich","Kokoswasser", // 44-47
+  "Orangenlimonade","Zitronenlimonade","Mineralwasser","Ingwerbier",// 48-51
+  "Multivitaminsaft","Pfanta","Gruener_Tee","Hibiskustee" // 52-55
 };
 
 
@@ -257,15 +264,15 @@ const String FLUID_NAMES[100] =
 // Diese sollten für jede Flüssigkeit einzeln kalibriert werden
 Fluid fluids[9] = 
 {
-  {FLUID_NAMES[29], 10.0, 10, 0},  // Flüssigkeit 1 (Standard: Wasser)
-  {FLUID_NAMES[29], 10.0, 10, 0},  // Flüssigkeit 2 (Standard: Wasser)
-  {FLUID_NAMES[29], 10.0, 10, 0},  // Flüssigkeit 3 (Standard: Wasser)
-  {FLUID_NAMES[1], 10.0, 10, 0},  // Flüssigkeit 4 (Standard: Wasser)
-  {FLUID_NAMES[1], 10.0, 10, 0},  // Flüssigkeit 5 (Standard: Wasser)
-  {FLUID_NAMES[1], 10.0, 10, 0},  // Flüssigkeit 6 (Standard: Wasser)
-  {FLUID_NAMES[1], 10.0, 10, 0},  // Flüssigkeit 7 (Standard: Wasser)
-  {FLUID_NAMES[1], 10.0, 10, 0},  // Flüssigkeit 8 (Standard: Wasser)
-  {FLUID_NAMES[1], 10.0, 10, 0}   // Flüssigkeit 9 (Standard: Wasser)
+  {FLUID_NAMES[41], 10.0, 10, 0},  // Flüssigkeit 1 (Standard: Wasser)
+  {FLUID_NAMES[41], 10.0, 10, 0},  // Flüssigkeit 2 (Standard: Wasser)
+  {FLUID_NAMES[41], 10.0, 10, 0},  // Flüssigkeit 3 (Standard: Wasser)
+  {FLUID_NAMES[1],  10.0, 10, 0},  // Flüssigkeit 4 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  10.0, 10, 0},  // Flüssigkeit 5 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  10.0, 10, 0},  // Flüssigkeit 6 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  10.0, 10, 0},  // Flüssigkeit 7 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  10.0, 10, 0},  // Flüssigkeit 8 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  10.0, 10, 0}   // Flüssigkeit 9 (Standard: Weisser_Rum)
 };
 
 // ================================================ REZEPTVERWALTUNG ================================================
@@ -283,110 +290,115 @@ struct Recipe
 // ================================================ REZEPTE DEFINIEREN (HARDCODED) ================================================
 // Die Rezepte sind direkt im Programm definiert
 // Format: Name = Flüssigkeit1_Name menge1, Flüssigkeit2_Name menge2, ...
-// FLUID_NAMES Indizes (Alkoholische): 0=Vodka, 1=Weisser_Rum, 2=Gin, 3=Tequila, 4=Triple_Sec,
-//                                      5=Brandy, 6=Whiskey, 7=Dunckler_Rum
-// FLUID_NAMES Indizes (Säfte): 8=Limettensaft, 9=Zitronensaft, 10=Orangensaft, 11=Cranberrysaft,
-//                              12=Ananassaft, 13=Grapefruitsaft, 14=Preiselbeersaft, 15=Pfirsichsaft
-// FLUID_NAMES Indizes (Sirups/Liköre): 16=Zuckersirup, 17=Grenadinesirup, 18=Kokoslikoer, 19=Minzsirup,
-//                                       20=Kaffeelikoer, 21=Amaretto, 22=Vanillesirup, 23=Ingwersirup
-// FLUID_NAMES Indizes (Bitters/Mixer): 24=Angostura_Bitter, 25=Soda_Wasser, 26=Tonic_Water, 27=Ginger_Ale,
-//                                       28=Cola, 29=Wasser, 30=Bitterzitronen_Limonade, 31=Kamille_Tee
+// FLUID_NAMES Indizes (Alkoholische):   0=Vodka, 1=Weisser_Rum, 2=Gin, 3=Tequila, 4=Triple_Sec,
+//                                        5=Brandy, 6=Whiskey, 7=Dunkler_Rum,
+//                                        8=Prosecco, 9=Champagner, 10=Bier, 11=Aperol
+// FLUID_NAMES Indizes (Säfte):           12=Limettensaft, 13=Zitronensaft, 14=Orangensaft, 15=Cranberrysaft,
+//                                        16=Ananassaft, 17=Grapefruitsaft, 18=Preiselbeersaft, 19=Pfirsichsaft,
+//                                        20=Mangosaft, 21=Maracujasaft, 22=Apfelsaft, 23=Tomatensaft
+// FLUID_NAMES Indizes (Sirups/Liköre):   24=Zuckersirup, 25=Grenadinesirup, 26=Kokoslikoer, 27=Minzsirup,
+//                                        28=Kaffeelikoer, 29=Amaretto, 30=Vanillesirup, 31=Ingwersirup,
+//                                        32=Erdbeersirup, 33=Himbeersirup, 34=Litschigeist, 35=Maracujasirup
+// FLUID_NAMES Indizes (Bitters/Mixer):   36=Angostura_Bitter, 37=Soda_Wasser, 38=Tonic_Water, 39=Ginger_Ale,
+//                                        40=Cola, 41=Wasser, 42=Bitterzitronen_Limonade, 43=Kamille_Tee,
+//                                        44=Sprite, 45=Eistee_Zitrone, 46=Eistee_Pfirsich, 47=Kokoswasser
+// FLUID_NAMES Indizes (Cremig/Milchig):  48=Kokosmilch, 49=Sahne, 50=Kondensmilch, 51=Mandelmilch
 
 Recipe recipes[30] =
 {
   {
     "Mojito",
-    {1, 8, 19, 25, -1, -1, -1, -1, -1},     // Weisser_Rum, Limettensaft, Minzsirup, Soda_Wasser
+    {1, 12, 27, 37, -1, -1, -1, -1, -1},     // Weisser_Rum, Limettensaft, Minzsirup, Soda_Wasser
     {45, 20, 20, 100, 0, 0, 0, 0, 0},       // Mengen in ml (IBA: 45ml Rum, 20ml Lime)
     4
   },
   {
     "Cosmopolitan",
-    {0, 4, 11, 8, -1, -1, -1, -1, -1},      // Vodka, Triple_Sec, Cranberrysaft, Limettensaft
+    {0, 4, 15, 12, -1, -1, -1, -1, -1},      // Vodka, Triple_Sec, Cranberrysaft, Limettensaft
     {40, 15, 30, 15, 0, 0, 0, 0, 0},        // IBA: 40/15/30/15ml
     4
   },
   {
     "Pina Colada",
-    {1, 12, 18, -1, -1, -1, -1, -1, -1},    // Weisser_Rum, Ananassaft, Kokoslikoer
+    {1, 16, 26, -1, -1, -1, -1, -1, -1},    // Weisser_Rum, Ananassaft, Kokoslikoer
     {50, 50, 30, 0, 0, 0, 0, 0, 0},         // IBA: 50/50/30ml (kein Zuckersirup)
     3
   },
   {
     "Margarita",
-    {3, 4, 8, -1, -1, -1, -1, -1, -1},      // Tequila, Triple_Sec, Limettensaft
+    {3, 4, 12, -1, -1, -1, -1, -1, -1},      // Tequila, Triple_Sec, Limettensaft
     {50, 20, 15, 0, 0, 0, 0, 0, 0},         // IBA: 50/20/15ml
     3
   },
   {
     "Daiquiri",
-    {1, 8, 16, -1, -1, -1, -1, -1, -1},     // Weisser_Rum, Limettensaft, Zuckersirup
+    {1, 12, 24, -1, -1, -1, -1, -1, -1},     // Weisser_Rum, Limettensaft, Zuckersirup
     {60, 20, 15, 0, 0, 0, 0, 0, 0},         // IBA: 60/20/15ml
     3
   },
   {
     "Mai Tai",
-    {1, 8, 21, 16, -1, -1, -1, -1, -1},     // Weisser_Rum, Limettensaft, Amaretto, Zuckersirup
+    {1, 12, 29, 24, -1, -1, -1, -1, -1},     // Weisser_Rum, Limettensaft, Amaretto, Zuckersirup
     {60, 30, 20, 10, 0, 0, 0, 0, 0},
     4
   },
   {
     "Screwdriver",
-    {0, 10, -1, -1, -1, -1, -1, -1, -1},    // Vodka, Orangensaft
+    {0, 14, -1, -1, -1, -1, -1, -1, -1},    // Vodka, Orangensaft
     {50, 150, 0, 0, 0, 0, 0, 0, 0},
     2
   },
   {
     "Sex on the Beach",
-    {0, 15, 10, 11, -1, -1, -1, -1, -1},    // Vodka, Pfirsichsaft, Orangensaft, Cranberrysaft
+    {0, 19, 14, 15, -1, -1, -1, -1, -1},    // Vodka, Pfirsichsaft, Orangensaft, Cranberrysaft
     {40, 20, 40, 40, 0, 0, 0, 0, 0},        // IBA: 40/20/40/40ml
     4
   },
   {
     "Long Island Iced Tea",
-    {1, 0, 2, 3, 4, 9, 16, 28, -1},         // Rum, Vodka, Gin, Tequila, Triple_Sec, Zitronensaft, Zuckersirup, Cola
+    {1, 0, 2, 3, 4, 13, 24, 40, -1},        // Rum, Vodka, Gin, Tequila, Triple_Sec, Zitronensaft, Zuckersirup, Cola
     {15, 15, 15, 15, 15, 25, 30, 100, 0},   // IBA: 25ml Lemon
     8
   },
   {
     "Tom Collins",
-    {2, 9, 16, 25, -1, -1, -1, -1, -1},     // Gin, Zitronensaft, Zuckersirup, Soda_Wasser
+    {2, 13, 24, 37, -1, -1, -1, -1, -1},     // Gin, Zitronensaft, Zuckersirup, Soda_Wasser
     {50, 40, 20, 100, 0, 0, 0, 0, 0},
     4
   },
   {
     "Gimlet",
-    {2, 8, 16, -1, -1, -1, -1, -1, -1},     // Gin, Limettensaft, Zuckersirup
+    {2, 12, 24, -1, -1, -1, -1, -1, -1},     // Gin, Limettensaft, Zuckersirup
     {50, 30, 20, 0, 0, 0, 0, 0, 0},
     3
   },
   {
     "Old Fashioned",
-    {6, 16, 24, -1, -1, -1, -1, -1, -1},    // Whiskey, Zuckersirup, Angostura_Bitter
+    {6, 24, 36, -1, -1, -1, -1, -1, -1},    // Whiskey, Zuckersirup, Angostura_Bitter
     {50, 10, 5, 0, 0, 0, 0, 0, 0},
     3
   },
   {
     "Espresso Martini",
-    {0, 20, 16, -1, -1, -1, -1, -1, -1},    // Vodka, Kaffeelikoer, Zuckersirup
+    {0, 28, 24, -1, -1, -1, -1, -1, -1},    // Vodka, Kaffeelikoer, Zuckersirup
     {50, 30, 10, 0, 0, 0, 0, 0, 0},
     3
   },
   {
     "Caipirinha",
-    {1, 8, 16, -1, -1, -1, -1, -1, -1},     // Weisser_Rum, Limettensaft, Zuckersirup
+    {1, 12, 24, -1, -1, -1, -1, -1, -1},     // Weisser_Rum, Limettensaft, Zuckersirup
     {60, 30, 20, 0, 0, 0, 0, 0, 0},
     3
   },
   {
     "Hurricane",
-    {1, 8, 10, 16, -1, -1, -1, -1, -1},     // Weisser_Rum, Limettensaft, Orangensaft, Zuckersirup
+    {1, 12, 14, 24, -1, -1, -1, -1, -1},     // Weisser_Rum, Limettensaft, Orangensaft, Zuckersirup
     {70, 30, 30, 20, 0, 0, 0, 0, 0},
     4
   },
   {
     "Dark & Stormy",
-    {7, 27, -1, -1, -1, -1, -1, -1, -1},    // Dunckler_Rum, Ginger_Ale
+    {7, 39, -1, -1, -1, -1, -1, -1, -1},    // Dunkler_Rum, Ginger_Ale
     {60, 120, 0, 0, 0, 0, 0, 0, 0},         // IBA: 60ml Rum + 120ml Ginger Beer
     2
   },
@@ -394,43 +406,43 @@ Recipe recipes[30] =
   // Neue Rezepte
   {
     "Tequila Sunrise",
-    {3, 10, 17, -1, -1, -1, -1, -1, -1},    // Tequila, Orangensaft, Grenadinesirup
+    {3, 14, 25, -1, -1, -1, -1, -1, -1},    // Tequila, Orangensaft, Grenadinesirup
     {45, 90, 15, 0, 0, 0, 0, 0, 0},         // IBA: 45/90/15ml
     3
   },
   {
     "Moscow Mule",
-    {0, 27, 8, -1, -1, -1, -1, -1, -1},     // Vodka, Ginger_Ale, Limettensaft
+    {0, 39, 12, -1, -1, -1, -1, -1, -1},     // Vodka, Ginger_Ale, Limettensaft
     {45, 120, 10, 0, 0, 0, 0, 0, 0},        // IBA: 45/120/10ml
     3
   },
   {
     "Whiskey Sour",
-    {6, 9, 16, -1, -1, -1, -1, -1, -1},     // Whiskey, Zitronensaft, Zuckersirup
+    {6, 13, 24, -1, -1, -1, -1, -1, -1},     // Whiskey, Zitronensaft, Zuckersirup
     {45, 25, 20, 0, 0, 0, 0, 0, 0},         // IBA: 45/25/20ml
     3
   },
   {
     "Gin Tonic",
-    {2, 26, -1, -1, -1, -1, -1, -1, -1},    // Gin, Tonic_Water
+    {2, 38, -1, -1, -1, -1, -1, -1, -1},    // Gin, Tonic_Water
     {50, 150, 0, 0, 0, 0, 0, 0, 0},
     2
   },
   {
     "Paloma",
-    {3, 13, 8, 25, -1, -1, -1, -1, -1},     // Tequila, Grapefruitsaft, Limettensaft, Soda_Wasser
+    {3, 17, 12, 37, -1, -1, -1, -1, -1},     // Tequila, Grapefruitsaft, Limettensaft, Soda_Wasser
     {50, 100, 15, 30, 0, 0, 0, 0, 0},
     4
   },
   {
     "Amaretto Sour",
-    {21, 9, 16, -1, -1, -1, -1, -1, -1},    // Amaretto, Zitronensaft, Zuckersirup
+    {29, 13, 24, -1, -1, -1, -1, -1, -1},    // Amaretto, Zitronensaft, Zuckersirup
     {50, 25, 10, 0, 0, 0, 0, 0, 0},
     3
   },
   {
     "Sidecar",
-    {5, 4, 9, -1, -1, -1, -1, -1, -1},      // Brandy, Triple_Sec, Zitronensaft
+    {5, 4, 13, -1, -1, -1, -1, -1, -1},      // Brandy, Triple_Sec, Zitronensaft
     {50, 20, 20, 0, 0, 0, 0, 0, 0},         // IBA: 50/20/20ml
     3
   },
@@ -438,19 +450,19 @@ Recipe recipes[30] =
   // Test-Rezepte (können gelöscht werden)
   {
     "Test Cocktail 1",
-    {29, -1, -1, -1, -1, -1, -1, -1, -1},
+    {41, -1, -1, -1, -1, -1, -1, -1, -1},
     {100, 0, 0, 0, 0, 0, 0, 0, 0},
     1
   },
   {
     "Test Cocktail 2",
-    {29, 29, -1, -1, -1, -1, -1, -1, -1},
+    {41, 41, -1, -1, -1, -1, -1, -1, -1},
     {100, 100, 0, 0, 0, 0, 0, 0, 0},
     2
   },
   {
     "Test Cocktail 3",
-    {29, 29, 29, -1, -1, -1, -1, -1, -1},
+    {41, 41, 41, -1, -1, -1, -1, -1, -1},
     {50, 50, 50, 0, 0, 0, 0, 0, 0},
     3
    }
@@ -982,7 +994,8 @@ void setup()
     Serial.println("8. LittleFS OK");
 
     // Web-Server Handler registrieren (begin() erst nach WiFi-Connect)
-    webServer.serveStatic("/", LittleFS, "/").setDefaultFile("index.html");
+    // Cache-Control: no-cache → Browser holt immer die aktuelle Version vom ESP32
+    webServer.serveStatic("/", LittleFS, "/").setDefaultFile("index.html").setCacheControl("no-cache");
     Serial.println("9. Web-Server Handler OK");
   }
 
@@ -1787,7 +1800,7 @@ void handleMenuNavigation()
       case FLUID_FROM_CATEGORY_SELECTION:
       {
         // categoryStart[] gibt den Startindex jeder Kategorie in FLUID_NAMES an
-        int categoryStart[4] = {0, 5, 8, 14};  // Erster FLUID_NAMES-Index pro Kategorie
+        int categoryStart[4] = {0, 12, 24, 36};  // Erster FLUID_NAMES-Index pro Kategorie
         int fluidNameIndex = categoryStart[selectedCategory] + selectedIndex;  // globaler Index in FLUID_NAMES
         
         if (fluidNameIndex < 100)  // Sicherheit: nicht über FLUID_NAMES Array-Ende hinaus
@@ -2451,15 +2464,15 @@ void displayFluidCategories()
 
 // Zeigt alle Flüssigkeiten einer Kategorie aus FLUID_NAMES.
 // categoryStart[] gibt an bei welchem FLUID_NAMES-Index jede Kategorie beginnt:
-//   0=Alkoholische (0–4), 1=Saefte (5–7), 2=Sirups (8–13), 3=Sonstige (14–18)
+//   0=Alkoholische (0–11), 1=Saefte (12–23), 2=Sirups (24–35), 3=Sonstige (36–51)
 // Unterstriche in Namen werden für die Anzeige durch Leerzeichen ersetzt.
 void displayFluidFromCategory()
 {
   lcd.clear();
   
   String categoryNames[4] = {"Alkoholische", "Saefte", "Sirups", "Sonstige"};
-  int categoryStart[4] = {0, 5, 8, 14};   // Erster FLUID_NAMES-Index pro Kategorie
-  int categoryEnd[4]   = {4, 7, 13, 18};  // Letzter FLUID_NAMES-Index pro Kategorie
+  int categoryStart[4] = {0, 12, 24, 36};   // Erster FLUID_NAMES-Index pro Kategorie
+  int categoryEnd[4]   = {11, 23, 35, 51};  // Letzter FLUID_NAMES-Index pro Kategorie
   
   lcd.setCursor(0, 0);
   lcd.print(categoryNames[selectedCategory]);  // Kategoriename als Titel
@@ -2822,9 +2835,8 @@ void startCleaning()
       encoderButtonPressed = false;  // Knopf-Flag zurücksetzen
     }
 
-    // Alle 9 Flüssigkeits-Schläuche (Relay 0–8) nacheinander mit Wasser durchspülen.
-    // Relay 9 (Luft) wird bei der Reinigung nicht geöffnet.
-    for (int i = 0; i < 9 && !aborted; i++)  // Jeden der 9 Schläuche der Reihe nach reinigen
+    // Alle 9 Flüssigkeits-Schläuche (Relay 0–8) + Luftventil (Relay 9) nacheinander durchspülen.
+    for (int i = 0; i < 10 && !aborted; i++)  // Jeden der 10 Schläuche der Reihe nach reinigen
     {
       // Abbruch-Check am Anfang jedes neuen Relays: sauberster Punkt zum Stoppen
       if (digitalRead(BACK_BUTTON) == LOW)
@@ -2838,7 +2850,7 @@ void startCleaning()
       lcd.setCursor(0, 0);
       lcd.print("Zyklus "); lcd.print(cycle + 1); lcd.print("/"); lcd.print(CLEANING_CYCLES);  // z.B. "Zyklus 2/3"
       lcd.setCursor(0, 1);
-      lcd.print("Relay "); lcd.print(i + 1); lcd.print("/9 laeuft...");  // z.B. "Relay 5/9 laeuft..."
+      lcd.print("Relay "); lcd.print(i + 1); lcd.print("/10 laeuft...");  // z.B. "Relay 5/10 laeuft..."
       lcd.setCursor(0, 2); lcd.print("Motor laeuft...");    // Statusmeldung während Motor dreht
       lcd.setCursor(0, 3); lcd.print("Back = Abbrechen");   // Abbruchhilfe für Benutzer
 
@@ -2863,7 +2875,7 @@ void startCleaning()
   else  // Normale Beendigung aller Zyklen
   {
     lcd.setCursor(0, 1); lcd.print("Fertig!");            // Erfolgsmeldung
-    lcd.setCursor(0, 2); lcd.print("Alle 9 Relays OK");   // Bestätigung dass alle Schläuche gespült wurden
+    lcd.setCursor(0, 2); lcd.print("Alle 10 Relays OK");  // Bestätigung dass alle Schläuche gespült wurden
   }
   delay(UI_DONE_DISPLAY_MS);  // 2 Sekunden anzeigen damit Benutzer die Meldung lesen kann
 
@@ -2881,7 +2893,7 @@ void startCleaning()
   else
   {
     lcd.setCursor(0, 1); lcd.print("Fertig!");
-    lcd.setCursor(0, 2); lcd.print("Alle 9 Relays OK");
+    lcd.setCursor(0, 2); lcd.print("Alle 10 Relays OK");
   }
   delay(UI_DONE_DISPLAY_MS);
 
@@ -3040,7 +3052,10 @@ void fetchOnlineRecipes()
   lcd.setCursor(0, 1); lcd.print("Lade...");
 
   HTTPClient http;
-  http.begin(ONLINE_RECIPES_URL);
+  // Cache-Busting: millis() als Query-Parameter verhindert dass GitHub CDN die alte Version liefert
+  String url = String(ONLINE_RECIPES_URL) + "?t=" + String(millis());
+  http.begin(url);
+  http.addHeader("Cache-Control", "no-cache");
   int code = http.GET();
 
   if (code != 200)

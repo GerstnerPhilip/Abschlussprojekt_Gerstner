@@ -22,14 +22,32 @@ const TOPICS = {
 };
 
 const FLUID_NAMES = [
+  // Alkoholische (0-11)
   "Vodka","Weisser_Rum","Gin","Tequila","Triple_Sec",
-  "Brandy","Whiskey","Dunckler_Rum",
+  "Brandy","Whiskey","Dunkler_Rum",
+  "Prosecco","Champagner","Bier","Aperol",
+  // Säfte (12-23)
   "Limettensaft","Zitronensaft","Orangensaft","Cranberrysaft",
   "Ananassaft","Grapefruitsaft","Preiselbeersaft","Pfirsichsaft",
+  "Mangosaft","Maracujasaft","Apfelsaft","Tomatensaft",
+  // Sirups & Liköre (24-35)
   "Zuckersirup","Grenadinesirup","Kokoslikoer","Minzsirup",
   "Kaffeelikoer","Amaretto","Vanillesirup","Ingwersirup",
+  "Erdbeersirup","Himbeersirup","Litschigeist","Maracujasirup",
+  // Sonstige & Softdrinks (36-55)
   "Angostura_Bitter","Soda_Wasser","Tonic_Water","Ginger_Ale",
-  "Cola","Wasser","Bitterzitronen_Limonade","Kamille_Tee"
+  "Cola","Wasser","Bitterzitronen_Limonade","Kamille_Tee",
+  "Sprite","Eistee_Zitrone","Eistee_Pfirsich","Kokoswasser",
+  "Orangenlimonade","Zitronenlimonade","Mineralwasser","Ingwerbier",
+  "Multivitaminsaft","Pfanta","Gruener_Tee","Hibiskustee"
+];
+
+// Kategorien für gruppierte Dropdown-Anzeige
+const FLUID_CATEGORIES = [
+  { label: '🥃 Alkoholische',     start: 0,  end: 11 },
+  { label: '🍊 Säfte',            start: 12, end: 23 },
+  { label: '🍬 Sirups & Liköre',  start: 24, end: 35 },
+  { label: '🥤 Sonstige / Softdrinks', start: 36, end: 55 },
 ];
 
 const MENU_NAMES = [
@@ -349,12 +367,21 @@ function renderFluidSlots(fluids) {
 
     const sel = document.createElement('select');
     sel.id = 'fluidSelect_' + f.slot;
-    FLUID_NAMES.forEach(name => {
-      const opt = document.createElement('option');
-      opt.value = name;
-      opt.textContent = name.replace(/_/g, ' ');
-      if (name === f.name) opt.selected = true;
-      sel.appendChild(opt);
+
+    // Flüssigkeiten in Kategorien gruppiert darstellen
+    FLUID_CATEGORIES.forEach(cat => {
+      const group = document.createElement('optgroup');
+      group.label = cat.label;
+      for (let i = cat.start; i <= cat.end; i++) {
+        const name = FLUID_NAMES[i];
+        if (!name) continue;
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = name.replace(/_/g, ' ');
+        if (name === f.name) opt.selected = true;
+        group.appendChild(opt);
+      }
+      sel.appendChild(group);
     });
 
     row.appendChild(lbl);
@@ -418,12 +445,29 @@ function saveAllFluids() {
 }
 
 /** ESP32 anweisen Online-Rezepte neu zu laden */
-function refreshOnlineRecipes() {
-  // Leere Nachricht auf einem speziellen Topic – ESP32 reagiert mit fetchOnlineRecipes()
-  sendCmd('cocktailbot/command/recipes/refresh', '{}');
-  document.getElementById('onlineRecipeList').innerHTML =
-    '<p class="loading">ESP32 lädt Rezepte...</p>';
-  showToast('Lade-Anfrage gesendet…');
+async function refreshOnlineRecipes() {
+  // Browser lädt direkt von GitHub – kein MQTT-Roundtrip über ESP32 nötig
+  // (vermeidet MQTT-Buffer-Limit von 4096 Bytes bei vielen Rezepten)
+  const url = 'https://raw.githubusercontent.com/GerstnerPhilip/Abschlussprojekt_Gerstner/main/recipes.json?t=' + Date.now();
+  document.getElementById('onlineRecipeList').innerHTML = '<p class="loading">Lade Rezepte von GitHub…</p>';
+  showToast('Lade Rezepte…');
+  try {
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const list = await res.json();
+    // GitHub-Format: [{name, ingredients:[{fluid, amount}]}] → in Browser-Format umwandeln
+    onlineRecipesList = list.map(r => ({
+      name: r.name,
+      fluid_count: (r.ingredients || []).length,
+      fluid_names: (r.ingredients || []).map(i => i.fluid),
+      amounts:     (r.ingredients || []).map(i => i.amount),
+    }));
+    renderOnlineRecipes(onlineRecipesList);
+    showToast('✅ ' + onlineRecipesList.length + ' Rezepte geladen');
+  } catch (e) {
+    showToast('❌ Fehler: ' + e.message);
+    document.getElementById('onlineRecipeList').innerHTML = '<p class="loading">Fehler beim Laden.</p>';
+  }
 }
 
 /** MQTT-Nachricht senden (allgemein) */
@@ -514,11 +558,18 @@ function addIngredientRow() {
 
   const sel = document.createElement('select');
   sel.className = 'ingredientFluid';
-  FLUID_NAMES.forEach(name => {
-    const opt = document.createElement('option');
-    opt.value = name;
-    opt.textContent = name.replace(/_/g, ' ');
-    sel.appendChild(opt);
+  FLUID_CATEGORIES.forEach(cat => {
+    const group = document.createElement('optgroup');
+    group.label = cat.label;
+    for (let i = cat.start; i <= cat.end; i++) {
+      const name = FLUID_NAMES[i];
+      if (!name) continue;
+      const opt = document.createElement('option');
+      opt.value = name;
+      opt.textContent = name.replace(/_/g, ' ');
+      group.appendChild(opt);
+    }
+    sel.appendChild(group);
   });
 
   const amt = document.createElement('input');
@@ -565,15 +616,6 @@ function startManualRecipe() {
 }
 
 /** Kopiert das Rezept als JSON in die Zwischenablage */
-async function copyRecipeJSON() {
-  const r = getManualRecipe();
-  if (!r) { showToast('❌ Name oder Zutaten fehlen'); return; }
-  try {
-    await navigator.clipboard.writeText(JSON.stringify(r, null, 2));
-    showToast('📋 JSON kopiert!');
-  } catch (_) { showToast('❌ Kopieren fehlgeschlagen'); }
-}
-
 /** Lädt GitHub-Einstellungen aus localStorage */
 function loadGitHubSettings() {
   document.getElementById('ghToken').value  = localStorage.getItem('cbot_gh_token')  || '';
@@ -632,6 +674,18 @@ async function saveRecipeToGitHub() {
       throw new Error('PUT ' + putRes.status + ': ' + (err.message || ''));
     }
     showToast('✅ "' + r.name + '" auf GitHub gespeichert!');
+
+    // Neues Rezept sofort lokal in die Online-Rezept-Liste eintragen und rendern
+    // → kein Warten auf ESP32 MQTT-Roundtrip nötig
+    const newEntry = {
+      name: r.name,
+      fluid_count: r.ingredients.length,
+      fluid_names: r.ingredients.map(i => i.fluid),
+      amounts:     r.ingredients.map(i => i.amount),
+    };
+    onlineRecipesList.push(newEntry);
+    renderOnlineRecipes(onlineRecipesList);
+    showSection('onlineRecipes');  // direkt zur Liste springen
   } catch (e) {
     showToast('❌ Fehler: ' + e.message);
   }
