@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="4320" viewBox="0 0 2600 4320" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="4440" viewBox="0 0 2600 4440" role="img" aria-labelledby="title desc">
   <title id="title">Gesamtprogramm-Ablauf des Cocktailautomaten</title>
   <desc id="desc">Großes Ablaufdiagramm für Systemstart, Architektur, Hauptschleife, Bedienwege, Rezepte, Dosierung, Reinigung und Weboberfläche.</desc>
   <defs>
@@ -23,7 +23,7 @@
     </marker>
   </defs>
 
-  <rect class="bg" x="0" y="0" width="2600" height="4320"/>
+  <rect class="bg" x="0" y="0" width="2600" height="4440"/>
 
   <text class="title" x="1300" y="90" text-anchor="middle">Gesamtprogramm-Ablauf des Projekts</text>
   <text class="subtitle" x="1300" y="132" text-anchor="middle">Cocktailautomat mit ESP32-Firmware, Weboberfläche, MQTT, Online-/Offline-Rezepten und gewichtsgesteuerter Dosierung</text>
@@ -47,26 +47,26 @@
   <text class="section" x="120" y="665">2. Grundarchitektur</text>
   <text class="text" x="120" y="715">ESP32-Firmware</text>
   <text class="small" x="120" y="750">Hardware, Menülogik, Rezepte, Pumpe, Reinigung</text>
-  <text class="text" x="120" y="810">MQTT</text>
-  <text class="small" x="120" y="845">Befehle + Statusdaten zwischen Browser und ESP32</text>
-  <text class="text" x="120" y="905">Weboberfläche</text>
-  <text class="small" x="120" y="940">Anzeige, Fernbedienung, Rezeptverwaltung</text>
+  <text class="text" x="120" y="795">MQTT</text>
+  <text class="small" x="120" y="830">Befehle + Statusdaten zwischen Browser und ESP32</text>
+  <text class="text" x="120" y="875">Weboberfläche</text>
+  <text class="small" x="120" y="910">Anzeige, Fernbedienung, Rezeptverwaltung</text>
 
   <rect class="panel-purple" x="920" y="610" width="760" height="330"/>
   <text class="section" x="960" y="665">3. Bedienwege</text>
   <text class="text" x="960" y="715">Lokal am Gerät</text>
   <text class="small" x="960" y="750">Encoder drehen, Encoder drücken, Back-Taste</text>
-  <text class="text" x="960" y="810">Im Browser</text>
-  <text class="small" x="960" y="845">MQTT-Kommandos über WebSocket</text>
-  <text class="small" x="960" y="905">Beide Wege nutzen dieselbe zentrale Firmwarelogik</text>
+  <text class="text" x="960" y="795">Im Browser</text>
+  <text class="small" x="960" y="830">MQTT-Kommandos über WebSocket</text>
+  <text class="small" x="960" y="890">Beide Wege nutzen dieselbe zentrale Firmwarelogik</text>
 
   <rect class="panel-purple" x="1760" y="610" width="760" height="330"/>
   <text class="section" x="1800" y="665">4. Rezeptquellen</text>
   <text class="text" x="1800" y="715">Offline-Rezepte</text>
   <text class="small" x="1800" y="750">Lokal in Gerät / Firmware verfügbar</text>
-  <text class="text" x="1800" y="810">Online-Rezepte</text>
-  <text class="small" x="1800" y="845">recipes.json auf GitHub</text>
-  <text class="small" x="1800" y="905">Browser kann Rezepte direkt laden und neue Rezepte erzeugen</text>
+  <text class="text" x="1800" y="795">Online-Rezepte</text>
+  <text class="small" x="1800" y="830">recipes.json auf GitHub</text>
+  <text class="small" x="1800" y="890">Browser kann Rezepte direkt laden und neue Rezepte erzeugen</text>
 
   <line class="arrow" x1="1300" y1="940" x2="1300" y2="1020"/>
 
@@ -194,8 +194,9 @@
   <line class="arrow dashed" x1="500" y1="940" x2="500" y2="1020"/>
   <text class="small" x="275" y="990">Architektur speist Loop</text>
 
+  <rect class="panel-blue" x="80" y="4140" width="2440" height="220"/>
   <text class="section" x="120" y="4200">13. Weboberfläche + Kommunikationsfluss</text>
-  <text class="small" x="720" y="4200">Browser verbindet sich per MQTT über WebSocket, zeigt Live-Status und sendet Befehle wie Rezeptstart, Relais, Motor, Reinigung, Flüssigkeiten und Kalibrierung.</text>
-  <text class="small" x="120" y="4240">ESP32 veröffentlicht regelmäßig Gewicht, Pump-/Reinigungsstatus, Glaserkennung, Relay-Zustände, Menüzustand, Offline-/Online-Rezepte und Ergebnisdaten.</text>
-  <text class="small" x="120" y="4280">Kurzfassung: Setup initialisiert alles, loop() verarbeitet Sensoren + Eingaben + MQTT, Rezepte dosieren slotbasiert und gewichtsgeführt, die Weboberfläche bleibt live synchron.</text>
+  <text class="small" x="120" y="4260">Browser verbindet sich per MQTT über WebSocket, zeigt Live-Status und sendet Befehle wie Rezeptstart, Relais, Motor, Reinigung, Flüssigkeiten und Kalibrierung.</text>
+  <text class="small" x="120" y="4300">ESP32 veröffentlicht regelmäßig Gewicht, Pump-/Reinigungsstatus, Glaserkennung, Relay-Zustände, Menüzustand, Offline-/Online-Rezepte und Ergebnisdaten.</text>
+  <text class="small" x="120" y="4340">Kurzfassung: Setup initialisiert alles, loop() verarbeitet Sensoren + Eingaben + MQTT, Rezepte dosieren slotbasiert und gewichtsgeführt, die Weboberfläche bleibt live synchron.</text>
 </svg>
