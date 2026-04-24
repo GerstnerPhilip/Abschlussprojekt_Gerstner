@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Programmschaltbild Cocktailautomat</title>
+  <desc id="desc">Übersicht über Firmware, Weboberfläche, MQTT, GitHub-Rezepte und Hardware des Cocktailautomaten.</desc>
+  <defs>
+    <style>
+      .bg { fill:#0b1020; }
+      .panel { fill:#141b34; stroke:#5f6fa6; stroke-width:2; rx:18; ry:18; }
+      .box { fill:#1b2647; stroke:#8aa4ff; stroke-width:2; rx:14; ry:14; }
+      .box2 { fill:#1d3a36; stroke:#58d6b0; stroke-width:2; rx:14; ry:14; }
+      .box3 { fill:#3b2a1e; stroke:#ffbd73; stroke-width:2; rx:14; ry:14; }
+      .box4 { fill:#30234d; stroke:#c79bff; stroke-width:2; rx:14; ry:14; }
+      .title { font: 700 34px Arial, sans-serif; fill:#ffffff; }
+      .subtitle { font: 600 22px Arial, sans-serif; fill:#dce6ff; }
+      .label { font: 600 20px Arial, sans-serif; fill:#ffffff; }
+      .text { font: 18px Arial, sans-serif; fill:#e9efff; }
+      .small { font: 16px Arial, sans-serif; fill:#cfd9ff; }
+      .file { font: 700 16px Arial, sans-serif; fill:#8fd3ff; }
+      .arrowBlue { stroke:#8aa4ff; }
+      .arrowGreen { stroke:#58d6b0; }
+      .arrowOrange { stroke:#ffbd73; }
+      .arrowPurple { stroke:#c79bff; }
+      .line { fill:none; stroke-width:4; marker-end:url(#arrow); }
+      .line2 { fill:none; stroke-width:4; marker-end:url(#arrowGreen); }
+      .line3 { fill:none; stroke-width:4; marker-end:url(#arrowOrange); }
+      .line4 { fill:none; stroke-width:4; marker-end:url(#arrowPurple); }
+      .legend { font: 15px Arial, sans-serif; fill:#dce6ff; }
+    </style>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M0,0 L14,7 L0,14 z" fill="#8aa4ff"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M0,0 L14,7 L0,14 z" fill="#58d6b0"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M0,0 L14,7 L0,14 z" fill="#ffbd73"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M0,0 L14,7 L0,14 z" fill="#c79bff"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="1100"/>
+  <text x="800" y="58" text-anchor="middle" class="title">Programmschaltbild – Cocktailautomat</text>
+  <text x="800" y="92" text-anchor="middle" class="subtitle">Repository: GerstnerPhilip/Abschlussprojekt_Gerstner</text>
+
+  <!-- Panels -->
+  <rect x="40" y="130" width="300" height="850" class="panel"/>
+  <rect x="380" y="130" width="480" height="850" class="panel"/>
+  <rect x="900" y="130" width="300" height="850" class="panel"/>
+  <rect x="1240" y="130" width="320" height="850" class="panel"/>
+
+  <text x="190" y="170" text-anchor="middle" class="subtitle">Benutzer &amp; UI</text>
+  <text x="620" y="170" text-anchor="middle" class="subtitle">ESP32 Firmware</text>
+  <text x="1050" y="170" text-anchor="middle" class="subtitle">Externe Dienste</text>
+  <text x="1400" y="170" text-anchor="middle" class="subtitle">Hardware</text>
+
+  <!-- Left column -->
+  <rect x="70" y="210" width="240" height="150" class="box4"/>
+  <text x="190" y="245" text-anchor="middle" class="label">Lokale Bedienung</text>
+  <text x="90" y="280" class="text">• Rotary-Encoder</text>
+  <text x="90" y="310" class="text">• Encoder-Taster</text>
+  <text x="90" y="340" class="text">• Back-Taste</text>
+
+  <rect x="70" y="400" width="240" height="150" class="box4"/>
+  <text x="190" y="435" text-anchor="middle" class="label">LCD-Anzeige</text>
+  <text x="90" y="470" class="text">• Menüs</text>
+  <text x="90" y="500" class="text">• Rezeptdetails</text>
+  <text x="90" y="530" class="text">• Live-Gewicht / Status</text>
+
+  <rect x="70" y="590" width="240" height="270" class="box4"/>
+  <text x="190" y="625" text-anchor="middle" class="label">Weboberfläche</text>
+  <text x="190" y="650" text-anchor="middle" class="file">data/index.html + data/app.js</text>
+  <text x="90" y="690" class="text">• Status / Relays / Glasstatus</text>
+  <text x="90" y="720" class="text">• Offline- &amp; Online-Rezepte</text>
+  <text x="90" y="750" class="text">• Flüssigkeiten konfigurieren</text>
+  <text x="90" y="780" class="text">• Manuelle Steuerung</text>
+  <text x="90" y="810" class="text">• Rezept auf GitHub speichern</text>
+  <text x="90" y="840" class="small">MQTT über WebSockets + Fetch/API</text>
+
+  <!-- Center column -->
+  <rect x="420" y="210" width="400" height="110" class="box"/>
+  <text x="620" y="245" text-anchor="middle" class="label">Systemstart &amp; Hauptloop</text>
+  <text x="620" y="270" text-anchor="middle" class="file">src/main.cpp → setup() / loop()</text>
+  <text x="450" y="300" class="text">Initialisiert LCD, Relays, Motor, HX711, LittleFS, WiFi, MQTT</text>
+
+  <rect x="420" y="350" width="400" height="145" class="box"/>
+  <text x="620" y="385" text-anchor="middle" class="label">Menü-Zustandsautomat</text>
+  <text x="450" y="420" class="text">MAIN_MENU, Rezepte, Flüssigkeiten,</text>
+  <text x="450" y="450" class="text">Glasgröße, Reinigung, manuelle Steuerung</text>
+  <text x="450" y="480" class="small">Eingaben über Encoder + Buttons</text>
+
+  <rect x="420" y="525" width="400" height="160" class="box2"/>
+  <text x="620" y="560" text-anchor="middle" class="label">Rezept- &amp; Dosierlogik</text>
+  <text x="450" y="595" class="text">• Offline-Rezepte im Code</text>
+  <text x="450" y="625" class="text">• Online-Rezepte aus recipes.json</text>
+  <text x="450" y="655" class="text">• executeRecipe / executeOnlineRecipe</text>
+  <text x="450" y="685" class="text">• pumpFluid + Glasgrößen-Skalierung</text>
+
+  <rect x="420" y="715" width="400" height="145" class="box3"/>
+  <text x="620" y="750" text-anchor="middle" class="label">Kommunikation &amp; Daten</text>
+  <text x="450" y="785" class="text">• AsyncWebServer liefert Webdateien</text>
+  <text x="450" y="815" class="text">• MQTT Status publizieren / Commands empfangen</text>
+  <text x="450" y="845" class="text">• JSON Parsing mit ArduinoJson</text>
+
+  <rect x="420" y="890" width="400" height="60" class="box"/>
+  <text x="620" y="928" text-anchor="middle" class="text">Kalibrierung, Glaserkennung und Ergebnis-Reporting</text>
+
+  <!-- Right middle column -->
+  <rect x="930" y="210" width="240" height="150" class="box3"/>
+  <text x="1050" y="245" text-anchor="middle" class="label">WiFi + MQTT Broker</text>
+  <text x="1050" y="270" text-anchor="middle" class="small">broker.hivemq.com</text>
+  <text x="950" y="305" class="text">Browser ⇄ Status-Topics</text>
+  <text x="950" y="335" class="text">ESP32 ⇄ Command-Topics</text>
+
+  <rect x="930" y="410" width="240" height="180" class="box3"/>
+  <text x="1050" y="445" text-anchor="middle" class="label">GitHub Repository</text>
+  <text x="1050" y="470" text-anchor="middle" class="file">recipes.json</text>
+  <text x="950" y="505" class="text">• ESP32 lädt Online-Rezepte</text>
+  <text x="950" y="535" class="text">• Browser lädt Liste direkt per fetch()</text>
+  <text x="950" y="565" class="text">• Browser speichert neue Rezepte</text>
+
+  <rect x="930" y="640" width="240" height="190" class="box3"/>
+  <text x="1050" y="675" text-anchor="middle" class="label">Dateisystem im ESP32</text>
+  <text x="1050" y="700" text-anchor="middle" class="file">LittleFS</text>
+  <text x="950" y="735" class="text">• index.html</text>
+  <text x="950" y="765" class="text">• app.js</text>
+  <text x="950" y="795" class="text">• style.css</text>
+
+  <!-- Hardware column -->
+  <rect x="1270" y="210" width="260" height="140" class="box2"/>
+  <text x="1400" y="245" text-anchor="middle" class="label">Sensorik</text>
+  <text x="1290" y="280" class="text">• HX711 + Wägezelle</text>
+  <text x="1290" y="310" class="text">• Glaserkennung über Gewichtssprung</text>
+
+  <rect x="1270" y="390" width="260" height="170" class="box2"/>
+  <text x="1400" y="425" text-anchor="middle" class="label">Aktoren</text>
+  <text x="1290" y="460" class="text">• TB6600 + NEMA23 Motor</text>
+  <text x="1290" y="490" class="text">• 9 Flüssigkeitsventile</text>
+  <text x="1290" y="520" class="text">• 1 Luftventil / Reinigung</text>
+
+  <rect x="1270" y="600" width="260" height="180" class="box2"/>
+  <text x="1400" y="635" text-anchor="middle" class="label">Getränkefluss</text>
+  <text x="1290" y="670" class="text">Flüssigkeitsslot → Ventil →</text>
+  <text x="1290" y="700" class="text">Peristaltikpumpe → Glas</text>
+  <text x="1290" y="730" class="text">danach Luftstoß zum Entleeren</text>
+
+  <rect x="1270" y="820" width="260" height="130" class="box2"/>
+  <text x="1400" y="855" text-anchor="middle" class="label">Rezeptergebnis</text>
+  <text x="1290" y="890" class="text">Soll/Ist-Mengen</text>
+  <text x="1290" y="920" class="text">werden wieder an UI gemeldet</text>
+
+  <!-- Flows -->
+  <path d="M310 285 H390" class="line4 arrowPurple"/>
+  <path d="M310 475 H390" class="line4 arrowPurple"/>
+  <path d="M310 725 H390" class="line4 arrowPurple"/>
+
+  <path d="M620 320 V350" class="line arrowBlue"/>
+  <path d="M620 495 V525" class="line2 arrowGreen"/>
+  <path d="M620 685 V715" class="line3 arrowOrange"/>
+  <path d="M620 860 V890" class="line arrowBlue"/>
+
+  <path d="M820 420 C900 420, 880 285, 930 285" class="line arrowBlue"/>
+  <path d="M820 605 C900 605, 890 500, 930 500" class="line3 arrowOrange"/>
+  <path d="M820 780 C900 780, 890 735, 930 735" class="line arrowBlue"/>
+
+  <path d="M1170 285 C1220 285, 1210 285, 1270 285" class="line arrowBlue"/>
+  <path d="M820 605 C980 605, 1120 475, 1270 475" class="line2 arrowGreen"/>
+  <path d="M820 905 C1030 905, 1100 885, 1270 885" class="line4 arrowPurple"/>
+  <path d="M310 780 C610 780, 760 500, 930 500" class="line3 arrowOrange"/>
+  <path d="M310 650 C610 650, 780 285, 930 285" class="line arrowBlue"/>
+
+  <!-- Legend -->
+  <rect x="40" y="1000" width="1520" height="70" class="panel"/>
+  <line x1="90" y1="1035" x2="145" y2="1035" class="line arrowBlue"/>
+  <text x="160" y="1041" class="legend">Status / MQTT / Datenfluss</text>
+  <line x1="470" y1="1035" x2="525" y2="1035" class="line2 arrowGreen"/>
+  <text x="540" y="1041" class="legend">Steuerung von Rezept, Pumpe und Hardware</text>
+  <line x1="970" y1="1035" x2="1025" y2="1035" class="line3 arrowOrange"/>
+  <text x="1040" y="1041" class="legend">Online-Rezepte / GitHub-Zugriffe</text>
+  <line x1="1330" y1="1035" x2="1385" y2="1035" class="line4 arrowPurple"/>
+  <text x="1400" y="1041" class="legend">Benutzereingaben / Anzeige</text>
+</svg>
