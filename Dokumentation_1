@@ -867,6 +867,45 @@ Dieses Projekt erreicht Techniker-/Bachelor-Niveau, weil es:
 Innovationskern: Kombination aus modularer Bauweise, Gewichtsgesteuerter Dosierung, digitaler Steuerung und konfigurierbarer Getränkemischung.
 
 Materialliste:
+Kostenberechnung (Richtwerte, Stand 04/2026):
+Die folgenden Preise sind Näherungswerte auf Basis der in dieser Materialliste genannten Bauteile und typischer Onlinepreise. Da in der Projektdokumentation keine Original-Rechnungsbeträge hinterlegt sind, dient diese Aufstellung als technische Projektkalkulation.
+
+Bauteil	Anzahl	Einzelpreis ca.	Gesamt ca.
+24V-Netzteil BRIMETI 150 W	1	24,99 €	24,99 €
+DC/DC-Konverter 24 V → 5 V (2er-Set)	1	8,99 €	8,99 €
+ESP32-S3 Board	1	12,99 €	12,99 €
+ESP32-Erweiterungsplatine	1	9,99 €	9,99 €
+DC/DC-Konverter 24 V → 12 V	1	12,99 €	12,99 €
+DC/DC-Konverter 12 V → 3,3 V	1	8,99 €	8,99 €
+Wägezellen + HX711 Set	1	13,99 €	13,99 €
+TB6600 Motortreiber	1	16,99 €	16,99 €
+4-Kanal-Relaismodule	3	6,99 €	20,97 €
+Magnetventile 12 V	10	4,99 €	49,90 €
+Kamoer KDS3000-ST Schlauchpumpe	1	119,99 €	119,99 €
+LCD 4x20 I2C	1	10,99 €	10,99 €
+Rotary-Encoder-Set	1	6,99 €	6,99 €
+Drucktaster-Set	1	9,99 €	9,99 €
+Silikonschlauch 5 mm, 10 m	1	13,99 €	13,99 €
+Silikonschlauch 10 mm, 2 m	1	8,99 €	8,99 €
+Schlauchverbinder 6 mm Set	1	8,99 €	8,99 €
+Schlauchverbinder 5-12 mm Set	1	6,99 €	6,99 €
+Schlauchklemmen Set	1	9,99 €	9,99 €
+Schrauben- und Mutternset	1	18,99 €	18,99 €
+Filament für Gehäusebauteile	1	24,99 €	24,99 €
+WAGO-Klemmen Set	1	19,99 €	19,99 €
+Aderleitung 0,75 mm²	1	12,99 €	12,99 €
+Aderendhülsenzange + Hülsenset	1	24,99 €	24,99 €
+Jumper-Wire Set	1	6,99 €	6,99 €
+
+Zwischensummen:
+Elektronik und Steuerung: ca. 158,86 €
+Fluidik und Pumpensystem: ca. 218,84 €
+Montage, Verdrahtung und Gehäuse: ca. 108,94 €
+Gesamtkosten Prototyp (inkl. Hilfsmaterial): ca. 486,64 €
+
+Hinweis:
+Die Kostenberechnung enthält bewusst auch Hilfs- und Montagematerialien, damit die Gesamtkalkulation für den Prototyp nachvollziehbar bleibt. Verbrauchsmaterialien für den Betrieb (z. B. Getränke, Reinigungsmittel, Stromverbrauch) sind nicht enthalten. Wird vorhandenes Werkzeug nicht mitgerechnet, reduzieren sich die reinen Materialkosten des aufgebauten Prototyps um ca. 24,99 € auf ca. 461,65 €.
+
 Bauteil:	Bild:	Link:	Datenblatt:
 Youmile 2 Stück DC 8-35V bis DC 5V USB C DC DC Konverter Buck Modul 12V/24V bis 5V 3A 15W USB Ausgang Step Down Spannungsregler Ladegerät mit Knopfkappe
 	 	Youmile 2 Stück DC 8-35V bis DC 5V USB C DC DC Konverter Buck Modul 12V/24V bis 5V 3A 15W USB Ausgang Step Down Spannungsregler Ladegerät mit Knopfkappe: Amazon.de: Elektronik & Foto
@@ -1070,4 +1109,3 @@ Youmile (o. J.): Produktseite Buck-Konverter 24 V auf 5 V. Online verfügbar unt
 Unbekannter Hersteller (o. J.): Produktseite Buck-Konverter 24 V auf 12 V. Online verfügbar unter: https://www.amazon.de/dp/B0CTFJD6XF (abgerufen am 23.04.2026).
 Unbekannter Hersteller (o. J.): Produktseite Buck-Konverter 12 V auf 3,3 V. Online verfügbar unter: https://www.amazon.de/dp/B0DS7C6HXV (abgerufen am 23.04.2026).
 AliExpress (o. J.): Produktseite Normally Open Micro-Magnetventil. Online verfügbar unter: https://de.aliexpress.com/item/1005003084621654.html (abgerufen am 23.04.2026).
-
