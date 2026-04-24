@@ -2,7 +2,9 @@
 
 Dieses Dokument beschreibt den technischen Gesamtablauf des Cocktailautomaten aus Firmware, Weboberfläche und Kommunikation.
 
-![Gesamtprogramm-Ablauf](./Gesamtprogramm_Ablauf.svg)
+![Gesamtprogramm-Ablauf](./Gesamtprogramm_Ablauf.png)
+
+Die PNG-Version ist für Programme wie Word besser geeignet. Die skalierbare SVG-Quelldatei bleibt zusätzlich im Projekt erhalten.
 
 ---
 
