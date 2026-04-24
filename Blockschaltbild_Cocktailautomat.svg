@@ -115,7 +115,7 @@
   <text class="label" x="405" y="560">Benutzer bedient Gerät</text>
   <text class="label" x="1620" y="525">Kommunikation</text>
   <text class="label" x="1650" y="285">Online-Rezepte laden</text>
-  <text class="label" x="860" y="1015">Bedien- und Sensordaten</text>
+  <text class="label" x="700" y="1015">Bedien- und Sensordaten</text>
   <text class="label" x="2210" y="1065">Steuersignale</text>
   <text class="label" x="2160" y="1195">fördert / schaltet</text>
   <text class="label" x="1030" y="1535" fill="#dc2626">Versorgung</text>
