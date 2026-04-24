@@ -873,7 +873,7 @@ Die folgenden Preise sind Näherungswerte auf Basis der in dieser Materialliste 
 | Bauteil | Anzahl | Einzelpreis ca. | Gesamt ca. |
 |---|---:|---:|---:|
 | 24V-Netzteil BRIMETI 150 W | 1 | 24,99 € | 24,99 € |
-| DC/DC-Konverter 24 V → 5 V (2er-Set) | 1 | 8,99 € | 8,99 € |
+| DC/DC-Konverter 24 V → 5 V | 2 | 4,50 € | 9,00 € |
 | ESP32-S3 Board | 1 | 12,99 € | 12,99 € |
 | ESP32-Erweiterungsplatine | 1 | 9,99 € | 9,99 € |
 | DC/DC-Konverter 24 V → 12 V | 1 | 12,99 € | 12,99 € |
@@ -899,13 +899,13 @@ Die folgenden Preise sind Näherungswerte auf Basis der in dieser Materialliste 
 | Jumper-Wire Set | 1 | 6,99 € | 6,99 € |
 
 Zwischensummen:
-Elektronik und Steuerung: ca. 158,86 €
+Elektronik und Steuerung: ca. 158,87 €
 Fluidik und Pumpensystem: ca. 218,84 €
 Montage, Verdrahtung und Gehäuse: ca. 108,94 €
-Gesamtkosten Prototyp (inkl. Hilfsmaterial): ca. 486,64 €
+Gesamtkosten Prototyp (inkl. Hilfsmaterial): ca. 486,65 €
 
 Hinweis:
-Die Kostenberechnung enthält bewusst auch Hilfs- und Montagematerialien, damit die Gesamtkalkulation für den Prototyp nachvollziehbar bleibt. Verbrauchsmaterialien für den Betrieb (z. B. Getränke, Reinigungsmittel, Stromverbrauch) sind nicht enthalten. Wird vorhandenes Werkzeug nicht mitgerechnet, reduzieren sich die reinen Materialkosten des aufgebauten Prototyps um ca. 24,99 € auf ca. 461,65 €.
+Die Kostenberechnung enthält bewusst auch Hilfs- und Montagematerialien, damit die Gesamtkalkulation für den Prototyp nachvollziehbar bleibt. Verbrauchsmaterialien für den Betrieb (z. B. Getränke, Reinigungsmittel, Stromverbrauch) sind nicht enthalten. Die Mengen 3 Relaismodule, 10 Ventile und 2 Konverter 24 V → 5 V wurden entsprechend der Materialliste berücksichtigt. Wird vorhandenes Werkzeug nicht mitgerechnet, reduzieren sich die reinen Materialkosten des aufgebauten Prototyps um ca. 24,99 € auf ca. 461,66 €.
 
 Bauteil:	Bild:	Link:	Datenblatt:
 Youmile 2 Stück DC 8-35V bis DC 5V USB C DC DC Konverter Buck Modul 12V/24V bis 5V 3A 15W USB Ausgang Step Down Spannungsregler Ladegerät mit Knopfkappe
