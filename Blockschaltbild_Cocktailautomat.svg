@@ -101,8 +101,6 @@
   <line class="arrow" x1="700" y1="1100" x2="890" y2="1100"/>
   <line class="arrow" x1="1730" y1="1010" x2="1910" y2="690"/>
   <line class="arrow" x1="1730" y1="1070" x2="1910" y2="1080"/>
-  <line class="arrow" x1="2520" y1="1080" x2="2520" y2="1080"/>
-
   <line class="arrow-power" x1="1020" y1="1320" x2="420" y2="820"/>
   <line class="arrow-power" x1="1200" y1="1320" x2="1200" y2="1160"/>
   <line class="arrow-power" x1="1380" y1="1320" x2="1380" y2="1160"/>
