@@ -44,13 +44,13 @@
   <line class="arrow" x1="1300" y1="530" x2="1300" y2="610"/>
 
   <rect class="panel-purple" x="80" y="610" width="760" height="330"/>
-  <text class="section" x="120" y="665">2. Grundarchitektur</text>
-  <text class="text" x="120" y="715">ESP32-Firmware</text>
-  <text class="small" x="120" y="750">Hardware, Menülogik, Rezepte, Pumpe, Reinigung</text>
-  <text class="text" x="120" y="795">MQTT</text>
-  <text class="small" x="120" y="830">Befehle + Statusdaten zwischen Browser und ESP32</text>
-  <text class="text" x="120" y="875">Weboberfläche</text>
-  <text class="small" x="120" y="910">Anzeige, Fernbedienung, Rezeptverwaltung</text>
+  <text class="section" x="120" y="660">2. Grundarchitektur</text>
+  <text class="text" x="120" y="705">ESP32-Firmware</text>
+  <text class="small" x="120" y="740">Hardware, Menülogik, Rezepte, Pumpe, Reinigung</text>
+  <text class="text" x="120" y="780">MQTT</text>
+  <text class="small" x="120" y="815">Befehle + Statusdaten zwischen Browser und ESP32</text>
+  <text class="text" x="120" y="855">Weboberfläche</text>
+  <text class="small" x="120" y="890">Anzeige, Fernbedienung, Rezeptverwaltung</text>
 
   <rect class="panel-purple" x="920" y="610" width="760" height="330"/>
   <text class="section" x="960" y="665">3. Bedienwege</text>
@@ -165,12 +165,12 @@
   <text class="small" x="1820" y="3305">• Luftventil / Luftpfad aktivieren</text>
   <text class="small" x="1820" y="3340">• danach nochmals Gewicht bewerten</text>
 
-  <text class="text" x="120" y="3560">Nach jeder Zutat: kurze Stabilisierungspause der Waage</text>
-  <text class="text" x="120" y="3600">Wenn das Glas entfernt wird: Rezept sofort abbrechen</text>
+  <text class="text" x="120" y="3535">Nach jeder Zutat: kurze Stabilisierungspause der Waage</text>
+  <text class="text" x="120" y="3575">Wenn das Glas entfernt wird: Rezept sofort abbrechen</text>
   <line class="arrow" x1="820" y1="3340" x2="950" y2="3340"/>
   <line class="arrow" x1="1650" y1="3340" x2="1780" y2="3340"/>
 
-  <line class="arrow" x1="1300" y1="3600" x2="1300" y2="3680"/>
+  <line class="arrow" x1="1300" y1="3620" x2="1300" y2="3680"/>
 
   <rect class="panel-green" x="80" y="3680" width="1180" height="430"/>
   <text class="section" x="120" y="3735">11. Nach dem Rezept</text>
