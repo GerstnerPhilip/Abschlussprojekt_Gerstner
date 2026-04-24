@@ -2,6 +2,8 @@
 
 Dieses Dokument beschreibt den technischen Gesamtablauf des Cocktailautomaten aus Firmware, Weboberfläche und Kommunikation.
 
+![Gesamtprogramm-Ablauf](./Gesamtprogramm_Ablauf.svg)
+
 ---
 
 ## 1. Systemstart
