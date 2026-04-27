@@ -1,3 +1,26 @@
+
+
+
+Abstrakt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Ausgearbeitet von	Phillip Gerstner
 Klasse	FSTEL24
 Schulform	Vollzeit
@@ -6,163 +29,262 @@ Betreuer	Herr Benz
 	
 Helfer	Quoiffy Lars
 
-
-
-Stand: 16.04.2026
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Inhalt
-Einleitung:	5
-Wie bin ich auf dieses Projekt gekommen:	5
-Vorplanung:	6
-Vorgehensweise	6
-Material Auswahl:	9
-Spannungsversorgung & Elektronikbasis	9
-Mikrocontroller & Erweiterung	10
-Pumpe & Motorsteuerung	10
-Ventile & Relais	11
-Sensorik	11
-Bedienung & Anzeige	11
-Schlauchsystem & Verbindungen	12
-Elektroinstallation	12
-Befestigung & Gehäuse	12
-Blockdiagramm:	13
-Ausführung:	14
-3D-Druck:	14
-Modul 0 / 1: Spannung und ESP-Modul	14
-Modul 2: Wage Modul	15
-Modul 3: Abstandshalter	16
-Modul 4: Ventil und Relais-Modul	17
-Modul 5: Pumpe und Controller	19
-Modul 6: Bildschirm, Rotary Encoder, Taster	20
-Schraube 1:	21
-Schraube 2:	22
-Zusammenbau der Module:	22
-Modul 0/1 – Spannung und ESP-Modul	22
-Modul 2 – Waage-Modul	23
-Modul 3 – Abstandshalter und Dokumentations-Modul	24
-Modul 4 – Ventil und Relais-Modul	24
-Modul 5 – Pumpe und Controller	25
-Modul 6 – Bildschirm, Rotary Encoder, Taster	25
-Fehler und Lösungen die Bei dem Aufbau und Betrieb aufgetreten sind:	26
-Problem 1: Ventil schaltet ungewollt	26
-Problem 2: Spannungsfall in der Zuleitung der Relais	26
-Problem 3: Spannungsinkompatibilität der Relais	26
-Problem 4: Stromeinstellung des Motortreibers	26
-Problem 5: Begrenzte Anzahl schaltbarer Relais am ESP32	26
-Problem 6: Luftziehen des Systems	26
-Technische Beschreibung der verwendeten Bauteile:	27
-1. Mikrocontroller – ESP32-S3 (XTVTX ESP-S3-DevKitC-1 N16R8)	27
-2. Schaltnetzteil – BRIMETI LED Trafo 24 V / 150 W (IP67)	27
-3. Buck-Konverter (Spannungswandler 24 V → 12 V, 24 V → 5 V, 12 V → 3,3 V)	28
-4. Schlauchpumpe – Kamoer KDS3000-ST (24 V, 0–1800 ml/min)	29
-5. Schrittmotortreiber – COVVY TB6600 (9–42 V, 4 A)	29
-6. Magnetventil – Normally Open Micro-Magnetventil (DC 12 V)	30
-7. Relaismodul – Low-Level Trigger, 3,3 V (4-Kanal)	30
-8. Wägezelle + HX711-ADC (5 kg, 24-Bit)	31
-9. LCD-Display – AZDelivery HD44780 2004 (I²C, 4 × 20 Zeichen)	31
-10. Drehgeber – GIAK KY-040 Rotary Encoder	32
-Programm:	33
-Schaltplan	33
-Seite 1/7	33
-Seite 2/7	34
-Seite 3/7	35
-Seite 4/7	36
-Seite 5/7	37
-Seite 6/7	38
-Seite 7/7	39
-Bedienungsanleitung Automat:	39
-Vor dem Gebrauch:	39
-Flüssigkeiten Anschließen:	39
-Bedienelemente:	40
-Einschalten und Startvorgang:	40
-Hauptmenü:	42
-Rezept auswählen und starten:	43
-Manuelle Eingabe:	45
-Reinigungsmodus:	46
-Manuelle Bedienung:	46
-Online:	46
-GitHub Token	50
-Verbesserungsvorschläge:	50
-Verbesserungsvorschlag 1: LCD → OLED-Touchscreen	50
-Verbesserungsvorschlag 2: SD-Karte für Rezepte	50
-Gefahrenanalyse:	51
-1. Systembeschreibung	51
-2. Methode der Risikobewertung	52
-3. Risikotabelle	52
-4. Schutzmaßnahmen nach STOP-Prinzip	54
-5. Funktionale Sicherheit nach ISO 13849 und EN 62061	56
-5.1 ISO 13849-1 – Sicherheitsbezogene Teile von Steuerungen (Performance Level)	56
-5.2 EN 62061 – Funktionale Sicherheit elektrischer Steuerungssysteme (SRECS)	57
-6. Restrisikobewertung	58
-7. Fazit	58
-Ergebnis:	59
-Fazit:	59
-Zielformulierung & Lastenheft –Abschlussprojekt	59
-Projektziel	59
-Weg zum Ziel (Projektstrategie)	60
-Arbeitsschritte, Zeitplanung & Endprodukte	61
-Strukturplan & Abhängigkeiten	62
-Flaschenhalsanalyse (Risiken & Gegenmaßnahmen)	62
-Besonderheit & Bachelor-Niveau	63
-Materialliste:	63
-Quellen:	66
+Einleitung	8
+Wie bin ich auf dieses Projekt gekommen?	8
+Zielformulierung & Lastenheft – Abschlussprojekt	9
+Projektziel	9
+Weg zum Ziel (Projektstrategie)	10
+Arbeitsschritte, Zeitplanung & Endprodukte	11
+Strukturplan & Abhängigkeiten	11
+Flaschenhalsanalyse (Risiken & Gegenmaßnahmen)	12
+Besonderheit & Bachelor-Niveau	12
+Planung	13
+Vorgehensweise	13
+Material Auswahl	16
+Spannungsversorgung & Elektronikbasis	16
+Mikrocontroller & Erweiterung	17
+Pumpe & Motorsteuerung	17
+Ventile & Relais	17
+Sensorik	18
+Bedienung & Anzeige	18
+Schlauchsystem & Verbindungen	18
+Elektroinstallation	19
+Befestigung & Gehäuse	19
+Blockdiagramm	19
+Ausführung	20
+3D-Druck	20
+Modul 0 / 1: Spannung und ESP-Modul	21
+Modul 2: Wage Modul	22
+Modul 3: Abstandshalter	23
+Modul 4: Ventil und Relais-Modul	24
+Modul 5: Pumpe und Controller	25
+Modul 6: Bildschirm, Rotary Encoder, Taster	26
+Schraube 1:	27
+Schraube 2:	28
+Zusammenbau der Module	28
+Modul 0/1 – Spannung und ESP-Modul	28
+Modul 2 – Waage-Modul	29
+Modul 3 – Abstandshalter und Dokumentations-Modul	30
+Modul 4 – Ventil und Relais-Modul	30
+Modul 5 – Pumpe und Controller	31
+Modul 6 – Bildschirm, Rotary Encoder, Taster	31
+Fehler und Lösungen die Bei dem Aufbau und Betrieb aufgetreten sind	32
+Problem 1: Ventil schaltet ungewollt	32
+Problem 2: Spannungsfall in der Zuleitung der Relais	32
+Problem 3: Spannungsinkompatibilität der Relais	32
+Problem 4: Stromeinstellung des Motortreibers	32
+Problem 5: Begrenzte Anzahl schaltbarer Relais am ESP32	33
+Problem 6: Luftziehen des Systems	33
+Technische Beschreibung der verwendeten Bauteile	33
+1. Mikrocontroller – ESP32-S3 (XTVTX ESP-S3-DevKitC-1 N16R8)	33
+2. Schaltnetzteil – BRIMETI LED Trafo 24 V / 150 W (IP67)	34
+3. Buck-Konverter (Spannungswandler 24 V → 12 V, 24 V → 5 V, 12 V → 3,3 V)	34
+4. Schlauchpumpe – Kamoer KDS3000-ST (24 V, 0–1800 ml/min)	35
+5. Schrittmotortreiber – COVVY TB6600 (9–42 V, 4 A)	35
+6. Magnetventil – Normally Open Micro-Magnetventil (DC 12 V)	36
+7. Relaismodul – Low-Level Trigger, 3,3 V (4-Kanal)	36
+8. Wägezelle + HX711-ADC (5 kg, 24-Bit)	37
+9. LCD-Display – AZDelivery HD44780 2004 (I²C, 4 × 20 Zeichen)	37
+10. Drehgeber – GIAK KY-040 Rotary Encoder	38
+Programm	38
+Wie habe ich Programmiert?	38
+Planung	39
+Durchführung	40
+Entwicklungsprozess	40
+Erklärungen einzelner Programm teile	42
+Menu Führung mit enum	42
+Flüssigkeitsverwaltung mit struct	44
+Verfügbare Flüssigkeiten	45
+Rezeptverwaltung	47
+Programm Dateien	54
+Hauptprogramm	54
+Frontend des Cocktail-Automaten	55
+Grundgerüst der Web-Oberfläche	55
+Design/Aussehen	55
+Rezepte	55
+Blockschaltbild	56
+Gesamtprogramm Ablauf	57
+Schaltplan	58
+Seite 1/7	58
+Seite 2/7	59
+Seite 3/7	60
+Seite 4/7	61
+Seite 5/7	62
+Seite 6/7	63
+Seite 7/7	64
+Bedienungsanleitung Automat	64
+Vor dem Gebrauch	64
+Flüssigkeiten Anschließen	64
+Bedienelemente	65
+Einschalten und Startvorgang	65
+Hauptmenü	67
+Rezept auswählen und starten	67
+Manuelle Eingabe	70
+Reinigungsmodus	70
+Manuelle Bedienung	71
+Online	71
+GitHub Token	74
+Verbesserungsvorschläge	74
+Verbesserungsvorschlag 1: LCD → OLED-Touchscreen	74
+Verbesserungsvorschlag 2: SD-Karte für Rezepte	75
+Gefahrenanalyse	75
+1. Systembeschreibung	75
+2. Methode der Risikobewertung	77
+3. Risikotabelle	77
+4. Schutzmaßnahmen nach STOP-Prinzip	79
+5. Funktionale Sicherheit nach ISO 13849 und EN 62061	81
+5.1 ISO 13849-1 – Sicherheitsbezogene Teile von Steuerungen (Performance Level)	81
+5.2 EN 62061 – Funktionale Sicherheit elektrischer Steuerungssysteme (SRECS)	82
+6. Restrisikobewertung	83
+7. Fazit	83
+Ergebnis	83
+Test-Cocktails	84
+Fazit	85
+Materialliste	85
+Quellen	89
+Ki	89
+ESP32-S3	89
+Schaltnetzteil	90
+Buck-Konverter	90
+Schlauchpumpe	90
+Schrittmotortreiber	91
+Magnetventil	91
+Relaismodul	91
+Wägezelle + HX711	91
+LCD-Display	92
+Drehgeber	92
+Literaturverzeichnis	92
 
 
 
 
 
-Einleitung:
-Im Rahmen des Abschlussprojekts der Meisterschule für Handwerker Kaiserslautern (Klasse FSTEL-24) wurde ein vollautomatischer Cocktail- und Getränkeautomat entwickelt und realisiert. Ziel des Projekts war es, ein mechatronisches System zu entwerfen, das die automatische Dosierung von bis zu neun verschiedenen Flüssigkeiten präzise und reproduzierbar ermöglicht.
-Als zentrale Steuereinheit kommt ein ESP32-S3-Mikrocontroller zum Einsatz, der sämtliche Hardware-Komponenten koordiniert. Die Flüssigkeitsdosierung erfolgt über eine Peristaltikpumpe (Kamoer KDS3000) in Kombination mit einem NEMA 23 Schrittmotor und neun steuerbaren Magnetventilen. Um eine gramm-genaue Abfüllung zu gewährleisten, wird das Gewicht kontinuierlich über ein HX711-Wägezellenverstärker erfasst. Die Bedienung vor Ort erfolgt über ein 4×20-Zeichen-LCD-Display mit I²C-Anbindung sowie einen Drehgeber mit Drucktaster.
-Darüber hinaus wurde eine Weboberfläche entwickelt, die über das lokale WLAN erreichbar ist und eine komfortable Steuerung vom Smartphone oder PC aus ermöglicht. Die Kommunikation zwischen Weboberfläche und Gerät erfolgt in Echtzeit über das MQTT-Protokoll. Rezepte können lokal im Gerät gespeichert oder über GitHub als öffentliche Online-Rezepte geteilt und abgerufen werden.
-Das Gehäuse wurde vollständig in 3D-Druck (PLA-Filament) gefertigt und modular aufgebaut, sodass einzelne Komponenten einfach gewartet oder ausgetauscht werden können.
-Die vorliegende Dokumentation beschreibt den gesamten Entwicklungsprozess von der Planung über die Hardwareauswahl bis hin zur Firmware- und Softwareentwicklung sowie einer abschließenden Gefahrenanalyse.
-Wie bin ich auf dieses Projekt gekommen:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Einleitung
+Im Rahmen des Abschlussprojekts der Meisterschule für Handwerker Kaiserslautern (Klasse FSTEL-24) wurde ein vollautomatischer Cocktail- und Getränkeautomat entwickelt und realisiert. Ziel des Projekts war es, ein mechatronisches System zu entwerfen, das die automatische Dosierung von bis zu neun verschiedenen Flüssig-keiten präzise und reproduzierbar ermöglicht.
+Als zentrale Steuereinheit kommt ein ESP32-S3-Mikrocontroller zum Einsatz, der sämtliche Hardware-Komponenten koordiniert. Die Flüssigkeitsdosierung erfolgt über eine Peristaltikpumpe (Kamoer KDS3000) in Kombination mit einem NEMA 23 Schrittmotor und neun steuerbaren Magnetventilen. Um eine gramm-genaue Abfül-lung zu gewährleisten, wird das Gewicht kontinuierlich über ein HX711-Wägezellenverstärker erfasst. Die Bedienung vor Ort erfolgt über ein 4×20-Zeichen-LCD-Display mit I²C-Anbindung sowie einen Drehgeber mit Drucktaster.
+Darüber hinaus wurde eine Weboberfläche entwickelt, die über das lokale WLAN erreichbar ist und eine komfortable Steuerung vom Smartphone oder PC aus er-möglicht. Die Kommunikation zwischen Weboberfläche und Gerät erfolgt in Echtzeit über das MQTT-Protokoll. Rezepte können lokal im Gerät gespeichert oder über GitHub als öffentliche Online-Rezepte geteilt und abgerufen werden.
+Das Gehäuse wurde vollständig in 3D-Druck (PLA-Filament) gefertigt und modular aufgebaut, sodass einzelne Komponenten einfach gewartet oder ausgetauscht wer-den können.
+Die vorliegende Dokumentation beschreibt den gesamten Entwicklungsprozess von der Planung über die Hardwareauswahl bis hin zur Firmware- und Softwareentwick-lung sowie einer abschließenden Gefahrenanalyse.
+Wie bin ich auf dieses Projekt gekommen?
 Die Idee zu diesem Projekt entstand bei einer privaten Feier mit meinem Vater, bei der ich selbst Cocktails gemixt habe. Im Gespräch kam dabei die Frage auf, ob es nicht praktisch wäre, diesen Vorgang zu automatisieren – also eine Maschine zu bauen, die Getränke selbstständig nach Rezept abfüllt und mischt. Diese Idee blieb mir im Gedächtnis.
-Als im Rahmen der Meisterschule bekannt wurde, dass auch eigenständig gewählte Projekte aus dem privaten Umfeld als Abschlussarbeit zugelassen sind, sah ich die Gelegenheit, diese Idee in die Tat umzusetzen. Die Verbindung aus einem persönlich motivierten Thema und den technischen Anforderungen eines Abschlussprojekts auf Techniker-Niveau machte den Cocktailautomaten zur naheliegenden Wahl.
+Als im Rahmen der Meisterschule bekannt wurde, dass auch eigenständig gewählte Projekte aus dem privaten Umfeld als Abschlussarbeit zugelassen sind, sah ich die Gelegenheit, diese Idee in die Tat umzusetzen. Die Verbindung aus einem persön-lich motivierten Thema und den technischen Anforderungen eines Abschlussprojekts auf Techniker-Niveau machte den Cocktailautomaten zur naheliegenden Wahl.
+Zielformulierung & Lastenheft – Abschlussprojekt
+Projekt: 	Modularer Getränkeautomat
+Schüler: 	Phillip Gerstner
+Klasse: 	FSTEL24 – Meisterschule für Handwerker (Kaiserslautern)
 
-Vorplanung:
-Hier ist alles Beschrieben, was ich vor dem Anfangen der Durchführung getan habe.
+Projektziel
+Ziel dieses Abschlussprojekts ist die Planung, Entwicklung und der Bau eines modu-laren, Getränkeautomaten, der sowohl funktional als auch technisch den Anforde-rungen eines Projekts auf Techniker- bzw. Bachelor-Niveau entspricht.
+Der Getränkeautomat soll in der Lage sein, bis zu neun unterschiedliche Flüssigkei-ten (z. B. Wasser, Sirup, Saft oder andere Getränke) zu verarbeiten und daraus Ein-zel- oder Mischgetränke automatisch herzustellen. Die Dosierung erfolgt nicht nur zeitbasiert, sondern primär über eine integrierte Waage, um eine hohe Genauigkeit und Reproduzierbarkeit der Füllmengen zu gewährleisten.
+Ein zentrales Ziel ist es, den Automaten modular aufzubauen. Jedes Modul erfüllt eine klar definierte Funktion, etwa Spannungsversorgung, Sensorik, Aktorik, Pum-pensteuerung oder Benutzerbedienung. Dadurch wird das System übersichtlich, wartungsfreundlich, erweiterbar und leichter zu testen.
+Zusätzlich soll der Automat über verschiedene Bedienmöglichkeiten verfügen: lokale Steuerung über Taster, Rotary-Encoder und Display sowie eine optionale Browser-Anbindung zur Konfiguration oder Getränkeauswahl.
+Das Endprodukt ist ein funktionsfähiger Prototyp eines Getränkeautomaten, inklusi-ve Mechanik, Elektronik, Software, Benutzeroberfläche und vollständiger Projektdo-kumentation.
+Ziel des Projekts ist die Entwicklung und der Bau eines modularen, programmierba-ren Getränkeautomaten, der:
+•	bis zu 9 verschiedene Flüssigkeiten dosieren kann,
+•	Getränke mit hoher Genauigkeit über eine integrierte Waage abfüllt,
+•	Einzel- und Mischgetränke in vorgegebenen Zeiten zubereitet,
+•	verschiedene Glasgrößen erkennt bzw. einstellbar macht,
+•	über Taster, Rotary-Encoder, Display und Browser bedienbar ist,
+•	einen Reinigungsmodus besitzt,
+•	in austauschbare Module unterteilt ist (Elektronik, Waage, Pumpen, Ventile, Bedienung, Mechanik).
+Ergebnis (Produkt): Funktionsfähiger Prototyp eines modularen Getränkeautomaten inklusive Software, Gehäuse, Elektronik, Dokumentation und Stückliste.
+Weg zum Ziel (Projektstrategie)
+Um das Projekt strukturiert, effizient und technisch sauber umzusetzen, wurde der Getränkeautomat bewusst in klar abgegrenzte Funktionsmodule unterteilt. Diese modulare Projektstrategie ermöglicht es, einzelne Systembereiche unab-hängig voneinander zu entwickeln, zu testen und bei Bedarf zu optimieren oder auszutauschen. Dadurch wird die Fehlersuche vereinfacht, die Wartbarkeit ver-bessert und die Erweiterbarkeit des Systems sichergestellt.
+Jedes Modul übernimmt eine klar definierte Aufgabe innerhalb des Gesamtsys-tems:
+1.	Spannungsversorgung & Mikrocontroller (ESP32) Dieses Modul stellt die zentrale Energieversorgung für alle elektronischen Komponenten sicher und beinhaltet den Mikrocontroller (ESP32) als Hauptsteuereinheit. Der ESP32 verarbeitet Sensordaten, steuert Aktoren (Pumpen, Ventile, Relais) und über-nimmt die Kommunikation mit der Benutzeroberfläche sowie optional mit ei-nem Webbrowser.
+2.	Waagenmodul (Gewichtserfassung) Das Waagenmodul dient zur präzisen Gewichtsmessung des befüllten Glases. Über Wägezellen und einen HX711-Verstärker werden Gewichtsdaten erfasst und an den Mikrocontroller übertra-gen. Diese Daten ermöglichen eine exakte Dosierung der Getränke, wodurch eine konstante Füllmenge und hohe Wiederholgenauigkeit erreicht wird.
+3.	Leermodul für Höhengewinn
+4.	Ventil- & Relaismodul (Flüssigkeitssteuerung) In diesem Modul werden die Magnetventile und Relais untergebracht, die den Flüssigkeitsfluss steuern. Die Relais schalten die Ventile abhängig vom gewählten Getränk und der programmierten Rezeptur. Dieses Modul ist entscheidend für die korrekte Auswahl und Mischung der verschiedenen Flüssigkeiten.
+5.	Pumpen- & Motorsteuerungsmodul Dieses Modul steuert die Förderpumpen sowie die zugehörigen Motorcontroller. Es regelt die Durchflussmenge, die Fördergeschwindigkeit und das zeitliche Zusammenspiel mit den Ventilen. Damit ist es ein zentraler Bestandteil für eine gleichmäßige, kontrollierte und schnelle Befüllung der Getränke.
+6.	Bedienmodul (Display, Encoder, Taster) Das Bedienmodul bildet die Schnitt-stelle zwischen Benutzer und Maschine. Über ein Display, Rotary-Encoder und Drucktaster kann der Benutzer Getränke auswählen, Glasgrößen einstel-len, den Füllvorgang starten oder stoppen sowie Wartungsfunktionen wie den Reinigungsmodus aktivieren.
+Durch diese modulare Aufteilung kann das Projekt systematisch umgesetzt wer-den: Zunächst werden die einzelnen Module entwickelt und getestet, anschlie-ßend erfolgt die Integration in das Gesamtsystem. Diese Strategie reduziert technische Risiken, erleichtert die Dokumentation.
+Arbeitsschritte, Zeitplanung & Endprodukte
+Schritt	Aufgabe	Geschätzte Zeit	Endprodukt
+1	Projektplanung & Konzept	6 h	Lastenheft, Blockdia-gramm
+2	Mechanisches Design (Fusion 360)	20 h	CAD-Dateien, Modulde-sign
+3	3D-Druck der Module	140 h	Gedruckte Gehäuseteile
+4	Elektronik-Aufbau (ESP32, Relais, Waage)	8 h	Verdrahtete Elektronik
+5	Pumpen- & Ventilintegration	6 h	Flüssigkeitssystem
+6	Softwareentwicklung	15 h	Steuerungssoftware
+7	UI-Programmierung (Display, En-coder)	5 h	Benutzeroberfläche
+8	Systemintegration	10 h	Komplett montiertes System
+9	Test, Kalibrierung & Optimierung	6 h	Funktionsfähiger Proto-typ
+10	Dokumentation & Präsentation	10 h	Abschlussbericht
+Gesamtzeit: ca. 86 Stunden, die Druck Zeit ist hier nicht mitgerechnet
+Strukturplan & Abhängigkeiten
+Lineare Abhängigkeiten
+•	CAD-Design → 3D-Druck → Montage
+•	Elektronik-Hardware → Software-Programmierung → Funktionstest
+•	Pumpen/Ventile → Kalibrierung → Mischlogik
+Parallel mögliche Arbeiten
+•	Software kann teilweise parallel zum Gehäusebau entwickelt werden
+•	Dokumentation kann fortlaufend ergänzt werden
+Kritische Abhängigkeiten
+•	Funktion der Waage beeinflusst Dosiergenauigkeit
+•	Zuverlässigkeit der Pumpen und Ventile bestimmt Funktionsfähigkeit
+•	Software-Stabilität ist zentral für den Gesamtbetrieb
+Flaschenhalsanalyse (Risiken & Gegenmaßnahmen)
+Risiko	Auswirkung	Gegenmaßnahme
+Ungenaue Waage	Fehlende Dosiergenau-igkeit	Frühe Kalibrierung
+Pumpenleistung instabil	Ungleichmäßige Füll-mengen	Durchfluss-Tests
+Softwarefehler	Systemausfälle	Modularer Code & Debugging
+Leckagen im Schlauchsys-tem	Funktions- & Hygienerisi-ko	Dichtigkeitsprüfung
+Zeitüberschreitung	Projektverzug	Priorisierung wichtiger Funk-tionen
+Strom-/Spannungsprobleme	Schäden an Elektronik	Last- & Sicherheitstests
+Kritisch früh zu klären: Sensorik, Pumpenverhalten, Steuerungslogik, Dichtheit, Ka-librierung.
+Besonderheit & Bachelor-Niveau
+Dieses Projekt erreicht Techniker-/Bachelor-Niveau, weil es:
+•	mehrere Ingenieursdisziplinen kombiniert (Elektrotechnik, Mechanik, Soft-ware, Automatisierung),
+•	ein modulares Produktdesign verfolgt,
+•	reale Industrie-Komponenten nutzt (Motorsteuerung, Pumpen, Sensorik),
+•	Benutzerinterface + Web-Anbindung integriert,
+•	eine neuartige Anwendung (intelligenter, modularer Getränkeautomat) reali-siert,
+Innovationskern: Kombination aus modularer Bauweise, Gewichtsgesteuerter Dosie-rung, digitaler Steuerung und konfigurierbarer Getränkemischung.
+Planung
+Hier ist alles Beschrieben, was ich in der Planung gemacht habe.
 Vorgehensweise
-Zu Beginn des Projekts habe ich überlegt, wie an das Projekt Herangehen kann. Dabei habe ich zwei mögliche Ansätze herauskristallisiert: die Realisierung des gesamten Systems in einem einzigen Modul sowie die Aufteilung in mehrere separate Module. Die Entscheidung fiel auf den modularen Aufbau, da dies es ermöglicht, einzelne Module separat fertigzustellen und unmittelbar nach Abschluss zu testen. In einem ersten Schritt wurden alle benötigten Komponenten sowie deren Zuordnung zu den jeweiligen Modulen schriftlich festgehalten. Die beigefügten Skizzen aus Samsung Notes dokumentieren die ersten groben konzeptionellen Überlegungen.
+Zu Beginn des Projekts habe ich überlegt, wie an das Projekt Herangehen kann. Dabei habe ich zwei mögliche Ansätze herauskristallisiert: die Realisierung des ge-samten Systems in einem einzigen Modul sowie die Aufteilung in mehrere separate Module. Die Entscheidung fiel auf den modularen Aufbau, da dies es ermöglicht, einzelne Module separat fertigzustellen und unmittelbar nach Abschluss zu testen. In einem ersten Schritt wurden alle benötigten Komponenten sowie deren Zuordnung zu den jeweiligen Modulen schriftlich festgehalten. Die beigefügten Skizzen aus Samsung Notes dokumentieren die ersten groben konzeptionellen Überlegungen.
 Originale Notizen und Zeichnungen: 
 
 
 
 Anforderungen an den Getränkeautomaten
-Im nächsten Schritt wurden die funktionalen Anforderungen an den Getränkeautomaten definiert:
-•	Befüllung mit verschiedenartigen Flüssigkeiten (z. B. Bier, Saft, Sirup, Wasser)
+Im nächsten Schritt wurden die funktionalen Anforderungen an den Getränkeauto-maten definiert:
+•	Befüllung mit verschiedenartigen Flüssigkeiten (z. B. Bier, Saft, Sirup, Was-ser)
 •	Unterstützung von 9 verschiedenen Flüssigkeiten
 •	Befüll Genauigkeit: ±5 ml (Messung durch Wägung des Glases)
 •	Kompatibilität mit Gläsern bis zu einer Höhe von 20 cm
 Zeitanforderungen:
-•	Befüllung eines 500-ml-Glases mit einer einzelnen Flüssigkeit: unter 15 Sekunden
+•	Befüllung eines 500-ml-Glases mit einer einzelnen Flüssigkeit: unter 15 Se-kunden
 •	Befüllung mit mehreren Flüssigkeiten: unter 30 Sekunden
 Weitere Anforderungen:
 •	Getränkeauswahl sowohl direkt am Gerät als auch über einen Webbrowser
 •	Reinigungsmodus
 Modularer Aufbau
-Auf Basis der gesammelten Anforderungen wurde die Systemstruktur in sechs Module unterteilt:
-Modul	Bezeichnung
+Auf Basis der gesammelten Anforderungen wurde die Systemstruktur in sechs Mo-dule unterteilt:
+Mo-dul	Bezeichnung
 0/1	Spannung und ESP-Modul
 2	Waage-Modul
 3	Abstandshalter und Dokumentations-Modul
@@ -180,7 +302,7 @@ Bildschirm	2
 Rotary Encoder	3
 Taster Glasauswahl	3
 Taster Start/Stopp	1
-Taster Tara (Waage)	1
+Taster Tara (Waa-ge)	1
 Gesamt	25
 
 Abmessungen der Module
@@ -196,54 +318,46 @@ Ausnahme Modul 0/1:
 Standardmaße:
 •	Alle normalen Module: 15 cm × 15 cm
 •	Modul 0/1: 15 cm × 20 cm
-Höhe Modul 0/1: Der BRIMETI LED-Trafo hat eine Höhe von 13,3 cm. Da die Anschlussleitungen oben und unten aus dem Gerät herausgeführt werden, ist zusätzlicher Bauraum erforderlich. Da die Gesamthöhe des Getränkeautomaten zum Zeitpunkt der Planung noch nicht feststand, wurde die Höhe auf 21 cm festgelegt: 20 cm für das Modul selbst sowie 1 cm Bodenplatte zur Erhöhung der Standfestigkeit.
-
-Material Auswahl:
-Hier sind auch die Bauteile, die erst später in, dass Projekt später hinzugefügt wurden aufgezählt.
+Höhe Modul 0/1: Der BRIMETI LED-Trafo hat eine Höhe von 13,3 cm. Da die An-schlussleitungen oben und unten aus dem Gerät herausgeführt werden, ist zusätzli-cher Bauraum erforderlich. Da die Gesamthöhe des Getränkeautomaten zum Zeit-punkt der Planung noch nicht feststand, wurde die Höhe auf 21 cm festgelegt: 20 cm für das Modul selbst sowie 1 cm Bodenplatte zur Erhöhung der Standfestigkeit.
+Material Auswahl
+Hier sind auch die Bauteile, die erst später in, dass Projekt später hinzugefügt wur-den aufgezählt.
 Spannungsversorgung & Elektronikbasis
-BRIMETI LED Trafo 24V 150W (IP67) Als Hauptnetzteil wurde ein 24V-Trafo gewählt, da die Schlauchpumpe (Kamoer KDS3000-ST) sowie die Magnetventile mit 24V bzw. 12V betrieben werden. Mit 150W bietet das Netzteil ausreichend Reserve für alle angeschlossenen Verbraucher gleichzeitig. Die IP67-Zertifizierung schützt das Gerät vor Feuchtigkeit – ein wichtiger Faktor in einem Getränkeautomaten, der regelmäßig mit Flüssigkeiten in Berührung kommt.
+BRIMETI LED Trafo 24V 150W (IP67) Als Hauptnetzteil wurde ein 24V-Trafo ge-wählt, da die Schlauchpumpe (Kamoer KDS3000-ST) sowie die Magnetventile mit 24V bzw. 12V betrieben werden. Mit 150W bietet das Netzteil ausreichend Reserve für alle angeschlossenen Verbraucher gleichzeitig. Die IP67-Zertifizierung schützt das Gerät vor Feuchtigkeit – ein wichtiger Faktor in einem Getränkeautomaten, der regelmäßig mit Flüssigkeiten in Berührung kommt.
 BuyWeek DC-DC-Wandler 24V → 12V, 5A Die Magnetventile und einige weitere Komponenten benötigen 12V. Anstatt ein zweites Netzteil zu verwenden, wird die 24V-Schiene über einen Buck-Konverter auf 12V geregelt. Das spart Platz, reduziert Verkabelungsaufwand und nutzt die vorhandene 24V-Versorgung effizient.
-Youmile DC-DC Buck Modul 24V → 5V (USB-C) Der ESP32 und weitere Logikkomponenten (Display, Encoder, HX711) arbeiten mit 5V bzw. 3,3V. Dieses kompakte Step-Down-Modul wandelt die 24V-Versorgung zuverlässig auf 5V um und kann über USB-C direkt das Entwicklungsboard versorgen.
-QUARKZMAN DC 12V → 3,3V, 3A Bestimmte Signalleitungen und Sensoren benötigen exakt 3,3V. Dieser kompakte Wandler stellt die notwendige Spannung mit ausreichend Strom zur Verfügung und ist durch seine IP67-Schutzklasse auch in feuchter Umgebung einsetzbar.
-
+Youmile DC-DC Buck Modul 24V → 5V (USB-C) Der ESP32 und weitere Logik-komponenten (Display, Encoder, HX711) arbeiten mit 5V bzw. 3,3V. Dieses kompak-te Step-Down-Modul wandelt die 24V-Versorgung zuverlässig auf 5V um und kann über USB-C direkt das Entwicklungsboard versorgen.
+QUARKZMAN DC 12V → 3,3V, 3A Bestimmte Signalleitungen und Sensoren benö-tigen exakt 3,3V. Dieser kompakte Wandler stellt die notwendige Spannung mit aus-reichend Strom zur Verfügung und ist durch seine IP67-Schutzklasse auch in feuch-ter Umgebung einsetzbar.
 Mikrocontroller & Erweiterung
 XTVTX ESP32-S3 DevKitC-1 (N16R8) Der ESP32-S3 wurde als Hauptsteuereinheit gewählt, weil er neben den zahlreichen GPIO-Pins (notwendig für Relais, Ventile, Encoder, Display, Waage) auch integriertes WLAN und Bluetooth 5.0 bietet. Damit lässt sich die geforderte Browser-Anbindung zur Getränkeauswahl ohne zusätzliche Hardware realisieren. Die Variante mit 16 MB Flash und 8 MB PSRAM bietet zudem genug Speicher für Rezepte, Webserver und OTA-Updates.
-Diymore ESP32-S3 Erweiterungsplatine Diese Erweiterungsplatine erleichtert den Anschluss aller Peripheriekomponenten erheblich, da sie die Pins des DevKitC-1 herausführt und mit Stiftleisten versieht. Das reduziert die Anzahl der Lötverbindungen und macht den Aufbau übersichtlicher und wartungsfreundlicher.
-
+Diymore ESP32-S3 Erweiterungsplatine Diese Erweiterungsplatine erleichtert den Anschluss aller Peripheriekomponenten erheblich, da sie die Pins des DevKitC-1 herausführt und mit Stiftleisten versieht. Das reduziert die Anzahl der Lötverbindun-gen und macht den Aufbau übersichtlicher und wartungsfreundlicher.
 Pumpe & Motorsteuerung
-Kamoer KDS3000-ST Schlauchpumpe (24V, 0–1800 ml/min) Die Kamoer-Schlauchpumpe wurde gezielt ausgewählt, weil sie einen Schrittmotor verwendet. Das ermöglicht eine präzise Drehzahlregelung und damit eine kontrollierbare Durchflussmenge. Mit bis zu 1800 ml/min erfüllt sie die Anforderung, ein 500-ml-Glas in unter 15 Sekunden zu befüllen. Schlauchpumpen haben zudem den Vorteil, dass das Fördergut nur mit dem Schlauch in Berührung kommt – ideal für Lebensmittelanwendungen.
-COVVY TB6600 Schrittmotorsteuerung (9–42V, 4A) Der TB6600 ist ein bewährter Schrittmotortreiber, der mit dem Schrittmotor der Kamoer-Pumpe kompatibel ist. Er unterstützt Mikroschritte (bis 1/32), was eine besonders feinfühlige Geschwindigkeitsregelung erlaubt. Der breite Spannungsbereich (9–42V) und der hohe Stromwert (4A) passen zur 24V-Betriebsspannung und den Anforderungen der Pumpe.
-
+Kamoer KDS3000-ST Schlauchpumpe (24V, 0–1800 ml/min) Die Kamoer-Schlauchpumpe wurde gezielt ausgewählt, weil sie einen Schrittmotor verwendet. Das ermöglicht eine präzise Drehzahlregelung und damit eine kontrollierbare Durch-flussmenge. Mit bis zu 1800 ml/min erfüllt sie die Anforderung, ein 500-ml-Glas in unter 15 Sekunden zu befüllen. Schlauchpumpen haben zudem den Vorteil, dass das Fördergut nur mit dem Schlauch in Berührung kommt – ideal für Lebensmittel-anwendungen.
+COVVY TB6600 Schrittmotorsteuerung (9–42V, 4A) Der TB6600 ist ein bewährter Schrittmotortreiber, der mit dem Schrittmotor der Kamoer-Pumpe kompatibel ist. Er unterstützt Mikroschritte (bis 1/32), was eine besonders feinfühlige Geschwindig-keitsregelung erlaubt. Der breite Spannungsbereich (9–42V) und der hohe Strom-wert (4A) passen zur 24V-Betriebsspannung und den Anforderungen der Pumpe.
 Ventile & Relais
-Normalerweise offenes Micro-Magnetventil (DC 12V) Für jede der neun Flüssigkeiten wird ein eigenes Magnetventil eingesetzt. Normalerweise offene Ventile wurden gewählt, damit bei Stromausfall keine Flüssigkeit in der Leitung eingesperrt bleibt – ein wichtiger Sicherheitsaspekt. Der 12V-Betrieb passt zur geregelten 12V-Versorgungsschiene.
-ICQUANZX / Low-Level-Trigger Relais (3,3V, 4-Kanal) Die Magnetventile werden über Relais vom ESP32-GPIO gesteuert. Low-Level-Trigger-Relais wurden gewählt, da der ESP32-S3 mit 3,3V-Logik arbeitet und diese Relaisbauart direkt mit 3,3V-Signalen ansteuerbar ist – ohne zusätzliche Pegelwandler. Die 4-Kanal-Variante erlaubt die Bündelung mehrerer Ventile pro Modul.
-
+Normalerweise offenes Micro-Magnetventil (DC 12V) Für jede der neun Flüssig-keiten wird ein eigenes Magnetventil eingesetzt. Normalerweise offene Ventile wur-den gewählt, damit bei Stromausfall keine Flüssigkeit in der Leitung eingesperrt bleibt – ein wichtiger Sicherheitsaspekt. Der 12V-Betrieb passt zur geregelten 12V-Versorgungsschiene.
+ICQUANZX / Low-Level-Trigger Relais (3,3V, 4-Kanal) Die Magnetventile werden über Relais vom ESP32-GPIO gesteuert. Low-Level-Trigger-Relais wurden gewählt, da der ESP32-S3 mit 3,3V-Logik arbeitet und diese Relaisbauart direkt mit 3,3V-Signalen ansteuerbar ist – ohne zusätzliche Pegelwandler. Die 4-Kanal-Variante er-laubt die Bündelung mehrerer Ventile pro Modul.
 Sensorik
-ALAMSCN 5kg Wägezelle + HX711 Die gewichtsbasierte Dosierung ist ein zentrales Merkmal des Automaten. Zwei 5-kg-Wägezellen im Doppelbrückenaufbau ermöglichen eine gleichmäßige Lastverteilung und erreichen in Kombination mit dem HX711-24-Bit-ADC eine Auflösung, die die geforderte Genauigkeit von ±5 ml zuverlässig unterschreitet. Das HX711-Modul kommuniziert direkt über zwei GPIOs mit dem ESP32.
-
+ALAMSCN 5kg Wägezelle + HX711 Die gewichtsbasierte Dosierung ist ein zentra-les Merkmal des Automaten. Zwei 5-kg-Wägezellen im Doppelbrückenaufbau er-möglichen eine gleichmäßige Lastverteilung und erreichen in Kombination mit dem HX711-24-Bit-ADC eine Auflösung, die die geforderte Genauigkeit von ±5 ml zuver-lässig unterschreitet. Das HX711-Modul kommuniziert direkt über zwei GPIOs mit dem ESP32.
 Bedienung & Anzeige
 AZDelivery HD44780 2004 LCD Display (I²C, 4×20 Zeichen) Das 4-zeilige Display bietet genug Platz, um Getränkename, Füllstatus, Glasgröße und Systemmeldungen gleichzeitig anzuzeigen. Die I²C-Schnittstelle reduziert den Pinverbrauch auf nur zwei Leitungen (SDA/SCL), was bei dem bereits hohen GPIO-Bedarf des Systems ein entscheidender Vorteil ist.
-GIAK KY-040 Rotary Encoder Der Drehgeber ermöglicht eine intuitive Navigation durch die Getränkemenüs ohne viele Taster. Er liefert Richtungs- und Schrittinformation sowie einen integrierten Druckknopf zur Bestätigung – ideal für eine kompakte Bedieneinheit.
-Gebildet Wasserdichte Edelstahl-Drucktaster (12mm) Back /  Zurück Taste wurden robuste, wasserdichte Metalltaster gewählt. Da der Automat mit Flüssigkeiten arbeitet, ist die Spritzwasserbeständigkeit ein wichtiges Kriterium. Die Edelstahlausführung ist langlebig und optisch ansprechend.
-
+GIAK KY-040 Rotary Encoder Der Drehgeber ermöglicht eine intuitive Navigation durch die Getränkemenüs ohne viele Taster. Er liefert Richtungs- und Schrittinforma-tion sowie einen integrierten Druckknopf zur Bestätigung – ideal für eine kompakte Bedieneinheit.
+Gebildet Wasserdichte Edelstahl-Drucktaster (12mm) Back /  Zurück Taste wur-den robuste, wasserdichte Metalltaster gewählt. Da der Automat mit Flüssigkeiten arbeitet, ist die Spritzwasserbeständigkeit ein wichtiges Kriterium. Die Edelstahlaus-führung ist langlebig und optisch ansprechend.
 Schlauchsystem & Verbindungen
-Coop Silikonschlauch 5mm Innen-Ø (lebensmittelecht) Silikonschläuche sind geschmacksneutral, lebensmittelecht und temperaturbeständig (-40 bis 220 °C). Sie sind flexibel genug für den Einbau in das modulare Gehäuse und eignen sich hervorragend für den Transport aller verwendeten Flüssigkeiten.
+Coop Silikonschlauch 5mm Innen-Ø (lebensmittelecht) Silikonschläuche sind geschmacksneutral, lebensmittelecht und temperaturbeständig (-40 bis 220 °C). Sie sind flexibel genug für den Einbau in das modulare Gehäuse und eignen sich her-vorragend für den Transport aller verwendeten Flüssigkeiten.
 Silikonschlauch 10mm Innen-Ø Für den Hauptförderstrang der Pumpe wurde ein größerer Innendurchmesser gewählt, um den Durchfluss zu maximieren und den Strömungswiderstand zu minimieren und auf die Pumpe zu Passen.
-LYTIVAGEN Schlauchverbinder I/L/T/Y (6mm) & Schlauchverbinder 5–12mm Diese Verbindungsstücke ermöglichen flexible Leitungsführung innerhalb der Module (Richtungsänderungen, Verzweigungen) ohne Leckagestellen. Die verschiedenen Formen (T, Y, L) decken alle nötigen Verbindungsszenarien ab.
-300-teiliges Federklemmen-Set (5–18mm) Federklemmen sichern die Schlauchverbindungen dauerhaft und leckagefrei. Das Set mit Montagezange deckt alle im Projekt verwendeten Schlauchdurchmesser ab.
-
+LYTIVAGEN Schlauchverbinder I/L/T/Y (6mm) & Schlauchverbinder 5–12mm Diese Verbindungsstücke ermöglichen flexible Leitungsführung innerhalb der Modu-le (Richtungsänderungen, Verzweigungen) ohne Leckagestellen. Die verschiedenen Formen (T, Y, L) decken alle nötigen Verbindungsszenarien ab.
+300-teiliges Federklemmen-Set (5–18mm) Federklemmen sichern die Schlauch-verbindungen dauerhaft und leckagefrei. Das Set mit Montagezange deckt alle im Projekt verwendeten Schlauchdurchmesser ab.
 Elektroinstallation
-WAGO 221 Verbindungsklemmen-Set WAGO-Klemmen ermöglichen eine werkzeuglose, sichere und wiederholbar lösbare Verbindung von Leitern verschiedener Querschnitte. Sie sind in der Industrie Standard und erhöhen die Wartungsfreundlichkeit erheblich.
+WAGO 221 Verbindungsklemmen-Set WAGO-Klemmen ermöglichen eine werk-zeuglose, sichere und wiederholbar lösbare Verbindung von Leitern verschiedener Querschnitte. Sie sind in der Industrie Standard und erhöhen die Wartungsfreund-lichkeit erheblich.
 Lapp H05V-K 1×0,75mm² (schwarz) Diese flexible PVC-Aderleitung eignet sich für die Verdrahtung der Niedervoltkomponenten (12V/24V). Der Querschnitt von 0,75mm² ist ausreichend für die auftretenden Ströme und lässt sich gut in engen Modulgehäusen verlegen.
 Aderendhülsen-Set mit Crimpzange (1200-teilig) Aderendhülsen werden auf alle Litzen gecrimpt, bevor sie in Klemmen oder Anschlussblöcke eingeführt werden. Das verhindert aufgespleißte Drähte, Kurzschlüsse und erhöht die Kontaktsicherheit.
 ZDE Jumper-Wire-Kabel (Female, 40cm) Für die Verbindung zwischen ESP32-Erweiterungsplatine und den Modulen (Relais, Display, Encoder, HX711) wurden konfektionierte Steckbrückenkabel verwendet. Sie ermöglichen schnellen Umbau während der Entwicklungsphase und müssen nicht gelötet werden.
-
 Befestigung & Gehäuse
 VIGRUE Schrauben- und Muttern-Set (M2/M3/M4, Edelstahl) Ein umfangreiches Schraubensortiment in Edelstahl deckt alle Befestigungsanforderungen der 3D-gedruckten Module ab. M3- und M4-Schrauben werden für die Modul-zu-Modul-Verbindungen und die Befestigung der Elektronikplatinen verwendet.
-ANYCUBIC PLA+ Filament 1,75mm (Schwarz, 1kg) PLA+ wurde als Druckmaterial für alle Gehäuseteile gewählt, weil es einfach zu drucken, maßhaltig und für Innenanwendungen ausreichend temperaturbeständig ist. Im Vergleich zu ABS ist es verzugsärmer und erfordert keine beheizte Kammer. Die schwarze Farbe verleiht dem Gerät ein einheitliches, professionelles Erscheinungsbild.
-Blockdiagramm:
+ANYCUBIC PLA+ Filament 1,75mm (Schwarz, 1kg) PLA+ wurde als Druckmaterial für alle Gehäuseteile gewählt, weil es einfach zu drucken, maßhaltig und für Innen-anwendungen ausreichend temperaturbeständig ist. Im Vergleich zu ABS ist es ver-zugsärmer und erfordert keine beheizte Kammer. Die schwarze Farbe verleiht dem Gerät ein einheitliches, professionelles Erscheinungsbild.
+Blockdiagramm
 Dieses Diagramm wurde auch mit den Neuen Bauteilen erweitert.
  
+Abbildung 6: Blockdiagramm
 ESP32:
   Eingänge:
     - Drehgeber
@@ -264,10 +378,10 @@ Relais schalten:
   - 9x Ventile (Flüssigkeit)
   - 1x Luftventil
 
-Ausführung:
+Ausführung
 Hier ist alles beschrieben, was ich gemacht habe, um das Projekt umzusetzen.
-3D-Druck:
-Die Module wurden mit der Software-Fusion-360 erstellt. Die Module wurden ursprünglich in der Planung mit 4 Schrauben geplant, dies wurde dann aber verworfen. Es wurde nur mit 2 Schrauben umgesetzt. Hier sind nicht alle Alliterationen der Module abgebildet, sondern nur die finale Version der Module. Die Module können von dem Physikalischen Aufbau etwas abweichen.
+3D-Druck
+Die Module wurden mit der Software-Fusion-360 erstellt. Die Module wurden ur-sprünglich in der Planung mit 4 Schrauben geplant, dies wurde dann aber verwor-fen. Es wurde nur mit 2 Schrauben umgesetzt. Hier sind nicht alle Alliterationen der Module abgebildet, sondern nur die finale Version der Module. Die Module können von dem Physikalischen Aufbau etwas abweichen.
 Modul 0 / 1: Spannung und ESP-Modul
 
 Technische Zeichnung:
@@ -322,42 +436,39 @@ Verschraubt Modul 4, Modul 5 und Modul 6 miteinander. Ist in der Datei von Modul
 
 Technische Zeichnung:
 
-
-Zusammenbau der Module:
-Im folgenden Abschnitt wird der Zusammenbau der einzelnen Module beschrieben, einschließlich der Anzahl der Modulteile sowie aufgetretener Probleme. Alle verbauten Bauteile sind je Modul aufgelistet. Leitungen, Schrauben und WAGO-Verbinder sind dabei nicht gesondert aufgeführt.
-
+Zusammenbau der Module
+Im folgenden Abschnitt wird der Zusammenbau der einzelnen Module beschrieben, einschließlich der Anzahl der Modulteile sowie aufgetretener Probleme. Alle verbau-ten Bauteile sind je Modul aufgelistet. Leitungen, Schrauben und WAGO-Verbinder sind dabei nicht gesondert aufgeführt.
 Modul 0/1 – Spannung und ESP-Modul
-Dieses Modul besteht aus zwei Baugruppen: dem Hauptteil, an dem alle elektronischen Komponenten befestigt sind, sowie einer Abdeckung zum Schutz der Elektronik. Die Befestigung der Bauteile erfolgte wahlweise durch Verschraubung oder Verklebung. Die elektrischen Verbindungen zwischen den Komponenten wurden mittels WAGO 221-Klemmen hergestellt.
+Dieses Modul besteht aus zwei Baugruppen: dem Hauptteil, an dem alle elektroni-schen Komponenten befestigt sind, sowie einer Abdeckung zum Schutz der Elektro-nik. Die Befestigung der Bauteile erfolgte wahlweise durch Verschraubung oder Ver-klebung. Die elektrischen Verbindungen zwischen den Komponenten wurden mittels WAGO 221-Klemmen hergestellt.
 Aufgetretene Probleme: Während des Zusammenbaus wurden Platzprobleme im Modul festgestellt. Die ursprünglich geplante Modullänge erwies sich als zu gering, was die Montage der Abdeckung erheblich erschwerte. Ursache hierfür war, dass im Verlauf des Zusammenbaus weiterer Module zusätzliche Spannungswandler (DC/DC-Konverter) als notwendig identifiziert wurden, die bei der ursprünglichen Planung nicht berücksichtigt worden waren.
 Bauteile dieses Moduls:
 Bezeichnung	Artikelname
-AC → DC Netzteil 230 V → 24 V	BRIMETI LED Trafo 24V 150W Wasserdicht IP67, LED-Treiber Netzteil 6,25 A mit Stecker, Schaltnetzteil Transformator AC 230V auf DC 24V, Außenbereich, kompakter dünner Konstantspannung Niedervolttrafo
-DC → DC Konverter 24 V → 5 V (2×)	Youmile 2 Stück DC 8–35V bis DC 5V USB-C DC/DC-Konverter Buck Modul 12V/24V bis 5V 3A 15W USB-Ausgang Step-Down-Spannungsregler Ladegerät mit Knopfkappe
-ESP32-Erweiterungsplatine	Diymore für ESP32 S3 Kit mit Erweiterungsplatine, für ESP32 S3 DevKitC-1 N16R8 Entwicklungsboard, WiFi Bluetooth Module (Stifte nicht gelötet)
+AC → DC Netz-teil 230 V → 24 V	BRIMETI LED Trafo 24V 150W Wasserdicht IP67, LED-Treiber Netzteil 6,25 A mit Stecker, Schaltnetzteil Transformator AC 230V auf DC 24V, Außenbereich, kompakter dünner Konstantspannung Niedervolttrafo
+DC → DC Kon-verter 24 V → 5 V (2×)	Youmile 2 Stück DC 8–35V bis DC 5V USB-C DC/DC-Konverter Buck Modul 12V/24V bis 5V 3A 15W USB-Ausgang Step-Down-Spannungsregler Ladegerät mit Knopfkappe
+ESP32-Erweiterungs-platine	Diymore für ESP32 S3 Kit mit Erweiterungsplatine, für ESP32 S3 DevKitC-1 N16R8 Entwicklungsboard, WiFi Bluetooth Module (Stif-te nicht gelötet)
 ESP32 S3 Board	XTVTX ESP S3 ESP-1-N16R8 S3-DevKitC-1 Entwicklungsboard mit WiFi, Bluetooth 5.0 für Arduino
 Nachträglich hinzugefügte Bauteile:
 Bezeichnung	Artikelname
-DC → DC Konverter 12 V → 3,3 V	QUARKZMAN DC 12V zu DC 3,3V Spannungswandler 3A 10W Step-Down-Wandler, Spannungsreduzierer IP67 wasserdichter Transformator Netzteilmodul
-DC → DC Konverter 24 V → 12 V	BuyWeek Netzteil Spannungswandler DC/DC-Wandler 24V auf 12V, 5A Spannungsversorgung Aluminiumgehäuse Netzteil Transformator
-________________________________________
+DC → DC Kon-verter 12 V → 3,3 V	QUARKZMAN DC 12V zu DC 3,3V Spannungswandler 3A 10W Step-Down-Wandler, Spannungsreduzierer IP67 wasserdichter Transformator Netzteilmodul
+DC → DC Kon-verter 24 V → 12 V	BuyWeek Netzteil Spannungswandler DC/DC-Wandler 24V auf 12V, 5A Spannungsversorgung Aluminiumgehäuse Netzteil Trans-formator
+
 Modul 2 – Waage-Modul
-Dieses Modul besteht aus zwei Baugruppen: dem Modulgehäuse und der Ablagefläche für die Gläser. Der Zusammenbau verlief ohne Komplikationen.
+Dieses Modul besteht aus zwei Baugruppen: dem Modulgehäuse und der Ablageflä-che für die Gläser. Der Zusammenbau verlief ohne Komplikationen.
 Bauteile dieses Moduls:
-Bezeichnung	Artikelname
-Wägezelle mit Verstärker	ALAMSCN 2 Stück 5 kg Wägezelle Gewichtssensoren, Digitale Waage Wägezelle + 2 Stück HX711 Wägezelle Gewicht Sensor Modul für Arduino Mikrocontroller DIY (5kg + HX711)
+Bezeich-nung	Artikelname
+Wägezelle mit Verstär-ker	ALAMSCN 2 Stück 5 kg Wägezelle Gewichtssensoren, Digitale Waa-ge Wägezelle + 2 Stück HX711 Wägezelle Gewicht Sensor Modul für Arduino Mikrocontroller DIY (5kg + HX711)
 
 Modul 3 – Abstandshalter und Dokumentations-Modul
 Dieses Modul besteht aus zwei Baugruppen: dem Modulgehäuse und der Modultür. Bei der Montage der Tür wurden die Befestigungsbohrungen beschädigt. Als Lösung wurde die Tür zusätzlich mit einem Magneten gesichert.
 Dieses Modul enthält keine gesondert aufzulistenden elektronischen Bauteile.
-
 Modul 4 – Ventil und Relais-Modul
 Dieses Modul besteht aus einer einzigen Baugruppe. Der Zusammenbau der Ventile und Relais war aufgrund der beengten Platzverhältnisse im Inneren des Moduls sehr aufwendig.
-Aufgetretene Probleme: Es musste eine zusätzliche Öffnung in die Bodenplatte gebohrt werden, um die Leitungsführung aus den darüberliegenden Modulen zu verbessern. Ursache war ein zu klein dimensionierter Leitungsschacht in Kombination mit der Lage der Ventile, was eine ordnungsgemäße Kabelverlegung erheblich erschwerte. Die endgültige Schlauchanordnung in S-Form ergab sich erst nach mehreren Versuchen mit verschiedenen Ventilpositionen.
+Aufgetretene Probleme: Es musste eine zusätzliche Öffnung in die Bodenplatte gebohrt werden, um die Leitungsführung aus den darüberliegenden Modulen zu verbessern. Ursache war ein zu klein dimensionierter Leitungsschacht in Kombinati-on mit der Lage der Ventile, was eine ordnungsgemäße Kabelverlegung erheblich erschwerte. Die endgültige Schlauchanordnung in S-Form ergab sich erst nach mehreren Versuchen mit verschiedenen Ventilpositionen.
 Bauteile dieses Moduls:
 Bezeichnung	Artikelname
 10× Relais	Low-Level Trigger Relais 4 Channel 3,3V/3V, kompatibel mit Arduino, Raspberry Pi, ESP32
 10× Magnetventil	Normalerweise offenes Micro-Wasser-/Luftstromventil, Mini-Elektrisches Magnetventil, DC 12V, für DIY-Anwendungen
-Silikonschlauch 5 mm (10 m)	Coop Schlauchtechnik® Silikonschlauch 5mm Innen-Ø, lebensmittelecht, geschmacksneutral, −40 bis 220 °C
+Silikonschlauch 5 mm (10 m)	Coop Schlauchtechnik® Silikonschlauch 5mm Innen-Ø, le-bensmittelecht, geschmacksneutral, −40 bis 220 °C
 Schlauchverbinder	LYTIVAGEN 48 Stück Aquarium-Schlauchverbinder, I/L/T/Y-Form, für 6 mm Luftschlauch
 
 Modul 5 – Pumpe und Controller
@@ -366,169 +477,634 @@ Aufgetretenes Problem: Der Motortreiber musste während des Zusammenbaus umposit
 Bauteile dieses Moduls:
 Bezeichnung	Artikelname
 Motortreiber	COVVY TB6600 4A 9–42V Schrittmotorsteuerung, CNC-Controller, 32 Segmente, 2/4-Phasen Hybrid-Schrittmotorsteuerplatine
-Schlauchpumpe	Kamoer KDS3000-ST Schlauchpumpe, 24V, hochpräzise Dosierpumpe mit Schrittmotor, einstellbare Geschwindigkeit 0–1800 ml/min
-Silikonschlauch 10 mm (2 m)	Silikonschlauch 10mm Innen-Ø, lebensmittelecht, geschmacksneutral, −40 bis 220 °C
-Schlauchverbinder	Urinella Schlauchverbinder 10 Stück, wiederverwendbarer Rohrverbinder, Durchmesser 5–12 mm
+Schlauchpumpe	Kamoer KDS3000-ST Schlauchpumpe, 24V, hochpräzise Do-sierpumpe mit Schrittmotor, einstellbare Geschwindigkeit 0–1800 ml/min
+Silikonschlauch 10 mm (2 m)	Silikonschlauch 10mm Innen-Ø, lebensmittelecht, geschmacks-neutral, −40 bis 220 °C
+Schlauchverbin-der	Urinella Schlauchverbinder 10 Stück, wiederverwendbarer Rohr-verbinder, Durchmesser 5–12 mm
 
 Modul 6 – Bildschirm, Rotary Encoder, Taster
-Dieses Modul besteht aus zwei Baugruppen: dem Modulgehäuse und dem Deckel, der den Cocktailautomat nach oben abschließt. Aufgrund der sich nach oben verjüngenden Bauform ist der verfügbare Raum begrenzt; das Display wurde daher nicht verschraubt, sondern verklebt.
-Hinweis: Die beiden Taster auf der linken Seite sind derzeit nicht mit einer Funktion belegt. Sie dienen lediglich als Abdeckung für bereits im Gehäuse vorhandene Öffnungen, können jedoch mit entsprechendem Aufwand mit Funktionen versehen werden.
+Dieses Modul besteht aus zwei Baugruppen: dem Modulgehäuse und dem Deckel, der den Cocktailautomat nach oben abschließt. Aufgrund der sich nach oben ver-jüngenden Bauform ist der verfügbare Raum begrenzt; das Display wurde daher nicht verschraubt, sondern verklebt.
+Hinweis: Die beiden Taster auf der linken Seite sind derzeit nicht mit einer Funktion belegt. Sie dienen lediglich als Abdeckung für bereits im Gehäuse vorhandene Öff-nungen, können jedoch mit entsprechendem Aufwand mit Funktionen versehen werden.
 Bauteile dieses Moduls:
-Bezeichnung	Artikelname
+Bezeich-nung	Artikelname
 Rotary Encoder	GIAK KY-040 Rotary Encoder Modul, 5 Stück, 360°-Drehgeber mit Druckknopf
 Taster (3×)	Gebildet 5 Stück wasserdichte Drucktaster, Edelstahl, momentan, 12 mm, 2A/12V/24V/125V/250V, mit Kabel
 LCD-Display	AZDelivery HD44780 2004 LCD Display Bundle, Blau, 4×20 Zeichen, I2C-Schnittstelle, kompatibel mit Arduino und Raspberry Pi
 
-Fehler und Lösungen die Bei dem Aufbau und Betrieb aufgetreten sind:
+Fehler und Lösungen die Bei dem Aufbau und Betrieb aufge-treten sind
 Problem 1: Ventil schaltet ungewollt
-Beim Betrieb wurde festgestellt, dass das Ventil schaltet, obwohl das Relais nicht angesteuert wird. Als Ursache wird elektromagnetische Verträglichkeit (EMV) vermutet. Lösung: Die Relaislogik wurde von Schließer- auf Öffner-Betrieb umgestellt.
+Beim Betrieb wurde festgestellt, dass das Ventil schaltet, obwohl das Relais nicht angesteuert wird. Als Ursache wird elektromagnetische Verträglichkeit (EMV) vermu-tet. Lösung: Die Relaislogik wurde von Schließer- auf Öffner-Betrieb umgestellt.
 Problem 2: Spannungsfall in der Zuleitung der Relais 
-Der Spannungsfall in der Zuleitung zu den Relais war zu hoch. Ab sechs aktiven Relais war ein deutliches Dimmen der LEDs erkennbar; ab acht Relais schalteten die Relais 9 und 10 nicht mehr zuverlässig. Lösung: Der Leitungsquerschnitt der Zuleitung wurde auf 0,75 mm² erhöht, was das Problem vollständig behoben hat.
+Der Spannungsfall in der Zuleitung zu den Relais war zu hoch. Ab sechs aktiven Re-lais war ein deutliches Dimmen der LEDs erkennbar; ab acht Relais schalteten die Relais 9 und 10 nicht mehr zuverlässig. Lösung: Der Leitungsquerschnitt der Zulei-tung wurde auf 0,75 mm² erhöht, was das Problem vollständig behoben hat.
 Problem 3: Spannungsinkompatibilität der Relais 
-Die ursprünglich verwendeten Relais sind für eine Steuerspannung von 5 V ausgelegt. Der ESP32 liefert an seinen Ausgängen jedoch lediglich 3,3 V. Lösung: Die Relais wurden durch Modelle ersetzt, die für 3,3 V ausgelegt sind.
+Die ursprünglich verwendeten Relais sind für eine Steuerspannung von 5 V ausge-legt. Der ESP32 liefert an seinen Ausgängen jedoch lediglich 3,3 V. Lösung: Die Re-lais wurden durch Modelle ersetzt, die für 3,3 V ausgelegt sind.
 Problem 4: Stromeinstellung des Motortreibers 
-Der eingesetzte Motortreiber lässt sich nur auf 1,5 A oder 2 A einstellen, während der verwendete Schrittmotor einen Nennstrom von 1,8 A aufweist. Bei der niedrigeren Stromeinstellung (1,5 A) erzeugt der Motor nicht das erforderliche Drehmoment, um die Pumpe mit der benötigten Geschwindigkeit anzutreiben. Lösung: Da der Motor nicht dauerhaft läuft, sondern zwischen den einzelnen Getränken kurze Pausen einlegt, wird er mit 2 A betrieben. Die Kunststoffummantelung des Schrittmotors nimmt zusätzlich einen Teil der entstehenden Wärme auf.
+Der eingesetzte Motortreiber lässt sich nur auf 1,5 A oder 2 A einstellen, während der verwendete Schrittmotor einen Nennstrom von 1,8 A aufweist. Bei der niedrige-ren Stromeinstellung (1,5 A) erzeugt der Motor nicht das erforderliche Drehmoment, um die Pumpe mit der benötigten Geschwindigkeit anzutreiben. Lösung: Da der Mo-tor nicht dauerhaft läuft, sondern zwischen den einzelnen Getränken kurze Pausen einlegt, wird er mit 2 A betrieben. Die Kunststoffummantelung des Schrittmotors nimmt zusätzlich einen Teil der entstehenden Wärme auf.
+Der eingesetzte Schrittmotor besitzt einen Nennstrom von 1,8 A, während der Motor-treiber nur auf 1,5 A oder 2,0 A eingestellt werden kann. Bei 1,5 A steht nur etwa 83 % des Nenn-Drehmoments zur Verfügung, was für den Antrieb der Pumpe nicht aus-reicht. Daher wurde der Treiber auf 2,0 A eingestellt. Dies entspricht einer Überhö-hung des Stroms um rund 11 %, wodurch die Wicklungsverluste um etwa 23 % an-steigen. Da der Motor jedoch nicht im Dauerbetrieb arbeitet, sondern zwischen den Getränkezubereitungen Pausen hat, ist diese Einstellung thermisch vertretbar.
 Problem 5: Begrenzte Anzahl schaltbarer Relais am ESP32 
 Der ESP32 kann über seinen 3,3-V-Ausgang maximal vier Relais direkt versorgen. Lösung: Die Relais werden nun extern gespeist. Der ESP32 liefert ausschließlich das Steuersignal.
 Problem 6: Luftziehen des Systems
-Das System zieht geringe Mengen Luft durch die Ventile an. Dies führt dazu, dass zu wenig Flüssigkeit gepumpt wird. Dies kann auch als positiver Nebeneffekt gewertet werden, denn im Letzten schritt vom Pumpen schlauch leeren wird die kleinen Mengen Flüssigkeit die in die Schläuche zu den Ventilen kommt wieder mit herausgepumpt. Lösung: Die Füllmengensteuerung erfolgt nun nicht mehr über die Anzahl der Motorumdrehungen, sondern vollständig über die integrierte Waage.
-Technische Beschreibung der verwendeten Bauteile:
+Das System zieht geringe Mengen Luft durch die Ventile an. Dies führt dazu, dass zu wenig Flüssigkeit gepumpt wird. Dies kann auch als positiver Nebeneffekt gewer-tet werden, denn im Letzten schritt vom Pumpen schlauch leeren wird die kleinen Mengen Flüssigkeit, die in die Schläuche zu den Ventilen kommt, wieder mit her-ausgepumpt. Lösung: Die Füllmengensteuerung erfolgt nun nicht mehr über die An-zahl der Motorumdrehungen, sondern vollständig über die integrierte Waage.
+Technische Beschreibung der verwendeten Bauteile
 1. Mikrocontroller – ESP32-S3 (XTVTX ESP-S3-DevKitC-1 N16R8)
-Funktionsprinzip: Der ESP32-S3 ist ein System-on-Chip (SoC) von Espressif Systems mit einem Xtensa LX7 Dual-Core-Prozessor (bis 240 MHz). Er integriert WLAN (802.11 b/g/n) und Bluetooth 5.0 (LE) direkt auf dem Chip. Die digitalen I/O-Pins arbeiten mit 3,3 V Logikpegel. Der Chip verfügt über verschiedene Kommunikationsbusse: UART, SPI, I²C und I²S. Das interne Flash (hier: 16 MB) speichert Firmware und Daten; das PSRAM (8 MB) dient als Arbeitsspeicher für RAM-intensive Anwendungen wie einen Web-Server. Der ESP32-S3 unterstützt OTA-Updates (Over The Air) über WLAN. Die GPIO-Pins können als Ein- oder Ausgang konfiguriert werden und erzeugen oder verarbeiten PWM-Signale, ADC-Messungen und digitale Steuersignale. Für dieses Projekt steuert er Relais (Schritt-/Ventilsteuerung), liest Encoder, Display und Waage aus und betreibt einen eingebetteten Webserver zur Browser-basierten Getränkeauswahl.
+Funktionsprinzip: Der ESP32-S3 ist ein System-on-Chip (SoC) von Espressif Sys-tems mit einem Xtensa LX7 Dual-Core-Prozessor (bis 240 MHz). Er integriert WLAN (802.11 b/g/n) und Bluetooth 5.0 (LE) direkt auf dem Chip. Die digitalen I/O-Pins ar-beiten mit 3,3 V Logikpegel. Der Chip verfügt über verschiedene Kommunikations-busse: UART, SPI, I²C und I²S. Das interne Flash (hier: 16 MB) speichert Firmware und Daten; das PSRAM (8 MB) dient als Arbeitsspeicher für RAM-intensive Anwen-dungen wie einen Web-Server. Der ESP32-S3 unterstützt OTA-Updates (Over The Air) über WLAN. Die GPIO-Pins können als Ein- oder Ausgang konfiguriert werden und erzeugen oder verarbeiten PWM-Signale, ADC-Messungen und digitale Steuer-signale. Für dieses Projekt steuert er Relais (Schritt-/Ventilsteuerung), liest Encoder, Display und Waage aus und betreibt einen eingebetteten Webserver zur Browser-basierten Getränkeauswahl.
 Quellen:
 •	Espressif Systems: ESP32-S3 Technical Reference Manual, Version 1.4 (2023) – https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf
 •	Espressif Systems: ESP32-S3 Datasheet, Version 1.4 – https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf
 •	Produktseite Amazon: https://www.amazon.de/ESP32-S3-WROOM-1-N16R8-ESP32-S3-DevKitC-1-Entwicklung-Bluetooth/dp/B0C6KN35L2
-
 2. Schaltnetzteil – BRIMETI LED Trafo 24 V / 150 W (IP67)
-Funktionsprinzip: Das Schaltnetzteil wandelt die Netzspannung (230 V AC, 50 Hz) in eine geregelte Gleichspannung von 24 V DC um. Im Gegensatz zu linearen Netzteilen arbeitet ein Schaltnetzteil mit einem Hochfrequenztransformator (typisch 20–200 kHz). Die Wechselspannung wird zunächst gleichgerichtet und auf einen Kondensator aufgeladen. Ein Schalttransistor (MOSFET) zerhackt diese Gleichspannung mit hoher Frequenz, der Transformator überträgt die Energie galvanisch getrennt auf die Sekundärseite, wo sie erneut gleichgerichtet und durch eine Regelschleife (PID-Regler) auf den Sollwert stabilisiert wird. Schaltnetzteile erzielen Wirkungsgrade von typisch 85–92 %. Die IP67-Schutzklasse bedeutet vollständige Staubdichtheit und Schutz bei kurzeitigem Untertauchen bis 1 m Tiefe.
+Funktionsprinzip: Das Schaltnetzteil wandelt die Netzspannung (230 V AC, 50 Hz) in eine geregelte Gleichspannung von 24 V DC um. Im Gegensatz zu linearen Netz-teilen arbeitet ein Schaltnetzteil mit einem Hochfrequenztransformator (typisch 20–200 kHz). Die Wechselspannung wird zunächst gleichgerichtet und auf einen Kon-densator aufgeladen. Ein Schalttransistor (MOSFET) zerhackt diese Gleichspan-nung mit hoher Frequenz, der Transformator überträgt die Energie galvanisch ge-trennt auf die Sekundärseite, wo sie erneut gleichgerichtet und durch eine Regel-schleife (PID-Regler) auf den Sollwert stabilisiert wird. Schaltnetzteile erzielen Wir-kungsgrade von typisch 85–92 %. Die IP67-Schutzklasse bedeutet vollständige Staubdichtheit und Schutz bei kurzeitigem Untertauchen bis 1 m Tiefe.
 Quellen:
 •	Mohan, N., Undeland, T. M., Robbins, W. P.: Power Electronics – Converters, Applications, and Design, 3. Auflage, John Wiley & Sons, 2003, Kapitel 7 (Switching Power Supplies)
 •	IEC 60529: Degrees of protection provided by enclosures (IP Code), 2013
 •	Produktseite Amazon: https://www.amazon.de/BRIMETI-Wasserdicht-Schaltnetzteil-Transformator-Niedervolttrafo/dp/B09TXQZFCM
-
 3. Buck-Konverter (Spannungswandler 24 V → 12 V, 24 V → 5 V, 12 V → 3,3 V)
-Funktionsprinzip: Ein Buck-Konverter (Abwärtswandler, engl. step-down converter) ist eine verlustarmere Alternative zum linearen Spannungsregler. Das Grundprinzip basiert auf dem getakteten Schalten einer Induktivität: Ein MOSFET schaltet die Eingangsspannung mit hoher Frequenz (typisch 50 kHz – 2 MHz) ein und aus. Während der Einschaltphase speichert die Induktivität Energie im Magnetfeld; während der Ausschaltphase gibt sie diese über eine Freilaufdiode (oder synchronen MOSFET) an den Ausgang ab. Ein Kondensator glättet die Ausgangsspannung. Das Tastverhältnis (Duty Cycle) D = V_out / V_in bestimmt die Ausgangsspannung und wird durch eine Rückkopplungsschaltung geregelt. Typische Wirkungsgrade liegen bei 85–97 %.
+Funktionsprinzip: Ein Buck-Konverter (Abwärtswandler, engl. step-down converter) ist eine verlustarmere Alternative zum linearen Spannungsregler. Das Grundprinzip basiert auf dem getakteten Schalten einer Induktivität: Ein MOSFET schaltet die Eingangsspannung mit hoher Frequenz (typisch 50 kHz – 2 MHz) ein und aus. Wäh-rend der Einschaltphase speichert die Induktivität Energie im Magnetfeld; während der Ausschaltphase gibt sie diese über eine Freilaufdiode (oder synchronen MOS-FET) an den Ausgang ab. Ein Kondensator glättet die Ausgangsspannung. Das Tastverhältnis (Duty Cycle) D = V_out / V_in bestimmt die Ausgangsspannung und wird durch eine Rückkopplungsschaltung geregelt. Typische Wirkungsgrade liegen bei 85–97 %.
 Quellen:
-•	Erickson, R. W., Maksimović, D.: Fundamentals of Power Electronics, 3. Auflage, Springer, 2020, Kapitel 2 (Principles of Steady-State Converter Analysis)
+•	Erickson, R. W., Maksimović, D.: Fundamentals of Power Electronics, 3. Auf-lage, Springer, 2020, Kapitel 2 (Principles of Steady-State Converter Analysis)
 •	Texas Instruments: Introduction to Power Supplies – Application Report SLVA000B, 2000
 •	Produktseiten Amazon: 
 o	24V→12V: https://www.amazon.de/dp/B0CTFJD6XF
 o	24V→5V: https://www.amazon.de/Youmile-Konverter-Spannungsregler-Lad¬egerät-Knopfkappe/dp/B07WNSC5HB
 o	12V→3,3V: https://www.amazon.de/dp/B0DS7C6HXV
-
 4. Schlauchpumpe – Kamoer KDS3000-ST (24 V, 0–1800 ml/min)
-Funktionsprinzip: Eine Schlauchpumpe (auch Peristaltikpumpe) arbeitet nach dem Verdränger Prinzip: Mehrere Rollenköpfe oder Schuhe, die auf einem rotierenden Rotor befestigt sind, drücken von außen gegen einen flexiblen Silikonschlauch. Durch das fortschreitende Quetschen des Schlauchs wird das Fördermedium in eine Richtung bewegt, ohne dass es mit beweglichen Teilen der Pumpe in Berührung kommt. Die Kamoer KDS3000-ST verwendet einen Schrittmotor, was eine präzise Drehzahlregelung und damit eine reproduzierbare Fördermengeneinstellung ermöglicht. Der Durchfluss (Q) ist proportional zur Drehzahl: Q = n · V_Hub, wobei V_Hub das je Umdrehung verdrängte Volumen darstellt. Diese Pumpenart eignet sich besonders für Lebensmittel und reine Medien, da nur der Schlauch benetzt wird.
+Funktionsprinzip: Eine Schlauchpumpe (auch Peristaltikpumpe) arbeitet nach dem Verdränger Prinzip: Mehrere Rollenköpfe oder Schuhe, die auf einem rotierenden Rotor befestigt sind, drücken von außen gegen einen flexiblen Silikonschlauch. Durch das fortschreitende Quetschen des Schlauchs wird das Fördermedium in eine Richtung bewegt, ohne dass es mit beweglichen Teilen der Pumpe in Berührung kommt. Die Kamoer KDS3000-ST verwendet einen Schrittmotor, was eine präzise Drehzahlregelung und damit eine reproduzierbare Fördermengeneinstellung ermög-licht. Der Durchfluss (Q) ist proportional zur Drehzahl: Q = n · V_Hub, wobei V_Hub das je Umdrehung verdrängte Volumen darstellt. Diese Pumpenart eignet sich be-sonders für Lebensmittel und reine Medien, da nur der Schlauch benetzt wird.
 Quellen:
 •	Kamoer Fluid Tech: KDS Series Peristaltic Pump User Manual – https://www.kamoer.com/en/products/stepper-motor-pump/kds3000
 •	Durst, F., Melling, A., Whitelaw, J. H.: Principles and Practice of Laser-Doppler Anemometry, Academic Press, 1976 (Grundlagen Verdrängerpumpen)
 •	Produktseite Amazon: https://www.amazon.de/Kamoer-KDS3000-ST-Schrittmotor-einstellbarer-Laborfabriken/dp/B09TP3SXVY
-
 5. Schrittmotortreiber – COVVY TB6600 (9–42 V, 4 A)
-Funktionsprinzip: Der TB6600 ist ein H-Brücken-basierter Schrittmotortreiber-IC (Toshiba TB6600HG), der zweiphasige Schrittmotoren (bipolar oder unipolar) ansteuert. Er empfängt drei Eingangssignale vom Mikrocontroller: STEP (Schritt-Impuls), DIR (Richtung) und ENA (Freigabe). Bei jedem STEP-Impuls schaltet der Treiber die Wicklungsströmung so um, dass der Motor einen definierten Winkelschritt dreht. Durch Mikroschrittbetrieb (bis 1/32-Schritte) wird der Nennschritt (typisch 1,8° pro Vollschritt) in bis zu 32 Teilschritte unterteilt, was Vibrationen reduziert und die Positioniergenauigkeit erhöht. Ein integrierter Stromregler (Current-Decay-Schaltung) hält den Wicklungsstrom auf dem eingestellten Wert und schützt den Motor vor Überhitzung.
+Funktionsprinzip: Der TB6600 ist ein H-Brücken-basierter Schrittmotortreiber-IC (Toshiba TB6600HG), der zweiphasige Schrittmotoren (bipolar oder unipolar) an-steuert. Er empfängt drei Eingangssignale vom Mikrocontroller: STEP (Schritt-Impuls), DIR (Richtung) und ENA (Freigabe). Bei jedem STEP-Impuls schaltet der Treiber die Wicklungsströmung so um, dass der Motor einen definierten Winkel-schritt dreht. Durch Mikroschrittbetrieb (bis 1/32-Schritte) wird der Nennschritt (ty-pisch 1,8° pro Vollschritt) in bis zu 32 Teilschritte unterteilt, was Vibrationen reduziert und die Positioniergenauigkeit erhöht. Ein integrierter Stromregler (Current-Decay-Schaltung) hält den Wicklungsstrom auf dem eingestellten Wert und schützt den Mo-tor vor Überhitzung.
 Quellen:
 •	Toshiba Semiconductor: TB6600HG Datasheet, Rev. 3.0 – https://toshiba.semicon-storage.com/info/TB6600HG_datasheet_en_20160525.pdf
 •	Acarnley, P. P.: Stepping Motors: A Guide to Theory and Practice, 4. Auflage, IET, 2002
 •	Produktseite Amazon: https://www.amazon.de/COVVY-TB6600-Schrittmotorsteuerung-Schrittmotorsteuerplatine/dp/B07MJ29LWT
-
 6. Magnetventil – Normally Open Micro-Magnetventil (DC 12 V)
-Funktionsprinzip: Ein Magnetventil (Solenoidventil) besteht aus einer elektromagnetischen Spule und einem beweglichen Eisenkern (Anker/Plunger). Im stromlosen Zustand wird der Anker durch eine Rückholfeder in eine definierte Position gedrückt (hier: Öffner-Position = Ventil offen). Fließt Strom durch die Spule, erzeugt diese ein Magnetfeld, das den Anker anzieht und die Ventilöffnung verschließt. Damit der ESP32-Ausgang das Ventil schließt, muss er die Relaislogik aktivieren (im Öffner-Betrieb bedeutet Relais angezogen = Ventilspannung unterbrochen = Ventil öffnet). Normally-Open-Ventile bieten den Sicherheitsvorteil, dass bei Spannungsausfall keine Flüssigkeit eingesperrt bleibt. Der Energieverbrauch der Spule berechnet sich aus P = U² / R, wobei der Widerstand der Spule bei 12V-Typen typisch 30–100 Ω liegt.
+Funktionsprinzip: Ein Magnetventil (Solenoidventil) besteht aus einer elektromag-netischen Spule und einem beweglichen Eisenkern (Anker/Plunger). Im stromlosen Zustand wird der Anker durch eine Rückholfeder in eine definierte Position gedrückt (hier: Öffner-Position = Ventil offen). Fließt Strom durch die Spule, erzeugt diese ein Magnetfeld, das den Anker anzieht und die Ventilöffnung verschließt. Damit der ESP32-Ausgang das Ventil schließt, muss er die Relaislogik aktivieren (im Öffner-Betrieb bedeutet Relais angezogen = Ventilspannung unterbrochen = Ventil öffnet). Normally-Open-Ventile bieten den Sicherheitsvorteil, dass bei Spannungsausfall kei-ne Flüssigkeit eingesperrt bleibt. Der Energieverbrauch der Spule berechnet sich aus P = U² / R, wobei der Widerstand der Spule bei 12V-Typen typisch 30–100 Ω liegt.
 Quellen:
 •	Parker Hannifin: Solenoid Valve Catalog 4100 – https://ph.parker.com/us/en/solenoid-valves
 •	AliExpress Produktseite: https://de.aliexpress.com/item/1005003084621654.html
 •	Bollée, R.: Pneumatische und hydraulische Steuerungen, Vogel Fachbuch, 2011
-
 7. Relaismodul – Low-Level Trigger, 3,3 V (4-Kanal)
-Funktionsprinzip: Ein elektromechanisches Relais besteht aus einer Steuerspule, einem beweglichen Anker und Schaltkontakten. Fließt Strom durch die Spule, wird ein Magnetfeld aufgebaut, das den Anker anzieht und damit die Schaltkontakte betätigt. Low-Level-Trigger bedeutet, dass das Relais bei einem LOW-Signal (0 V) am Steuereingang anzieht und bei HIGH (3,3 V) abfällt – die Logik ist also invertiert. Dies ist besonders vorteilhaft für den ESP32, da beim Einschalten (Boot) die GPIO-Pins zunächst HIGH sind und so unbeabsichtigtes Schalten verhindert wird. Der Optokoppler auf der Platine entkoppelt galvanisch die Steuerschaltung (3,3 V, µA-Bereich) vom Lastkreis (12 V, mehrere Ampere), was Rückwirkungen auf den Mikrocontroller verhindert.
+Funktionsprinzip: Ein elektromechanisches Relais besteht aus einer Steuerspule, einem beweglichen Anker und Schaltkontakten. Fließt Strom durch die Spule, wird ein Magnetfeld aufgebaut, das den Anker anzieht und damit die Schaltkontakte betä-tigt. Low-Level-Trigger bedeutet, dass das Relais bei einem LOW-Signal (0 V) am Steuereingang anzieht und bei HIGH (3,3 V) abfällt – die Logik ist also invertiert. Dies ist besonders vorteilhaft für den ESP32, da beim Einschalten (Boot) die GPIO-Pins zunächst HIGH sind und so unbeabsichtigtes Schalten verhindert wird. Der Optokoppler auf der Platine entkoppelt galvanisch die Steuerschaltung (3,3 V, µA-Bereich) vom Lastkreis (12 V, mehrere Ampere), was Rückwirkungen auf den Mikro-controller verhindert.
 Quellen:
-•	Boylestad, R., Nashelsky, L.: Electronic Devices and Circuit Theory, 11. Auflage, Pearson, 2013, Kapitel Relays
+•	Boylestad, R., Nashelsky, L.: Electronic Devices and Circuit Theory, 11. Aufla-ge, Pearson, 2013, Kapitel Relays
 •	MakerMind Produktseite Amazon: https://www.amazon.de/MakerMind-Low-Level-Trigger-kompatibel-Raspberry/dp/B099BNQ2LW
 •	Espressif: ESP32-S3 GPIO Reference – https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/gpio.html
-
 8. Wägezelle + HX711-ADC (5 kg, 24-Bit)
 Funktionsprinzip:
-Wägezelle (Dehnungsmessstreifen-Prinzip): Eine Wägezelle enthält vier Dehnungsmessstreifen (DMS), die in einer Wheatstone-Brücke verschaltet sind. Ein DMS ist ein dünner Widerstandsdraht oder eine Folie, deren elektrischer Widerstand sich bei mechanischer Dehnung (ε) ändert: ΔR/R = k · ε, wobei k der Gauge-Faktor (typisch 2,0–2,5) ist. Wird die Wägezelle belastet, verformen sich zwei DMS durch Zug (Widerstand steigt) und zwei durch Druck (Widerstand sinkt). Die Wheatstone-Brücke wandelt diese Widerstandsänderung in eine proportionale Brückenspannung um (typisch 1–3 mV/V Versorgungsspannung bei Vollast).
-HX711 (24-Bit-ADC): Das HX711-IC ist ein dedizierter Analog-Digital-Wandler für Brückenschaltungen. Er verstärkt das Differenzsignal der Wägezelle mit einem programmierbaren Verstärker (Gain 32, 64 oder 128) und wandelt es mit einem Sigma-Delta-ADC mit 24-Bit-Auflösung in einen digitalen Wert. Die Kommunikation mit dem ESP32 erfolgt über ein einfaches 2-Draht-Protokoll (SCK und DOUT). Bei 24-Bit-Auflösung und einer 5-kg-Zelle ergibt sich eine theoretische Auflösung von 5000 g / 2²⁴ ≈ 0,0003 g, praktisch rauschbedingt ca. 0,1–0,5 g.
+Wägezelle (Dehnungsmessstreifen-Prinzip): Eine Wägezelle enthält vier Deh-nungsmessstreifen (DMS), die in einer Wheatstone-Brücke verschaltet sind. Ein DMS ist ein dünner Widerstandsdraht oder eine Folie, deren elektrischer Widerstand sich bei mechanischer Dehnung (ε) ändert: ΔR/R = k · ε, wobei k der Gauge-Faktor (typisch 2,0–2,5) ist. Wird die Wägezelle belastet, verformen sich zwei DMS durch Zug (Widerstand steigt) und zwei durch Druck (Widerstand sinkt). Die Wheatstone-Brücke wandelt diese Widerstandsänderung in eine proportionale Brückenspannung um (typisch 1–3 mV/V Versorgungsspannung bei Vollast).
+HX711 (24-Bit-ADC): Das HX711-IC ist ein dedizierter Analog-Digital-Wandler für Brückenschaltungen. Er verstärkt das Differenzsignal der Wägezelle mit einem pro-grammierbaren Verstärker (Gain 32, 64 oder 128) und wandelt es mit einem Sigma-Delta-ADC mit 24-Bit-Auflösung in einen digitalen Wert. Die Kommunikation mit dem ESP32 erfolgt über ein Einfaches 2-Draht-Protokoll (SCK und DOUT). Bei 24-Bit-Auflösung und einer 5-kg-Zelle ergibt sich eine theoretische Auflösung von 5000 g / 2²⁴ ≈ 0,0003 g, praktisch rauschbedingt ca. 0,1–0,5 g.
 Quellen:
 •	AVIA Semiconductor: HX711 Datasheet – https://cdn.sparkfun.com/datasheets/Sensors/ForceFlex/hx711_english.pdf
-•	Hoffmann, K.: Eine Einführung in die Technik des Messens mit Dehnungsmessstreifen, HBM Messtechnik, 1987
+•	Hoffmann, K.: Eine Einführung in die Technik des Messens mit Dehnungs-messstreifen, HBM Messtechnik, 1987
 •	ALAMSCN Produktseite Amazon: https://www.amazon.de/ALAMSCN-Wägezelle-Gewichtssensoren-Mikrocontroller/dp/B09BVKFKYN
-
 9. LCD-Display – AZDelivery HD44780 2004 (I²C, 4 × 20 Zeichen)
-Funktionsprinzip: Das HD44780 ist ein weit verbreiteter Zeichendisplay-Controller (Hitachi). Das Display besteht aus einer Flüssigkristallschicht (LCD), die durch elektrische Felder die Lichtdurchlässigkeit einzelner Pixelzellen reguliert. Eine Hintergrundbeleuchtung (LED-Backlight) beleuchtet die Zeichen von hinten. Der HD44780 steuert ein Zeichen-ROM an, dass die ASCII-Zeichen als 5×8-Pixel-Matrizen enthält. Das I²C-Interface-Modul (PCF8574-IO-Expander) erweitert den ursprünglich 8-bit-parallelen Bus auf ein 2-Draht-I²C-Protokoll (SDA, SCL). I²C verwendet eine Adressierung (typisch 0x27 oder 0x3F) und überträgt Daten mit bis zu 400 kHz (Fast Mode). Dies reduziert den GPIO-Bedarf von 6–10 Pins auf nur 2 Pins.
+Funktionsprinzip: Das HD44780 ist ein weit verbreiteter Zeichendisplay-Controller (Hitachi). Das Display besteht aus einer Flüssigkristallschicht (LCD), die durch elekt-rische Felder die Lichtdurchlässigkeit einzelner Pixelzellen reguliert. Eine Hinter-grundbeleuchtung (LED-Backlight) beleuchtet die Zeichen von hinten. Der HD44780 steuert ein Zeichen-ROM an, dass die ASCII-Zeichen als 5×8-Pixel-Matrizen enthält. Das I²C-Interface-Modul (PCF8574-IO-Expander) erweitert den ursprünglich 8-bit-parallelen Bus auf ein 2-Draht-I²C-Protokoll (SDA, SCL). I²C verwendet eine Adres-sierung (typisch 0x27 oder 0x3F) und überträgt Daten mit bis zu 400 kHz (Fast Mo-de). Dies reduziert den GPIO-Bedarf von 6–10 Pins auf nur 2 Pins.
 Quellen:
 •	Hitachi Semiconductor: HD44780U LCD-II Datasheet – https://www.sparkfun.com/datasheets/LCD/HD44780.pdf
-•	Philips Semiconductors: PCF8574 Remote 8-bit I/O expander for I2C-bus Datasheet – https://www.nxp.com/docs/en/data-sheet/PCF8574_PCF8574A.pdf
+•	Philips Semiconductors: PCF8574 Remote 8-bit I/O expander for I2C-bus Da-tasheet – https://www.nxp.com/docs/en/data-sheet/PCF8574_PCF8574A.pdf
 •	AZDelivery Produktseite Amazon: https://www.amazon.de/AZDelivery-Display-Arduino-Raspberry-inklusive/dp/B01GPUMP9C
-
 10. Drehgeber – GIAK KY-040 Rotary Encoder
-Funktionsprinzip: Ein inkrementeller Drehgeber gibt die Drehbewegung als Impulssignale aus. Der KY-040 enthält zwei mechanische Schleifkontakte (Kanäle A und B), die beim Drehen nacheinander Kontakt schließen und öffnen. Die Phasenlage der Signale A und B (90° versetzt = Quadratursignale) verrät sowohl die Drehrichtung als auch die Anzahl der Schritte: Folgt B auf A, dreht der Geber im Uhrzeigersinn; folgt A auf B, gegen den Uhrzeigersinn. Pro Umdrehung erzeugt der KY-040 typisch 20 Rastschritte. Der integrierte Taster schließt einen separaten Kontakt, wenn die Achse axial gedrückt wird. Der ESP32 liest die Flanken über Interrupt-gesteuerte GPIO-Pins aus, um keine Impulse zu verpassen.
+Funktionsprinzip: Ein inkrementeller Drehgeber gibt die Drehbewegung als Im-pulssignale aus. Der KY-040 enthält zwei mechanische Schleifkontakte (Kanäle A und B), die beim Drehen nacheinander Kontakt schließen und öffnen. Die Phasenla-ge der Signale A und B (90° versetzt = Quadratursignale) verrät sowohl die Drehrich-tung als auch die Anzahl der Schritte: Folgt B auf A, dreht der Geber im Uhrzeiger-sinn; folgt A auf B, gegen den Uhrzeigersinn. Pro Umdrehung erzeugt der KY-040 typisch 20 Rastschritte. Der integrierte Taster schließt einen separaten Kontakt, wenn die Achse axial gedrückt wird. Der ESP32 liest die Flanken über Interrupt-gesteuerte GPIO-Pins aus, um keine Impulse zu verpassen.
 Quellen:
-•	Bourns: PEC11R Series Incremental Encoder Datasheet – https://www.bourns.com/docs/Product-Datasheets/PEC11R.pdf (vergleichbarer Typ)
+•	Bourns: PEC11R Series Incremental Encoder Datasheet – https://www.bourns.com/docs/Product-Datasheets/PEC11R.pdf (vergleichba-rer Typ)
 •	Fraden, J.: Handbook of Modern Sensors, 5. Auflage, Springer, 2016, Kapitel 6 (Position, Displacement, and Level)
 •	GIAK Produktseite Amazon: https://www.amazon.de/GIAK-KY-040-Rotary-Encoder-Drehgeber/dp/B07RCKSXBX
+Programm
+Wie habe ich Programmiert?
+Am Anfang meines Projekts habe ich zunächst zwei Skizzen bzw. Bilder erstellt, um den grundsätzlichen Aufbau und die Funktionen meines Programms zu planen. Die-se Visualisierungen haben mir dabei geholfen, die Menüstruktur, die Eingaben und die Abläufe besser zu verstehen, bevor ich mit dem eigentlichen Programmieren begonnen habe.
+Anschließend habe ich mithilfe dieser Bilder und mit Unterstützung von KI das Pro-gramm Schritt für Schritt aufgebaut. Dabei bin ich nicht direkt mit dem kompletten Code gestartet, sondern habe die einzelnen Funktionen nacheinander entwickelt und getestet. Zuerst wurde die Grundstruktur des Menüs erstellt, damit die Navigati-on über den Rotary Encoder und den Zurück-Button funktioniert. Danach habe ich die verschiedenen Bereiche wie die Rezeptauswahl, die manuelle Eingabe der Flüs-sigkeiten, die Auswahl der verfügbaren Flüssigkeiten und den Reinigungsmodus einzeln umgesetzt.
+Durch dieses schrittweise Vorgehen konnte ich jede Funktion separat überprüfen und bei Bedarf anpassen. Die KI hat mich dabei unterstützt, passende Codebaustei-ne zu entwickeln, Fehler zu verbessern und Ideen schneller umzusetzen. So ent-stand aus der ursprünglichen Planung mit den Bildern nach und nach ein vollständi-ges und funktionierendes Programm.
+Planung
+Als erstes habe ich mir in OneNote einen Menü erstellt, wie es auf dem Bildschirm aussehen soll. Zu diesem erstellten Menü Ablauf habe ich mir dann einen Text er-stellt, wie die einzelnen Menü punkte, und Funktionen umsetzen will.
+Text Umsetzung
+ 
+Abbildung 24: Planung Programm 2
+Durchführung
+Entwicklungsprozess
+1. Konstanten statt Magic Numbers Alle Konfigurationswerte sind als benannte const-Variablen am Dateianfang definiert (z.B. NORMAL_SPEED, WEIGHT_TOLERANCE, MQTT_RECONNECT_INTERVAL_MS). Dadurch sind Anpassungen an einer zentralen Stelle möglich, ohne den ei-gentlichen Programmablauf anfassen zu müssen.
+2. Ausführliche Kommentierung auf Deutsch Jede Konstante, jede Funktion und jeder komplexere Codeblock ist mit einem erklärenden Kommentar versehen – nicht nur was der Code tut, sondern warum. Beispiel:
+// 400 µs pro Schritt + 800 Schritte = 0,19 Umdrehungen/s (langsam/genau)
+const int SLOW_SPEED = 400;
+3. Klare Abschnittsstruktur (Sektionen) Das Programm ist in 9 nummerierte Sek-tionen unterteilt, die durch auffällige Banner-Kommentare voneinander getrennt sind:
+•	SEKTION 0: WIFI & MQTT
+•	SEKTION 1: SYSTEM & HARDWARE (setup/loop)
+•	SEKTION 2: MENÜ NAVIGATION
+•	SEKTION 3: REZEPTE
+•	SEKTION 4: MANUELLE EINGABE
+•	usw.
+4. State Machine für die Benutzerführung Die gesamte Menü- und Benutzerlogik wird über einen enum MenuState gesteuert. Jeder Zustand (z. B. FLUID_SELECTION, RUNNING_RECIPE, CLEANING_MODE) definiert, was an-gezeigt wird und welche Eingaben akzeptiert werden. Das verhindert unerwartetes Verhalten zwischen verschiedenen Betriebsmodi.
+5. Non-blocking Architektur (Pending-Flag-Muster) Im MQTT-Callback werden ausschließlich Flags gesetzt (pendingRecipeIndex, pendingCleaningStart usw.). Alle blockierenden Aktionen (Pumpe, HTTP-Request, Reinigung) werden erst in loop() abgearbeitet. Das verhindert Absturzursachen durch blockierenden Code im Interrupt-Kontext.
+6. Struct-basierte Datenmodelle Zusammengehörige Daten werden in Structs ge-bündelt:
+struct Fluid { String name; double calibration_ml; int korrektur_faktor; int amount; };
+struct Recipe { String name; int fluid_index[9]; int amounts[9]; int fluid_count; };
+7. Vorwärtsdeklarationen Alle Funktionen werden am Anfang deklariert, bevor sie implementiert werden. Das ermöglicht eine logische Lesereihenfolge (erst Konfigura-tion und Datenstrukturen, dann Implementierung).
+Schrittweiser Aufbau des Programms
+Der Aufbau folgt einer klaren Bottom-up-Strategie – zuerst die Hardware-Treiber, dann die Logik darüber:
+Schritt	Was wurde entwickelt
+1	Basis-Hardware initialisieren: I2C, LCD, Schrittmotor, Relays, Encoder, Wägezelle (setup)
+2	Hardware-Abstraktionsfunktionen: activateRelay(), motorStep(), readWeight()
+3	Einfaches Menüsystem mit enum MenuState und einem Rotary Encoder
+4	Rezept-Datenstruktur und hardkodierte Rezeptliste (25+ Cocktails)
+5	Pumpenlogik mit 3 Phasen (Schnell → Waage-gesteuert → Luft-Entlüftung)
+6	Flüssigkeitsverwaltung und Kalibrierung (ml/1000 Schritte)
+7	WiFi + MQTT-Integration mit Pending-Flag-Muster
+8	Webserver (LittleFS / ESPAsyncWebServer) für das Browser-Interface
+9	Online-Rezepte via HTTP GET (GitHub Gist)
+10	Glaserkennung via Wägesprung und Glasgrößen-Skalierung
 
-Programm:
-Programmschaltbild:
+Erklärungen einzelner Programm teile
+Menu Führung mit enum
+Ein enum ist ein Aufzählungstyp. Damit gibt man einer Variablen nur feste, vorde-finierte Werte.
+Beispiel:
 
-Programmablauf:
+Was bedeutet das?
+Hier wird der neue Datentyp MenuState definiert. Eine Variable dieses Typen darf dann nur einen dieser Zustände annehmen, zum Beispiel:
+•	MAIN_MENU
+•	RECIPES_MENU
+•	CLEANING_MODE
+Im Code wird das so benutzt:
 
+Das bedeutet:
+•	currentMenu ist eine Variable des Typen MenuState
+•	ihr aktueller Wert ist FLUID_SELECTION
+Warum ist ein enum nützlich?
+Ein enum macht den Code:
+•	lesbarer
+•	übersichtlicher
+•	weniger fehleranfällig
+Statt Zahlen wie 0, 1, 2 zu verwenden, stehen klare Namen im Code.
+Beispiel aus dem Projekt
+Die Menüführung arbeitet mit genau diesem enum. Je nachdem, welchen Wert cur-rentMenu hat, wird ein anderes Menü angezeigt.
+Beispiel:
+
+Zusammenfassung
+Ein enum (Enumeration) ist ein Datentyp, der eine feste Menge benannter Werte enthält. Im Projekt wird das enum MenuState verwendet, um die verschiedenen Zu-stände der Menüführung zu definieren. Die Variable currentMenu speichert dabei, in welchem Menü sich das System aktuell befindet, zum Beispiel MAIN_MENU, RE-CIPES_MENU oder CLEANING_MODE. Dadurch wird die Menülogik übersichtlicher und leichter wartbar.
+Flüssigkeitsverwaltung mit struct
+Eine struct ist ein Datentyp, der mehrere zusammengehörige Werte in einer Ein-heit speichert.
+
+Beispiel
+
+Was bedeutet das?
+Mit struct Fluid wird ein eigener Datentyp namens Fluid erstellt. Dieser Typ fasst alle Informationen zusammen, die zu einer Flüssigkeit gehören:
+•	name → Name der Flüssigkeit, z. B. Wasser oder Rum
+•	calibration_ml → Kalibrierwert für die Fördermenge
+•	korrektur_faktor → Korrekturwert für Restmenge im Schlauch
+•	amount → Menge, die gepumpt werden soll
+
+Verwendung im Code
+Direkt danach wird ein Array mit 9 Flüssigkeiten angelegt:
+
+Das bedeutet:
+•	fluid ist eine Liste mit 9 Einträgen
+•	jeder Eintrag ist ein komplettes Fluid-Objekt
+•	jede Flüssigkeit hat also Name, Kalibrierung, Korrekturfaktor und Menge
+
+Beispiel aus der Rezeptverwaltung
+In der Rezeptausführung wird auf diese Daten zugegriffen:
+
+Hier sieht man:
+•	fluids[j] ist eine bestimmte Flüssigkeit
+•	mit .name greift man auf das Feld name dieser Struktur zu
+
+Einfach erklärt
+Eine struct ist also wie ein Datenblatt für ein Objekt. Bei Fluid ist dieses Objekt eine Flüssigkeit.
+Statt viele einzelne Variablen zu haben wie:
+•	fluidName
+•	fluidCalibration
+•	fluidCorrection
+•	fluidAmount
+fasst die struct Fluid alles sauber in einem Datensatz zusammen.
+
+Zusammenfassung
+Eine struct ist ein benutzerdefinierter Datentyp, mit dem mehrere zusammengehöri-ge Eigenschaften in einer Einheit gespeichert werden können. Im Projekt wird dafür struct Fluid verwendet. Diese Struktur speichert die wichtigsten Informationen einer Flüssigkeit, also ihren Namen, den Kalibrierwert, den Korrekturfaktor und die aktuell zu dosierende Menge. Dadurch können die Flüssigkeiten übersichtlich im Array flu-ids[9] verwaltet und in der Rezeptausführung gezielt verwendet werden.
+
+Verfügbare Flüssigkeiten
+Beispiel
+
+Was bedeutet das?
+•	const bedeutet: Die Liste soll nicht verändert werden.
+•	String bedeutet: Jeder Eintrag ist ein Text.
+•	FLUID_NAMES[100] bedeutet: Es ist eine Liste mit Platz für 100 Flüssig-keitsnamen.
+Diese Liste enthält also alle Flüssigkeiten, die das System grundsätzlich kennt.
+Wofür wird das benutzt?
+FLUID_NAMES ist die zentrale Namensliste für das gesamte System.
+Sie wird gebraucht, damit:
+•	der Benutzer Flüssigkeiten auswählen kann
+•	die 9 belegten Slots im Automaten festgelegt werden können
+•	Rezepte ihre Zutaten über feste Indizes referenzieren können
+•	Online-Rezepte und Offline-Rezepte mit denselben Namen arbeiten
+Warum mit Indizes?
+Jede Flüssigkeit hat einen festen Platz in der Liste, zum Beispiel:
+•	FLUID_NAMES[0] → "Vodka"
+•	FLUID_NAMES[1] → "Weisser_Rum"
+•	FLUID_NAMES[41] → "Wasser"
+Dadurch kann das Programm statt langer Texte einfach mit Indexnummern arbei-ten.
+Das spart Speicher und macht die Rezeptverwaltung einfacher.
+Zusammenhang mit der Rezeptverwaltung
+In der Rezeptstruktur wird nicht direkt der Text gespeichert, sondern der Index einer Flüssigkeit:
+Das bedeutet:
+•	Ein Rezept speichert nicht einen Namen z.B.  "Vodka"
+•	sondern wird es mit dem Index gespeichert z.B. 0
+•	und 0 bedeutet dann in FLUID_NAMES: "Vodka"
+So kann das Programm später die passende konfigurierte Flüssigkeit im Automaten finden.
+Warum Unterstriche?
+In der Liste stehen Namen wie:
+"Weisser_Rum"
+"Soda_Wasser"
+"Angostura_Bitter"
+Die Unterstriche ersetzen Leerzeichen, damit die Namen im Programm und in JSON/MQTT einfacher und einheitlicher verarbeitet werden können.
+Einfach erklärt
+FLUID_NAMES ist also das Verzeichnis aller bekannten Zutaten. Die Rezeptver-waltung und die Flüssigkeitsverwaltung greifen auf diese gemeinsame Liste zu, da-mit überall dieselben Namen und dieselben Zuordnungen verwendet werden.
+Zusammenfassung
+FLUID_NAMES ist ein konstantes Array vom Typ String, in dem alle vom System bekannten Flüssigkeiten zentral gespeichert sind. Jede Flüssigkeit besitzt dabei ei-nen festen Index. Diese Indizes werden in der Rezeptverwaltung verwendet, um Zu-taten eindeutig zuzuordnen. Dadurch müssen Rezepte nicht mit langen Textnamen arbeiten, sondern können auf feste Positionen in der Namensliste verweisen. Gleichzeitig dient das Array auch dazu, die im Automaten konfigurierten 9 Flüssig-keitsslots auszuwählen und einheitlich darzustellen.
+Rezeptverwaltung
+Bei der Rezeptverwaltung ist es ähnlich wie bei der Flüssigkeitsverwaltung
+
+Was ist struct Recipe?
+Recipe ist eine Datenstruktur für ein Cocktailrezept. Ein Objekt dieses Typs spei-chert also alle Informationen, die das System für einen Cocktail braucht.
+Bedeutung der einzelnen Felder
+•	name
+Der Name des Rezepts, z. B. "Mojito".
+•	fluid_index[9]
+Hier stehen die Zutaten des Rezepts als Indizes. Diese Indizes verweisen auf Einträge in FLUID_NAMES.
+Wichtig:
+Der Kommentar im Code sagt zwar „Referenz zu fluids[]“, tatsächlich wird im Ablauf aber mit FLUID_NAMES gearbeitet und danach auf die 9 konfigurierten fluids[]-Slots abgebildet.
+•	amounts[9]
+Die Mengen der jeweiligen Zutaten in ml.
+•	fluid_count
+Gibt an, wie viele Zutaten wirklich benutzt werden. So muss das Pro-gramm nicht immer alle 9 Plätze auswerten.
+Wie arbeitet die Rezeptverwaltung?
+Die Rezepte sind im Array recipes gespeichert
+
+Das ist also die Liste aller bekannten Cocktailrezepte im Offline-Modus.
+Die Rezeptverwaltung nutzt diese Daten dann für drei Dinge:
+1.	Rezepte anzeigen Der Benutzer kann im Menü durch die Rezepte blättern.
+2.	Kompatibilität prüfen Das System prüft, ob alle benötigten Zutaten des Re-zepts in den aktuell konfigurierten 9 Flüssigkeiten vorhanden sind.
+3.	Rezept ausführen Für jede Zutat wird anhand des fluid_index zuerst der Name in FLUID_NAMES gesucht und dann der passende Slot in fluids[] ge-funden, damit die richtige Pumpe läuft.
+Beispiel: Mojito
+
+Bedeutung:
+•	name = "Mojito"
+•	fluid_index = {1, 12, 27, 37, ...} 
+o	1 → Weisser_Rum
+o	12 → Limettensaft
+o	27 → Minzsirup
+o	37 → Soda_Wasser
+•	amounts = {45, 20, 20, 100, ...} 
+o	45 ml Weißer Rum
+o	20 ml Limettensaft
+o	20 ml Minzsirup
+o	100 ml Soda-Wasser
+•	fluid_count = 4 
+o	Das Rezept hat 4 Zutaten
+Die -1 am Ende bedeuten dieser Plätze ist unbenutzt.
+Einfach erklärt
+Ein Recipe ist also der Bauplan eines Cocktails:
+•	Wie heißt der Cocktail?
+•	Welche Zutaten braucht er?
+•	Wie viel von jeder Zutat wird benötigt?
+•	Wie viele Zutaten hat das Rezept insgesamt?
+Zusammenfassung
+Die Rezeptverwaltung basiert auf der Struktur Recipe. Sie speichert für jeden Cock-tail den Namen, die verwendeten Zutaten, die jeweilige Menge in Millilitern sowie die Anzahl der tatsächlich benötigten Zutaten. Die Zutaten werden dabei nicht als Text gespeichert, sondern als Indizes auf die zentrale Liste FLUID_NAMES. Dadurch können Rezepte kompakt gespeichert und eindeutig den im System bekannten Flüssigkeiten zugeordnet werden. Bei der Ausführung eines Rezepts werden diese Einträge mit den aktuell konfigurierten 9 Flüssigkeitsslots des Automaten abgegli-chen, sodass nur herstellbare Cocktails ausgewählt und dosiert werden können.
+Menu Navigation
+Die Funktion handleMenuNavigation() übernimmt die komplette Navigation durch die Benutzeroberfläche.
+Sie wertet die Eingaben des Drehencoders, des Encoder-Knopfs und der Back-Taste aus und steuert damit den Wechsel zwischen den einzelnen Menüs.
+Das Menüsystem ist dabei als Zustandsautomat aufgebaut. Der aktuelle Zustand wird in der Variable currentMenu gespeichert. Je nach Zustand wird festgelegt,
+•	welche Anzeige dargestellt wird,
+•	welche Eingaben erlaubt sind,
+•	und in welches Menü beim Bestätigen oder Zurückspringen gewechselt wird.
+Auswertung des Encoders
+Die Drehbewegung des Encoders wird über Interrupts in der Funktion encoderISR() erfasst.
+Dabei wird mit einem Quadratur-Decoding-Verfahren bestimmt, ob der Encoder nach rechts oder links gedreht wurde. Das Ergebnis wird in der globalen Variable encoderCounter gespeichert.
+In handleMenuNavigation() wird geprüft, ob sich encoderCounter seit dem letzten Aufruf verändert hat. Ist das der Fall, wurde der Encoder gedreht.
+Je nach aktuellem Menü hat diese Drehung unterschiedliche Auswirkungen:
+•	Im normalen Menübetrieb wird selectedIndex erhöht oder verringert.
+Dadurch wandert die Markierung im aktuellen Menü nach oben oder unten.
+•	Im Menü FLUID_CATEGORY_SELECTION wird statt selectedIndex die Vari-able selectedCategory verändert.
+•	Im Menü MANUAL_INPUT_EDITING wird die Eingabemenge der aktuell aus-gewählten Flüssigkeit angepasst.
+•	Im Menü MANUAL_MOTOR_STEPS wird die Anzahl der Motorschritte erhöht oder verringert.
+Der Encoder dient also entweder zur Menünavigation oder zur Wertänderung, abhängig davon, in welchem Menü sich das System gerade befindet.
+Auswertung des Encoder-Knopfs
+Der Encoder-Knopf wird nicht per Interrupt, sondern direkt in handleMenuNavigati-on() abgefragt.
+Dazu wird der Zustand des Pins ENCODER_SW mit digitalRead() gelesen.
+Ein Tastendruck wird erkannt, wenn:
+•	der Zustand von HIGH auf LOW wechselt,
+•	und seit dem letzten Tastendruck mehr als 50 ms vergangen sind.
+Diese 50 ms dienen als Debounce-Zeit, damit Prellen des Tasters nicht zu mehrfa-chen Auslösungen führt.
+Wird ein gültiger Tastendruck erkannt, setzt der Code das Flag encoderButtonPres-sed.
+Danach wird im switch(currentMenu) je nach aktuellem Menü entschieden, welche Aktion ausgeführt werden soll.
+Typische Reaktionen auf den Encoder-Knopf sind:
+•	ein Untermenü öffnen,
+•	eine Auswahl bestätigen,
+•	einen Bearbeitungsmodus starten,
+•	oder eine Aktion wie das Starten eines Rezepts auslösen.
+Der Encoder-Knopf ist damit die Bestätigungs- bzw. Auswahl-Taste des Menüsys-tems.
+Auswertung der Back-Taste
+Auch die Back-Taste wird in handleMenuNavigation() per Polling ausgewertet.
+Dazu wird der Zustand des Pins BACK_BUTTON gelesen.
+Ein Tastendruck wird genau wie beim Encoder-Knopf erkannt:
+•	bei einer Flanke von HIGH auf LOW
+•	mit einer Entprellzeit von 50 ms.
+Bei einem gültigen Druck wird das Flag backButtonPressed gesetzt. Anschließend prüft die Funktion, in welchem Menü sich das System gerade befindet, und springt in das jeweils übergeordnete oder passende vorherige Menü zurück.
+Beispiele:
+•	von MANUAL_INPUT_EDITING zurück zu MANUAL_INPUT
+•	von FLUID_CATEGORY_SELECTION zurück zu FLUID_SELECTION
+•	von FLUID_FROM_CATEGORY_SELECTION zurück zur Kategorieauswahl
+•	von RECIPE_DETAILS zurück zur Rezeptliste
+•	von RECIPES_TYPE_MENU zurück ins Hauptmenü
+Falls kein spezieller Rücksprung definiert ist, wird als Standard ins MAIN_MENU gewechselt.
+Die Back-Taste übernimmt damit die Funktion Zurück / Abbrechen / Menü verlas-sen.
+Wie dadurch der Wechsel zwischen Menüs funktioniert
+Der Wechsel zwischen Menüs entsteht durch das Zusammenspiel aus:
+•	currentMenu → aktueller Menüzustand
+•	selectedIndex → aktuell markierter Eintrag
+•	Encoderbewegung → Auswahl ändern
+•	Encoder-Knopf → Auswahl bestätigen
+•	Back-Taste → zum vorherigen Menü zurückkehren
+Der typische Ablauf ist dabei:
+1.	Der Benutzer dreht den Encoder. Dadurch wird der markierte Menüeintrag geändert.
+2.	Der Benutzer drückt den Encoder-Knopf. Die aktuelle Auswahl wird bestätigt.
+3.	In handleMenuNavigation() wird abhängig von currentMenu und selectedIn-dex entschieden, in welches Menü gewechselt wird.
+Beispiel im Hauptmenü:
+•	selectedIndex == 0 → Wechsel zu RECIPES_TYPE_MENU
+•	selectedIndex == 1 → Wechsel zu MANUAL_INPUT
+•	selectedIndex == 2 → Wechsel zu FLUID_SELECTION
+•	selectedIndex == 3 → Wechsel zu CLEANING_MODE
+•	selectedIndex == 4 → Wechsel zu MANUAL_CONTROL
+Dadurch wird die gesamte Benutzerführung über einen klaren Zustandswechsel ge-steuert.
+Zusammenfassung
+handleMenuNavigation() ist die zentrale Steuerfunktion des Menüsystems. Sie er-kennt die Benutzereingaben, aktualisiert Auswahl- und Eingabewerte und verändert den aktuellen Menüzustand.
+•	Encoder drehen → Auswahl oder Werte ändern
+•	Encoder drücken → Auswahl bestätigen / Untermenü öffnen
+•	Back-Taste drücken → zurück zum vorherigen Menü
+So entsteht ein vollständiges, menübasiertes Bedienkonzept, bei dem alle Übergän-ge zwischen den Menüs zentral über handleMenuNavigation() gesteuert werden.
+Pending-Flag-Muster im Programm
+Im Programm wird an mehreren Stellen das sogenannte Pending-Flag-Muster verwendet. Dabei wird eine Aktion nicht sofort direkt dort ausgeführt, wo das Ereignis erkannt wird, sondern zunächst nur in einer Variable vorgemerkt.
+Diese Variable ist das jeweilige Pending-Flag. Sie zeigt an, dass eine bestimmte Aktion später noch ausgeführt werden muss.
+Beispiele dafür sind in main.cpp:
+•	pendingRecipeIndex
+•	pendingOnlineRecipe
+•	pendingCleaningStart
+•	pendingCleaningStop
+•	pendingOnlineRecipeFetch
+•	pendingRelayIndex
+•	pendingMotorCmd
+•	pendingFluidSlot
+•	pendingCalibrateSlot
+•	pendingScaleCalibrate
+
+Abbildung 35: Programm Pending Flag
+Warum dieses Muster gebraucht, wird
+Das Pending-Flag-Muster wird hier vor allem für MQTT-Nachrichten verwendet.
+Wenn über MQTT ein Kommando hereinkommt, wird es in mqttCallback() verarbei-tet.
+Dieser Callback soll möglichst kurz und nicht blockierend bleiben. Deshalb steht im Code auch ausdrücklich:
+•	keine blockierenden Funktionen direkt im Callback,
+•	stattdessen nur Flags setzen,
+•	und die eigentliche Aktion später in loop() ausführen.
+Der Grund ist, dass auf dem Mikrocontroller bestimmte Funktionen länger dauern können, zum Beispiel:
+•	Motor bewegen
+•	Relais schalten
+•	Reinigung starten
+•	Rezepte ausführen
+•	Daten publizieren
+•	Online-Rezepte laden
+Solche Aktionen würden den Callback unnötig aufhalten oder zu unerwünschtem Verhalten führen.
+Wie das Muster grundsätzlich funktioniert
+Das Muster läuft immer in drei Schritten ab:
+1.	Ein Ereignis tritt auf Zum Beispiel kommt per MQTT ein Befehl an.
+2.	Im Callback wird nur ein Flag gesetzt Die gewünschte Aktion wird also nur vorgemerkt.
+3.	In loop() wird das Flag geprüft und abgearbeitet Erst dort wird die eigent-liche Funktion wirklich aufgerufen.
+Dadurch werden Empfang und Ausführung sauber voneinander getrennt.
+Beispiel: Rezept per MQTT starten
+Wenn über MQTT ein Offline-Rezept angefordert wird, bestimmt mqttCallback() zu-erst den passenden Rezeptindex. Danach wird nicht direkt executeRecipe() aufge-rufen, sondern nur:
+•	pendingRecipeIndex = idx
+gesetzt.
+Später prüft loop():
+•	ob pendingRecipeIndex >= 0 ist
+•	und ob gerade kein Rezept läuft
+Erst dann wird das Rezept wirklich gestartet. Nach dem Starten bzw. Abarbeiten wird das Flag wieder zurückgesetzt:
+•	pendingRecipeIndex = -1
+So wird verhindert, dass derselbe Auftrag mehrfach ausgeführt wird.
+Beispiel: Motorbefehl
+Beim MQTT-Motorbefehl werden zuerst nur die Daten gespeichert:
+•	Richtung in pendingMotorForward
+•	Schrittzahl in pendingMotorSteps
+•	Ausführungsflag in pendingMotorCmd
+In loop() wird dann geprüft, ob pendingMotorCmd gesetzt ist. Falls ja, wird das Flag zuerst wieder gelöscht und danach motorStep(...) aufgerufen.
+Auch hier gilt: Der Callback merkt nur vor, loop() führt wirklich aus.
+Beispiel: Reinigung starten
+Wenn per MQTT ein Reinigungsstart angefordert wird, setzt mqttCallback() nur:
+•	pendingCleaningStart = true
+In loop() wird dieses Flag später abgearbeitet. Dann passiert erst die eigentliche Lo-gik:
+•	Flag zurücksetzen
+•	Menü auf CLEANING_MODE setzen
+•	Display-Update anfordern
+•	startCleaning() aufrufen
+Dadurch bleibt die MQTT-Verarbeitung kurz, während die eigentliche Reinigungslo-gik kontrolliert im Hauptprogramm abläuft.
+Warum viele Flags volatile sind
+Die Pending-Flags sind meist als volatile deklariert. Damit wird dem Compiler ge-sagt, dass sich diese Variablen jederzeit ändern können und nicht einfach wegopti-miert werden dürfen.
+Das ist wichtig, weil solche Zustandsvariablen in verschiedenen Programmteilen verwendet werden, zum Beispiel:
+•	im MQTT-Callback
+•	und später in loop()
+So wird sichergestellt, dass immer der aktuelle Wert gelesen wird.
+Warum manche Flags bool und andere int sind
+Je nach Aktion wird ein anderer Datentyp verwendet:
+•	bool-Flags für reine Ja/Nein-Aktionen z. B. pendingCleaningStart, pen-dingOnlineRecipe
+•	int-Flags für Aktionen mit zusätzlicher Information z. B. pendingRecipeIndex, pendingRelayIndex, pendingFluidSlot
+Bei Integer-Flags bedeutet oft:
+•	-1 → nichts ausstehend
+•	>= 0 → gültiger Auftrag vorhanden
+So kann das Programm gleichzeitig erkennen, ob etwas aussteht und welcher Wert verarbeitet werden soll.
+Vorteil des Pending-Flag-Musters
+Das Muster bringt mehrere Vorteile:
+•	MQTT-Callbacks bleiben kurz und sicher
+•	blockierende Funktionen laufen nur im Hauptprogramm
+•	die Programmlogik bleibt übersichtlich
+•	Aktionen werden kontrolliert und nur einmal ausgeführt
+•	konkurrierende Abläufe werden besser entkoppelt
+Kurz gesagt: Das Pending-Flag-Muster dient als Zwischenspeicher für Aufträge, die nicht sofort, sondern erst im sicheren Kontext von loop() ausgeführt werden sol-len.
+Zusammenfassung
+Das Pending-Flag-Muster bedeutet in diesem Programm:
+•	Ereignis erkannt → nur vormerken
+•	Flag setzen → Aktion als „ausstehend“ markieren
+•	loop() prüft das Flag → Aktion später wirklich ausführen
+•	Flag zurücksetzen → Auftrag ist erledigt
+So trennt das Programm sauber zwischen:
+•	Eingang eines Befehls
+•	und tatsächlicher Ausführung der Aktion
+
+Kompatibilitätsprüfung von Rezepten
+Bei der Kompatibilitätsprüfung von Rezepten wird geprüft ob es. Alle Zutaten dieses Cocktails aktuell in den 9 eingesetzten Flüssigkeiten vorhanden sind
+So funktioniert es:
+1.	Rezept laden
+o	Mit Recipe recipe = recipes[recipeIndex]; wird das gewünschte Rezept geholt.
+2.	Alle Zutaten des Rezepts durchgehen
+o	Die Schleife läuft von 0 bis recipe.fluid_count - 1.
+o	Also nur über die Zutaten, die dieses Rezept wirklich braucht.
+3.	Zutat als Namen bestimmen
+o	recipe.fluid_index[i] ist der Index der benötigten Flüssigkeit.
+o	Über FLUID_NAMES[recipeFluidIdx] wird daraus der Name der Zutat.
+4.	In den 9 verfügbaren Flüssigkeiten suchen
+o	Dann wird fluids[0] bis fluids[8] durchsucht.
+o	Verglichen wird: 
+	fluids[j].name
+	mit FLUID_NAMES[recipeFluidIdx]
+5.	Wenn eine Zutat fehlt → sofort false
+o	Wird eine Zutat in keinem der 9 Slots gefunden, ist der Cocktail nicht machbar.
+6.	Wenn alle Zutaten gefunden werden → true
+o	Dann ist das Rezept kompatibel und kann grundsätzlich zubereitet werden.
+Einfaches Beispiel
+Angenommen, aktuell sind eingesetzt:
+•	Vodka
+•	Orangensaft
+•	Rum
+•	Wasser
+•	usw.
+Das Rezept braucht:
+•	Vodka
+•	Orangensaft
+Dann:
+•	Vodka wird in fluids[] gefunden
+•	Orangensaft wird in fluids[] gefunden
+•	Ergebnis: true
+Wenn das Rezept stattdessen braucht:
+•	Vodka
+•	Limettensaft
+Dann:
+•	Vodka wird gefunden
+•	Limettensaft wird nicht gefunden
+•	Ergebnis: false
+Wichtig für die Erklärung
+Die Funktion prüft nur die Verfügbarkeit der Zutaten, nicht:
+•	ob genug Menge vorhanden ist
+•	wie viel gepumpt wird
+•	ob das Glas da ist
+Sie beantwortet nur die Frage:
+Kann dieser Cocktail mit den aktuell eingesetzten Flüssigkeiten gemacht wer-den?
+Code Abschnitt
+
+
+
+•  Rezeptausführung
+•	Bei executeRecipe()
+•	Besonders gut für die Doku, weil dort die komplette Logik zusammenläuft: 
+o	Rezept lesen
+o	passende Flüssigkeit finden
+o	Mengen skalieren
+o	pumpen
+o	Ergebnis erfassen
+•  Pumpfunktion
+•	Bei pumpFluid()
+•	Hier kannst du erklären, wie die Dosierung technisch funktioniert und warum Kalibrierung wichtig ist
+•  Waage / Glaserkennung
+•	Bei readWeight() und checkGlassDetection()
+•	Warum das System erkennt, ob ein Glas da ist und warum das für Sicherheit und korrekte Dosierung wichtig ist
+•  Relais- und Ventilsteuerung
+•	Bei activateRelay(), activateFluid() und activateAir()
+•	Gut geeignet, um den Hardwarebezug zu erklären
+•  WiFi- und MQTT-Kommunikation
+•	connectToWiFi(), connectToMQTT(), mqttCallback()
+•	Damit kannst du zeigen, wie der Automat mit einer App oder einem anderen System kommuniziert
+•  Offline- und Online-Rezepte
+•	Unterschied zwischen lokal gespeicherten Rezepten und extern geladenen Rezepten
+•	Das ist für eine Projektdoku sehr stark, weil es die Erweiterbarkeit zeigt
+•  JSON-Publishing
+•	publishFluids(), publishOfflineRecipes(), publishStatus()
+•	Gut um zu erklären, wie interne Daten in ein austauschbares Format gebracht werden
+•  setup() und loop()
+•	Klassisch wichtig bei Arduino-Projekten
+•	setup() für Initialisierung, loop() für den dauerhaften Betrieb
+•  Interrupts
+•	setupInterrupts(), encoderISR(), buttonISR()
+•	Sehr gut, wenn du auch technische Tiefe zeigen willst
+
+
+
+
+
+
+
+
+
+Programm Dateien
+Hauptprogramm
+ 
+Frontend des Cocktail-Automaten
+ 
+Grundgerüst der Web-Oberfläche
+ 
+Design/Aussehen
+ 
+Rezepte
+ 
+Blockschaltbild
+Gesamtprogramm Ablauf
 Schaltplan
 Seite 1/7
  
+Abbildung 39: Schaltplan S 1
 Seite 2/7
  
+Abbildung 40: Schaltplan S 2
 Seite 3/7
  
+Abbildung 41: Schaltplan S 3
 Seite 4/7
  
+Abbildung 42: Schaltplan S 4
 Seite 5/7
  
+Abbildung 43: Schaltplan S 5
 Seite 6/7
  
+Abbildung 44: Schaltplan S 6
 Seite 7/7
  
-Bedienungsanleitung Automat:
-Vor dem Gebrauch:
+Abbildung 45: Schaltplan S 7
+Bedienungsanleitung Automat
+Vor dem Gebrauch
 WICHTIG: Ist die Zuleitung des Cocktail Automat frei von Beschädigungen .
 WICHTIG: Sind alle Abdeckung vorhanden und geschlossen.
 WICHTIG: Nach jedem Gebrauch am Ende des Tages reinigen.
 Bei dem Anschließen der Schläuche:
 Schläuche auf Löcher Prüfen
 Die Schläuche bis zum Anschlag auf die Verbinder drücken
-
-Flüssigkeiten Anschließen:
+Flüssigkeiten Anschließen
 Auf der Rückseite des Cocktail Automat sind 10 Schlauche sie sind nummeriert Schlauch 1 bis 9 sind für Flüssigkeiten, Schlauch 10 ist für die Luftzufuhr.
 Um eine Flüssigkeit anzuschließen den Schlauch verbinden und in eine Flasche oder Behälter einführen.
 Welche Flüssigkeiten dar ich Anschließen.
-Es dürfen alle Flüssigkeiten angeschlossen werden, die keine Broken haben z.B. Bei manschen Sirups oder Orangensaft mit Stückchen. Sehr WICHTIG: Keine Milchhaltigen Flüssigkeiten anschließen.
-Bedienelemente:
+Es dürfen alle Flüssigkeiten angeschlossen werden, die keine Broken haben z.B. Bei manchen Sirups oder Orangensaft mit Stückchen. Sehr WICHTIG: Keine Milchhalti-gen Flüssigkeiten anschließen.
+Bedienelemente
 
 Bedienelement	Funktion
 Encoder rechts drehen  	Menu scrollt herunter 
 Encoder links drehen    	Menu scrollt hoch
 Encoder-Knopf drücken  	OK / Auswahl bestaetigen          
 Back-Taste drücken    	Back / Zurück
-Einschalten und Startvorgang:
-Strom einschalten Cocktail Automat fährt hoch und versucht sich mit dem Webserver zu verbinden, wenn er sich nicht verbinden kann, fährt 
+Einschalten und Startvorgang
+Strom einschalten Cocktail Automat fährt hoch und versucht sich mit dem Webserver zu verbinden, wenn er sich nicht verbinden kann, fährt der Automat im Offline-Modus hoch
+
+
+Verbindung Herstellen
 
 Nach dem Hochfahren erscheint das Menü "Flüssigkeiten konfigurieren"
 
 Hier müssen sie jetzt die Flüssigkeiten auswählen, die sie an den Cocktail Automat angeschlossen haben, wenn sie noch keine Flüssigkeiten angeschlossen haben, machen sie das bitte jetzt. Drücken sie OK / Auswahl bestätigen, um in die Kategorie Auswahl zu gelangen.
 
-Bsp: OK / Auswahl bestätigen Drücken, um in Alkoholische Flüssigkeiten zu gelangen
+Bsp: OK / Auswahl bestätigen Drücken, um in Alkoholische Flüssigkeiten zu gelan-gen
 
 OK / Auswahl bestätigen Drücken, um Flüssigkeit zu bestätigen.
 
 WICHTIG: Vor dem ersten Einsatz immer die Flüssigkeiten konfigurieren,
 damit der Automat Weiß, welche Leitung welche Flüssigkeit führt.
 
-Hauptmenü:
+Hauptmenü
 Vom Flüssigkeiten Menü auf das Hauptmenü zu gelangen Back / Zurück
-
+Zweiter Menü Teil
 
 Von dem Hauptmenü kommt man in jedes andere Menü des Cocktail Automat
-Rezept auswählen und starten:
+Rezept auswählen und starten
 Das Rezepte Menü ist in zwei geteilt Offline-Rezepte, die auch im Offline-Modus funktionieren und Online-Rezepte, die nur funktionieren, wenn der Cocktail Automat mit dem Internet verbunden ist.
 
 Wenn ein X neben einem Rezept steht, sind die Flüssigkeiten für dieses Rezept nicht vorhanden und dieses Rezept ist gesperrt.
@@ -537,36 +1113,41 @@ Wenn ein X neben einem Rezept steht, sind die Flüssigkeiten für dieses Rezept 
 Wenn man dann ein Rezept ausgewählt hat, kommt die Rezept Ansicht, dort wird einem das Rezept für das Getränk noch einmal angezeigt.
 
 Nach der Rezept Ansicht kommt das Menü Glasgröße auswählen, hier Wählt man aus wie Groß ein Drink werden soll. Das Rezept wird auf die Ausgewählte Größe skaliert. Wichtig: Ein Glass mit geeigneter Größe auf die Auflage stellen
-
+Auswahl Größe
+Auswahl Größe unten
 Dann wird das Rezept ausgeführt. Hier von Standard 100 ml  auf 500 ml skaliert durch Auswahl.
 
 Wenn das Rezept fertig ist, wird einem angezeigt wieviel von welcher Flüssigkeit gepumpt wurde. Dieses Menü schließt sich nach 10 Sekunden.
 
 Wenn ein Rezept ausgeführt wird, kann man es mit Back / Zurück abrechen oder man hebt das Glas an und es bricht automatisch ab. 
 
-Manuelle Eingabe:
-Flüssigkeiten, die man im Getränk haben will, auswählen und dann am Roterie Encoder drehen für die Einstellung der Menge der Flüssigkeit. Wenn man alle Flüssigkeiten ausgesucht habe, die ich Trinken will. Drückt man auf Start Manuell, um mit dem Abfüllen zu beginnen. 
+Manuelle Eingabe
+Flüssigkeiten, die man im Getränk haben will, auswählen und dann am Roterie En-coder drehen für die Einstellung der Menge der Flüssigkeit. Wenn man alle Flüssig-keiten ausgesucht habe, die ich Trinken will. Drückt man auf Start Manuell, um mit dem Abfüllen zu beginnen. 
+Manuelle Eingabe unten
 
-Reinigungsmodus:
-Für den Reinigungsmodus muss an die Pumpe und an den Luft Anschluss der Reinigungsadapter angebracht werden und dann alle Schläuche in einen Behälter. Dann OK / Auswahl bestätigen drücken. Wenn der letzte Zyklus erreicht ist Stoppt es, dann bitte alle Schläuche außer, denn Schlauch von der Pumpe aus dem Behälter entfernen und Dann OK / Auswahl bestätigen drücken.
+Reinigungsmodus
+Für den Reinigungsmodus muss an die Pumpe und an den Luft Anschluss der Rei-nigungsadapter angebracht werden und dann alle Schläuche in einen Behälter. Dann OK / Auswahl bestätigen drücken. Wenn der letzte Zyklus erreicht ist Stoppt es, dann bitte alle Schläuche außer, denn Schlauch von der Pumpe aus dem Behäl-ter entfernen und Dann OK / Auswahl bestätigen drücken.
 
-Manuelle Bedienung:
+Zyklus Anzeige:
+
+Manuelle Bedienung
 WICHTIG: Nur in Notfällen benutzen 
 In der Manuellen Bedienung kann man denn Cocktail Automat manuell bedienen, das heißt alle Relais einzeln an und ausschalten und die Pumpe ansteuern.
 
-Online:
-Um sich online zu verbinden kann man die IP-Adresse, die auf dem Bildschirm angezeigt wird bei dem Hochfahren in einem Browser eingeben.
+Online
+Um sich online zu verbinden kann man die IP-Adresse, die auf dem Bildschirm an-gezeigt wird bei dem Hochfahren in einem Browser eingeben.
 z.B. IP-Adresse (192.168.31.17)
 Wenn man sich dann Angemeldet hat kommt man in das Menü Status, dort werden einem angezeigt, ob ein Glass vorhanden ist, welches Relay geschaltet ist und wenn schon ein Rezept abgeschlossen ist, wird einem zu diesem Rezept das Ergebnis angezeigt wird.
 
 Man kann Online auch die Flüssigkeiten auswählen im Flüssigkeiten Menü lässt sich das einfacher machen als am Cocktail Automat.
 
 Wenn man auf eine Flüssigkeit drückt, kommt ein Untermenü wo man dann seine Flüssigkeit einfach auswählen kann. Wenn man dann alle ausgewählt hat drückt man  Alle Speichern um sie zu übertragen.
+Speichern
 
 
 
 
-In den Menüs Offline-Rezepte und Online-Rezepte werden einem Rezepte angezeigt die man ausführen kann dort werden einen auch die Zutaten der einzelnen Rezepte angezeigt.
+In den Menüs Offline-Rezepte und Online-Rezepte werden einem Rezepte ange-zeigt die man ausführen kann dort werden einen auch die Zutaten der einzelnen Rezepte angezeigt.
 
 In dem Menü Manuelle Steuerung kann man Rezepte erstellen oder Manuell ein Getränk zusammenmischen und Starten. Einen Namen eingeben, die Flüssigkeit auswählen, neue Flüssigkeiten hinzufügen. Mit Starten direkt ausführen oder mit GitHub das Rezept abspeichern, abgespeicherte Rezepte werden unter Online-Rezepte angezeigt (Ganz unten).
 
@@ -575,19 +1156,19 @@ z.B.
 In dem Menü kann man den Cocktail Automat auch manuell bedienen, man sollte es aber vermeiden. Da einzige wichtige dort ist noch der Reinigungsmodus
 
 GitHub Token
+Das GitHub Token ist ein Schlüssel, den man verwenden kann, um auf mein GitHub Konto zuzugreifen, dieses Token hat die Berechtigung auf das Repository Ab-schlussprojekt_Gerstner zuzugreifen und dort Sachen zu schreiben und zu lesen. Dies wird verwendet um auf eine Datei namens recipes.json zuzugreifen, dort sind die Online-Rezepte gespeichert.
 Wichtig ist für das Speichern neuer Rezepte:
 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
-Verbesserungsvorschläge:
+Verbesserungsvorschläge
 Verbesserungsvorschlag 1: LCD → OLED-Touchscreen
 Problem: Das aktuelle 4×20 LCD-Display zeigt nur Text und wird über Drehgeber + Taster bedient.
-Lösung: Ersatz durch einen ILI9341 TFT-Touchscreen (3,5", SPI-Anschluss, resistiver Touch via XPT2046).
+Lösung: Ersatz durch einen ILI9341 TFT-Touchscreen (3,5", SPI-Anschluss, re-sistiver Touch via XPT2046).
 Vorteile:
 •	Grafische Anzeige (Farben, Bilder, Fortschrittsbalken)
 •	Bedienung direkt per Fingertipp – Drehgeber und Taster können entfallen
 Softwareänderungen:
 •	Bibliothek LiquidCrystal_I2C → Adafruit_ILI9341 + Adafruit_GFX
 •	Alle lcd.print()-Aufrufe durch Grafikbefehle ersetzen
-
 Verbesserungsvorschlag 2: SD-Karte für Rezepte
 Problem: Der MQTT-Buffer ist auf 4096 Byte begrenzt. Die aktuelle recipes.json mit 27 Rezepten füllt diesen Buffer bereits fast vollständig aus – mehr Rezepte sind nicht möglich.
 Lösung: MicroSD-Kartenmodul (SPI) mit der recipes.json direkt auf der Karte speichern.
@@ -599,45 +1180,42 @@ Softwareänderungen:
 •	Bibliothek greiman/SdFat hinzufügen
 •	recipes.json per SD.open() einlesen statt per HTTP/MQTT
 
-Gefahrenanalyse:
+Gefahrenanalyse
 Gefahrenanalyse – Getränkeautomat (Cocktailautomat)
-Projekt: Getränkeautomat / Cocktailautomat
-Autor: Philip Gerstner
-Klasse: FSTEL24
-Betreuer: Herr Benz
-Schule: Meisterschule für Handwerker, Kaiserslautern
-Datum: 13.04.2026
-Version: 1.0
-
+Projekt:	Getränkeautomat / Cocktailautomat
+Autor: 	Philip Gerstner
+Klasse: 	FSTEL24
+Betreuer: 	Herr Benz
+Schule: 	Meisterschule für Handwerker, Kaiserslautern
+Datum: 	13.04.2026
+Version: 	1.0
 1. Systembeschreibung
 Der Getränkeautomat dosiert bis zu 9 verschiedene Flüssigkeiten automatisch.
 Das System besteht ausfolgenden sicherheitsrelevanten Komponenten:
 Modul	Komponenten	Spannung
-Spannung / Steuerung	BRIMETI Schaltnetzteil 230V AC → 24V DC, 150W, IP67	230V AC / 24V DC
+Spannung / Steu-erung	BRIMETI Schaltnetzteil 230V AC → 24V DC, 150W, IP67	230V AC / 24V DC
 Mikrokontroller	XTVTX ESP32-S3 (16MB Flash, WiFi, BT 5.0)	5V DC
-Pumpensteuerung	COVVY TB6600 Schrittmotorcontroller (9–42V, 4A max.)	24V DC
+Pumpensteue-rung	COVVY TB6600 Schrittmotorcontroller (9–42V, 4A max.)	24V DC
 Pumpe	Kamoer KDS3000-ST Peristaltikpumpe (0–1800 ml/min)	24V DC
 Ventile	10x Micro-Magnetventil, Normally Open (12V DC)	12V DC
-Relais	3x ICQUANZX 4-Kanal Relaismodul (3,3V Trigger, 230V / 10A)	3,3V Signal
+Relais	3x ICQUANZX 4-Kanal Relaismodul (3,3V Trig-ger, 230V / 10A)	3,3V Signal
 Wägezelle	ALAMSCN 5 kg + HX711 ADC-Modul	3,3V / 5V
 Schlauch	Silikonschlauch 5 mm Innen-Ø, lebensmittelecht (–40 °C bis +220 °C)	–
 Bedienung	AZDelivery 4x20 LCD, GIAK KY-040 Drehgeber, 5x Drucktaster	3,3V DC
 Gehäuse	6 Module, 3D-gedruckt aus PP-Filament (250 °C Schmelzpunkt)	–
 Betriebsumgebung: Innenbereich, Küche / Gastronomie, bestimmungsgemäß durch eingewiesene Person zu bedienen.
-
 2. Methode der Risikobewertung
+
 RPZ = E × S
-•	E = Eintrittswahrscheinlichkeit (1 = sehr unwahrscheinlich bis 5 = sehr wahrscheinlich)
+•	E = Eintrittswahrscheinlichkeit (1 = sehr unwahrscheinlich bis 5 = sehr wahr-scheinlich)
 •	S = Schadensausmaß (1 = vernachlässigbar bis 5 = katastrophal)
 •	RPZ = Risikoprioritätszahl (1–25)
-RPZ	Bewertung	Bedeutung
+RPZ	Bewer-tung	Bedeutung
 1–4	Gering	akzeptabel
 5–9	Mittel	Maßnahmen wünschenswert
 10–14	Erhöht	Maßnahmen erforderlich
-15–25	Hoch	sofortige Maßnahmen erforderlich
-Die Schutzmaßnahmen folgen dem STOP-Prinzip
-(Substitution → Technisch → Organisatorisch → Persönlich).
-
+15–25	Hoch	sofortige Maßnahmen erforder-lich
+Die Schutzmaßnahmen folgen dem STOP-Prinzip (Substitution → Technisch → Organisatorisch → Persönlich).
 3. Risikotabelle
 Kategorie A – Elektrische Gefährdungen
 Nr.	Gefährdung
@@ -649,30 +1227,30 @@ A4	Elektromagnetische Störung durch WiFi / BT
 Kategorie B – Mechanische Gefährdungen
 Nr.	Gefährdung
 B1	Erfassen durch rotierende Pumpe
-B2	Platzen / Lösen des Silikonschlauchs
+B2	Platzen / Lösen des Silikon-schlauchs
 B3	Herunterfallen / Kippen des Geräts
 
 Kategorie C – Thermische Gefährdungen
 Nr.	Gefährdung
 C1	Überhitzung TB6600 Motorcontroller
 C2	Überhitzung Schaltnetzteil
-C3	Verbrennung durch heiße Gehäuseteile
+C3	Verbrennung durch heiße Gehäusetei-le
 
 Kategorie D – Flüssigkeits- / Feuchtigkeitsgefährdungen
 Nr.	Gefährdung
 D1	Rutschgefahr durch ausgelaufene Flüssigkeit
 D2	Flüssigkeitseintritt in Elektronikmodule
-D3	Schäden am 3D-Druck-Gehäuse durch Feuchtigkeit
+D3	Schäden am 3D-Druck-Gehäuse durch Feuchtig-keit
 
 Kategorie E – Brand- und Explosionsgefahr
 Nr.	Gefährdung
-E1	Entzündung von Alkohol durch heiße Bauteile
+E1	Entzündung von Alkohol durch heiße Bautei-le
 E2	Schwelbrand durch Überlastung von Relais
 
 Kategorie F – Lebensmittelhygiene / Biostoffe
 Nr.	Gefährdung
 F1	Keimbildung / Schimmel im Schlauch
-F2	Kontamination durch nicht lebensmittelgerechte Materialien
+F2	Kontamination durch nicht lebensmittelgerechte Materia-lien
 F3	Kreuzkontamination zwischen Getränken
 
 Kategorie G – Softwarefehler / Fehlfunktionen
@@ -684,7 +1262,7 @@ G4	Absturz / Freeze des ESP32
 
 Kategorie H – Strukturversagen / Mechanische Integrität
 Nr.	Gefährdung
-H1	Bruch von 3D-Druck-Modulen unter Gewichtslast
+H1	Bruch von 3D-Druck-Modulen unter Gewichts-last
 H2	Ermüdungsbruch der Schraubenverbindungen
 
 4. Schutzmaßnahmen nach STOP-Prinzip
@@ -697,7 +1275,7 @@ T – Technische Maßnahmen
 Maßnahme
 IP67 Netzteil
 Geschlossene Module mit Schraubenverriegelung
-Räumliche Trennung von Elektronik und Flüssigkeit
+Räumliche Trennung von Elektronik und Flüssig-keit
 Tropfschutz-Trennwand
 Schlauchklemmen
 Hardware-Watchdog ESP32
@@ -706,7 +1284,7 @@ Timeout + Gewichtssensor
 O – Organisatorische Maßnahmen
 Maßnahme
 Netzteil vor Wartung trennen
-Reinigungsmodus nach jedem Betriebstag
+Reinigungsmodus nach jedem Betriebs-tag
 Sichtprüfung vor Betrieb
 Flüssigkeitskonfiguration bestätigen
 Aufstellung auf stabilem Untergrund
@@ -716,34 +1294,28 @@ Nur empfohlene Ersatzteile
 P – Persönliche Maßnahmen
 Maßnahme
 Einweisung des Bedienpersonals
-Wartung nur durch eingewiesene Personen
+Wartung nur durch eingewiesene Perso-nen
 
 5. Funktionale Sicherheit nach ISO 13849 und EN 62061
-5.1 ISO 13849-1 – Sicherheitsbezogene Teile von Steuerungen (Performance Level)
-Die Norm ISO 13849-1 bewertet sicherheitsbezogene Steuerungsfunktionen anhand eines Performance Level (PL a–e).
-Je höher das PL, desto zuverlässiger muss die Sicherheitsfunktion ausgeführt werden.
-Die Einstufung erfolgt anhand von Kategorie, MTTFd (mittlere Zeit bis zum gefahrbringenden Ausfall), Diagnosedeckungsgrad (DC) und Common-Cause-Failure (CCF).
+5.1 ISO 13849-1 – Sicherheitsbezogene Teile von Steuerungen (Perfor-mance Level)
+Die Norm ISO 13849-1 bewertet sicherheitsbezogene Steuerungsfunktionen anhand eines Performance Level (PL a–e). Je höher das PL, desto zuverlässiger muss die Sicherheitsfunktion ausgeführt werden. Die Einstufung erfolgt anhand von Kategorie, MTTFd (mittlere Zeit bis zum gefahrbringenden Ausfall), Diagnosedeckungsgrad (DC) und Common-Cause-Failure (CCF).
 Sicherheitsfunktionen des Cocktailautomaten:
-Bezeichnung	Beschreibung	Kategorie	PL
-SF1 – Dosierstopp	Pumpe und Ventile stoppen, sobald das Zielgewicht erreicht ist (Wägezelle + HX711 → ESP32)	Kat. 1	PL b
-SF2 – Timeout-Abschaltung	Hardware-Watchdog und Software-Timeout schalten alle Ausgänge ab, wenn der Dosierprozess die Maximalzeit überschreitet	Kat. 1	PL b
-SF3 – Ventilüberwachung	Plausibilitätsprüfung: Gewicht steigt trotz geschlossenem Ventil → Fehlerzustand und Pumpenabschaltung	Kat. B	PL a
+Bezeichnung	Beschreibung	Kate-gorie	PL
+SF1 – Dosier-stopp	Pumpe und Ventile stoppen, sobald das Zielgewicht er-reicht ist (Wägezelle + HX711 → ESP32)	Kat. 1	PL b
+SF2 – Time-out-Abschaltung	Hardware-Watchdog und Software-Timeout schalten alle Ausgänge ab, wenn der Dosierprozess die Maximalzeit überschreitet	Kat. 1	PL b
+SF3 – Ventil-überwachung	Plausibilitätsprüfung: Gewicht steigt trotz geschlosse-nem Ventil → Fehlerzustand und Pumpenabschaltung	Kat. B	PL a
 Begründung der Einstufung:
-•	Kategorie B / PL a:
-Einkanalige Steuerung ohne Diagnose. Dies gilt für SF3, da die Logik rein softwareseitig im ESP32 liegt und keine redundante Hardware vorgesehen ist.
-•	Kategorie 1 / PL b:
-Bewährte Bauelemente und bewährte Sicherheitsprinzipien. Dies gilt für SF1 und SF2, da der Hardware-Watchdog des ESP32 unabhängig vom Anwendungsprogramm arbeitet und als bewährtes Sicherheitselement wirkt.
+•	Kategorie B / PL a: Einkanalige Steuerung ohne Diagnose. Dies gilt für SF3, da die Logik rein softwareseitig im ESP32 liegt und keine redundante Hard-ware vorgesehen ist.
+•	Kategorie 1 / PL b: Bewährte Bauelemente und bewährte Sicherheitsprinzi-pien. Dies gilt für SF1 und SF2, da der Hardware-Watchdog des ESP32 un-abhängig vom Anwendungsprogramm arbeitet und als bewährtes Sicherheit-selement wirkt.
 Hinweis:
-Da es sich um einen nicht-industriellen Prototyp für Gastronomie / Privatbereich handelt und kein zwingender Personenschutz im Sinne der Maschinenrichtlinie 2006/42/EG vorliegt, ist PL b für die vorliegenden Sicherheitsfunktionen als ausreichend anzusehen.
-
+Da es sich um einen nicht-industriellen Prototyp für Gastronomie / Privatbereich handelt und kein zwingender Personenschutz im Sinne der Maschinenrichtlinie 2006/42/EG vorliegt, ist PL b für die vorliegenden Sicherheitsfunktionen als ausrei-chend anzusehen.
 5.2 EN 62061 – Funktionale Sicherheit elektrischer Steuerungssysteme (SRECS)
-Die Norm EN 62061 legt Anforderungen an sicherheitsbezogene elektrische Steuerungssysteme (SRECS) fest.
-Als Bewertungsmaßstab dient der Safety Integrity Level (SIL 1–3).
+Die Norm EN 62061 legt Anforderungen an sicherheitsbezogene elektrische Steue-rungssysteme (SRECS) fest. Als Bewertungsmaßstab dient der Safety Integrity Level (SIL 1–3).
 SIL-Einstufung der Sicherheitsfunktionen:
-SRECS-Funktion	Zugeordnete Gefährdung	SIL-Ziel	Begründung
-Dosierstopp (SF1)	Überlauf → Rutschgefahr / Kurzschluss (D1, A2)	SIL 1	Geringe Schwere, kein direktes Personenrisiko bei bestimmungsgemäßem Betrieb
+SRECS-Funktion	Zugeordnete Gefähr-dung	SIL-Ziel	Begründung
+Dosierstopp (SF1)	Überlauf → Rutschge-fahr / Kurzschluss (D1, A2)	SIL 1	Geringe Schwere, kein direktes Per-sonenrisiko bei bestimmungsgemä-ßem Betrieb
 Watchdog / Timeout (SF2)	Dauerbetrieb Pumpe → Überhitzung / Brand (E2, C1)	SIL 1	HW-Watchdog + SW-Timeout bilden redundante Ebene
-Ventilsteuerung	Falsches Ventil → Falschdosierung (G2)	SIL 1	Kein unmittelbares Personenrisiko
+Ventilsteue-rung	Falsches Ventil → Falschdosierung (G2)	SIL 1	Kein unmittelbares Personenrisiko
 
 Architektur (nach EN 62061, Anhang K):
 Merkmal	Einstufung
@@ -756,241 +1328,173 @@ Nr.	Maßnahme
 1	Hardware-Watchdog des ESP32 unabhängig vom Anwendungscode aktiviert
 2	Software-Timeout begrenzt jeden Dosiervorgang auf maximal 30 Sekunden
 3	Wägezellen-Plausibilitätsprüfung erkennt Sensor- und Schlauchfehler
-4	MQTT-Steuerbefehle werden nur aus dem lokalen Netz akzeptiert (kein öffentlicher Zugriff über das Internet)
+4	MQTT-Steuerbefehle werden nur aus dem lokalen Netz akzeptiert (kein öffentli-cher Zugriff über das Internet)
 Hinweis:
-Eine vollständige SIL-Verifizierung nach EN 62061 (FMEA, PFH-Berechnung) ist für den vorliegenden Prototyp nicht durchgeführt worden.
-Die Einstufung dient der orientierenden Beurteilung im Rahmen des Abschlussprojekts.
-
+Eine vollständige SIL-Verifizierung nach EN 62061 (FMEA, PFH-Berechnung) ist für den vorliegenden Prototyp nicht durchgeführt worden. Die Einstufung dient der ori-entierenden Beurteilung im Rahmen des Abschlussprojekts.
 6. Restrisikobewertung
-Gefährdung	RPZ	Bewertung
-A1 – Berühren 230V nach Öffnen	5	tolerierbar
-E1 – Alkoholentzündung bei Fehlbedienung	5	tolerierbar
-F1 – Hygiene bei fehlender Reinigung	6	tolerierbar
+Gefährdung	RPZ	Bewer-tung
+A1 – Berühren 230V nach Öffnen	4	Gering
+E1 – Alkoholentzündung bei Fehlbedie-nung	3	Gering
+F1 – Hygiene bei fehlender Reinigung	12	Erhöht
 
 7. Fazit
 Durch technische, organisatorische und softwareseitige Maßnahmen konnten alle Risiken auf ein akzeptables Maß reduziert werden.
 Die Inbetriebnahme ist freigegeben unter folgenden Bedingungen:
 Voraussetzung
 Alle Abdeckungen vorhanden
-Netzteil-Leitung nicht beschädigt
+Netzteil-Leitung nicht beschä-digt
 Module verschraubt
 Schläuche angeschlossen
 Bediener eingewiesen
 
-Gefahrenanalyse erstellt nach dem BAuA-Handbuch zur Gefährdungsbeurteilung (Bundesanstalt für Arbeitsschutz und Arbeitsmedizin) sowie dem STOP-Prinzip gemäß DIN EN ISO 12100, ergänzt durch funktionale Sicherheitsbewertung nach ISO 13849-1 und EN 62061.
+Gefahrenanalyse erstellt nach dem BAuA-Handbuch zur Gefährdungsbeurtei-lung (Bundesanstalt für Arbeitsschutz und Arbeitsmedizin) sowie dem STOP-Prinzip gemäß DIN EN ISO 12100, ergänzt durch funktionale Sicherheitsbewer-tung nach ISO 13849-1 und EN 62061.
+Ergebnis
+Hier ist festgehalten, wie Präzise und schnell der Cocktail Automat seine Aufgabe erfüllt. 
+Noch weiter machen
 
-Ergebnis:
+Test-Cocktails
 
-Fazit:
-Ja
-Zielformulierung & Lastenheft –Abschlussprojekt
-Projekt: Modularer Getränkeautomat
-Schüler: Phillip Gerstner
-Klasse: FSTEL24 – Meisterschule für Handwerker (Kaiserslautern)
 
-Projektziel
-Ziel dieses Abschlussprojekts ist die Planung, Entwicklung und der Bau eines modularen, Getränkeautomaten, der sowohl funktional als auch technisch den Anforderungen eines Projekts auf Techniker- bzw. Bachelor-Niveau entspricht.
-Der Getränkeautomat soll in der Lage sein, bis zu neun unterschiedliche Flüssigkeiten (z. B. Wasser, Sirup, Saft oder andere Getränke) zu verarbeiten und daraus Einzel- oder Mischgetränke automatisch herzustellen. Die Dosierung erfolgt nicht nur zeitbasiert, sondern primär über eine integrierte Waage, um eine hohe Genauigkeit und Reproduzierbarkeit der Füllmengen zu gewährleisten.
-Ein zentrales Ziel ist es, den Automaten modular aufzubauen. Jedes Modul erfüllt eine klar definierte Funktion, etwa Spannungsversorgung, Sensorik, Aktorik, Pumpensteuerung oder Benutzerbedienung. Dadurch wird das System übersichtlich, wartungsfreundlich, erweiterbar und leichter zu testen.
-Zusätzlich soll der Automat über verschiedene Bedienmöglichkeiten verfügen: lokale Steuerung über Taster, Rotary-Encoder und Display sowie eine optionale Browser-Anbindung zur Konfiguration oder Getränkeauswahl.
-Das Endprodukt ist ein funktionsfähiger Prototyp eines Getränkeautomaten, inklusive Mechanik, Elektronik, Software, Benutzeroberfläche und vollständiger Projektdokumentation.
-Ziel des Projekts ist die Entwicklung und der Bau eines modularen, programmierbaren Getränkeautomaten, der:
-•	bis zu 9 verschiedene Flüssigkeiten dosieren kann,
-•	Getränke mit hoher Genauigkeit über eine integrierte Waage abfüllt,
-•	Einzel- und Mischgetränke in vorgegebenen Zeiten zubereitet,
-•	verschiedene Glasgrößen erkennt bzw. einstellbar macht,
-•	über Taster, Rotary-Encoder, Display und Browser bedienbar ist,
-•	einen Reinigungsmodus besitzt,
-•	in austauschbare Module unterteilt ist (Elektronik, Waage, Pumpen, Ventile, Bedienung, Mechanik).
-Ergebnis (Produkt): Funktionsfähiger Prototyp eines modularen Getränkeautomaten inklusive Software, Gehäuse, Elektronik, Dokumentation und Stückliste.
 
-Weg zum Ziel (Projektstrategie)
-Um das Projekt strukturiert, effizient und technisch sauber umzusetzen, wurde der Getränkeautomat bewusst in klar abgegrenzte Funktionsmodule unterteilt. Diese modulare Projektstrategie ermöglicht es, einzelne Systembereiche unabhängig voneinander zu entwickeln, zu testen und bei Bedarf zu optimieren oder auszutauschen. Dadurch wird die Fehlersuche vereinfacht, die Wartbarkeit verbessert und die Erweiterbarkeit des Systems sichergestellt.
-Jedes Modul übernimmt eine klar definierte Aufgabe innerhalb des Gesamtsystems:
-1.	Spannungsversorgung & Mikrocontroller (ESP32)
-Dieses Modul stellt die zentrale Energieversorgung für alle elektronischen Komponenten sicher und beinhaltet den Mikrocontroller (ESP32) als Hauptsteuereinheit. Der ESP32 verarbeitet Sensordaten, steuert Aktoren (Pumpen, Ventile, Relais) und übernimmt die Kommunikation mit der Benutzeroberfläche sowie optional mit einem Webbrowser.
-2.	Waagenmodul (Gewichtserfassung)
-Das Waagenmodul dient zur präzisen Gewichtsmessung des befüllten Glases. Über Wägezellen und einen HX711-Verstärker werden Gewichtsdaten erfasst und an den Mikrocontroller übertragen. Diese Daten ermöglichen eine exakte Dosierung der Getränke, wodurch eine konstante Füllmenge und hohe Wiederholgenauigkeit erreicht wird.
-3.	Leermodul für Höhengewinn
-
-4.	Ventil- & Relaismodul (Flüssigkeitssteuerung)
-In diesem Modul werden die Magnetventile und Relais untergebracht, die den Flüssigkeitsfluss steuern. Die Relais schalten die Ventile abhängig vom gewählten Getränk und der programmierten Rezeptur. Dieses Modul ist entscheidend für die korrekte Auswahl und Mischung der verschiedenen Flüssigkeiten.
-5.	Pumpen- & Motorsteuerungsmodul
-Dieses Modul steuert die Förderpumpen sowie die zugehörigen Motorcontroller. Es regelt die Durchflussmenge, die Fördergeschwindigkeit und das zeitliche Zusammenspiel mit den Ventilen. Damit ist es ein zentraler Bestandteil für eine gleichmäßige, kontrollierte und schnelle Befüllung der Getränke.
-6.	Bedienmodul (Display, Encoder, Taster)
-Das Bedienmodul bildet die Schnittstelle zwischen Benutzer und Maschine. Über ein Display, Rotary-Encoder und Drucktaster kann der Benutzer Getränke auswählen, Glasgrößen einstellen, den Füllvorgang starten oder stoppen sowie Wartungsfunktionen wie den Reinigungsmodus aktivieren.
-Durch diese modulare Aufteilung kann das Projekt systematisch umgesetzt werden: Zunächst werden die einzelnen Module entwickelt und getestet, anschließend erfolgt die Integration in das Gesamtsystem. Diese Strategie reduziert technische Risiken, erleichtert die Dokumentation.
-
-Arbeitsschritte, Zeitplanung & Endprodukte
-Schritt	Aufgabe	Geschätzte Zeit	Endprodukt
-1	Projektplanung & Konzept	6 h	Lastenheft, Blockdiagramm
-2	Mechanisches Design (Fusion 360)	20 h	CAD-Dateien, Moduldesign
-3	3D-Druck der Module	140 h	Gedruckte Gehäuseteile
-4	Elektronik-Aufbau (ESP32, Relais, Waage)	8 h	Verdrahtete Elektronik
-5	Pumpen- & Ventilintegration	6 h	Flüssigkeitssystem
-6	Softwareentwicklung	15 h	Steuerungssoftware
-7	UI-Programmierung (Display, Encoder)	5 h	Benutzeroberfläche
-8	Systemintegration	10 h	Komplett montiertes System
-9	Test, Kalibrierung & Optimierung	6 h	Funktionsfähiger Prototyp
-10	Dokumentation & Präsentation	10 h	Abschlussbericht
-Gesamtzeit: ca. 86 Stunden, die Druck Zeit ist hier nicht mitgerechnet
-
-Strukturplan & Abhängigkeiten
-Lineare Abhängigkeiten
-•	CAD-Design → 3D-Druck → Montage
-•	Elektronik-Hardware → Software-Programmierung → Funktionstest
-•	Pumpen/Ventile → Kalibrierung → Mischlogik
-Parallel mögliche Arbeiten
-•	Software kann teilweise parallel zum Gehäusebau entwickelt werden
-•	Dokumentation kann fortlaufend ergänzt werden
-Kritische Abhängigkeiten
-•	Funktion der Waage beeinflusst Dosiergenauigkeit
-•	Zuverlässigkeit der Pumpen und Ventile bestimmt Funktionsfähigkeit
-•	Software-Stabilität ist zentral für den Gesamtbetrieb
-
-Flaschenhalsanalyse (Risiken & Gegenmaßnahmen)
-Risiko	Auswirkung	Gegenmaßnahme
-Ungenaue Waage	Fehlende Dosiergenauigkeit	Frühe Kalibrierung
-Pumpenleistung instabil	Ungleichmäßige Füllmengen	Durchfluss-Tests
-Softwarefehler	Systemausfälle	Modularer Code & Debugging
-Leckagen im Schlauchsystem	Funktions- & Hygienerisiko	Dichtigkeitsprüfung
-Zeitüberschreitung	Projektverzug	Priorisierung wichtiger Funktionen
-Strom-/Spannungsprobleme	Schäden an Elektronik	Last- & Sicherheitstests
-Kritisch früh zu klären: Sensorik, Pumpenverhalten, Steuerungslogik, Dichtheit, Kalibrierung.
-Besonderheit & Bachelor-Niveau
-Dieses Projekt erreicht Techniker-/Bachelor-Niveau, weil es:
-•	mehrere Ingenieursdisziplinen kombiniert (Elektrotechnik, Mechanik, Software, Automatisierung),
-•	ein modulares Produktdesign verfolgt,
-•	reale Industrie-Komponenten nutzt (Motorsteuerung, Pumpen, Sensorik),
-•	Benutzerinterface + Web-Anbindung integriert,
-•	eine neuartige Anwendung (intelligenter, modularer Getränkeautomat) realisiert,
-Innovationskern: Kombination aus modularer Bauweise, Gewichtsgesteuerter Dosierung, digitaler Steuerung und konfigurierbarer Getränkemischung.
-
-Materialliste:
-Bauteil:	Bild:	Link:	Datenblatt:
+Fazit
+Das Projekt war mit sehr viel mehr Aufwand verbunden, als ich anfangs erwartet hat-te. Ich hätte nicht gedacht, dass es so anspruchsvoll ist, ein komplett neues Produkt zu entwickeln und umzusetzen. Rückblickend würde ich vor allem den physikali-schen Aufbau anders planen. Sinnvoller wäre es gewesen, die Module 0 / 1 seitlich, statt unten hinter den anderen Modulen zu platzieren. Dadurch hätte die Leitungs-verlegung einfacher umgesetzt werden können, ohne durch andere Module geführt werden zu müssen. Außerdem würde ich die Module von Anfang an länger planen, sodass alle Ventile hintereinander angeordnet werden können. Trotz der Herausfor-derungen war das Projekt für mich eine sehr gute und lehrreiche Erfahrung, jetzt weiß ich besser auf was ich achten muss, wenn ich so ein Projekt nochmal bauen würde.
+Materialliste
+Bauteil:	Bild:	Link:	Datenblatt:	Preis:
 Youmile 2 Stück DC 8-35V bis DC 5V USB C DC DC Konverter Buck Modul 12V/24V bis 5V 3A 15W USB Ausgang Step Down Spannungsregler Ladegerät mit Knopfkappe
 	 	Youmile 2 Stück DC 8-35V bis DC 5V USB C DC DC Konverter Buck Modul 12V/24V bis 5V 3A 15W USB Ausgang Step Down Spannungsregler Ladegerät mit Knopfkappe: Amazon.de: Elektronik & Foto
-	
-BRIMETI LED Trafo 24V 150W Wasserdicht IP67 LED Treiber Netzteil 6,25A Mit Stecker Schaltnetzteil Transformator AC 230V auf DC 24 Volt Außenbereich, Kompakter Dünner Konstantspannung Niedervolttrafo
-	 	BRIMETI LED Trafo 24V 150W Wasserdicht IP67 LED Treiber Netzteil 6,25A Mit Stecker Schaltnetzteil Transformator AC 230V auf DC 24 Volt Außenbereich, Kompakter Dünner Konstantspannung Niedervolttrafo : Amazon.de: Gewerbe, Industrie & Wissenschaft
-	
-Kamoer KDS3000-ST Schlauchpumpe mit hohem Durchfluss, 24 V, langlebige, hochpräzise Dosierpumpe mit Schrittmotor und einstellbarer Geschwindigkeit 0–1800 ml/min für Laborfabriken
+		21,98€
+BRIMETI LED Trafo 24V 150W Wasser-dicht IP67 LED Treiber Netzteil 6,25A Mit Stecker Schalt-netzteil Transforma-tor AC 230V auf DC 24 Volt Außen-bereich, Kompakter Dünner Kon-stantspannung Nie-dervolttrafo
+	 	BRIMETI LED Trafo 24V 150W Was-serdicht IP67 LED Treiber Netzteil 6,25A Mit Stecker Schaltnetzteil Trans-formator AC 230V auf DC 24 Volt Außenbereich, Kompakter Dünner Konstantspannung Niedervolttrafo : Amazon.de: Gewerbe, Industrie & Wissenschaft
+		23,99€
+Kamoer KDS3000-ST Schlauchpumpe mit hohem Durchfluss, 24 V, langlebige, hochpräzise Dosier-pumpe mit Schrittmotor und einstellbarer Geschwindigkeit 0–1800 ml/min für Laborfabriken
 	 	Kamoer KDS3000-ST Schlauchpumpe mit hohem Durchfluss, 24 V, langlebige, hochpräzise Dosierpumpe mit Schrittmotor und einstellbarer Geschwindigkeit 0–1800 ml/min für Laborfabriken : Amazon.de: Gewerbe, Industrie & Wissenschaft
-	https://cdck-file-uploads-europe1.s3.dualstack.eu-west-1.amazonaws.com/arduino/original/4X/
+	https://cdck-file-uploads-eu-rope1.s3.dualstack.eu-west-1.amazonaws.com/arduino/original/4X/
 f/8/e/f8e559f967acd2ba92
 6acfdf7a817c88c35f25fa.pdf
+62,00€ 
 
-COVVY TB6600 4 A 9-42 V Schrittmotorsteuerung, CNC-Controller, 32 Segmente, 2/4 Phasen, Hybrid-Schrittmotorsteuerplatine
-	 	COVVY TB6600 4 A 9-42 V Schrittmotorsteuerung, CNC-Controller, 32 Segmente, 2/4 Phasen, Hybrid-Schrittmotorsteuerplatine : Amazon.de: Gewerbe, Industrie & Wissenschaft
-	
+COVVY TB6600 4 A 9-42 V Schrittmotor-steuerung, CNC-Controller, 32 Seg-mente, 2/4 Phasen, Hybrid-Schrittmotorsteuer-platine
+	 	COVVY TB6600 4 A 9-42 V Schrittmo-torsteuerung, CNC-Controller, 32 Segmente, 2/4 Phasen, Hybrid-Schrittmotorsteuerplatine : Amazon.de: Gewerbe, Industrie & Wissenschaft
+		9,99€ 
+
 ALAMSCN 2 Stück 5kg Wägezelle Gewichtssensoren Digitaler Waage Wägezelle + 2 Stück HX711 Wägezelle Gewicht Sensor Modul für Arduino Mikrocontroller DIY (5kg+HX711)
 	 	ALAMSCN 2 Stück 5kg Wägezelle Gewichtssensoren Digitaler Waage Wägezelle + 2 Stück HX711 Wägezelle Gewicht Sensor Modul für Arduino Mikrocontroller DIY (5kg+HX711) : Amazon.de: Gewerbe, Industrie & Wissenschaft
-	
-Coop Schlauchtechnik® Silikonschlauch 5mm Innen-Ø | 10 Meter | hohe Qualität | lebensmittelecht | geschmacksneutral |-40 bis 220 °C | ideal für Lebensmittel, Haushalt, Aquaristik, Labor, Industrie
-	 	Coop Schlauchtechnik® Silikonschlauch 5mm Innen-Ø | 10 Meter | hohe Qualität | lebensmittelecht | geschmacksneutral |-40 bis 220 °C | ideal für Lebensmittel, Haushalt, Aquaristik, Labor, Industrie : Amazon.de: Gewerbe, Industrie & Wissenschaft
-	
-Normalerweise Offenes Micro Wasser Luftstrom Ventil Mini Elektrische Magnetventil DIY Kehren Roboter Sprayer Aromatherapie Maschine DC 12V
+		11,58€ 
+
+Coop Schlauchtech-nik® Silikonschlauch 5mm Innen-Ø | 10 Meter | hohe Qualität | lebensmittelecht | geschmacksneutral |-40 bis 220 °C | ideal für Lebensmittel, Haushalt, Aquaristik, Labor, Industrie
+	 	Coop Schlauchtechnik® Silikon-schlauch 5mm Innen-Ø | 10 Meter | hohe Qualität | lebensmittelecht | geschmack-sneutral |-40 bis 220 °C | ideal für Lebensmittel, Haushalt, Aquaristik, Labor, Industrie : Amazon.de: Gewerbe, Industrie & Wissenschaft
+		10m 16,13€
++
+25m 27,69€
+Normalerweise Of-fenes Micro Wasser Luftstrom Ventil Mini Elektrische Mag-netventil DIY Kehren Roboter Sprayer Aromatherapie Mas-chine DC 12V
 	 	Normalerweise Offenes Micro Wasser Luftstrom Ventil Mini Elektrische Magnetventil DIY Kehren Roboter Sprayer Aromatherapie Maschine DC 12V - AliExpress 13
-	
-Low-Level Trigger Relais 4 Channel 3.3V 3V kompatibel mit Arduino, Raspberry Pi ESP32
-	 	MakerMind Low-Level Trigger Relais 4 Channel 3.3V 3V kompatibel mit Arduino, Raspberry Pi ESP32 : Amazon.de: Gewerbe, Industrie & Wissenschaft
-	
-AZDelivery HD44780 2004 LCD Display Bundle Blau 4x20 mit weißen Zeichen mit I2C Schnittstelle kompatibel mit Arduino und Raspberry Pi inklusive E-Book!
+		36,20€
+Low-Level Trigger Relais 4 Channel 3.3V 3V kompatibel mit Arduino, Rasp-berry Pi ESP32
+	 	MakerMind Low-Level Trigger Relais 4 Channel 3.3V 3V kompatibel mit Arduino, Raspberry Pi ESP32 : Ama-zon.de: Gewerbe, Industrie & Wissen-schaft
+		13,95€
+
+AZDelivery HD44780 2004 LCD Display Bundle Blau 4x20 mit weißen Zeichen mit I2C Schnittstelle kompatibel mit Ar-duino und Raspberry Pi inklusive E-Book!
 	 	AZDelivery HD44780 2004 LCD Display Bundle Blau 4x20 mit weißen Zeichen mit I2C Schnittstelle kompatibel mit Arduino und Raspberry Pi inklusive E-Book! : Amazon.de: Elektronik & Foto
-	
+		7,69€ 
+
 GIAK KY-040 Rotary Encoder Modul Drehgeber 5 Stück 360 Grad Drehgeber Drehwinkelgeber Mit Druckknopf Für Automobilelektronik Multimedia-Audio
 	 	GIAK KY-040 Rotary Encoder Modul Drehgeber 5 Stück 360 Grad Drehgeber Drehwinkelgeber Mit Druckknopf Für Automobilelektronik Multimedia-Audio : Amazon.de: Gewerbe, Industrie & Wissenschaft
-	
-Gebildet 5Stücke Wasserdichte Drucktaster Momentanen Edelstahl Taster EIN Aus 12mm 2A/12V/24V/125V/250V mit Draht (Hervorstehend)
-	 	Gebildet 5Stücke Wasserdichte Drucktaster Momentanen Edelstahl Taster EIN Aus 12mm 2A/12V/24V/125V/250V mit Draht (Hervorstehend) : Amazon.de: Baumarkt
-	
+		9,59€ 
+
+Gebildet 5Stücke Wasserdichte Druck-taster Momentanen Edelstahl Taster EIN Aus 12mm 2A/12V/24V/125V/250V mit Draht (Hervor-stehend)
+	 	Gebildet 5Stücke Wasserdichte Druck-taster Momentanen Edelstahl Taster EIN Aus 12mm 2A/12V/24V/125V/250V mit Draht (Hervorstehend) : Amazon.de: Baumarkt
+		6,99€
 XTVTX ESP S3 ESP-1-N16R8 S3-DevKitC-1 Entwicklung Boards mit WiFi, Bluetooth 5.0 für Arduino
 	 	https://www.amazon.de/ESP32-S3-WROOM-1-N16R8-ESP32-S3-DevKitC-1-Entwicklung-Bluetooth/dp/B0C6KN35L2
 	https://documentation.espressif.com/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf
-
-VIGRUE 1080Pcs Schrauben und Muttern Set, 304 Edelstahl Metrische Schrauben Set, M2 M3 M4 Schraubensortiment Sechskopf-Knopf Gewindeschrauben,Maschinenschrauben
-	 	VIGRUE 1080Pcs Schrauben und Muttern Set, 304 Edelstahl Metrische Schrauben Set, M2 M3 M4 Schraubensortiment Sechskopf-Knopf Gewindeschrauben,Maschinenschrauben : Amazon.de: Baumarkt
-	
-ANYCUBIC PLA Plus Filament 1.75mm Schwarz, PLA+ 3D Drucker Filament, RFID für Intelligentes Drucken, Filament-3D-Druckmaterialien 1kg
-	 	ANYCUBIC PLA Plus Filament 1.75mm Schwarz, PLA+ 3D Drucker Filament, RFID für Intelligentes Drucken, Filament-3D-Druckmaterialien 1kg : Amazon.de: Gewerbe, Industrie & Wissenschaft
-	
+11,99€
+VIGRUE 1080Pcs Schrauben und Mut-tern Set, 304 Edel-stahl Metrische Schrauben Set, M2 M3 M4 Schrau-bensortiment Sech-skopf-Knopf Gewin-deschrau-ben,Maschinenschrauben
+	 	VIGRUE 1080Pcs Schrauben und Muttern Set, 304 Edel-stahl Metrische Schrauben Set, M2 M3 M4 Schrau-bensortiment Sechskopf-Knopf Gewindeschrau-ben,Maschinenschrauben : Amazon.de: Baumarkt
+		23,59€
+ANYCUBIC PLA Plus Filament 1.75mm Schwarz, PLA+ 3D Drucker Fil-ament, RFID für Intelligentes Drucken, Fila-ment-3D-Druckmaterial-ien 1kg
+	 	ANYCUBIC PLA Plus Fila-ment 1.75mm Schwarz, PLA+ 3D Drucker Filament, RFID für Intelligentes Drucken, Filament-3D-Druckmaterialien 1kg : Amazon.de: Gewerbe, Industrie & Wissenschaft
+		59,96€
 Silikonschlauch 10mm Innen-Ø | 2 Meter | hohe Qualität | lebensmittelecht | geschmacksneutral |-40 bis 220 °C | ideal für Lebensmittel, Haushalt, Aquaristik, Labor, Industrie
 	 	https://www.amazon.de/dp/
 B0F3L6SBMJ?ref=ppx_yo
 2ov_dt_b_fed_asin_title&th=1
-	
-LYTIVAGEN 48 Stück Aquarium Luftpumpe Zubehör Aquarium Schlauchverbinder Steckverbinder Fish Tank Luftschlauch Adapter I/L/T/Y Förmige Schlauch Verbinder für 6mm Aquarienluftschlauch
+		11,61€
+LYTIVAGEN 48 Stück Aquarium Luftpumpe Zubehör Aquarium Schlauchverbinder Steckverbinder Fish Tank Luftschlauch Adapter I/L/T/Y För-mige Schlauch Ver-binder für 6mm Aquarienluftschlauch
 	 	https://www.amazon.de/dp/B07
 Z614W65?ref=ppx_yo2o
 v_dt_b_fed_asin_title
-	
-Schlauchverbinder 10 Stück, Urinella Für Frauen Verlängerungsrohr Wiederverwendbarer Rohrverbindungsstück, Reparatur- und Wartungskit für Schläuche, 5mm 7mm 9mm 11mm 12mm (Durchmesser 5-12mm)
+		6,59€
+Schlauchverbinder 10 Stück, Urinella Für Frauen Verlänge-rungsrohr Wieder-verwendbarer Rohr-verbindungsstück, Reparatur- und War-tungskit für Schläu-che, 5mm 7mm 9mm 11mm 12mm (Durchmesser 5-12mm)
 	 	https://www.amazon.de/dp/B
 0DSC3MFPD?ref=ppx_yo2
 ov_dt_b_fed_asin_title
-	
-WAGO Verbindungsklemmen-Set 887-995 | 75-teilig, mit verschiedenen Verbindungsklemmen der Serie 221 - für alle Leiterarten, in praktischer wiederverschließbarer Box
+		15,98€
+WAGO Verbindungs-klemmen-Set 887-995 | 75-teilig, mit ver-schiedenen Verbin-dungsklemmen der Serie 221 - für alle Leiterarten, in prakti-scher wiederver-schließbarer Box
 	 	https://www.amazon.de/d
 p/B09XB58ZXJ?ref=ppx
 _yo2ov_dt_b_fed_asin_title&th=1
-	
+		46,94€
 Lapp 4510012 H05V-K 1X0,75 schwarz PVC-Aderleitung
 	 	https://www.amazon.de/dp/
 B00BBCW04A?ref=ppx_y
 o2ov_dt_b_fed_asin_title
-	
-Aderendhülsenzange Set - TUBTAP® Crimpzange Aderendhülsen Set mit 1200 stück Aderendhülsen mit 1200 stück Aderendhülsen Tool Kit
+		25,47€
+Aderendhülsenzange Set - TUBTAP® Crimpzange Aderen-dhülsen Set mit 1200 stück Aderendhülsen mit 1200 stück Ader-endhülsen Tool Kit
 	 	https://www.amazon.de/dp/
 B0B1PZBHS2?ref=ppx_yo2
 ov_dt_b_fed_asin_title&th=1
-	
-Diymore für ESP32 S3 Kit mit Erweiterungsplatine,für ESP32 S3 DevKitC 1 N16R8 Entwicklungsboard WiFi Bluetooth Module (Stifte Nicht gelötet)
+		17,01€
+Diymore für ESP32 S3 Kit mit Erweite-rungsplatine,für ESP32 S3 DevKitC 1 N16R8 Entwick-lungsboard WiFi Bluetooth Module (Stifte Nicht gelötet)
 	 	https://www.amazon.de/dp/
 B0DFLZFR5X?ref=ppx_yo2
 ov_dt_b_fed_asin_title&th=1
-	
-300 Stück Schlauch Federklemme 10 Größen Kraftstoffleitung Schlauchschellen Schlauchschelle Clip Schlauchschellen Verschluss Kraftstoffleitung Schelle 5-18mm,Mit Einer Schlauchklemme Zange
+		14,59€ 
+
+300 Stück Schlauch Federklemme 10 Größen Kraftstofflei-tung Schlauchschel-len Schlauchschelle Clip Schlauchschel-len Verschluss Kraft-stoffleitung Schelle 5-18mm,Mit Einer Schlauchklemme Zange
 	 	https://www.amazon.de/dp
 /B0BZS5P2CM?ref=ppx_y
 o2ov_dt_b_fed_asin_title&th=1
-	
-BuyWeek Netzteil Spannungswandler DC-DC-Wandler 24V auf 12V, 5A Spannungsversorgung Aluminiumgehäuse Netzteil Transformator für LED-Streifen Auto Audio Radio LED-Anzeige
+		25,88€
+BuyWeek Netzteil Spannungswandler DC-DC-Wandler 24V auf 12V, 5A Span-nungsversorgung Aluminiumgehäuse Netzteil Transforma-tor für LED-Streifen Auto Audio Radio LED-Anzeige
 	 	https://www.amazon.de/dp/
 B0CTFJD6XF?ref=ppx_y
 o2ov_dt_b_fed_asin_title
-	
-QUARKZMAN DC 12V zu DC 3,3V Spannungswandler 3A 10W Step-Down-Wandler Spannungsreduzierer IP67 Wasserdichter Transformator Netzteilmodul Netzadapter für Auto LKW Solaranlage
+		8,99€
+QUARKZMAN DC 12V zu DC 3,3V Span-nungswandler 3A 10W Step-Down-Wandler Spannungs-reduzierer IP67 Was-serdichter Transfor-mator Netzteilmodul Netzadapter für Auto LKW Solaranlage
 	 	https://www.amazon.de/dp/
 B0DS7C6HXV?ref=ppx_y
 o2ov_dt_b_fed_asin_title
-	
-ZDE 120 Stück 40cm Jumper Wire Kabel Femal Steckbrücken Kabel Kompatibel mit Arduino und Raspberry Pi Breadboard
+		6,19€
+ZDE 120 Stück 40cm Jumper Wire Kabel Femal Steckbrücken Kabel Kompatibel mit Arduino und Rasp-berry Pi Breadboard
 	 	https://www.amazon.de/dp/
 B0DQ4TRZSW?ref=ppx_y
 o2ov_dt_b_fed_asin_title&th=1
-	
+		8,99€
+Gesamtpreis
+				531,56 €
 
-Quellen:
+
+Quellen
 Ki
 GITHUB 😊 , die Heilige Gemini 😊und der Gute Cloud Opus 😊 
 
 ESP32-S3
 o	Espressif Systems: ESP32-S3 Technical Reference Manual, Version 1.4 (2023)
 https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf
-o	Espressif Systems: ESP32-S3 Datasheet, Version 1.4
-https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf
+o	Espressif Systems: ESP32-S3 Datasheet, Version 1.4 
+o	https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf
 o	Produktseite Amazon
 https://www.amazon.de/ESP32-S3-WROOM-1-N16R8-ESP32-S3-DevKitC-1-Entwicklung-Bluetooth/dp/B0C6KN35L2
 Schaltnetzteil
-o	Mohan, N.; Undeland, T. M.; Robbins, W. P.: Power Electronics – Converters, Applications, and Design, 3. Auflage, John Wiley & Sons, 2003, Kapitel 7
+o	Mohan, N.; Undeland, T. M.; Robbins, W. P.: Power Electronics – Con-verters, Applications, and Design, 3. Auflage, John Wiley & Sons, 2003, Kapitel 7
 o	IEC 60529: Degrees of protection provided by enclosures (IP Code), 2013
 o	Produktseite Amazon
 https://www.amazon.de/BRIMETI-Wasserdicht-Schaltnetzteil-Transformator-Niedervolttrafo/dp/B09TXQZFCM
 Buck-Konverter
 o	Erickson, R. W.; Maksimović, D.: Fundamentals of Power Electronics, 3. Auflage, Springer, 2020, Kapitel 2
 o	Texas Instruments: Introduction to Power Supplies – Application Report SLVA000B, 2000
-o	Produktseiten Amazon
-24V→12V: https://www.amazon.de/dp/B0CTFJD6XF
+o	Produktseiten Amazon 
+o	24V→12V:	https://www.amazon.de/dp/B0CTFJD6XF
 24V→5V: https://www.amazon.de/Youmile-Konverter-Spannungsregler-Ladegerät-Knopfkappe/dp/B07WNSC5HB
 12V→3,3V: https://www.amazon.de/dp/B0DS7C6HXV
 Schlauchpumpe
@@ -1010,7 +1514,7 @@ o	Parker Hannifin: Solenoid Valve Catalog 4100
 https://ph.parker.com/us/en/solenoid-valves
 o	AliExpress Produktseite
 https://de.aliexpress.com/item/1005003084621654.html
-o	Bollée, R.: Pneumatische und hydraulische Steuerungen, Vogel Fachbuch, 2011
+o	Bollée, R.: Pneumatische und hydraulische Steuerungen, Vogel Fach-buch, 2011
 Relaismodul
 o	Boylestad, R.; Nashelsky, L.: Electronic Devices and Circuit Theory, 11. Auflage, Pearson, 2013
 o	MakerMind Produktseite Amazon
@@ -1020,7 +1524,7 @@ https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peri
 Wägezelle + HX711
 o	AVIA Semiconductor: HX711 Datasheet
 https://cdn.sparkfun.com/datasheets/Sensors/ForceFlex/hx711_english.pdf
-o	Hoffmann, K.: Eine Einführung in die Technik des Messens mit Dehnungsmessstreifen, HBM Messtechnik, 1987
+o	Hoffmann, K.: Eine Einführung in die Technik des Messens mit Deh-nungsmessstreifen, HBM Messtechnik, 1987
 o	ALAMSCN Produktseite Amazon
 https://www.amazon.de/ALAMSCN-Wägezelle-Gewichtssensoren-Mikrocontroller/dp/B09BVKFKYN
 LCD-Display
@@ -1040,24 +1544,24 @@ https://www.amazon.de/GIAK-KY-040-Rotary-Encoder-Drehgeber/dp/B07RCKSXBX
 Literaturverzeichnis
 Acarnley, P. P. (2002): Stepping Motors: A Guide to Theory and Practice. 4. Auflage. IET.
 ALAMSCN (o. J.): Produktseite Wägezelle/Gewichtssensor. Online verfügbar unter: https://www.amazon.de/ALAMSCN-Wägezelle-Gewichtssensoren-Mikrocontroller/dp/B09BVKFKYN (abgerufen am 23.04.2026).
-AVIA Semiconductor (o. J.): HX711 Datasheet. Online verfügbar unter: https://cdn.sparkfun.com/datasheets/Sensors/ForceFlex/hx711_english.pdf (abgerufen am 23.04.2026).
+AVIA Semiconductor (o. J.): HX711 Datasheet. Online verfügbar unter: https://cdn.sparkfun.com/datasheets/Sensors/ForceFlex/hx711_english.pdf (abgeru-fen am 23.04.2026).
 AZDelivery (o. J.): Produktseite HD44780 2004 LCD-Display. Online verfügbar unter: https://www.amazon.de/AZDelivery-Display-Arduino-Raspberry-inklusive/dp/B01GPUMP9C (abgerufen am 23.04.2026).
 Bollée, R. (2011): Pneumatische und hydraulische Steuerungen. Vogel Fachbuch.
 Bourns (o. J.): PEC11R Series Incremental Encoder Datasheet. Online verfügbar unter: https://www.bourns.com/docs/Product-Datasheets/PEC11R.pdf (abgerufen am 23.04.2026).
-Boylestad, R.; Nashelsky, L. (2013): Electronic Devices and Circuit Theory. 11. Auflage. Pearson.
+Boylestad, R.; Nashelsky, L. (2013): Electronic Devices and Circuit Theory. 11. Auf-lage. Pearson.
 BRIMETI (o. J.): Produktseite LED Trafo 24 V / 150 W. Online verfügbar unter: https://www.amazon.de/BRIMETI-Wasserdicht-Schaltnetzteil-Transformator-Niedervolttrafo/dp/B09TXQZFCM (abgerufen am 23.04.2026).
 COVVY (o. J.): Produktseite TB6600 Schrittmotortreiber. Online verfügbar unter: https://www.amazon.de/COVVY-TB6600-Schrittmotorsteuerung-Schrittmotorsteuerplatine/dp/B07MJ29LWT (abgerufen am 23.04.2026).
 Durst, F.; Melling, A.; Whitelaw, J. H. (1976): Principles and Practice of Laser-Doppler Anemometry. Academic Press.
-Erickson, R. W.; Maksimović, D. (2020): Fundamentals of Power Electronics. 3. Auflage. Springer.
-Espressif Systems (2023): ESP32-S3 Technical Reference Manual. Version 1.4. Online verfügbar unter: https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf (abgerufen am 23.04.2026).
+Erickson, R. W.; Maksimović, D. (2020): Fundamentals of Power Electronics. 3. Auf-lage. Springer.
+Espressif Systems (2023): ESP32-S3 Technical Reference Manual. Version 1.4. On-line verfügbar unter: https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf (abgerufen am 23.04.2026).
 Espressif Systems (o. J.): ESP32-S3 Datasheet. Version 1.4. Online verfügbar unter: https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf (abgerufen am 23.04.2026).
 Espressif Systems (o. J.): ESP32-S3 GPIO Reference. Online verfügbar unter: https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/gpio.html (abgerufen am 23.04.2026).
 Fraden, J. (2016): Handbook of Modern Sensors. 5. Auflage. Springer.
 GIAK (o. J.): Produktseite KY-040 Rotary Encoder. Online verfügbar unter: https://www.amazon.de/GIAK-KY-040-Rotary-Encoder-Drehgeber/dp/B07RCKSXBX (abgerufen am 23.04.2026).
 Hitachi Semiconductor (o. J.): HD44780U LCD-II Datasheet. Online verfügbar unter: https://www.sparkfun.com/datasheets/LCD/HD44780.pdf (abgerufen am 23.04.2026).
-Hoffmann, K. (1987): Eine Einführung in die Technik des Messens mit Dehnungsmessstreifen. HBM Messtechnik.
+Hoffmann, K. (1987): Eine Einführung in die Technik des Messens mit Dehnungs-messstreifen. HBM Messtechnik.
 IEC 60529 (2013): Degrees of protection provided by enclosures (IP Code).
-Kamoer Fluid Tech (o. J.): KDS Series Peristaltic Pump User Manual. Online verfügbar unter: https://www.kamoer.com/en/products/stepper-motor-pump/kds3000 (abgerufen am 23.04.2026).
+Kamoer Fluid Tech (o. J.): KDS Series Peristaltic Pump User Manual. Online verfüg-bar unter: https://www.kamoer.com/en/products/stepper-motor-pump/kds3000 (ab-gerufen am 23.04.2026).
 Kamoer (o. J.): Produktseite KDS3000-ST Schlauchpumpe. Online verfügbar unter: https://www.amazon.de/Kamoer-KDS3000-ST-Schrittmotor-einstellbarer-Laborfabriken/dp/B09TP3SXVY (abgerufen am 23.04.2026).
 MakerMind (o. J.): Produktseite Low-Level Trigger Relaismodul. Online verfügbar unter: https://www.amazon.de/MakerMind-Low-Level-Trigger-kompatibel-Raspberry/dp/B099BNQ2LW (abgerufen am 23.04.2026).
 Mohan, N.; Undeland, T. M.; Robbins, W. P. (2003): Power Electronics – Converters, Applications, and Design. 3. Auflage. John Wiley & Sons.
@@ -1071,3 +1575,88 @@ Unbekannter Hersteller (o. J.): Produktseite Buck-Konverter 24 V auf 12 V. Onlin
 Unbekannter Hersteller (o. J.): Produktseite Buck-Konverter 12 V auf 3,3 V. Online verfügbar unter: https://www.amazon.de/dp/B0DS7C6HXV (abgerufen am 23.04.2026).
 AliExpress (o. J.): Produktseite Normally Open Micro-Magnetventil. Online verfügbar unter: https://de.aliexpress.com/item/1005003084621654.html (abgerufen am 23.04.2026).
 
+Abbildungsverzeichnis:
+Abbildung 1: Planung Bild 2	13
+Abbildung 2: Planung Bild 3	13
+Abbildung 3: Planung Bild 1	13
+Abbildung 4: Planung Bild 5	14
+Abbildung 5: Planung Bild 4	14
+Abbildung 6: Blockdiagramm	20
+Abbildung 7: Modul 0/1	21
+Abbildung 8: Zeichnung Modul 0/1	21
+Abbildung 9: Modul 2	22
+Abbildung 10: Zeichnung Modul 2	22
+Abbildung 11: Modul 3	23
+Abbildung 12: Zeichnung Modul 3	23
+Abbildung 13: Modul 4	24
+Abbildung 14: Zeichnung Modul 4	24
+Abbildung 15: Modul 5	25
+Abbildung 16: Zeichnung Modul 5	26
+Abbildung 17: Modul 6	27
+Abbildung 18: Zeichnung Modul 6	27
+Abbildung 19: Schraube 1	28
+Abbildung 20: Zeichnung Schraube 1	28
+Abbildung 21: Schraube 2	29
+Abbildung 22: Zeichnung Schraube 2	29
+Abbildung 23: Planung Programm 1	40
+Abbildung 24: Planung Programm 2	41
+Abbildung 25: Programm enum MenuState	43
+Abbildung 26: Programm MenuState	44
+Abbildung 27: Programm switch case	44
+Abbildung 28: Programm struct Fluid	45
+Abbildung 29: Programm Fluid fluids	45
+Abbildung 30: Programm Erkennung Flüssigkeit	46
+Abbildung 31: Programm const String Fluid_Names	47
+Abbildung 32: Programm struct Recipe	49
+Abbildung 33: Recipe recipes Aray	49
+Abbildung 34: Recipe recipes Aray	50
+Abbildung 35: Programm Blockschaltbild	57
+Abbildung 36: Programm Gesamtprogramm Ablauf	59
+Abbildung 37: Schaltplan S 1	59
+Abbildung 38: Schaltplan S 2	60
+Abbildung 39: Schaltplan S 3	61
+Abbildung 40: Schaltplan S 4	62
+Abbildung 41: Schaltplan S 5	63
+Abbildung 42: Schaltplan S 6	64
+Abbildung 43: Schaltplan S 7	65
+Abbildung 44: Anleitung 1	66
+Abbildung 45: Anleitung 2	66
+Abbildung 46: Anleitung 3	67
+Abbildung 47: : Anleitung 4	67
+Abbildung 48: Anleitung 5	67
+Abbildung 49: Anleitung 6	68
+Abbildung 50: Anleitung 7	68
+Abbildung 51: Anleitung 8	68
+Abbildung 52: Anleitung 9	69
+Abbildung 53: Anleitung 10	69
+Abbildung 54: Anleitung 11	69
+Abbildung 55: Anleitung 12	70
+Abbildung 56: Anleitung 13	70
+Abbildung 57: Anleitung 14	70
+Abbildung 58: Anleitung 16	71
+Abbildung 59: Anleitung 15	71
+Abbildung 60: Anleitung 17	71
+Abbildung 61: Anleitung 18	71
+Abbildung 62: Anleitung 19	72
+Abbildung 63: Anleitung 20	72
+Abbildung 64: Anleitung 21	72
+Abbildung 65: Anleitung 22	73
+Abbildung 66: Anleitung 23	73
+Abbildung 67: Anleitung 24	74
+Abbildung 68: Anleitung 25	74
+Abbildung 69: Anleitung 26	75
+Abbildung 70: Anleitung 27	75
+Abbildung 71: Anleitung 28	76
+Abbildung 72: Anleitung 29	76
+Abbildung 73: Anleitung 30	77
+Abbildung 74: Anleitung 31	77
+Abbildung 75: Risikobewertung Tabelle	80
+
+
+Präsentation
+Über das Projekt und nicht die Doku 
+Was tut es
+Vergleich mit anderen Automaten
+Zugang geben
+Vorführen 
+Wie funktioniert es
