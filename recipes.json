@@ -490,5 +490,22 @@
         "amount": 50
       }
     ]
+  },
+  {
+    "name": "Orange_Fizz",
+    "ingredients": [
+      {
+        "fluid": "Orangensaft",
+        "amount": 150
+      },
+      {
+        "fluid": "Zitronensaft",
+        "amount": 20
+      },
+      {
+        "fluid": "Zitronenlimonade",
+        "amount": 120
+      }
+    ]
   }
 ]
