@@ -507,5 +507,22 @@
         "amount": 120
       }
     ]
+  },
+  {
+    "name": "Wasser Test 1",
+    "ingredients": [
+      {
+        "fluid": "Wasser",
+        "amount": 10
+      },
+      {
+        "fluid": "Wasser",
+        "amount": 15
+      },
+      {
+        "fluid": "Wasser",
+        "amount": 20
+      }
+    ]
   }
 ]
