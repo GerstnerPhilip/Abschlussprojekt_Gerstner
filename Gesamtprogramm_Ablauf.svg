@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="4440" viewBox="0 0 2600 4440" role="img" aria-labelledby="title desc">
+  <title id="title">Gesamtprogramm-Ablauf des Cocktailautomaten</title>
+  <desc id="desc">Großes Ablaufdiagramm für Systemstart, Architektur, Hauptschleife, Bedienwege, Rezepte, Dosierung, Reinigung und Weboberfläche.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f4f7fb; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 3; rx: 24; ry: 24; }
+      .panel-blue { fill: #e0f2fe; stroke: #0284c7; stroke-width: 3; rx: 24; ry: 24; }
+      .panel-green { fill: #dcfce7; stroke: #16a34a; stroke-width: 3; rx: 24; ry: 24; }
+      .panel-orange { fill: #ffedd5; stroke: #ea580c; stroke-width: 3; rx: 24; ry: 24; }
+      .panel-purple { fill: #f3e8ff; stroke: #9333ea; stroke-width: 3; rx: 24; ry: 24; }
+      .panel-yellow { fill: #fef9c3; stroke: #ca8a04; stroke-width: 3; rx: 24; ry: 24; }
+      .title { font: 700 52px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 24px Arial, Helvetica, sans-serif; fill: #334155; }
+      .section { font: 700 34px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .text { font: 400 24px Arial, Helvetica, sans-serif; fill: #1e293b; }
+      .small { font: 400 22px Arial, Helvetica, sans-serif; fill: #334155; }
+      .arrow { stroke: #475569; stroke-width: 5; fill: none; marker-end: url(#arrowhead); }
+      .dashed { stroke-dasharray: 14 10; }
+    </style>
+    <marker id="arrowhead" markerWidth="14" markerHeight="10" refX="10" refY="5" orient="auto">
+      <polygon points="0 0, 14 5, 0 10" fill="#475569" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="2600" height="4440"/>
+
+  <text class="title" x="1300" y="90" text-anchor="middle">Gesamtprogramm-Ablauf des Projekts</text>
+  <text class="subtitle" x="1300" y="132" text-anchor="middle">Cocktailautomat mit ESP32-Firmware, Weboberfläche, MQTT, Online-/Offline-Rezepten und gewichtsgesteuerter Dosierung</text>
+
+  <rect class="panel-blue" x="80" y="180" width="2440" height="350"/>
+  <text class="section" x="120" y="235">1. Systemstart (ESP32 / src/main.cpp)</text>
+  <text class="text" x="120" y="285">• Serielle Schnittstelle starten</text>
+  <text class="text" x="120" y="325">• I2C + LCD initialisieren</text>
+  <text class="text" x="120" y="365">• Schrittmotor, Relays, Encoder, Back-Taste und Waage einrichten</text>
+  <text class="text" x="120" y="405">• Waage tarieren</text>
+  <text class="text" x="120" y="445">• LittleFS mounten → data/index.html, data/app.js, data/style.css ausliefern</text>
+  <text class="text" x="120" y="485">• WLAN verbinden → danach Webserver starten → danach MQTT verbinden</text>
+  <text class="text" x="1380" y="285">• Startzustand: Menü „Flüssigkeiten konfigurieren“</text>
+  <text class="text" x="1380" y="325">• Firmware steuert danach den gesamten lokalen und entfernten Ablauf</text>
+  <text class="text" x="1380" y="365">• Online-Rezepte können später von GitHub geladen werden</text>
+  <text class="text" x="1380" y="405">• Offline-Rezepte bleiben direkt in der Firmware verfügbar</text>
+
+  <line class="arrow" x1="1300" y1="530" x2="1300" y2="610"/>
+
+  <rect class="panel-purple" x="80" y="610" width="760" height="330"/>
+  <text class="section" x="120" y="660">2. Grundarchitektur</text>
+  <text class="text" x="120" y="705">ESP32-Firmware</text>
+  <text class="small" x="120" y="740">Hardware, Menülogik, Rezepte, Pumpe, Reinigung</text>
+  <text class="text" x="120" y="780">MQTT</text>
+  <text class="small" x="120" y="815">Befehle + Statusdaten zwischen Browser und ESP32</text>
+  <text class="text" x="120" y="855">Weboberfläche</text>
+  <text class="small" x="120" y="890">Anzeige, Fernbedienung, Rezeptverwaltung</text>
+
+  <rect class="panel-purple" x="920" y="610" width="760" height="330"/>
+  <text class="section" x="960" y="665">3. Bedienwege</text>
+  <text class="text" x="960" y="715">Lokal am Gerät</text>
+  <text class="small" x="960" y="750">Encoder drehen, Encoder drücken, Back-Taste</text>
+  <text class="text" x="960" y="795">Im Browser</text>
+  <text class="small" x="960" y="830">MQTT-Kommandos über WebSocket</text>
+  <text class="small" x="960" y="890">Beide Wege nutzen dieselbe zentrale Firmwarelogik</text>
+
+  <rect class="panel-purple" x="1760" y="610" width="760" height="330"/>
+  <text class="section" x="1800" y="665">4. Rezeptquellen</text>
+  <text class="text" x="1800" y="715">Offline-Rezepte</text>
+  <text class="small" x="1800" y="750">Lokal in Gerät / Firmware verfügbar</text>
+  <text class="text" x="1800" y="795">Online-Rezepte</text>
+  <text class="small" x="1800" y="830">recipes.json auf GitHub</text>
+  <text class="small" x="1800" y="890">Browser kann Rezepte direkt laden und neue Rezepte erzeugen</text>
+
+  <line class="arrow" x1="1300" y1="940" x2="1300" y2="1020"/>
+
+  <rect class="panel-green" x="80" y="1020" width="2440" height="540"/>
+  <text class="section" x="120" y="1075">5. Hauptschleife loop()</text>
+  <text class="text" x="120" y="1135">A. MQTT-Verbindung überwachen und bei Bedarf neu aufbauen</text>
+  <text class="text" x="120" y="1180">B. Eingehende MQTT-Befehle nur als Pending-Flags vormerken</text>
+  <text class="text" x="120" y="1225">C. Pending-Aktionen nacheinander ausführen:</text>
+  <text class="small" x="160" y="1265">• Offline-Rezept starten</text>
+  <text class="small" x="160" y="1300">• Online-Rezept starten</text>
+  <text class="small" x="160" y="1335">• Relay schalten</text>
+  <text class="small" x="160" y="1370">• Motor bewegen</text>
+  <text class="small" x="160" y="1405">• Reinigung starten / stoppen</text>
+  <text class="small" x="160" y="1440">• Online-Rezepte neu laden</text>
+  <text class="small" x="160" y="1475">• Kalibrierung übernehmen</text>
+  <text class="text" x="1180" y="1135">D. Alle 100 ms: Waage lesen</text>
+  <text class="text" x="1180" y="1180">E. Parallel: Glaserkennung aktualisieren</text>
+  <text class="text" x="1180" y="1225">F. Encoder- und Tasten-Eingaben verarbeiten</text>
+  <text class="text" x="1180" y="1270">G. Je nach Menüzustand das LCD aktualisieren</text>
+  <text class="text" x="1180" y="1315">H. Statusdaten regelmäßig per MQTT veröffentlichen</text>
+  <text class="small" x="1180" y="1360">Gewicht, Pumpstatus, Reinigung, Glaserkennung, Relay-Zustände, Menüzustand, Rezepte, Ergebnis</text>
+
+  <line class="arrow" x1="1300" y1="1560" x2="1300" y2="1640"/>
+
+  <rect class="panel" x="80" y="1640" width="760" height="560"/>
+  <text class="section" x="120" y="1695">6. Menüstruktur am Gerät</text>
+  <text class="text" x="120" y="1750">Hauptmenü</text>
+  <text class="small" x="160" y="1790">• Rezepte</text>
+  <text class="small" x="200" y="1825">– Offline-Rezepte</text>
+  <text class="small" x="200" y="1860">– Online-Rezepte</text>
+  <text class="small" x="160" y="1895">• Manuelle Eingabe</text>
+  <text class="small" x="160" y="1930">• Flüssigkeiten</text>
+  <text class="small" x="160" y="1965">• Reinigung</text>
+  <text class="small" x="160" y="2000">• Manuelle Bedienung</text>
+  <text class="small" x="120" y="2060">Alle Menüs werden lokal und indirekt auch über Browserbefehle genutzt.</text>
+
+  <rect class="panel" x="920" y="1640" width="760" height="560"/>
+  <text class="section" x="960" y="1695">7. Flüssigkeiten konfigurieren</text>
+  <text class="text" x="960" y="1750">Für jeden der 9 Slots:</text>
+  <text class="small" x="1000" y="1790">• Flüssigkeit wählen</text>
+  <text class="small" x="1000" y="1825">• Kategorie / Zuordnung festlegen</text>
+  <text class="small" x="1000" y="1860">• ml pro 1000 Schritte setzen</text>
+  <text class="small" x="1000" y="1895">• Schlauchkorrektur setzen</text>
+  <text class="text" x="960" y="1965">Bedeutung:</text>
+  <text class="small" x="1000" y="2005">• Voraussetzung für korrekte Slot-Erkennung bei Rezepten</text>
+  <text class="small" x="1000" y="2040">• Grundlage für genaue Dosierung und Kalibrierung</text>
+
+  <rect class="panel" x="1760" y="1640" width="760" height="560"/>
+  <text class="section" x="1800" y="1695">8. Manuelle Bedienung</text>
+  <text class="text" x="1800" y="1750">Diagnose, Test und Kalibrierung</text>
+  <text class="small" x="1840" y="1790">• einzelne Relays direkt schalten</text>
+  <text class="small" x="1840" y="1825">• Motor vorwärts / rückwärts fahren</text>
+  <text class="small" x="1840" y="1860">• definierte Schrittzahl ausführen</text>
+  <text class="small" x="1840" y="1895">• Verhalten von Pumpe, Luft und Ventilen prüfen</text>
+
+  <line class="arrow" x1="1300" y1="2200" x2="1300" y2="2280"/>
+
+  <rect class="panel-orange" x="80" y="2280" width="2440" height="540"/>
+  <text class="section" x="120" y="2335">9. Rezeptablauf</text>
+  <text class="text" x="120" y="2395">1. Benutzer wählt Offline- oder Online-Rezept</text>
+  <text class="text" x="120" y="2440">2. System prüft, ob alle benötigten Zutaten in den 9 Slots vorhanden sind</text>
+  <text class="text" x="120" y="2485">3. Vor dem Start: Prüfen, ob ein Glas erkannt wurde</text>
+  <text class="text" x="120" y="2530">4. Glasgröße auswählen</text>
+  <text class="text" x="120" y="2575">5. Rezeptmengen bei Bedarf auf die Glasgröße skalieren</text>
+  <text class="text" x="120" y="2620">6. Zutaten nacheinander dosieren</text>
+  <text class="text" x="1300" y="2395">Falls eine Zutat fehlt → Rezept nicht starten</text>
+  <text class="text" x="1300" y="2440">Falls kein Glas erkannt wird → Warten / Abbruch</text>
+  <text class="text" x="1300" y="2485">Während der Ausführung zeigt das LCD Ist-Menge, Ziel-Menge und aktuelle Zutat</text>
+  <text class="text" x="1300" y="2530">Browser erhält parallel Status- und Fortschrittsdaten per MQTT</text>
+
+  <line class="arrow" x1="1300" y1="2820" x2="1300" y2="2900"/>
+
+  <rect class="panel-yellow" x="80" y="2900" width="2440" height="700"/>
+  <text class="section" x="120" y="2955">10. Dosierablauf pro Zutat</text>
+  <text class="text" x="120" y="3015">Vorbereitung</text>
+  <text class="small" x="160" y="3055">• passenden Flüssigkeitsslot suchen</text>
+  <text class="small" x="160" y="3090">• Waage für diese Zutat neu tarieren</text>
+  <text class="small" x="160" y="3125">• Anzeige vorbereiten: Ist-Menge / Ziel-Menge / aktuelle Zutat</text>
+
+  <rect class="panel-yellow" x="120" y="3170" width="700" height="340"/>
+  <text class="section" x="160" y="3225">Phase 1: Schnell pumpen</text>
+  <text class="small" x="160" y="3270">• bis knapp vor das Ziel fördern</text>
+  <text class="small" x="160" y="3305">• größere Schritte / höhere Förderleistung</text>
+  <text class="small" x="160" y="3340">• nach jedem Block Gewicht prüfen</text>
+  <text class="small" x="160" y="3375">• Ziel: schnell in die Nähe der Sollmenge kommen</text>
+
+  <rect class="panel-yellow" x="950" y="3170" width="700" height="340"/>
+  <text class="section" x="990" y="3225">Phase 2: Langsam pumpen</text>
+  <text class="small" x="990" y="3270">• kleinere Schritte für Feindosierung</text>
+  <text class="small" x="990" y="3305">• häufiger Waage prüfen</text>
+  <text class="small" x="990" y="3340">• Ziel: genaue Annäherung an Soll-Menge</text>
+
+  <rect class="panel-yellow" x="1780" y="3170" width="700" height="340"/>
+  <text class="section" x="1820" y="3225">Phase 3: Luft nachfördern</text>
+  <text class="small" x="1820" y="3270">• Rest aus dem Schlauch ins Glas drücken</text>
+  <text class="small" x="1820" y="3305">• Luftventil / Luftpfad aktivieren</text>
+  <text class="small" x="1820" y="3340">• danach nochmals Gewicht bewerten</text>
+
+  <text class="text" x="120" y="3535">Nach jeder Zutat: kurze Stabilisierungspause der Waage</text>
+  <text class="text" x="120" y="3575">Wenn das Glas entfernt wird: Rezept sofort abbrechen</text>
+  <line class="arrow" x1="820" y1="3340" x2="950" y2="3340"/>
+  <line class="arrow" x1="1650" y1="3340" x2="1780" y2="3340"/>
+
+  <line class="arrow" x1="1300" y1="3620" x2="1300" y2="3680"/>
+
+  <rect class="panel-green" x="80" y="3680" width="1180" height="430"/>
+  <text class="section" x="120" y="3735">11. Nach dem Rezept</text>
+  <text class="text" x="120" y="3795">Ergebnisübersicht anzeigen:</text>
+  <text class="small" x="160" y="3835">• Soll-Menge pro Zutat</text>
+  <text class="small" x="160" y="3870">• Ist-Menge pro Zutat</text>
+  <text class="small" x="160" y="3905">• Abweichung / Ergebnis</text>
+  <text class="text" x="120" y="3965">Zusätzlich per MQTT an die Weboberfläche senden</text>
+  <text class="text" x="120" y="4005">Danach Rückkehr ins Hauptmenü</text>
+
+  <rect class="panel-orange" x="1340" y="3680" width="1180" height="430"/>
+  <text class="section" x="1380" y="3735">12. Reinigungsmodus</text>
+  <text class="small" x="1380" y="3795">• blockierender Ablauf in mehreren Zyklen</text>
+  <text class="small" x="1380" y="3830">• alle Leitungen nacheinander spülen</text>
+  <text class="small" x="1380" y="3865">• im letzten Zyklus auf Luftspülung umstellen</text>
+  <text class="small" x="1380" y="3900">• jederzeit über Back-Taste abbrechbar</text>
+  <text class="small" x="1380" y="3935">• am Ende alle Ventile in sicheren Zustand zurücksetzen</text>
+
+  <line class="arrow dashed" x1="2080" y1="1020" x2="2080" y2="940"/>
+  <text class="small" x="2105" y="990">Status + Befehle</text>
+  <line class="arrow dashed" x1="500" y1="940" x2="500" y2="1020"/>
+  <text class="small" x="275" y="990">Architektur speist Loop</text>
+
+  <rect class="panel-blue" x="80" y="4140" width="2440" height="220"/>
+  <text class="section" x="120" y="4200">13. Weboberfläche + Kommunikationsfluss</text>
+  <text class="small" x="120" y="4260">Browser verbindet sich per MQTT über WebSocket, zeigt Live-Status und sendet Befehle wie Rezeptstart, Relais, Motor, Reinigung, Flüssigkeiten und Kalibrierung.</text>
+  <text class="small" x="120" y="4300">ESP32 veröffentlicht regelmäßig Gewicht, Pump-/Reinigungsstatus, Glaserkennung, Relay-Zustände, Menüzustand, Offline-/Online-Rezepte und Ergebnisdaten.</text>
+  <text class="small" x="120" y="4340">Kurzfassung: Setup initialisiert alles, loop() verarbeitet Sensoren + Eingaben + MQTT, Rezepte dosieren slotbasiert und gewichtsgeführt, die Weboberfläche bleibt live synchron.</text>
+</svg>

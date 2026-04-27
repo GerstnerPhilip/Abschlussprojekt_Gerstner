@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3200" height="1950" viewBox="0 0 3200 1950" role="img" aria-labelledby="title desc">
+  <title id="title">Blockschaltbild des Cocktailautomaten</title>
+  <desc id="desc">Blockschaltbild mit Benutzer, Weboberfläche, GitHub-Rezepten, MQTT, ESP32, Bedienung, Sensorik, Aktorik und Spannungsversorgung.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f4f7fb; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 3; rx: 24; ry: 24; }
+      .panel-blue { fill: #e0f2fe; stroke: #0284c7; stroke-width: 3; rx: 24; ry: 24; }
+      .panel-green { fill: #dcfce7; stroke: #16a34a; stroke-width: 3; rx: 24; ry: 24; }
+      .panel-orange { fill: #ffedd5; stroke: #ea580c; stroke-width: 3; rx: 24; ry: 24; }
+      .panel-purple { fill: #f3e8ff; stroke: #9333ea; stroke-width: 3; rx: 24; ry: 24; }
+      .panel-yellow { fill: #fef9c3; stroke: #ca8a04; stroke-width: 3; rx: 24; ry: 24; }
+      .title { font: 700 52px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 24px Arial, Helvetica, sans-serif; fill: #334155; }
+      .section { font: 700 32px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .text { font: 400 24px Arial, Helvetica, sans-serif; fill: #1e293b; }
+      .small { font: 400 19px Arial, Helvetica, sans-serif; fill: #334155; }
+      .label { font: 400 18px Arial, Helvetica, sans-serif; fill: #334155; }
+      .arrow { stroke: #475569; stroke-width: 5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-power { stroke: #dc2626; stroke-width: 5; fill: none; marker-end: url(#arrowhead-red); }
+      .dashed { stroke-dasharray: 14 10; }
+    </style>
+    <marker id="arrowhead" markerWidth="14" markerHeight="10" refX="10" refY="5" orient="auto">
+      <polygon points="0 0, 14 5, 0 10" fill="#475569" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="14" markerHeight="10" refX="10" refY="5" orient="auto">
+      <polygon points="0 0, 14 5, 0 10" fill="#dc2626" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="3200" height="1950"/>
+
+  <text class="title" x="1600" y="90" text-anchor="middle">Blockschaltbild des Cocktailautomaten</text>
+  <text class="subtitle" x="1600" y="132" text-anchor="middle">Übersicht über Bedienung, Kommunikation, Steuerung, Sensorik, Aktorik und Spannungsversorgung</text>
+
+  <rect class="panel-blue" x="80" y="210" width="500" height="190"/>
+  <text class="section" x="120" y="270">Benutzer</text>
+  <text class="text" x="120" y="325">• bedient Gerät lokal</text>
+  <text class="text" x="120" y="365">• oder über Browser</text>
+
+  <rect class="panel-purple" x="900" y="210" width="650" height="240"/>
+  <text class="section" x="940" y="270">Weboberfläche im Browser</text>
+  <text class="text" x="940" y="325">• Anzeige von Statusdaten</text>
+  <text class="text" x="940" y="365">• Starten von Rezepten und Funktionen</text>
+  <text class="small" x="940" y="405">data/index.html, data/app.js,</text>
+  <text class="small" x="940" y="435">data/style.css</text>
+
+  <rect class="panel" x="1860" y="210" width="500" height="190"/>
+  <text class="section" x="1900" y="270">GitHub</text>
+  <text class="text" x="1900" y="325">• Online-Rezepte</text>
+  <text class="small" x="1900" y="365">recipes.json</text>
+
+  <rect class="panel-green" x="1320" y="560" width="540" height="250"/>
+  <text class="section" x="1360" y="620">MQTT / WLAN</text>
+  <text class="text" x="1360" y="675">• WebSocket zum Browser</text>
+  <text class="text" x="1360" y="715">• Befehle + Statusdaten</text>
+  <text class="small" x="1360" y="760">Kommunikationspfad zwischen</text>
+  <text class="small" x="1360" y="788">Browser und ESP32</text>
+
+  <rect class="panel-orange" x="980" y="960" width="980" height="320"/>
+  <text class="section" x="1020" y="1020">ESP32-S3 Firmware</text>
+  <text class="text" x="1020" y="1075">• Menülogik, Rezepte, Dosierung, Reinigung</text>
+  <text class="text" x="1020" y="1115">• verarbeitet Encoder, Tasten, Waage und MQTT-Befehle</text>
+  <text class="text" x="1020" y="1155">• steuert LCD, Relais, Motor und Statusmeldungen</text>
+  <text class="small" x="1020" y="1205">src/main.cpp + LittleFS-Webserver</text>
+
+  <rect class="panel" x="80" y="610" width="700" height="290"/>
+  <text class="section" x="120" y="670">Lokale Bedienung</text>
+  <text class="text" x="120" y="725">• Rotary-Encoder</text>
+  <text class="text" x="120" y="765">• Encoder-Taste / Back-Taste</text>
+  <text class="text" x="120" y="805">• 4x20 LCD als lokale Anzeige</text>
+
+  <rect class="panel-yellow" x="80" y="1180" width="700" height="260"/>
+  <text class="section" x="120" y="1240">Sensorik</text>
+  <text class="text" x="120" y="1295">• HX711 + Wägezelle(n)</text>
+  <text class="text" x="120" y="1335">• Glaserkennung / Gewicht</text>
+  <text class="small" x="120" y="1380">liefert Ist-Wert für Dosierung</text>
+  <text class="small" x="120" y="1408">und Abbruchbedingungen</text>
+
+  <rect class="panel-blue" x="2450" y="610" width="650" height="290"/>
+  <text class="section" x="2490" y="670">Aktorik</text>
+  <text class="text" x="2490" y="725">• TB6600 Motortreiber</text>
+  <text class="text" x="2490" y="765">• Peristaltikpumpe / Schrittmotor</text>
+  <text class="text" x="2490" y="805">• 10 Relais für Ventile und Luftpfad</text>
+
+  <rect class="panel-purple" x="2450" y="1120" width="650" height="300"/>
+  <text class="section" x="2490" y="1180">Flüssigkeitspfad</text>
+  <text class="text" x="2490" y="1235">• 9 Flüssigkeitsleitungen / Slots</text>
+  <text class="text" x="2490" y="1275">• Luftventil zum Nachfördern</text>
+  <text class="text" x="2490" y="1315">• Glas im Ausgabebereich</text>
+  <text class="small" x="2490" y="1360">wird durch Pumpe und</text>
+  <text class="small" x="2490" y="1388">Ventile bedient</text>
+
+  <rect class="panel-orange" x="900" y="1570" width="1500" height="280"/>
+  <text class="section" x="940" y="1630">Spannungsversorgung</text>
+  <text class="text" x="940" y="1685">• 230V AC → Schaltnetzteil → 24V DC / 12V DC / 5V DC</text>
+  <text class="text" x="940" y="1725">• versorgt ESP32, Motortreiber, Relais, Sensorik und Anzeige</text>
+  <text class="small" x="940" y="1770">Leistungspfad getrennt von Steuer- und Datenpfaden dargestellt</text>
+
+  <line class="arrow" x1="580" y1="305" x2="900" y2="305"/>
+  <line class="arrow" x1="380" y1="400" x2="380" y2="610"/>
+  <line class="arrow" x1="1550" y1="450" x2="1590" y2="560"/>
+  <line class="arrow dashed" x1="1860" y1="305" x2="1550" y2="305"/>
+  <line class="arrow" x1="1590" y1="810" x2="1590" y2="960"/>
+  <path class="arrow" d="M780 755 L860 755 L860 1080 L980 1080"/>
+  <line class="arrow" x1="780" y1="1310" x2="980" y2="1310"/>
+  <path class="arrow" d="M1960 1090 L2200 1090 L2200 770 L2450 770"/>
+  <line class="arrow" x1="1960" y1="1210" x2="2450" y2="1210"/>
+  <line class="arrow-power" x1="1160" y1="1570" x2="480" y2="900"/>
+  <line class="arrow-power" x1="1480" y1="1570" x2="1480" y2="1280"/>
+  <line class="arrow-power" x1="1700" y1="1570" x2="1700" y2="1280"/>
+  <line class="arrow-power" x1="2000" y1="1570" x2="2780" y2="900"/>
+
+  <text class="label" x="670" y="285">Benutzer nutzt Browser</text>
+  <text class="label" x="405" y="560">Benutzer bedient Gerät</text>
+  <text class="label" x="1620" y="525">Kommunikation</text>
+  <text class="label" x="1650" y="285">Online-Rezepte laden</text>
+  <text class="label" x="700" y="1015">Bedien- und Sensordaten</text>
+  <text class="label" x="2210" y="1065">Steuersignale</text>
+  <text class="label" x="2160" y="1195">fördert / schaltet</text>
+  <text class="label" x="1030" y="1535" fill="#dc2626">Versorgung</text>
+
+  <rect class="panel" x="2550" y="1570" width="520" height="280"/>
+  <text class="section" x="2590" y="1630">Legende</text>
+  <line class="arrow" x1="2590" y1="1685" x2="2700" y2="1685"/>
+  <text class="small" x="2730" y="1695">Daten- / Steuersignal</text>
+  <line class="arrow dashed" x1="2590" y1="1745" x2="2700" y2="1745"/>
+  <text class="small" x="2730" y="1755">externe Datenquelle</text>
+  <line class="arrow-power" x1="2590" y1="1805" x2="2700" y2="1805"/>
+  <text class="small" x="2730" y="1815">Spannungsversorgung</text>
+</svg>

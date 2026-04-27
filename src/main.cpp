@@ -2043,6 +2043,12 @@ void displayRecipesMenu()
 // Prüft ob ein Rezept mit den aktuell eingestellten 9 Flüssigkeiten gemacht werden kann.
 // Jede Rezept-Zutat (als fluid_index aus FLUID_NAMES) wird mit den Namen in fluids[0..8]
 // verglichen. Fehlt nur eine Zutat → false. Alle vorhanden → true.
+// Beispiel:
+// - Eingesetzte Flüssigkeiten: Vodka, Orangensaft, Rum, ...
+// - Rezept-Zutaten: Vodka + Orangensaft
+//   -> beide Zutaten werden in fluids[] gefunden => Rezept ist kompatibel
+// - Rezept-Zutaten: Vodka + Limettensaft
+//   -> Limettensaft fehlt in fluids[] => Rezept ist nicht kompatibel
 boolean isRecipeCompatible(int recipeIndex)
 {
   Recipe recipe = recipes[recipeIndex];
