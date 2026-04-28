@@ -455,5 +455,22 @@
         "amount": 20
       }
     ]
+  },
+  {
+    "name": "Shirley Temple",
+    "ingredients": [
+      {
+        "fluid": "Grenadinesirup",
+        "amount": 10
+      },
+      {
+        "fluid": "Zitronensaft",
+        "amount": 20
+      },
+      {
+        "fluid": "Ginger_Ale",
+        "amount": 150
+      }
+    ]
   }
 ]
