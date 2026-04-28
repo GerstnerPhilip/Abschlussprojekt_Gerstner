@@ -472,5 +472,22 @@
         "amount": 150
       }
     ]
+  },
+  {
+    "name": "Orange Fizz",
+    "ingredients": [
+      {
+        "fluid": "Zitronensaft",
+        "amount": 20
+      },
+      {
+        "fluid": "Orangensaft",
+        "amount": 150
+      },
+      {
+        "fluid": "Soda_Wasser",
+        "amount": 120
+      }
+    ]
   }
 ]
