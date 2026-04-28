@@ -76,7 +76,7 @@ const int NORMAL_SPEED = 150;     // Normale Geschwindigkeit in µs
 const int SLOW_SPEED = 400;       // Langsame Geschwindigkeit in µs (genauer)
 const int CLEANING_DURATION_SECONDS = 10;  // Wie lange der Motor pro Relay beim Reinigen läuft (Sekunden)
 const int CLEANING_CYCLES = 3;             // Anzahl der Reinigungszyklen gesamt
-const double WEIGHT_TOLERANCE = 5.0;       // Toleranz in Gramm: Pumpe stoppt WEIGHT_TOLERANCE g vor Ziel (verhindert Überlaufen durch Sensorverzögerung)
+const double WEIGHT_TOLERANCE = 0;       // Toleranz in Gramm: Pumpe stoppt WEIGHT_TOLERANCE g vor Ziel (verhindert Überlaufen durch Sensorverzögerung)
 
 // ================================================ MOTOR ANLAUFRAMPE ================================================
 const int  MOTOR_START_SPEED = 800;  // Anlaufgeschwindigkeit µs (langsam = hohes Drehmoment beim Start)
@@ -206,7 +206,7 @@ volatile boolean displayNeedsUpdate = true;  // True: Display muss aktualisiert 
 
 // ================================================ FLÜSSIGKEITSVERWALTUNG ================================================
 
-const int calibration_ml = 10;  // Standard-Kalibrierungswert: 10 ml pro 1000 Motorschritte (muss für jede Flüssigkeit individuell kalibriert werden)
+const double calibration_ml = 2.5;  // Standard-Kalibrierungswert: 2.5 ml pro 1000 Motorschritte (gemessen: 4 Umdrehungen × 800 Schritte = 3200 Schritte → 8 ml)
 const int korrektur_faktor = 10; // Standard-Korrekturfaktor: 10 ml (Menge, die im Schlauch verbleibt und mitgepumpt wird)
 const int manual_input_increment = 5; // Schrittgröße bei manueller Eingabe (ml)
 
@@ -215,7 +215,7 @@ struct Fluid
 {
   String name;              // Name der Flüssigkeit (z.B. "Weißer Rum")
   double calibration_ml;    // Durchsatzrate: ml pro 1000 Motorschritte
-  int korrektur_faktor;     // Menge in ml, die noch im Schlauch ist (muss leergepumpt werden)
+  double korrektur_faktor;     // Menge in ml, die noch im Schlauch ist (muss leergepumpt werden)
   int amount;               // Aktuelle Menge zum Pumpen in ml (wird vom Rezept oder manuelle Eingabe gesetzt)
 };
 
@@ -264,15 +264,15 @@ const String FLUID_NAMES[100] =
 // Diese sollten für jede Flüssigkeit einzeln kalibriert werden
 Fluid fluids[9] = 
 {
-  {FLUID_NAMES[41], 10.0, 10, 0},  // Flüssigkeit 1 (Standard: Wasser)
-  {FLUID_NAMES[41], 10.0, 10, 0},  // Flüssigkeit 2 (Standard: Wasser)
-  {FLUID_NAMES[41], 10.0, 10, 0},  // Flüssigkeit 3 (Standard: Wasser)
-  {FLUID_NAMES[1],  10.0, 10, 0},  // Flüssigkeit 4 (Standard: Weisser_Rum)
-  {FLUID_NAMES[1],  10.0, 10, 0},  // Flüssigkeit 5 (Standard: Weisser_Rum)
-  {FLUID_NAMES[1],  10.0, 10, 0},  // Flüssigkeit 6 (Standard: Weisser_Rum)
-  {FLUID_NAMES[1],  10.0, 10, 0},  // Flüssigkeit 7 (Standard: Weisser_Rum)
-  {FLUID_NAMES[1],  10.0, 10, 0},  // Flüssigkeit 8 (Standard: Weisser_Rum)
-  {FLUID_NAMES[1],  10.0, 10, 0}   // Flüssigkeit 9 (Standard: Weisser_Rum)
+  {FLUID_NAMES[41], 2.5, 7, 0},  // Flüssigkeit 1 (Standard: Wasser)
+  {FLUID_NAMES[41], 2.5, 7.2, 0},  // Flüssigkeit 2 (Standard: Wasser)
+  {FLUID_NAMES[41], 2.5, 7.4, 0},  // Flüssigkeit 3 (Standard: Wasser)
+  {FLUID_NAMES[1],  2.5, 7.6, 0},  // Flüssigkeit 4 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  2.5, 7.9, 0},  // Flüssigkeit 5 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  2.5, 8.2, 0},  // Flüssigkeit 6 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  2.5, 8.5, 0},  // Flüssigkeit 7 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  2.5, 8.7, 0},  // Flüssigkeit 8 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  2.5, 9, 0}   // Flüssigkeit 9 (Standard: Weisser_Rum)
 };
 
 // ================================================ REZEPTVERWALTUNG ================================================
@@ -2703,11 +2703,11 @@ void executeRecipe(int recipeIndex)
     
     if (fluidSlotIdx == -1) continue;  // Nicht gefunden: Zutat überspringen (isRecipeCompatible hätte dies verhindern sollen)
     
-    float weightBefore = current_weight;
     pumpFluid(fluidSlotIdx, amount);  // Alle 3 Phasen (schnell, langsam, Luft) für diese Zutat ausführen
     if (glassRemovedAbort) break;     // Glas entfernt → Rezept abbrechen
-    actualAmounts[i] = current_weight - weightBefore;  // Tatsächlich gepumpte Menge messen
-    if (actualAmounts[i] < 0) actualAmounts[i] = 0;
+    // pumpFluid() taret intern (scale.tare() + current_weight=0), daher ist current_weight
+    // nach dem Aufruf bereits die tatsächlich gepumpte Menge dieser Zutat.
+    actualAmounts[i] = (current_weight > 0) ? current_weight : 0;
     delay(INGREDIENT_PAUSE_MS);       // 500ms Pause: Waage einpendeln lassen bevor nächste Zutat beginnt
   }
 
@@ -2829,14 +2829,14 @@ void startCleaning()
 
       encoderButtonPressed = false;  // Altes Knopf-Flag löschen
       // Blockierend warten bis Benutzer OK (Encoder-Knopf) oder Back drückt.
-      // loop() läuft hier nicht → Back-Button direkt per digitalRead pollen.
-      while (!encoderButtonPressed && digitalRead(BACK_BUTTON) == HIGH) delay(LOOP_DELAY_MS);
+      // loop() läuft hier nicht → beide Buttons direkt per digitalRead pollen.
+      while (digitalRead(ENCODER_SW) == HIGH && digitalRead(BACK_BUTTON) == HIGH) delay(LOOP_DELAY_MS);
       if (digitalRead(BACK_BUTTON) == LOW) { aborted = true; }  // Back = Reinigung abbrechen
       encoderButtonPressed = false;  // Knopf-Flag zurücksetzen
     }
 
-    // Alle 9 Flüssigkeits-Schläuche (Relay 0–8) + Luftventil (Relay 9) nacheinander durchspülen.
-    for (int i = 0; i < 10 && !aborted; i++)  // Jeden der 10 Schläuche der Reihe nach reinigen
+    // Reihenfolge: zuerst Luft (Relay 9), dann Fluid 9 bis 1 (Relay 8 bis 0).
+    for (int i = 9; i >= 0 && !aborted; i--)  // i=9 (Luft), danach i=8..0 (Fluid 9..1)
     {
       // Abbruch-Check am Anfang jedes neuen Relays: sauberster Punkt zum Stoppen
       if (digitalRead(BACK_BUTTON) == LOW)
@@ -2850,15 +2850,26 @@ void startCleaning()
       lcd.setCursor(0, 0);
       lcd.print("Zyklus "); lcd.print(cycle + 1); lcd.print("/"); lcd.print(CLEANING_CYCLES);  // z.B. "Zyklus 2/3"
       lcd.setCursor(0, 1);
-      lcd.print("Relay "); lcd.print(i + 1); lcd.print("/10 laeuft...");  // z.B. "Relay 5/10 laeuft..."
+      if (i == 9) {
+        lcd.print("Luft   1/10 laeuft...");  // Luft ist immer Schritt 1
+      } else {
+        lcd.print("Fluid "); lcd.print(i + 1); lcd.print("/10 laeuft...");  // z.B. "Fluid 8/10 laeuft..."
+      }
       lcd.setCursor(0, 2); lcd.print("Motor laeuft...");    // Statusmeldung während Motor dreht
       lcd.setCursor(0, 3); lcd.print("Back = Abbrechen");   // Abbruchhilfe für Benutzer
 
-      // Nur Ventil i öffnen: alle anderen bleiben zu damit wirklich nur ein Schlauch gespült wird
-      for (int j = 0; j < NUM_RELAYS; j++) activateRelay(j, true);   // Alle Relays AN (alle Ventile geschlossen)
-      activateRelay(i, false);  // Relay i AUS → NC-Kontakt öffnet → Wasser kann durch Schlauch i fließen
+      // Ventil öffnen – gleiche Funktionen wie im manuellen Modus (bekannt funktionierend)
+      if (i == 9) {
+        activateAir(true);   // Luftventil öffnen (Relay 9)
+      } else {
+        activateFluid(i, true);   // Fluid i öffnen (Relay 0–8)
+      }
       bool stopped = motorStep(cleaningSteps, true, NORMAL_SPEED);    // Motor für cleaningSteps laufen lassen
-      activateRelay(i, true);   // Relay i wieder AN → Ventil i schließt sich
+      if (i == 9) {
+        activateAir(false);  // Luftventil schließen
+      } else {
+        activateFluid(i, false);  // Fluid i schließen
+      }
       if (stopped) aborted = true;      // motorStep() gab true zurück = Back wurde gedrückt → Abbruch
       delay(CLEANING_RELAY_PAUSE_MS);   // 500ms Pause: Wasser aus dem Schlauch ablaufen lassen
     }
@@ -3160,11 +3171,9 @@ void executeOnlineRecipe(Recipe& recipeRef)
       if (fluids[j].name == FLUID_NAMES[fluidNameIdx]) { fluidSlotIdx = j; break; }
     }
     if (fluidSlotIdx == -1) continue;  // Zutat nicht eingelegt → überspringen
-    float weightBefore = current_weight;
     pumpFluid(fluidSlotIdx, amount);
     if (glassRemovedAbort) break;     // Glas entfernt → Rezept abbrechen
-    actualAmounts[i] = current_weight - weightBefore;
-    if (actualAmounts[i] < 0) actualAmounts[i] = 0;
+    actualAmounts[i] = (current_weight > 0) ? current_weight : 0;
     delay(INGREDIENT_PAUSE_MS);
   }
 
