@@ -20,7 +20,6 @@
 
 #include <Arduino.h>           // Arduino Basis-Library
 #include "HX711.h"             // Wägezelle-Verstärker Library
-#include <TimerOne.h>          // Timer-Library für periodische Aufgaben
 #include <Wire.h>              // I2C Kommunikations-Library
 #include <LiquidCrystal_I2C.h> // LCD Display Library (I2C Modus)
 #include <WiFi.h>              // ESP32 WiFi
@@ -76,16 +75,17 @@ const int NORMAL_SPEED = 150;     // Normale Geschwindigkeit in µs
 const int SLOW_SPEED = 400;       // Langsame Geschwindigkeit in µs (genauer)
 const int CLEANING_DURATION_SECONDS = 10;  // Wie lange der Motor pro Relay beim Reinigen läuft (Sekunden)
 const int CLEANING_CYCLES = 3;             // Anzahl der Reinigungszyklen gesamt
-const double WEIGHT_TOLERANCE = 0;       // Toleranz in Gramm: Pumpe stoppt WEIGHT_TOLERANCE g vor Ziel (verhindert Überlaufen durch Sensorverzögerung)
+const double WEIGHT_TOLERANCE = 1;       // Toleranz in Gramm: Pumpe stoppt WEIGHT_TOLERANCE g vor Ziel (verhindert Überlaufen durch Sensorverzögerung)
 
 // ================================================ MOTOR ANLAUFRAMPE ================================================
 const int  MOTOR_START_SPEED = 800;  // Anlaufgeschwindigkeit µs (langsam = hohes Drehmoment beim Start)
 const long MOTOR_ACCEL_STEPS = 400;  // Schritte bis Zielgeschwindigkeit erreicht ist
 
 // ================================================ PUMPEN-EINSTELLUNGEN ================================================
-const int    PUMP_FAST_BLOCK_STEPS   = 4000; // Schritte pro Block in Phase 1 (5 Umdrehungen à 800 = 4000)
-const int    PUMP_SLOW_BLOCK_STEPS   = 50;   // Schritte pro Block in Phase 2 (langsam, waagegesteuert)
-const int    PUMP_PURGE_BLOCK_STEPS  = 50;   // Schritte pro Block in Phase 3 (Luft)
+const int    PUMP_FAST_BLOCK_STEPS   = 4000; // Minimale Schritte pro Block in Phase 1 (5 Umdrehungen à 800 = 4000)
+const int    PUMP_FAST_SCALE_DIVISOR = 8;    // Phase-1-Blockgröße = max(PUMP_FAST_BLOCK_STEPS, totalSteps / Divisor) → bei großen Mengen größere Blöcke = schneller
+const int    PUMP_SLOW_BLOCK_STEPS   = 100;   // Schritte pro Block in Phase 2 (langsam, waagegesteuert)
+const int    PUMP_PURGE_EXTRA_STEPS  = 800;  // Zusätzliche Schritte am Ende von Phase 3 als Puffer (1 Umdrehung = 800)
 const int    PUMP_FAST_SAFETY_FACTOR = 3;    // Sicherheitsmultiplikator: max. 3x berechnete Schritte in Phase 1
 const int    PUMP_SLOW_SAFETY_EXTRA  = 100;  // Zusätzliche Blöcke Sicherheitspuffer in Phase 2
 const int    PUMP_EMI_DELAY_MS       = 150;  // Pause nach Motorlauf (ms) - EMI abklingen lassen vor Waagemessung
@@ -207,7 +207,7 @@ volatile boolean displayNeedsUpdate = true;  // True: Display muss aktualisiert 
 // ================================================ FLÜSSIGKEITSVERWALTUNG ================================================
 
 const double calibration_ml = 2.5;  // Standard-Kalibrierungswert: 2.5 ml pro 1000 Motorschritte (gemessen: 4 Umdrehungen × 800 Schritte = 3200 Schritte → 8 ml)
-const int korrektur_faktor = 10; // Standard-Korrekturfaktor: 10 ml (Menge, die im Schlauch verbleibt und mitgepumpt wird)
+const int korrektur_faktor = 7; // Standard-Korrekturfaktor: 10 ml (Menge, die im Schlauch verbleibt und mitgepumpt wird)
 const int manual_input_increment = 5; // Schrittgröße bei manueller Eingabe (ml)
 
 // Struct definiert die Eigenschaften jeder Flüssigkeit
@@ -216,7 +216,6 @@ struct Fluid
   String name;              // Name der Flüssigkeit (z.B. "Weißer Rum")
   double calibration_ml;    // Durchsatzrate: ml pro 1000 Motorschritte
   double korrektur_faktor;     // Menge in ml, die noch im Schlauch ist (muss leergepumpt werden)
-  int amount;               // Aktuelle Menge zum Pumpen in ml (wird vom Rezept oder manuelle Eingabe gesetzt)
 };
 
 
@@ -264,15 +263,15 @@ const String FLUID_NAMES[100] =
 // Diese sollten für jede Flüssigkeit einzeln kalibriert werden
 Fluid fluids[9] = 
 {
-  {FLUID_NAMES[41], 2.5, 7, 0},  // Flüssigkeit 1 (Standard: Wasser)
-  {FLUID_NAMES[41], 2.5, 7.2, 0},  // Flüssigkeit 2 (Standard: Wasser)
-  {FLUID_NAMES[41], 2.5, 7.4, 0},  // Flüssigkeit 3 (Standard: Wasser)
-  {FLUID_NAMES[1],  2.5, 7.6, 0},  // Flüssigkeit 4 (Standard: Weisser_Rum)
-  {FLUID_NAMES[1],  2.5, 7.9, 0},  // Flüssigkeit 5 (Standard: Weisser_Rum)
-  {FLUID_NAMES[1],  2.5, 8.2, 0},  // Flüssigkeit 6 (Standard: Weisser_Rum)
-  {FLUID_NAMES[1],  2.5, 8.5, 0},  // Flüssigkeit 7 (Standard: Weisser_Rum)
-  {FLUID_NAMES[1],  2.5, 8.7, 0},  // Flüssigkeit 8 (Standard: Weisser_Rum)
-  {FLUID_NAMES[1],  2.5, 9, 0}   // Flüssigkeit 9 (Standard: Weisser_Rum)
+  {FLUID_NAMES[41], 2.5, 7},    // Flüssigkeit 1 (Standard: Wasser)
+  {FLUID_NAMES[41], 2.5, 7.2},  // Flüssigkeit 2 (Standard: Wasser)
+  {FLUID_NAMES[41], 2.5, 7.4},  // Flüssigkeit 3 (Standard: Wasser)
+  {FLUID_NAMES[1],  2.5, 7.6},  // Flüssigkeit 4 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  2.5, 7.9},  // Flüssigkeit 5 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  2.5, 8.2},  // Flüssigkeit 6 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  2.5, 8.5},  // Flüssigkeit 7 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  2.5, 8.7},  // Flüssigkeit 8 (Standard: Weisser_Rum)
+  {FLUID_NAMES[1],  2.5, 9}     // Flüssigkeit 9 (Standard: Weisser_Rum)
 };
 
 // ================================================ REZEPTVERWALTUNG ================================================
@@ -446,30 +445,10 @@ Recipe recipes[30] =
     {50, 20, 20, 0, 0, 0, 0, 0, 0},         // IBA: 50/20/20ml
     3
   },
-
-  // Test-Rezepte (können gelöscht werden)
-  {
-    "Test Cocktail 1",
-    {41, -1, -1, -1, -1, -1, -1, -1, -1},
-    {100, 0, 0, 0, 0, 0, 0, 0, 0},
-    1
-  },
-  {
-    "Test Cocktail 2",
-    {41, 41, -1, -1, -1, -1, -1, -1, -1},
-    {100, 100, 0, 0, 0, 0, 0, 0, 0},
-    2
-  },
-  {
-    "Test Cocktail 3",
-    {41, 41, 41, -1, -1, -1, -1, -1, -1},
-    {50, 50, 50, 0, 0, 0, 0, 0, 0},
-    3
-   }
 };
 
 // Aktuelle Anzahl der Rezepte
-int recipeCount = 26;  // 16 korrigierte + 7 neue + 3 Test-Rezepte
+int recipeCount = 23;  // 16 korrigierte + 7 neue
 
 
 
@@ -506,7 +485,6 @@ int selectedIndex = 0;                        // Welcher Menüeintrag ist ausgew
 int selectedFluidSlot = 0;                    // Welche der 9 Positionen wird gerade bearbeitet? (0-8)
 int selectedCategory = 0;                     // Welche Kategorie ist ausgewählt? (0-3)
 int manualAmounts[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};  // Mengen für jede Flüssigkeit in manueller Eingabe
-boolean fluidActive[9] = {false, false, false, false, false, false, false, false, false};  // Ist Flüssigkeit aktiv?
 int selectedRecipe = 0;                       // Index des aktuell ausgewählten Rezepts
 int compatibleRecipes[20] = {-1};             // Indizes der kompatiblen Rezepte (im recipes[] Array)
 int compatibleCount = 0;                      // Anzahl der kompatiblen Rezepte
@@ -519,12 +497,9 @@ int compatibleCount = 0;                      // Anzahl der kompatiblen Rezepte
 // INTERRUPT-HANDLERFUNKTIONEN
 void setupInterrupts();      // Richte Interrupt-Handler ein
 void encoderISR();           // Interrupt Service Routine für Encoder-Drehung
-void buttonISR();            // ISR für Encoder-Button
-void backButtonISR();        // ISR für Back-Button
 
 // MOTORSTEUERUNGSFUNKTIONEN
 void pumpFluid(int fluidIndex, int amount);           // Pumpe eine bestimmte Menge aus einer Flüssigkeit
-void pumpFluidWithWeight(int fluidIndex, int targetWeight);  // Alternative: nach Gewicht pumpen
 bool motorStep(long steps, boolean forward, int speed);  // Steuere Schrittmotor direkt an; gibt true zurück wenn Back-Button abgebrochen hat
 
 // RELAYSTEUERUNG (VENTILE)
@@ -1561,6 +1536,10 @@ void handleMenuNavigation()
     }
     lastEncoderCounter = encoderCounter;
     displayNeedsUpdate = true;
+
+    // In FLUID_SELECTION den selectedFluidSlot immer am Cursor-Index halten (für Kalibrieren-Button)
+    if (currentMenu == FLUID_SELECTION && selectedIndex < 9)
+      selectedFluidSlot = selectedIndex;
   }
 
   // Knopf gedrückt: Flag wurde im Polling oben gesetzt, 50ms Debounce bereits erledigt
@@ -1766,9 +1745,74 @@ void handleMenuNavigation()
         } 
         else if (selectedIndex == 9) 
         {
-          // Benutzer hat alle Flüssigkeiten eingegeben und drückt "Start"
+          // Benutzer drückt "START MANUELL" → Glaserkennung prüfen wie bei normalen Rezepten
+          if (!glassDetected)
+          {
+            lcd.clear();
+            lcd.setCursor(0, 0); lcd.print("!! KEIN GLAS !!");
+            lcd.setCursor(0, 1); lcd.print("Bitte Glas");
+            lcd.setCursor(0, 2); lcd.print("aufstellen!");
+            delay(2500);
+            displayNeedsUpdate = true;
+            break;
+          }
+
+          // Glas erkannt → alle Flüssigkeiten mit manualAmounts pumpen
           currentMenu = RUNNING_RECIPE;
-          // HINWEIS: executeManualRecipe() Funktion müsste hier aufgerufen werden
+          isRecipeRunning = true;
+          displayNeedsUpdate = true;
+
+          glassRemovedAbort = false;
+          recipeTotalMl = 0.0f;
+          for (int i = 0; i < 9; i++) recipeTotalMl += manualAmounts[i];
+          recipeStartWeight = current_weight;
+
+          float actualAmounts[9] = {0};
+
+          for (int i = 0; i < 9; i++)
+          {
+            if (manualAmounts[i] <= 0) continue;
+            if (glassRemovedAbort) break;
+            pumpFluid(i, manualAmounts[i]);
+            actualAmounts[i] = (current_weight > 0) ? current_weight : 0;
+            delay(INGREDIENT_PAUSE_MS);
+          }
+
+          isRecipeRunning = false;
+
+          if (glassRemovedAbort)
+          {
+            glassDetected = false;
+            baselineWeight = 0.0;
+            glassWeight = 0.0;
+            lcd.clear();
+            lcd.setCursor(0, 0); lcd.print("!! ABGEBROCHEN !!");
+            lcd.setCursor(0, 1); lcd.print("Glas entfernt!");
+            delay(3000);
+          }
+          else
+          {
+            // Abschlussanzeige
+            lcd.clear();
+            lcd.setCursor(0, 0); lcd.print("== MANUELL FERTIG ==");
+            int shown = 0;
+            for (int i = 0; i < 9 && shown < 3; i++)
+            {
+              if (manualAmounts[i] <= 0) continue;
+              lcd.setCursor(0, shown + 1);
+              String n = fluids[i].name; n.replace("_", " ");
+              lcd.print(n.substring(0, 10));
+              lcd.print(" ");
+              lcd.print((int)actualAmounts[i]); lcd.print("/"); lcd.print(manualAmounts[i]); lcd.print("ml");
+              shown++;
+            }
+            delay(UI_DONE_DISPLAY_MS * 2);
+          }
+
+          for (int i = 0; i < 9; i++) manualAmounts[i] = 0;
+          currentMenu = MAIN_MENU;
+          selectedIndex = 0;
+          displayNeedsUpdate = true;
         }
         break;
         
@@ -1777,11 +1821,20 @@ void handleMenuNavigation()
       // ===== FLÜSSIGKEITSAUSWAHL =====
       case FLUID_SELECTION:
         // Benutzer wählt eine Position (0-8) aus
-        // Speichere diese Position und gehe zur Kategorieauswahl
-        selectedFluidSlot = selectedIndex;  // Merken welche der 9 Positionen tauscht wird
-        selectedCategory = 0;               // Immer bei Kategorie 0 (Alkoholische) starten
-        selectedIndex = 0;                  // Erste Kategorie auswählen
-        currentMenu = FLUID_CATEGORY_SELECTION;
+        if (selectedIndex < 9)
+        {
+          // Flüssigkeit tauschen: gehe zur Kategorieauswahl
+          selectedFluidSlot = selectedIndex;  // Merken welche der 9 Positionen geändert wird
+          selectedCategory = 0;               // Immer bei Kategorie 0 (Alkoholische) starten
+          selectedIndex = 0;                  // Erste Kategorie auswählen
+          currentMenu = FLUID_CATEGORY_SELECTION;
+        }
+        else if (selectedIndex == 9)
+        {
+          // "Kalibrieren" gewählt: Kalibrierungsmaske für selectedFluidSlot öffnen
+          currentMenu = FLUID_INPUT;
+          displayNeedsUpdate = true;
+        }
         break;
         
 
@@ -1806,8 +1859,8 @@ void handleMenuNavigation()
         if (fluidNameIndex < 100)  // Sicherheit: nicht über FLUID_NAMES Array-Ende hinaus
         {
           fluids[selectedFluidSlot].name = FLUID_NAMES[fluidNameIndex];  // Neue Flüssigkeit zuweisen
-          fluids[selectedFluidSlot].calibration_ml;  // Kalibrierung auf Standardwert zurücksetzen (muss danach neu kalibriert werden!)
-          fluids[selectedFluidSlot].korrektur_faktor;  // Schlauchkorrektur auf Standardwert (ebenfalls re-kalibrieren)
+          fluids[selectedFluidSlot].calibration_ml   = calibration_ml;   // Kalibrierung auf Standardwert zurücksetzen (muss danach neu kalibriert werden!)
+          fluids[selectedFluidSlot].korrektur_faktor = korrektur_faktor;  // Schlauchkorrektur auf Standardwert (ebenfalls re-kalibrieren)
         }
         
         currentMenu = FLUID_SELECTION;
@@ -1815,6 +1868,15 @@ void handleMenuNavigation()
         break;
       }
         
+
+
+      // ===== KALIBRIERUNG (FLUID_INPUT) =====
+      case FLUID_INPUT:
+        // Encoder-Knopf: zurück zur Flüssigkeitsauswahl
+        currentMenu = FLUID_SELECTION;
+        selectedIndex = selectedFluidSlot;  // Cursor auf den gerade kalibrierten Slot
+        displayNeedsUpdate = true;
+        break;
 
 
       // ===== REINIGUNGSMODUS =====
@@ -1888,6 +1950,11 @@ void handleMenuNavigation()
       currentMenu = MANUAL_INPUT;
       selectedIndex = selectedFluidSlot;
     }
+    else if (currentMenu == FLUID_INPUT)
+    {
+      currentMenu = FLUID_SELECTION;
+      selectedIndex = selectedFluidSlot;
+    }
     else if (currentMenu == FLUID_CATEGORY_SELECTION)
     {
       currentMenu = FLUID_SELECTION;
@@ -1906,8 +1973,9 @@ void handleMenuNavigation()
     else if (currentMenu == RECIPES_MENU || currentMenu == RECIPES_ONLINE_MENU)
     {
       // Zurück zu Rezepttyp-Auswahl
+      bool wasOnline = (currentMenu == RECIPES_ONLINE_MENU);  // Merken BEVOR currentMenu überschrieben wird
       currentMenu = RECIPES_TYPE_MENU;
-      selectedIndex = (currentMenu == RECIPES_ONLINE_MENU) ? 1 : 0;
+      selectedIndex = wasOnline ? 1 : 0;
     }
     else if (currentMenu == RECIPES_TYPE_MENU)
     {
@@ -2243,29 +2311,39 @@ void pumpFluid(int fluidIndex, int targetAmount)
   // Sicherheitslimit: PUMP_FAST_SAFETY_FACTOR × berechnete Schritte, falls Waage ausfällt.
   activateFluid(fluidIndex, true);  // Flüssigkeitsventil öffnen (nur dieses eine Ventil)
 
-  // slowStopWeight = Gewicht bei dem Phase 1 endet und Phase 2 (langsam) beginnt
-  // Wir stoppen FRÜHER als das Ziel, weil noch korrektur_faktor ml im Schlauch sind
-  // die separat durch Luft (Phase 3) ins Glas kommen
-  double slowStopWeight = targetAmount - fluids[fluidIndex].korrektur_faktor - WEIGHT_TOLERANCE;
-  if (slowStopWeight < 0) slowStopWeight = 0;  // Sicherheit bei sehr kleinen Mengen
+  // slowStopWeight = Schwelle für Phase 2 (= Ziel minus Schlauchinhalt).
+  // Phase 2 pumpt genau bis hier; Phase 3 bläst den Rest (korrektur_faktor ml) blind rein.
+  // Beispiel: 100 ml Ziel, 7 ml Schlauch → slowStopWeight = 93 ml.
+  double slowStopWeight = targetAmount - fluids[fluidIndex].korrektur_faktor;
+  if (slowStopWeight < 0) slowStopWeight = 0;
 
-  int fastStepsDone = 0;                              // Zähler: wie viele Schritte in Phase 1 gelaufen
-  int maxFastSteps  = steps * PUMP_FAST_SAFETY_FACTOR; // Sicherheitslimit: max. 3× berechnete Schritte
+  // Dynamische Blockgröße für Phase 1
+  int dynamicBlockSteps = max(PUMP_FAST_BLOCK_STEPS, steps / PUMP_FAST_SCALE_DIVISOR);
+
+  // phase1StopWeight = slowStopWeight minus eine Blockmenge.
+  // Phase 1 stoppt FRÜHER damit Phase 2 garantiert noch Arbeit hat.
+  // Ohne diesen Offset könnte Phase 1 slowStopWeight überschießen → Phase 2 macht 0 Schritte.
+  double blockMl = dynamicBlockSteps * fluids[fluidIndex].calibration_ml / 1000.0;
+  double phase1StopWeight = slowStopWeight - blockMl;
+  if (phase1StopWeight < 0) phase1StopWeight = 0;
+
+  int fastStepsDone = 0;
+  int maxFastSteps  = steps * PUMP_FAST_SAFETY_FACTOR;
 
   // Mindestens einen Block laufen lassen (Anlauframpe muss durchlaufen werden)
-  motorStep(PUMP_FAST_BLOCK_STEPS, true, NORMAL_SPEED); // 4000 Schritte mit Normalgeschwindigkeit
-  fastStepsDone += PUMP_FAST_BLOCK_STEPS;                // Schrittanzahl aufaddieren
-  delay(PUMP_EMI_DELAY_MS);                              // 150ms warten: Motor-EMI klingt ab bevor Waage gelesen wird
-  updateDisplay();                                        // Waage lesen und auf LCD zeigen
+  motorStep(dynamicBlockSteps, true, NORMAL_SPEED); // Erster Block mit dynamischer Größe
+  fastStepsDone += dynamicBlockSteps;
+  delay(PUMP_EMI_DELAY_MS);
+  updateDisplay();
   if (current_weight < -(double)GLASS_JUMP_MIN_G) { glassRemovedAbort = true; activateFluid(fluidIndex, false); return; }
 
   static unsigned long lastFastStatus = 0;
-  while (current_weight < slowStopWeight && fastStepsDone < maxFastSteps)  // Noch nicht am Ziel?
+  while (current_weight < phase1StopWeight && fastStepsDone < maxFastSteps)  // Phase 1 stoppt vor slowStopWeight
   {
-    motorStep(PUMP_FAST_BLOCK_STEPS, true, NORMAL_SPEED); // Nächsten 4000-Schritt-Block pumpen
-    fastStepsDone += PUMP_FAST_BLOCK_STEPS;                // Gesamtschritte aktualisieren
-    delay(PUMP_EMI_DELAY_MS);                              // EMI-Pause: Waage stabilisieren lassen
-    updateDisplay();                                        // Neues Gewicht lesen und anzeigen
+    motorStep(dynamicBlockSteps, true, NORMAL_SPEED);
+    fastStepsDone += dynamicBlockSteps;
+    delay(PUMP_EMI_DELAY_MS);
+    updateDisplay();
     if (current_weight < -(double)GLASS_JUMP_MIN_G) { glassRemovedAbort = true; break; }
     if (wifiConnected && millis() - lastFastStatus >= 500) { mqttClient.loop(); publishStatus(); lastFastStatus = millis(); }
   }
@@ -2293,34 +2371,26 @@ void pumpFluid(int fluidIndex, int targetAmount)
   if (glassRemovedAbort) { return; }
 
   // ============================
-  // PHASE 3: Luft bläst Schlauch leer
+  // PHASE 3: Luft bläst Schlauch leer (rein schrittbasiert, keine Waage)
   // ============================
-  // Der Schlauch enthält noch korrektur_faktor ml Flüssigkeit.
-  // Luftventil öffnen → Luft schiebt den Rest ins Glas.
-  // korrektionSchritte = wie viele Motorschritte nötig sind um den Schlauchinhalt zu fördern.
+  // Phase 2 hat exakt bis (Ziel - korrektur_faktor) gepumpt.
+  // Der Schlauch enthält noch genau korrektur_faktor ml → Motor pumpt diese
+  // Schrittzahl durch Luft ins Glas. Keine Waage: der Rest kommt rechnerisch rein.
   delay(PUMP_EMI_DELAY_MS);           // 150ms Stabilisierungspause
   if (wifiConnected) mqttClient.loop(); // MQTT keep-alive
-  updateDisplay();                      // Gewicht nach Phase 2 auf LCD zeigen
 
-  activateAir(true);  // Luftventil öffnen (Relay 9): Luft fließt durch Schlauch in Richtung Glas
-  int korrektionSchritte = (fluids[fluidIndex].korrektur_faktor * 1000) / fluids[fluidIndex].calibration_ml;
-  double purgeTarget = targetAmount - WEIGHT_TOLERANCE;  // Abbruchziel: Gesamtmenge minus kleine Toleranz
+  activateAir(true);  // Luftventil öffnen (Relay 9)
+  // Schritte = Schlauchinhalt (korrektur_faktor ml) + PUMP_PURGE_EXTRA_STEPS Puffer
+  // Läuft als EIN motorStep-Aufruf → kein Start/Stop-Rattern, sauberer Motorlauf
+  int korrektionSchritte = (int)((fluids[fluidIndex].korrektur_faktor * 1000.0) / fluids[fluidIndex].calibration_ml) + PUMP_PURGE_EXTRA_STEPS;
+  if (wifiConnected) mqttClient.loop();
+  bool purgeStopped = motorStep(korrektionSchritte, true, NORMAL_SPEED);
+  if (purgeStopped) glassRemovedAbort = true;
 
-  for (int i = 0; i < korrektionSchritte; i += PUMP_PURGE_BLOCK_STEPS)  // Schlauch schrittweise entleeren
-  {
-    delay(PUMP_SLOW_DELAY_MS);                            // 30ms: Waage nach jedem Block stabilisieren
-    if (wifiConnected) { mqttClient.loop(); if (millis() - lastPumpStatus >= 500) { publishStatus(); lastPumpStatus = millis(); } }
-    updateDisplay();                                       // Aktuelles Gewicht anzeigen
-    if (current_weight >= purgeTarget) break;  // Ziel erreicht: Phase 3 früh beenden
-    if (current_weight < -(double)GLASS_JUMP_MIN_G) { glassRemovedAbort = true; break; }
-    int chunk = min(PUMP_PURGE_BLOCK_STEPS, korrektionSchritte - i);  // Letzten Block nicht über das Ende
-    motorStep(chunk, true, NORMAL_SPEED);  // Motor pumpt Luft durch den Schlauch
-  }
-
-  activateAir(false);         // Luftventil schließen: alle Relays wieder AN (Idle)
+  activateAir(false);         // Luftventil schließen
   if (glassRemovedAbort) { return; }
-  delay(PUMP_SLOW_DELAY_MS);  // Letzte 30ms Pause damit Waage den letzten Tropfen noch registriert
-  updateDisplay();             // Endgewicht nach vollständiger Dosierung auf LCD zeigen
+  delay(PUMP_EMI_DELAY_MS);   // Warten damit Waage den letzten Tropfen registriert
+  updateDisplay();             // Endgewicht einmal lesen für Ergebnisanzeige
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -2425,18 +2495,25 @@ void displayFluidSelection()
   lcd.setCursor(0, 0);
   lcd.print("== FLUESSIGKEITEN ==");
   
-  selectedIndex = constrain(selectedIndex, 0, 8);
+  selectedIndex = constrain(selectedIndex, 0, 9);
   
   for (int i = 0; i < 3; i++) 
   {
     lcd.setCursor(0, i + 1);
     int itemIndex = i + (selectedIndex > 2 ? selectedIndex - 2 : 0);
+    if (itemIndex > 9) break;
     lcd.print(itemIndex == selectedIndex ? "> " : "  ");
     if (itemIndex < 9)
     {
       lcd.print(itemIndex + 1);
       lcd.print(".");
-      lcd.print(fluids[itemIndex].name);
+      lcd.print(fluids[itemIndex].name.substring(0, 16));
+    }
+    else  // itemIndex == 9
+    {
+      lcd.print("Kalibrieren (Slot ");
+      lcd.print(selectedFluidSlot + 1);
+      lcd.print(")");
     }
   }
 }
@@ -2510,14 +2587,14 @@ void displayFluidFromCategory()
 void displayFluidInput() 
 {
   lcd.clear();
-  lcd.setCursor(0, 0); lcd.print(fluids[selectedIndex].name);
-  lcd.setCursor(0, 1); lcd.print("Kalibrierung (ml/1000s)");
+  lcd.setCursor(0, 0); lcd.print(fluids[selectedFluidSlot].name);
+  lcd.setCursor(0, 1); lcd.print("Kalibrierung ml/1000s");
   lcd.setCursor(0, 2);
   lcd.print("Wert: ");
-  lcd.print(fluids[selectedIndex].calibration_ml);
+  lcd.print(fluids[selectedFluidSlot].calibration_ml);
   lcd.setCursor(0, 3);
   lcd.print("Korrektur: ");
-  lcd.print(fluids[selectedIndex].korrektur_faktor);
+  lcd.print(fluids[selectedFluidSlot].korrektur_faktor);
   lcd.print("ml");
 }
 
@@ -2894,24 +2971,6 @@ void startCleaning()
   currentMenu = CLEANING_MODE; // Zurück zum Reinigungsmenü-Zustand
   selectedIndex = 0;           // Cursor auf erste Option ("Reinigung Stop")
   displayNeedsUpdate = true;   // Display-Update anfordern damit Menü neu gezeichnet wird
-
-  lcd.setCursor(0, 0); lcd.print("==== REINIGUNG ====");
-  if (aborted)
-  {
-    lcd.setCursor(0, 1); lcd.print("Abgebrochen!");
-    lcd.setCursor(0, 2); lcd.print("Alle Ventile zu.");
-  }
-  else
-  {
-    lcd.setCursor(0, 1); lcd.print("Fertig!");
-    lcd.setCursor(0, 2); lcd.print("Alle 10 Relays OK");
-  }
-  delay(UI_DONE_DISPLAY_MS);
-
-  stopCleaning();
-  currentMenu = CLEANING_MODE;
-  selectedIndex = 0;
-  displayNeedsUpdate = true;
 }
 
 // Setzt isCleaningMode auf false und schließt alle 10 Relays.
