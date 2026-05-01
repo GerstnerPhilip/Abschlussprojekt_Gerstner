@@ -1,23 +1,5 @@
 
-
-
-Abstrakt
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Cocktail-Automat
 
 
 
@@ -30,61 +12,61 @@ Betreuer	Herr Benz
 Helfer	Quoiffy Lars
 
 Inhalt
-Einleitung	8
-Wie bin ich auf dieses Projekt gekommen?	8
-Zielformulierung & Lastenheft – Abschlussprojekt	9
-Projektziel	9
-Weg zum Ziel (Projektstrategie)	10
-Arbeitsschritte, Zeitplanung & Endprodukte	11
-Strukturplan & Abhängigkeiten	11
-Flaschenhalsanalyse (Risiken & Gegenmaßnahmen)	12
-Besonderheit & Bachelor-Niveau	12
-Planung	13
-Vorgehensweise	13
-Material Auswahl	16
-Spannungsversorgung & Elektronikbasis	16
-Mikrocontroller & Erweiterung	17
-Pumpe & Motorsteuerung	17
-Ventile & Relais	17
-Sensorik	18
-Bedienung & Anzeige	18
-Schlauchsystem & Verbindungen	18
-Elektroinstallation	19
-Befestigung & Gehäuse	19
-Blockdiagramm	19
-Ausführung	20
-3D-Druck	20
-Modul 0 / 1: Spannung und ESP-Modul	21
-Modul 2: Wage Modul	22
-Modul 3: Abstandshalter	23
-Modul 4: Ventil und Relais-Modul	24
-Modul 5: Pumpe und Controller	25
-Modul 6: Bildschirm, Rotary Encoder, Taster	26
-Schraube 1:	27
-Schraube 2:	28
+Einleitung	6
+Wie bin ich auf dieses Projekt gekommen?	7
+Zielformulierung & Lastenheft – Abschlussprojekt	7
+Projektziel	7
+Weg zum Ziel (Projektstrategie)	8
+Arbeitsschritte, Zeitplanung & Endprodukte	9
+Strukturplan & Abhängigkeiten	10
+Flaschenhalsanalyse (Risiken & Gegenmaßnahmen)	10
+Besonderheit & Bachelor-Niveau	11
+Planung	11
+Vorgehensweise	11
+Material Auswahl	15
+Spannungsversorgung & Elektronikbasis	15
+Mikrocontroller & Erweiterung	16
+Pumpe & Motorsteuerung	16
+Ventile & Relais	16
+Sensorik	16
+Bedienung & Anzeige	17
+Schlauchsystem & Verbindungen	17
+Elektroinstallation	17
+Befestigung & Gehäuse	18
+Blockdiagramm	18
+Ausführung	19
+3D-Druck	19
+Modul 0 / 1: Spannung und ESP-Modul	20
+Modul 2: Wage Modul	21
+Modul 3: Abstandshalter	22
+Modul 4: Ventil und Relais-Modul	23
+Modul 5: Pumpe und Controller	24
+Modul 6: Bildschirm, Rotary Encoder, Taster	25
+Schraube 1:	26
+Schraube 2:	27
 Zusammenbau der Module	28
 Modul 0/1 – Spannung und ESP-Modul	28
 Modul 2 – Waage-Modul	29
 Modul 3 – Abstandshalter und Dokumentations-Modul	30
 Modul 4 – Ventil und Relais-Modul	30
-Modul 5 – Pumpe und Controller	31
+Modul 5 – Pumpe und Controller	30
 Modul 6 – Bildschirm, Rotary Encoder, Taster	31
 Fehler und Lösungen die Bei dem Aufbau und Betrieb aufgetreten sind	32
 Problem 1: Ventil schaltet ungewollt	32
 Problem 2: Spannungsfall in der Zuleitung der Relais	32
 Problem 3: Spannungsinkompatibilität der Relais	32
 Problem 4: Stromeinstellung des Motortreibers	32
-Problem 5: Begrenzte Anzahl schaltbarer Relais am ESP32	33
-Problem 6: Luftziehen des Systems	33
+Problem 5: Begrenzte Anzahl schaltbarer Relais am ESP32	32
+Problem 6: Luftziehen des Systems	32
 Technische Beschreibung der verwendeten Bauteile	33
 1. Mikrocontroller – ESP32-S3 (XTVTX ESP-S3-DevKitC-1 N16R8)	33
-2. Schaltnetzteil – BRIMETI LED Trafo 24 V / 150 W (IP67)	34
+2. Schaltnetzteil – BRIMETI LED Trafo 24 V / 150 W (IP67)	33
 3. Buck-Konverter (Spannungswandler 24 V → 12 V, 24 V → 5 V, 12 V → 3,3 V)	34
-4. Schlauchpumpe – Kamoer KDS3000-ST (24 V, 0–1800 ml/min)	35
+4. Schlauchpumpe – Kamoer KDS3000-ST (24 V, 0–1800 ml/min)	34
 5. Schrittmotortreiber – COVVY TB6600 (9–42 V, 4 A)	35
-6. Magnetventil – Normally Open Micro-Magnetventil (DC 12 V)	36
+6. Magnetventil – Normally Open Micro-Magnetventil (DC 12 V)	35
 7. Relaismodul – Low-Level Trigger, 3,3 V (4-Kanal)	36
-8. Wägezelle + HX711-ADC (5 kg, 24-Bit)	37
+8. Wägezelle + HX711-ADC (5 kg, 24-Bit)	36
 9. LCD-Display – AZDelivery HD44780 2004 (I²C, 4 × 20 Zeichen)	37
 10. Drehgeber – GIAK KY-040 Rotary Encoder	38
 Programm	38
@@ -97,89 +79,68 @@ Menu Führung mit enum	42
 Flüssigkeitsverwaltung mit struct	44
 Verfügbare Flüssigkeiten	45
 Rezeptverwaltung	47
-Programm Dateien	54
-Hauptprogramm	54
-Frontend des Cocktail-Automaten	55
-Grundgerüst der Web-Oberfläche	55
-Design/Aussehen	55
-Rezepte	55
-Blockschaltbild	56
-Gesamtprogramm Ablauf	57
-Schaltplan	58
-Seite 1/7	58
-Seite 2/7	59
-Seite 3/7	60
-Seite 4/7	61
-Seite 5/7	62
-Seite 6/7	63
-Seite 7/7	64
-Bedienungsanleitung Automat	64
-Vor dem Gebrauch	64
-Flüssigkeiten Anschließen	64
-Bedienelemente	65
-Einschalten und Startvorgang	65
-Hauptmenü	67
-Rezept auswählen und starten	67
-Manuelle Eingabe	70
-Reinigungsmodus	70
-Manuelle Bedienung	71
-Online	71
-GitHub Token	74
-Verbesserungsvorschläge	74
-Verbesserungsvorschlag 1: LCD → OLED-Touchscreen	74
-Verbesserungsvorschlag 2: SD-Karte für Rezepte	75
-Gefahrenanalyse	75
-1. Systembeschreibung	75
-2. Methode der Risikobewertung	77
-3. Risikotabelle	77
-4. Schutzmaßnahmen nach STOP-Prinzip	79
-5. Funktionale Sicherheit nach ISO 13849 und EN 62061	81
-5.1 ISO 13849-1 – Sicherheitsbezogene Teile von Steuerungen (Performance Level)	81
-5.2 EN 62061 – Funktionale Sicherheit elektrischer Steuerungssysteme (SRECS)	82
-6. Restrisikobewertung	83
-7. Fazit	83
-Ergebnis	83
-Test-Cocktails	84
-Fazit	85
-Materialliste	85
-Quellen	89
-Ki	89
-ESP32-S3	89
-Schaltnetzteil	90
-Buck-Konverter	90
-Schlauchpumpe	90
-Schrittmotortreiber	91
-Magnetventil	91
-Relaismodul	91
-Wägezelle + HX711	91
-LCD-Display	92
-Drehgeber	92
-Literaturverzeichnis	92
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Menu Navigation	50
+Pending-Flag-Muster im Programm	53
+Kompatibilitätsprüfung von Rezepten	56
+Beschreibung der Pumpfunktion	59
+Waage / Glaserkennung	60
+Website auf den ESP32 hochladen	61
+JSON-Publishing zur Bereitstellung interner Systemdaten	62
+MQTT-Kommunikation des Automaten	64
+Rezeptausführung	70
+Programm Dateien	71
+Hauptprogramm	71
+Frontend des Cocktail-Automaten	72
+Grundgerüst der Web-Oberfläche	72
+Design/Aussehen	72
+Rezepte	72
+Blockschaltbild	72
+Gesamtprogramm Ablauf	73
+Schaltplan	74
+Seite 1/7	74
+Seite 2/7	75
+Seite 3/7	76
+Seite 4/7	77
+Seite 5/7	78
+Seite 6/7	79
+Seite 7/7	80
+Bedienungsanleitung Cocktail-Automat	80
+Vor dem Gebrauch	80
+Flüssigkeiten Anschließen	80
+Bedienelemente	81
+GitHub Token	82
+Verbesserungsvorschläge	82
+Verbesserungsvorschlag 1: LCD → OLED-Touchscreen	82
+Verbesserungsvorschlag 2: SD-Karte für Rezepte	82
+Gefahrenanalyse	83
+1. Systembeschreibung	83
+2. Methode der Risikobewertung	84
+3. Risikotabelle	85
+4. Schutzmaßnahmen nach STOP-Prinzip	87
+5. Funktionale Sicherheit nach ISO 13849 und EN 62061	88
+5.1 ISO 13849-1 – Sicherheitsbezogene Teile von Steuerungen (Performance Level)	88
+5.2 EN 62061 – Funktionale Sicherheit elektrischer Steuerungssysteme (SRECS)	89
+6. Restrisikobewertung	90
+7. Fazit	90
+Ergebnis	91
+Test	91
+Test-Cocktails für Präsentation	93
+Fazit	94
+Materialliste	94
+Quellen	98
+Ki	98
+ESP32-S3	98
+Schaltnetzteil	99
+Buck-Konverter	99
+Schlauchpumpe	99
+Schrittmotortreiber	100
+Magnetventil	100
+Relaismodul	100
+Wägezelle + HX711	100
+LCD-Display	101
+Drehgeber	101
+Literaturverzeichnis	101
+Abbildungsverzeichnis:	103
 
 Einleitung
 Im Rahmen des Abschlussprojekts der Meisterschule für Handwerker Kaiserslautern (Klasse FSTEL-24) wurde ein vollautomatischer Cocktail- und Getränkeautomat entwickelt und realisiert. Ziel des Projekts war es, ein mechatronisches System zu entwerfen, das die automatische Dosierung von bis zu neun verschiedenen Flüssig-keiten präzise und reproduzierbar ermöglicht.
@@ -507,69 +468,26 @@ Das System zieht geringe Mengen Luft durch die Ventile an. Dies führt dazu, das
 Technische Beschreibung der verwendeten Bauteile
 1. Mikrocontroller – ESP32-S3 (XTVTX ESP-S3-DevKitC-1 N16R8)
 Funktionsprinzip: Der ESP32-S3 ist ein System-on-Chip (SoC) von Espressif Sys-tems mit einem Xtensa LX7 Dual-Core-Prozessor (bis 240 MHz). Er integriert WLAN (802.11 b/g/n) und Bluetooth 5.0 (LE) direkt auf dem Chip. Die digitalen I/O-Pins ar-beiten mit 3,3 V Logikpegel. Der Chip verfügt über verschiedene Kommunikations-busse: UART, SPI, I²C und I²S. Das interne Flash (hier: 16 MB) speichert Firmware und Daten; das PSRAM (8 MB) dient als Arbeitsspeicher für RAM-intensive Anwen-dungen wie einen Web-Server. Der ESP32-S3 unterstützt OTA-Updates (Over The Air) über WLAN. Die GPIO-Pins können als Ein- oder Ausgang konfiguriert werden und erzeugen oder verarbeiten PWM-Signale, ADC-Messungen und digitale Steuer-signale. Für dieses Projekt steuert er Relais (Schritt-/Ventilsteuerung), liest Encoder, Display und Waage aus und betreibt einen eingebetteten Webserver zur Browser-basierten Getränkeauswahl.
-Quellen:
-•	Espressif Systems: ESP32-S3 Technical Reference Manual, Version 1.4 (2023) – https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf
-•	Espressif Systems: ESP32-S3 Datasheet, Version 1.4 – https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf
-•	Produktseite Amazon: https://www.amazon.de/ESP32-S3-WROOM-1-N16R8-ESP32-S3-DevKitC-1-Entwicklung-Bluetooth/dp/B0C6KN35L2
 2. Schaltnetzteil – BRIMETI LED Trafo 24 V / 150 W (IP67)
 Funktionsprinzip: Das Schaltnetzteil wandelt die Netzspannung (230 V AC, 50 Hz) in eine geregelte Gleichspannung von 24 V DC um. Im Gegensatz zu linearen Netz-teilen arbeitet ein Schaltnetzteil mit einem Hochfrequenztransformator (typisch 20–200 kHz). Die Wechselspannung wird zunächst gleichgerichtet und auf einen Kon-densator aufgeladen. Ein Schalttransistor (MOSFET) zerhackt diese Gleichspan-nung mit hoher Frequenz, der Transformator überträgt die Energie galvanisch ge-trennt auf die Sekundärseite, wo sie erneut gleichgerichtet und durch eine Regel-schleife (PID-Regler) auf den Sollwert stabilisiert wird. Schaltnetzteile erzielen Wir-kungsgrade von typisch 85–92 %. Die IP67-Schutzklasse bedeutet vollständige Staubdichtheit und Schutz bei kurzeitigem Untertauchen bis 1 m Tiefe.
-Quellen:
-•	Mohan, N., Undeland, T. M., Robbins, W. P.: Power Electronics – Converters, Applications, and Design, 3. Auflage, John Wiley & Sons, 2003, Kapitel 7 (Switching Power Supplies)
-•	IEC 60529: Degrees of protection provided by enclosures (IP Code), 2013
-•	Produktseite Amazon: https://www.amazon.de/BRIMETI-Wasserdicht-Schaltnetzteil-Transformator-Niedervolttrafo/dp/B09TXQZFCM
 3. Buck-Konverter (Spannungswandler 24 V → 12 V, 24 V → 5 V, 12 V → 3,3 V)
 Funktionsprinzip: Ein Buck-Konverter (Abwärtswandler, engl. step-down converter) ist eine verlustarmere Alternative zum linearen Spannungsregler. Das Grundprinzip basiert auf dem getakteten Schalten einer Induktivität: Ein MOSFET schaltet die Eingangsspannung mit hoher Frequenz (typisch 50 kHz – 2 MHz) ein und aus. Wäh-rend der Einschaltphase speichert die Induktivität Energie im Magnetfeld; während der Ausschaltphase gibt sie diese über eine Freilaufdiode (oder synchronen MOS-FET) an den Ausgang ab. Ein Kondensator glättet die Ausgangsspannung. Das Tastverhältnis (Duty Cycle) D = V_out / V_in bestimmt die Ausgangsspannung und wird durch eine Rückkopplungsschaltung geregelt. Typische Wirkungsgrade liegen bei 85–97 %.
-Quellen:
-•	Erickson, R. W., Maksimović, D.: Fundamentals of Power Electronics, 3. Auf-lage, Springer, 2020, Kapitel 2 (Principles of Steady-State Converter Analysis)
-•	Texas Instruments: Introduction to Power Supplies – Application Report SLVA000B, 2000
-•	Produktseiten Amazon: 
-o	24V→12V: https://www.amazon.de/dp/B0CTFJD6XF
-o	24V→5V: https://www.amazon.de/Youmile-Konverter-Spannungsregler-Lad¬egerät-Knopfkappe/dp/B07WNSC5HB
-o	12V→3,3V: https://www.amazon.de/dp/B0DS7C6HXV
 4. Schlauchpumpe – Kamoer KDS3000-ST (24 V, 0–1800 ml/min)
 Funktionsprinzip: Eine Schlauchpumpe (auch Peristaltikpumpe) arbeitet nach dem Verdränger Prinzip: Mehrere Rollenköpfe oder Schuhe, die auf einem rotierenden Rotor befestigt sind, drücken von außen gegen einen flexiblen Silikonschlauch. Durch das fortschreitende Quetschen des Schlauchs wird das Fördermedium in eine Richtung bewegt, ohne dass es mit beweglichen Teilen der Pumpe in Berührung kommt. Die Kamoer KDS3000-ST verwendet einen Schrittmotor, was eine präzise Drehzahlregelung und damit eine reproduzierbare Fördermengeneinstellung ermög-licht. Der Durchfluss (Q) ist proportional zur Drehzahl: Q = n · V_Hub, wobei V_Hub das je Umdrehung verdrängte Volumen darstellt. Diese Pumpenart eignet sich be-sonders für Lebensmittel und reine Medien, da nur der Schlauch benetzt wird.
-Quellen:
-•	Kamoer Fluid Tech: KDS Series Peristaltic Pump User Manual – https://www.kamoer.com/en/products/stepper-motor-pump/kds3000
-•	Durst, F., Melling, A., Whitelaw, J. H.: Principles and Practice of Laser-Doppler Anemometry, Academic Press, 1976 (Grundlagen Verdrängerpumpen)
-•	Produktseite Amazon: https://www.amazon.de/Kamoer-KDS3000-ST-Schrittmotor-einstellbarer-Laborfabriken/dp/B09TP3SXVY
 5. Schrittmotortreiber – COVVY TB6600 (9–42 V, 4 A)
 Funktionsprinzip: Der TB6600 ist ein H-Brücken-basierter Schrittmotortreiber-IC (Toshiba TB6600HG), der zweiphasige Schrittmotoren (bipolar oder unipolar) an-steuert. Er empfängt drei Eingangssignale vom Mikrocontroller: STEP (Schritt-Impuls), DIR (Richtung) und ENA (Freigabe). Bei jedem STEP-Impuls schaltet der Treiber die Wicklungsströmung so um, dass der Motor einen definierten Winkel-schritt dreht. Durch Mikroschrittbetrieb (bis 1/32-Schritte) wird der Nennschritt (ty-pisch 1,8° pro Vollschritt) in bis zu 32 Teilschritte unterteilt, was Vibrationen reduziert und die Positioniergenauigkeit erhöht. Ein integrierter Stromregler (Current-Decay-Schaltung) hält den Wicklungsstrom auf dem eingestellten Wert und schützt den Mo-tor vor Überhitzung.
-Quellen:
-•	Toshiba Semiconductor: TB6600HG Datasheet, Rev. 3.0 – https://toshiba.semicon-storage.com/info/TB6600HG_datasheet_en_20160525.pdf
-•	Acarnley, P. P.: Stepping Motors: A Guide to Theory and Practice, 4. Auflage, IET, 2002
-•	Produktseite Amazon: https://www.amazon.de/COVVY-TB6600-Schrittmotorsteuerung-Schrittmotorsteuerplatine/dp/B07MJ29LWT
 6. Magnetventil – Normally Open Micro-Magnetventil (DC 12 V)
 Funktionsprinzip: Ein Magnetventil (Solenoidventil) besteht aus einer elektromag-netischen Spule und einem beweglichen Eisenkern (Anker/Plunger). Im stromlosen Zustand wird der Anker durch eine Rückholfeder in eine definierte Position gedrückt (hier: Öffner-Position = Ventil offen). Fließt Strom durch die Spule, erzeugt diese ein Magnetfeld, das den Anker anzieht und die Ventilöffnung verschließt. Damit der ESP32-Ausgang das Ventil schließt, muss er die Relaislogik aktivieren (im Öffner-Betrieb bedeutet Relais angezogen = Ventilspannung unterbrochen = Ventil öffnet). Normally-Open-Ventile bieten den Sicherheitsvorteil, dass bei Spannungsausfall kei-ne Flüssigkeit eingesperrt bleibt. Der Energieverbrauch der Spule berechnet sich aus P = U² / R, wobei der Widerstand der Spule bei 12V-Typen typisch 30–100 Ω liegt.
-Quellen:
-•	Parker Hannifin: Solenoid Valve Catalog 4100 – https://ph.parker.com/us/en/solenoid-valves
-•	AliExpress Produktseite: https://de.aliexpress.com/item/1005003084621654.html
-•	Bollée, R.: Pneumatische und hydraulische Steuerungen, Vogel Fachbuch, 2011
 7. Relaismodul – Low-Level Trigger, 3,3 V (4-Kanal)
 Funktionsprinzip: Ein elektromechanisches Relais besteht aus einer Steuerspule, einem beweglichen Anker und Schaltkontakten. Fließt Strom durch die Spule, wird ein Magnetfeld aufgebaut, das den Anker anzieht und damit die Schaltkontakte betä-tigt. Low-Level-Trigger bedeutet, dass das Relais bei einem LOW-Signal (0 V) am Steuereingang anzieht und bei HIGH (3,3 V) abfällt – die Logik ist also invertiert. Dies ist besonders vorteilhaft für den ESP32, da beim Einschalten (Boot) die GPIO-Pins zunächst HIGH sind und so unbeabsichtigtes Schalten verhindert wird. Der Optokoppler auf der Platine entkoppelt galvanisch die Steuerschaltung (3,3 V, µA-Bereich) vom Lastkreis (12 V, mehrere Ampere), was Rückwirkungen auf den Mikro-controller verhindert.
-Quellen:
-•	Boylestad, R., Nashelsky, L.: Electronic Devices and Circuit Theory, 11. Aufla-ge, Pearson, 2013, Kapitel Relays
-•	MakerMind Produktseite Amazon: https://www.amazon.de/MakerMind-Low-Level-Trigger-kompatibel-Raspberry/dp/B099BNQ2LW
-•	Espressif: ESP32-S3 GPIO Reference – https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/gpio.html
 8. Wägezelle + HX711-ADC (5 kg, 24-Bit)
 Funktionsprinzip:
 Wägezelle (Dehnungsmessstreifen-Prinzip): Eine Wägezelle enthält vier Deh-nungsmessstreifen (DMS), die in einer Wheatstone-Brücke verschaltet sind. Ein DMS ist ein dünner Widerstandsdraht oder eine Folie, deren elektrischer Widerstand sich bei mechanischer Dehnung (ε) ändert: ΔR/R = k · ε, wobei k der Gauge-Faktor (typisch 2,0–2,5) ist. Wird die Wägezelle belastet, verformen sich zwei DMS durch Zug (Widerstand steigt) und zwei durch Druck (Widerstand sinkt). Die Wheatstone-Brücke wandelt diese Widerstandsänderung in eine proportionale Brückenspannung um (typisch 1–3 mV/V Versorgungsspannung bei Vollast).
 HX711 (24-Bit-ADC): Das HX711-IC ist ein dedizierter Analog-Digital-Wandler für Brückenschaltungen. Er verstärkt das Differenzsignal der Wägezelle mit einem pro-grammierbaren Verstärker (Gain 32, 64 oder 128) und wandelt es mit einem Sigma-Delta-ADC mit 24-Bit-Auflösung in einen digitalen Wert. Die Kommunikation mit dem ESP32 erfolgt über ein Einfaches 2-Draht-Protokoll (SCK und DOUT). Bei 24-Bit-Auflösung und einer 5-kg-Zelle ergibt sich eine theoretische Auflösung von 5000 g / 2²⁴ ≈ 0,0003 g, praktisch rauschbedingt ca. 0,1–0,5 g.
-Quellen:
-•	AVIA Semiconductor: HX711 Datasheet – https://cdn.sparkfun.com/datasheets/Sensors/ForceFlex/hx711_english.pdf
-•	Hoffmann, K.: Eine Einführung in die Technik des Messens mit Dehnungs-messstreifen, HBM Messtechnik, 1987
-•	ALAMSCN Produktseite Amazon: https://www.amazon.de/ALAMSCN-Wägezelle-Gewichtssensoren-Mikrocontroller/dp/B09BVKFKYN
 9. LCD-Display – AZDelivery HD44780 2004 (I²C, 4 × 20 Zeichen)
 Funktionsprinzip: Das HD44780 ist ein weit verbreiteter Zeichendisplay-Controller (Hitachi). Das Display besteht aus einer Flüssigkristallschicht (LCD), die durch elekt-rische Felder die Lichtdurchlässigkeit einzelner Pixelzellen reguliert. Eine Hinter-grundbeleuchtung (LED-Backlight) beleuchtet die Zeichen von hinten. Der HD44780 steuert ein Zeichen-ROM an, dass die ASCII-Zeichen als 5×8-Pixel-Matrizen enthält. Das I²C-Interface-Modul (PCF8574-IO-Expander) erweitert den ursprünglich 8-bit-parallelen Bus auf ein 2-Draht-I²C-Protokoll (SDA, SCL). I²C verwendet eine Adres-sierung (typisch 0x27 oder 0x3F) und überträgt Daten mit bis zu 400 kHz (Fast Mo-de). Dies reduziert den GPIO-Bedarf von 6–10 Pins auf nur 2 Pins.
-Quellen:
-•	Hitachi Semiconductor: HD44780U LCD-II Datasheet – https://www.sparkfun.com/datasheets/LCD/HD44780.pdf
-•	Philips Semiconductors: PCF8574 Remote 8-bit I/O expander for I2C-bus Da-tasheet – https://www.nxp.com/docs/en/data-sheet/PCF8574_PCF8574A.pdf
-•	AZDelivery Produktseite Amazon: https://www.amazon.de/AZDelivery-Display-Arduino-Raspberry-inklusive/dp/B01GPUMP9C
 10. Drehgeber – GIAK KY-040 Rotary Encoder
 Funktionsprinzip: Ein inkrementeller Drehgeber gibt die Drehbewegung als Im-pulssignale aus. Der KY-040 enthält zwei mechanische Schleifkontakte (Kanäle A und B), die beim Drehen nacheinander Kontakt schließen und öffnen. Die Phasenla-ge der Signale A und B (90° versetzt = Quadratursignale) verrät sowohl die Drehrich-tung als auch die Anzahl der Schritte: Folgt B auf A, dreht der Geber im Uhrzeiger-sinn; folgt A auf B, gegen den Uhrzeigersinn. Pro Umdrehung erzeugt der KY-040 typisch 20 Rastschritte. Der integrierte Taster schließt einen separaten Kontakt, wenn die Achse axial gedrückt wird. Der ESP32 liest die Flanken über Interrupt-gesteuerte GPIO-Pins aus, um keine Impulse zu verpassen.
-Quellen:
-•	Bourns: PEC11R Series Incremental Encoder Datasheet – https://www.bourns.com/docs/Product-Datasheets/PEC11R.pdf (vergleichba-rer Typ)
-•	Fraden, J.: Handbook of Modern Sensors, 5. Auflage, Springer, 2016, Kapitel 6 (Position, Displacement, and Level)
-•	GIAK Produktseite Amazon: https://www.amazon.de/GIAK-KY-040-Rotary-Encoder-Drehgeber/dp/B07RCKSXBX
 Programm
 Wie habe ich Programmiert?
 Am Anfang meines Projekts habe ich zunächst zwei Skizzen bzw. Bilder erstellt, um den grundsätzlichen Aufbau und die Funktionen meines Programms zu planen. Die-se Visualisierungen haben mir dabei geholfen, die Menüstruktur, die Eingaben und die Abläufe besser zu verstehen, bevor ich mit dem eigentlichen Programmieren begonnen habe.
@@ -644,7 +562,7 @@ Flüssigkeitsverwaltung mit struct
 Eine struct ist ein Datentyp, der mehrere zusammengehörige Werte in einer Ein-heit speichert.
 
 Beispiel
-
+ 
 Was bedeutet das?
 Mit struct Fluid wird ein eigener Datentyp namens Fluid erstellt. Dieser Typ fasst alle Informationen zusammen, die zu einer Flüssigkeit gehören:
 •	name → Name der Flüssigkeit, z. B. Wasser oder Rum
@@ -983,50 +901,301 @@ Die Funktion prüft nur die Verfügbarkeit der Zutaten, nicht:
 Sie beantwortet nur die Frage:
 Kann dieser Cocktail mit den aktuell eingesetzten Flüssigkeiten gemacht wer-den?
 Code Abschnitt
+Beschreibung der Pumpfunktion
+Die Funktion pumpFluid(int fluidIndex, int targetAmount) übernimmt die präzise Do-sierung einer ausgewählten Flüssigkeit in Millilitern. Zuerst wird geprüft, ob der übergebene Flüssigkeitsslot gültig ist. Danach wird die Anzeige vorbereitet und die Waage mit scale.tare() auf null gesetzt, damit die aktuelle Zutat unabhängig vom vorherigen Glasinhalt gemessen werden kann.
+Die Dosierung erfolgt anschließend in drei Phasen:
+1.	Schnellförderung Zuerst wird das zugehörige Flüssigkeitsventil geöffnet. Aus dem Kalibrierwert calibration_ml berechnet das Programm, wie viele Mo-torschritte theoretisch nötig sind, um die Zielmenge zu fördern. Danach läuft der Schrittmotor in großen Blöcken mit normaler Geschwindigkeit. Nach je-dem Block wird kurz gewartet, damit sich Störungen durch den Motor auf die Waage nicht auswirken, und dann das Gewicht erneut gemessen. So nähert sich das System dem Sollwert schnell an.
+2.	Feindosierung Kurz vor dem Ziel schaltet die Funktion auf kleine Schrittblö-cke und eine langsamere Geschwindigkeit um. Dadurch kann die abgegebe-ne Menge wesentlich feiner geregelt werden. Die Waage überwacht perma-nent das aktuelle Gewicht, und sobald der berechnete Vorstoppwert erreicht ist, wird das Flüssigkeitsventil geschlossen.
+3.	Schlauchrest ausblasen Nach dem Schließen des Ventils befindet sich noch Flüssigkeit im Schlauch. Deshalb wird in der dritten Phase nicht mehr das Ge-tränk-Ventil, sondern das Luftventil geöffnet. Der Motor fördert nun Luft durch das System, sodass der verbleibende Flüssigkeitsrest ebenfalls ins Glas ge-drückt wird. Auch hier kontrolliert die Waage den Endpunkt.
+Warum ist die Kalibrierung wichtig?
+Die Genauigkeit der Funktion hängt stark von zwei Werten ab:
+•	calibration_ml
+Dieser Wert gibt an, wie viele Milliliter bei 1000 Motorschritten gefördert werden. Er beschreibt also die tatsächliche Förderleistung des Systems.
+•	korrektur_faktor
+Dieser Wert beschreibt die Flüssigkeitsmenge, die nach dem Pumpen noch im Schlauch verbleibt und erst in der Luftphase ins Glas gelangt.
+Diese Kalibrierung ist wichtig, weil verschiedene Flüssigkeiten unterschiedliche Flie-ßeigenschaften besitzen. Außerdem beeinflussen Schlauchlänge, Pumpenmecha-nik, Luftblasen und Viskosität die tatsächliche Fördermenge. Wenn die Kalibrierung nicht stimmt, wird entweder zu wenig oder zu viel dosiert. Erst durch die richtige Abstimmung von Förderwert und Schlauchkorrektur kann die Anlage reproduzierbar und genau arbeiten.
+Waage / Glaserkennung
+1. readWeight()
+Die Funktion readWeight() liest regelmäßig den aktuellen Wert der HX711-Wägezelle und speichert ihn in current_weight.
+Technisch passiert hier:
+•	Es wird geprüft, ob die Waage messbereit ist (scale.is_ready()).
+•	Dann wird genau ein Messwert gelesen (scale.get_units(1)).
+•	Dieser Wert wird als aktuelles Gewicht übernommen.
+Das ist bewusst einfach gehalten: Die Funktion läuft ungefähr alle 100 ms in der loop(). Mehrere Samples würden die Messung unnötig verlangsamen, weil der HX711 selbst schon langsam arbeitet. So bleibt das System reaktionsfähig.
+2. checkGlassDetection()
+Die Funktion checkGlassDetection() erkennt, ob ein Glas auf der Waage steht oder entfernt wurde.
+Wie erkennt das System ein Glas?
+Das System arbeitet mit einem Gewichtssprung:
+•	Es merkt sich zunächst ein Grundgewicht (baselineWeight).
+•	Wenn das aktuelle Gewicht plötzlich um mindestens 100 g steigt (GLASS_JUMP_MIN_G), wird ein möglicher Glaseinsatz erkannt.
+•	Dieser neue Wert muss dann 3 Sekunden stabil bleiben (GLASS_STABLE_MS).
+•	Erst danach wird das Glas als sicher erkannt (glassDetected = true).
+Damit verhindert das System, dass kleine Erschütterungen oder kurze Lastspitzen fälschlich, als Glas interpretiert werden.
+Wie erkennt das System, dass das Glas entfernt wurde?
+Wenn bereits ein Glas erkannt wurde, überwacht die Funktion weiter das Gewicht:
+Fällt das Gewicht deutlich unter das zuvor erkannte Glasgewicht unterschreitet und die dabei definierte Hysterese (GLASS_REMOVE_HYST_G) unterschreitet , dann wird das Glas als entfernt markiert.
+Die Hysterese ist wichtig, damit kleine Gewichtsschwankungen nicht sofort als „Glas weg“ gewertet werden.
+Warum ist die Glaserkennung wichtig?
+Sicherheit
+Die Glaserkennung verhindert, dass Flüssigkeit gepumpt wird, obwohl kein Glas vorhanden ist. Ohne diese Prüfung würde das Rezept direkt anlaufen.
+Zusätzlich wird während des Pumpens geprüft, ob das Glas plötzlich entfernt wurde. In diesem Fall wird der Vorgang sofort abgebrochen (glassRemovedAbort). Das schützt das System vor Fehlabgabe.
+Korrekte Dosierung
+Die Waage ist nicht nur für die Glaserkennung da, sondern auch für die Mengen-kontrolle:
+•	Das System misst laufend, wie viel Flüssigkeit tatsächlich im Glas angekom-men ist.
+•	Dadurch kann die Dosierung nicht nur über Motorschritte geschätzt, sondern über das reale Gewicht kontrolliert werden.
+Gerade weil Fördermenge, Schlauchverhalten und Flüssigkeitseigenschaften schwanken können, sorgt die Waage dafür, dass die Zielmenge zuverlässiger er-reicht wird.
+Zusammenfassung 
+Die Funktion readWeight() liest zyklisch das aktuelle Gewicht der Wägezelle ein und speichert es als Grundlage für Dosierung und Glaserkennung. checkGlassDetec-tion() erkennt ein Glas anhand eines stabilen Gewichtssprungs von mindestens 100 g über 3 Sekunden. Wird das Gewicht später deutlich kleiner, wird das Glas als ent-fernt erkannt. Diese Überwachung ist wichtig, damit nur bei vorhandenem Glas ge-pumpt wird und der Dosierprozess bei Entnahme des Glases sofort abgebrochen werden kann. So erhöht die Glaserkennung sowohl die Betriebssicherheit als auch die Genauigkeit der Dosierung.
 
+Website auf den ESP32 hochladen
+Die Weboberfläche des Systems besteht aus den Dateien index.html, style.css und app.js. Diese Dateien befinden sich im Projekt im Ordner data/. Da im Projekt Litt-leFS als Dateisystem verwendet wird, werden die Webdateien nicht zusammen mit dem normalen Programmcode kompiliert, sondern separat auf den Flash-Speicher des ESP32 hochgeladen.
+Zuerst muss in das Projektverzeichnis gewechselt werden:
+bash
+cd /home/runner/work/Abschlussprojekt_Gerstner/Abschlussprojekt_Gerstner
+Anschließend kann die Website mit folgendem Befehl auf den ESP32 geladen wer-den:
+bash
+pio run -e esp32-s3-devkitm-1 -t uploadfs
+Der Befehl uploadfs erstellt aus dem Ordner data/ ein LittleFS-Dateisystem und überträgt dieses auf den ESP32. Dadurch stehen die HTML-, CSS- und JavaScript-Dateien später direkt auf dem Mikrocontroller zur Verfügung.
+Falls zusätzlich auch der eigentliche Programmcode des ESP32 geändert wurde, muss außerdem die Firmware hochgeladen werden:
+bash
+pio run -e esp32-s3-devkitm-1 -t upload
+Damit gilt:
+•	Nur Website geändert → uploadfs
+•	Programmcode geändert → upload
+•	Beides geändert → beide Befehle ausführen
 
+JSON-Publishing zur Bereitstellung interner Systemdaten
+Ein wichtiger Bestandteil des Systems ist die Umwandlung interner Programmdaten in das standardisierte Austauschformat JSON. Dadurch können Zustände und Kon-figurationsdaten des Cocktailautomaten einfach, strukturiert und plattformunabhän-gig an andere Komponenten – insbesondere an die Weboberfläche – übertragen werden. Im Projekt übernehmen dies vor allem die Funktionen publishFluids(), publi-shOfflineRecipes() und publishStatus().
+Grundidee
+Im Mikrocontroller liegen viele Informationen zunächst in internen Datenstrukturen vor, beispielsweise als Arrays und Strukturen (struct). Diese Form ist für die Verar-beitung im C++-Programm geeignet, jedoch nicht direkt für die Kommunikation mit externen Systemen. Deshalb werden die Daten vor dem Versand in JSON-Objekte oder JSON-Arrays umgewandelt. Anschließend werden sie über MQTT veröffent-licht.
+JSON eignet sich hierfür besonders gut, weil es
+•	leicht lesbar ist,
+•	von Webanwendungen direkt verarbeitet werden kann,
+•	unabhängig von Programmiersprache und Plattform ist,
+•	komplexe Daten strukturiert darstellen kann.
+publishFluids()
+Die Funktion publishFluids() serialisiert die aktuell konfigurierten neun Flüssig-keitsslots des Automaten. Grundlage ist das interne Array fluids[9], in dem pro Slot unter anderem Name, Kalibrierwert und Korrekturfaktor gespeichert sind. Die Funk-tion erzeugt daraus ein JSON-Array, bei dem jeder Eintrag ein JSON-Objekt mit den Eigenschaften eines Slots enthält.
+Dadurch wird aus der internen C++-Struktur eine klar definierte externe Darstellung. Die Daten werden anschließend über das MQTT-Topic cocktailbot/status/fluids ver-öffentlicht. Da die Nachricht als retained message gesendet wird, erhält ein neu verbundener Client sofort den zuletzt bekannten Zustand.
+Diese Funktion zeigt besonders gut, wie technische Gerätekonfigurationen in ein allgemein nutzbares Datenaustauschformat überführt werden.
+publishOfflineRecipes()
+Die Funktion publishOfflineRecipes() wandelt die lokal gespeicherten Rezepte aus dem Array recipes[] in JSON um. Für jedes Rezept werden Name, Index, Anzahl der Zutaten, Kompatibilität sowie die zugehörigen Flüssigkeiten und Mengen in struktu-rierter Form abgelegt.
+Besonders wichtig ist hier, dass ein einzelnes Rezept intern aus mehreren zusam-mengehörigen Arrays besteht, zum Beispiel für Flüssigkeitsindizes und Mengen. Beim JSON-Publishing werden diese Informationen logisch zusammengefasst und als zusammenhängendes Datenobjekt bereitgestellt. Dadurch kann die Weboberflä-che ein Rezept direkt interpretieren und darstellen, ohne die interne Speicherstruktur des Mikrocontrollers kennen zu müssen.
+Die Veröffentlichung erfolgt über das Topic cocktailbot/recipes/offline, ebenfalls als retained Nachricht. Somit stehen die Rezeptdaten jederzeit für Benutzeroberflächen oder andere Clients bereit.
+publishStatus()
+Die Funktion publishStatus() dient zur Übertragung aktueller Laufzeitinformationen des Systems. Dazu gehören unter anderem:
+•	das aktuelle Gewicht der Waage,
+•	der Pumpenstatus,
+•	der Reinigungsmodus,
+•	die Glaserkennung,
+•	der Fortschritt eines laufenden Rezepts,
+•	der aktuelle Menüstatus.
+Im Unterschied zu den eher statischen Daten aus publishFluids() und publis-hOfflineRecipes() handelt es sich hier um dynamische Zustandsdaten, die sich während des Betriebs laufend ändern. Die Funktion erstellt dafür mehrere JSON-Nachrichten bzw. einzelne Statuswerte und veröffentlicht sie aufpassenden MQTT-Topics wie cocktailbot/status/weight, cocktailbot/status/pump und cocktail-bot/status/menu.
+Damit wird der aktuelle interne Gerätezustand nach außen sichtbar gemacht. Die Weboberfläche kann diese Informationen nahezu in Echtzeit empfangen und ent-sprechend anzeigen, beispielsweise für Fortschrittsanzeigen oder Statusmeldungen.
+Bedeutung für das Gesamtsystem
+Die genannten Funktionen verdeutlichen das Prinzip der Datenabstraktion im Pro-jekt: Interne Datenstrukturen des Mikrocontrollers werden von ihrer geräteinternen Darstellung gelöst und in ein standardisiertes Kommunikationsformat überführt. Dadurch entsteht eine klare Trennung zwischen
+•	der internen Logik des Automaten und
+•	der externen Darstellung in Weboberfläche oder MQTT-Clients.
+Das JSON-Publishing macht das System damit modular, erweiterbar und leicht in-tegrierbar. Neue Clients können die veröffentlichten Daten nutzen, ohne direkten Zugriff auf den Programmcode oder die internen Speicherstrukturen zu benötigen.
 
-•  Rezeptausführung
-•	Bei executeRecipe()
-•	Besonders gut für die Doku, weil dort die komplette Logik zusammenläuft: 
-o	Rezept lesen
-o	passende Flüssigkeit finden
-o	Mengen skalieren
-o	pumpen
-o	Ergebnis erfassen
-•  Pumpfunktion
-•	Bei pumpFluid()
-•	Hier kannst du erklären, wie die Dosierung technisch funktioniert und warum Kalibrierung wichtig ist
-•  Waage / Glaserkennung
-•	Bei readWeight() und checkGlassDetection()
-•	Warum das System erkennt, ob ein Glas da ist und warum das für Sicherheit und korrekte Dosierung wichtig ist
-•  Relais- und Ventilsteuerung
-•	Bei activateRelay(), activateFluid() und activateAir()
-•	Gut geeignet, um den Hardwarebezug zu erklären
-•  WiFi- und MQTT-Kommunikation
-•	connectToWiFi(), connectToMQTT(), mqttCallback()
-•	Damit kannst du zeigen, wie der Automat mit einer App oder einem anderen System kommuniziert
-•  Offline- und Online-Rezepte
-•	Unterschied zwischen lokal gespeicherten Rezepten und extern geladenen Rezepten
-•	Das ist für eine Projektdoku sehr stark, weil es die Erweiterbarkeit zeigt
-•  JSON-Publishing
-•	publishFluids(), publishOfflineRecipes(), publishStatus()
-•	Gut um zu erklären, wie interne Daten in ein austauschbares Format gebracht werden
-•  setup() und loop()
-•	Klassisch wichtig bei Arduino-Projekten
-•	setup() für Initialisierung, loop() für den dauerhaften Betrieb
-•  Interrupts
-•	setupInterrupts(), encoderISR(), buttonISR()
-•	Sehr gut, wenn du auch technische Tiefe zeigen willst
-
-
-
-
-
-
-
-
-
+MQTT-Kommunikation des Automaten
+Der Automat nutzt MQTT als zentrale Schnittstelle zwischen Firmware, Weboberflä-che und externen MQTT-Clients. Dabei arbeitet er in zwei Richtungen:
+1.	Empfangen von Befehlen von MQTT-Clients
+2.	Senden von Zuständen, Rezepten und Ergebnissen an MQTT-Clients
+Warum wird broker.hivemq.com verwendet?
+Weil es ein öffentlicher MQTT-Broker ist.
+Kurz die Gründe:
+•	kein eigener Server nötig
+•	kein Account/Login nötig
+•	schnell testbar für ESP32, Web-UI und andere MQTT-Clients
+•	einfach für Demo- und Projektbetrieb
+Vorteil
+Für ein Schul-/Abschlussprojekt ist das praktisch, weil man sofort Nachrichten sen-den und empfangen kann, ohne erst einen eigenen Broker wie Mosquitto einzurich-ten.
+Nachteil
+Ein öffentlicher Broker ist nicht privat und nicht ideal für echte Produktivsyste-me:
+•	andere könnten theoretisch dieselben Topics benutzen
+•	meist keine Authentifizierung
+•	oft keine Ende-zu-Ende-Sicherheit
+•	Verfügbarkeit hängt vom externen Anbieter ab
+Fazit
+Der Automat nutzt broker.hivemq.com, weil es die einfachste Lösung zum Entwi-ckeln, Testen und Vorführen ist.
+1. Verbindung zum Broker
+Der Automat verbindet sich mit dem öffentlichen Broker:
+•	Broker: broker.hivemq.com
+•	Port: 1883
+Für die Verbindung erzeugt der ESP32 eine eindeutige Client-ID mit dem Präfix cocktailbot_.
+Nach erfolgreicher Verbindung passiert sofort Folgendes:
+•	Der Automat abonniert alle Command-Topics
+•	Er veröffentlicht erste wichtige Zustände direkt als MQTT-Nachrichten
+2. Was der Automat von MQTT-Clients empfängt
+Der Automat hört auf diese Befehls-Topics:
+•	cocktailbot/command/recipe/offline
+•	cocktailbot/command/recipe/online
+•	cocktailbot/command/fluid/set
+•	cocktailbot/command/relay
+•	cocktailbot/command/motor
+•	cocktailbot/command/cleaning/start
+•	cocktailbot/command/cleaning/stop
+•	cocktailbot/command/recipes/refresh
+•	cocktailbot/command/calibrate/fluid
+•	cocktailbot/command/calibrate/scale
+Typische Befehle
+Offline-Rezept starten
+JSON
+{"name":"Mojito","glass":"normal"}
+oder
+JSON
+{"index":3,"glass":"normal"}
+Online-Rezept starten
+JSON
+{
+  "name":"Custom Drink",
+  "glass":"normal",
+  "ingredients":[
+    {"fluid":"Vodka","amount":60},
+    {"fluid":"Orangensaft","amount":120}
+  ]
+}
+Flüssigkeit in Slot ändern
+JSON
+{"slot":2,"name":"Gin"}
+Relay schalten
+JSON
+{"index":5,"state":true}
+Motor fahren
+JSON
+{"action":"forward","steps":800}
+Flüssigkeit kalibrieren
+JSON
+{"slot":0,"calibration_ml":10.5,"korrektur":8}
+Waage kalibrieren
+JSON
+{"factor":408}
+3. Wie der Automat eingehende Nachrichten verarbeitet
+Wenn ein MQTT-Client eine Nachricht sendet:
+1.	Das Topic wird im mqttCallback() erkannt
+2.	Die JSON-Nachricht wird mit ArduinoJson geparst
+3.	Der Automat führt die Aktion nicht direkt im Callback aus
+4.	Stattdessen setzt er nur Flags / Pending-Variablen
+5.	Die eigentliche Aktion wird später sicher in der loop() ausgeführt
+Das ist wichtig, weil MQTT-Callbacks nicht blockierend bleiben sollen.
+4. Was der Automat an MQTT-Clients sendet
+Der Automat veröffentlicht Status- und Konfigurationsdaten auf diesen Topics:
+•	cocktailbot/status/weight
+•	cocktailbot/status/relays
+•	cocktailbot/status/pump
+•	cocktailbot/status/fluids
+•	cocktailbot/status/menu
+•	cocktailbot/recipes/offline
+•	cocktailbot/recipes/online
+•	cocktailbot/status/recipe_result
+•	cocktailbot/status/error
+5. Wie der Automat die Nachrichten versendet
+Alle ausgehenden Nachrichten laufen über mqttPublish():
+•	Übergabe von Topic
+•	Übergabe von Payload
+•	optional mit retained = true
+Technisch ruft der Automat intern mqttClient.publish(...) auf.
+Retained-Nachrichten
+Einige Nachrichten werden mit retained = true gesendet. Dann speichert der Broker den letzten Wert, und ein neu verbundener Client bekommt ihn sofort.
+Das gilt für:
+•	cocktailbot/status/fluids
+•	cocktailbot/status/relays
+•	cocktailbot/recipes/offline
+•	cocktailbot/recipes/online
+6. Welche Daten veröffentlicht, werden
+a) publishFluids()
+Veröffentlicht die 9 konfigurierten Flüssigkeitsslots als JSON-Array.
+Beispiel:
+JSON
+[
+  {"slot":0,"name":"Vodka","calibration_ml":10.0,"korrektur_faktor":10}
+]
+b) publishOfflineRecipes()
+Veröffentlicht alle lokal gespeicherten Rezepte als JSON.
+Enthalten sind z. B.:
+•	Index
+•	Name
+•	Anzahl Zutaten
+•	Kompatibilität
+•	Zutatenlisten
+•	Mengen
+c) publishStatus()
+Veröffentlicht laufende Zustände:
+•	aktuelles Gewicht
+•	Pumpenstatus
+•	Reinigungsmodus
+•	Glaserkennung
+•	Fortschritt des laufenden Rezepts
+•	Menüstatus
+d) publishRelays()
+Veröffentlicht die Relaiszustände als Boolean-Array.
+e) publishRecipeResult()
+Nach einem Rezept wird das Ergebnis veröffentlicht:
+•	Rezeptname
+•	Soll-Mengen
+•	Ist-Mengen
+•	Gesamt-Soll
+•	Gesamt-Ist
+f) Fehler
+Wenn z. B. kein Glas erkannt wird, sendet der Automat:
+JSON
+{"error":"Kein Glas erkannt"}
+auf:
+•	cocktailbot/status/error
+7. Wann Nachrichten gesendet werden
+Der Automat sendet MQTT-Daten in mehreren Situationen:
+Beim Verbindungsaufbau
+Direkt nach MQTT-Connect:
+•	Offline-Rezepte
+•	Flüssigkeiten
+•	Relays
+Periodisch
+Alle 2 Sekunden sendet er Statusdaten.
+Bei Änderungen
+Zum Beispiel wenn:
+•	ein Fluid geändert wurde
+•	eine Kalibrierung geändert wurde
+•	Online-Rezepte neu geladen wurden
+Während des Pumpens
+Während eines laufenden Rezepts werden Statusdaten häufiger aktualisiert, damit Fortschritt und Gewicht nahezu live sichtbar sind.
+8. Wie interne Daten in ein austauschbares Format gebracht werden
+Intern liegen die Daten im Automaten als C++-Strukturen, Arrays und Variablen vor, zum Beispiel:
+•	fluids[]
+•	recipes[]
+•	manualRelayState[]
+•	current_weight
+•	isRecipeRunning
+Diese internen Daten sind für andere Systeme nicht direkt nutzbar. Deshalb werden sie vor dem Versand in JSON umgewandelt.
+Der Ablauf ist:
+1.	interne Daten auslesen
+2.	in JsonDocument eintragen
+3.	als JSON-String serialisieren
+4.	per MQTT publishen
+Dadurch entsteht eine standardisierte, austauschbare Darstellung, die von Web-oberflächen, Apps oder anderen MQTT-Clients direkt verarbeitet werden kann.
+Kurz gesagt:
+•	intern: C++-Datenstrukturen
+•	extern: JSON über MQTT
+Zusammenfassung 
+Der Automat verwendet MQTT als bidirektionale Kommunikationsschnittstelle.
+Er empfängt Befehle von Clients über Command-Topics und veröffentlicht Zu-stände, Konfigurationen und Ergebnisse über Status- und Rezept-Topics.
+Die internen Daten des ESP32 werden dabei mit JSON serialisiert und so in ein plattformunabhängiges, austauschbares Format überführt. Andere Systeme können diese Informationen einfach durch das Abonnieren der passenden MQTT-Topics empfangen.
+Rezeptausführung
+executeRecipe() ist die Kernfunktion für die Ausführung eines Cocktails. Sie über-nimmt ein ausgewähltes Rezept, bereitet es für die aktuelle Glasgröße auf und ar-beitet anschließend jede Zutat nacheinander ab.
+Dabei laufen diese Schritte zusammen:
+•	Rezept lesen Die Funktion lädt zuerst das ausgewählte Rezept aus dem Re-zept-Array.
+•	Mengen skalieren Danach werden alle Zutatenmengen mit dem aktuellen glassScaleFactor an die gewählte Glasgröße angepasst. Dadurch kann das-selbe Rezept in kleineren oder größeren Portionen zubereitet werden.
+•	Passende Flüssigkeit finden Jede Zutat im Rezept verweist zunächst nur auf einen Eintrag in FLUID_NAMES. Für das tatsächliche Pumpen muss die Funktion dann den passenden Slot im Array fluids[] finden, also den real be-legten Schlauch bzw. Behälter.
+•	Pumpen der Zutaten Anschließend wird jede Zutat einzeln mit pumpFluid() dosiert. Diese Funktion übernimmt die eigentliche Förderung über Motor, Ventile und Waage. Nach jeder Zutat wird geprüft, ob das Glas entfernt wur-de; in diesem Fall wird der Vorgang abgebrochen.
+•	Ergebnis erfassen Während der Ausführung speichert executeRecipe() für jede Zutat die tatsächlich abgegebene Menge über die Gewichtsänderung. Am Ende wird daraus eine Zusammenfassung auf dem Display erzeugt und das Ergebnis bei bestehender WLAN-Verbindung zusätzlich per MQTT veröf-fentlicht.
+Warum ist die wichtig?
+Weil sie den gesamten Ablauf eines Cocktailrezepts in einer Funktion bündelt:
+1.	Rezeptdaten übernehmen
+2.	Mengen anpassen
+3.	Zutaten den realen Behältern zuordnen
+4.	Dosierung ausführen
+5.	Ist-/Soll-Ergebnis erfassen und anzeigen
+Zusammenfassung 
+Die Funktion executeRecipe() bildet den zentralen Ablauf der Rezeptausführung. Sie liest das gewählte Rezept ein, skaliert die Zutatenmengen abhängig von der Glas-größe, ordnet jede Zutat einer tatsächlich verfügbaren Flüssigkeit zu und dosiert diese nacheinander über die Pumpensteuerung. Währenddessen werden die real abgegebenen Mengen über die Waage erfasst. Nach Abschluss wird das Ergebnis lokal angezeigt und optional über MQTT veröffentlicht.
 Programm Dateien
 Hauptprogramm
  
@@ -1039,6 +1208,7 @@ Design/Aussehen
 Rezepte
  
 Blockschaltbild
+
 Gesamtprogramm Ablauf
 Schaltplan
 Seite 1/7
@@ -1062,103 +1232,32 @@ Abbildung 44: Schaltplan S 6
 Seite 7/7
  
 Abbildung 45: Schaltplan S 7
-Bedienungsanleitung Automat
+Bedienungsanleitung Cocktail-Automat
 Vor dem Gebrauch
-WICHTIG: Ist die Zuleitung des Cocktail Automat frei von Beschädigungen .
+WICHTIG: Ist die Zuleitung des Cocktail-Automat frei von Beschädigungen .
 WICHTIG: Sind alle Abdeckung vorhanden und geschlossen.
 WICHTIG: Nach jedem Gebrauch am Ende des Tages reinigen.
 Bei dem Anschließen der Schläuche:
 Schläuche auf Löcher Prüfen
 Die Schläuche bis zum Anschlag auf die Verbinder drücken
 Flüssigkeiten Anschließen
-Auf der Rückseite des Cocktail Automat sind 10 Schlauche sie sind nummeriert Schlauch 1 bis 9 sind für Flüssigkeiten, Schlauch 10 ist für die Luftzufuhr.
+Auf der Rückseite des Cocktail-Automat sind 10 Schlauche sie sind nummeriert Schlauch 1 bis 9 sind für Flüssigkeiten, Schlauch 10 ist für die Luftzufuhr.
 Um eine Flüssigkeit anzuschließen den Schlauch verbinden und in eine Flasche oder Behälter einführen.
 Welche Flüssigkeiten dar ich Anschließen.
-Es dürfen alle Flüssigkeiten angeschlossen werden, die keine Broken haben z.B. Bei manchen Sirups oder Orangensaft mit Stückchen. Sehr WICHTIG: Keine Milchhalti-gen Flüssigkeiten anschließen.
+Es dürfen alle Flüssigkeiten angeschlossen werden, die keine Broken haben z.B. Bei manchen Sirups oder Orangensaft mit Stückchen. Sehr WICHTIG: Keine Milchhalti-gen Flüssigkeiten anschließen. Kohlensäurige haltige Getränke bitte die Kohlensäu-rige entfernen.
 Bedienelemente
-
 Bedienelement	Funktion
 Encoder rechts drehen  	Menu scrollt herunter 
 Encoder links drehen    	Menu scrollt hoch
 Encoder-Knopf drücken  	OK / Auswahl bestaetigen          
 Back-Taste drücken    	Back / Zurück
-Einschalten und Startvorgang
-Strom einschalten Cocktail Automat fährt hoch und versucht sich mit dem Webserver zu verbinden, wenn er sich nicht verbinden kann, fährt der Automat im Offline-Modus hoch
 
-
-Verbindung Herstellen
-
-Nach dem Hochfahren erscheint das Menü "Flüssigkeiten konfigurieren"
-
-Hier müssen sie jetzt die Flüssigkeiten auswählen, die sie an den Cocktail Automat angeschlossen haben, wenn sie noch keine Flüssigkeiten angeschlossen haben, machen sie das bitte jetzt. Drücken sie OK / Auswahl bestätigen, um in die Kategorie Auswahl zu gelangen.
-
-Bsp: OK / Auswahl bestätigen Drücken, um in Alkoholische Flüssigkeiten zu gelan-gen
-
-OK / Auswahl bestätigen Drücken, um Flüssigkeit zu bestätigen.
-
-WICHTIG: Vor dem ersten Einsatz immer die Flüssigkeiten konfigurieren,
-damit der Automat Weiß, welche Leitung welche Flüssigkeit führt.
-
-Hauptmenü
-Vom Flüssigkeiten Menü auf das Hauptmenü zu gelangen Back / Zurück
-Zweiter Menü Teil
-
-Von dem Hauptmenü kommt man in jedes andere Menü des Cocktail Automat
-Rezept auswählen und starten
-Das Rezepte Menü ist in zwei geteilt Offline-Rezepte, die auch im Offline-Modus funktionieren und Online-Rezepte, die nur funktionieren, wenn der Cocktail Automat mit dem Internet verbunden ist.
-
-Wenn ein X neben einem Rezept steht, sind die Flüssigkeiten für dieses Rezept nicht vorhanden und dieses Rezept ist gesperrt.
-
-
-Wenn man dann ein Rezept ausgewählt hat, kommt die Rezept Ansicht, dort wird einem das Rezept für das Getränk noch einmal angezeigt.
-
-Nach der Rezept Ansicht kommt das Menü Glasgröße auswählen, hier Wählt man aus wie Groß ein Drink werden soll. Das Rezept wird auf die Ausgewählte Größe skaliert. Wichtig: Ein Glass mit geeigneter Größe auf die Auflage stellen
-Auswahl Größe
-Auswahl Größe unten
-Dann wird das Rezept ausgeführt. Hier von Standard 100 ml  auf 500 ml skaliert durch Auswahl.
-
-Wenn das Rezept fertig ist, wird einem angezeigt wieviel von welcher Flüssigkeit gepumpt wurde. Dieses Menü schließt sich nach 10 Sekunden.
-
-Wenn ein Rezept ausgeführt wird, kann man es mit Back / Zurück abrechen oder man hebt das Glas an und es bricht automatisch ab. 
-
-Manuelle Eingabe
-Flüssigkeiten, die man im Getränk haben will, auswählen und dann am Roterie En-coder drehen für die Einstellung der Menge der Flüssigkeit. Wenn man alle Flüssig-keiten ausgesucht habe, die ich Trinken will. Drückt man auf Start Manuell, um mit dem Abfüllen zu beginnen. 
-Manuelle Eingabe unten
-
-Reinigungsmodus
-Für den Reinigungsmodus muss an die Pumpe und an den Luft Anschluss der Rei-nigungsadapter angebracht werden und dann alle Schläuche in einen Behälter. Dann OK / Auswahl bestätigen drücken. Wenn der letzte Zyklus erreicht ist Stoppt es, dann bitte alle Schläuche außer, denn Schlauch von der Pumpe aus dem Behäl-ter entfernen und Dann OK / Auswahl bestätigen drücken.
-
-Zyklus Anzeige:
-
-Manuelle Bedienung
-WICHTIG: Nur in Notfällen benutzen 
-In der Manuellen Bedienung kann man denn Cocktail Automat manuell bedienen, das heißt alle Relais einzeln an und ausschalten und die Pumpe ansteuern.
-
-Online
-Um sich online zu verbinden kann man die IP-Adresse, die auf dem Bildschirm an-gezeigt wird bei dem Hochfahren in einem Browser eingeben.
-z.B. IP-Adresse (192.168.31.17)
-Wenn man sich dann Angemeldet hat kommt man in das Menü Status, dort werden einem angezeigt, ob ein Glass vorhanden ist, welches Relay geschaltet ist und wenn schon ein Rezept abgeschlossen ist, wird einem zu diesem Rezept das Ergebnis angezeigt wird.
-
-Man kann Online auch die Flüssigkeiten auswählen im Flüssigkeiten Menü lässt sich das einfacher machen als am Cocktail Automat.
-
-Wenn man auf eine Flüssigkeit drückt, kommt ein Untermenü wo man dann seine Flüssigkeit einfach auswählen kann. Wenn man dann alle ausgewählt hat drückt man  Alle Speichern um sie zu übertragen.
-Speichern
-
-
-
-
-In den Menüs Offline-Rezepte und Online-Rezepte werden einem Rezepte ange-zeigt die man ausführen kann dort werden einen auch die Zutaten der einzelnen Rezepte angezeigt.
-
-In dem Menü Manuelle Steuerung kann man Rezepte erstellen oder Manuell ein Getränk zusammenmischen und Starten. Einen Namen eingeben, die Flüssigkeit auswählen, neue Flüssigkeiten hinzufügen. Mit Starten direkt ausführen oder mit GitHub das Rezept abspeichern, abgespeicherte Rezepte werden unter Online-Rezepte angezeigt (Ganz unten).
-
-z.B.
-
-In dem Menü kann man den Cocktail Automat auch manuell bedienen, man sollte es aber vermeiden. Da einzige wichtige dort ist noch der Reinigungsmodus
-
+Wenn der Cocktail-Automat hochgefahren ist man bei der Flüssigkeitsauswahl, dort kann man die Flüssigkeiten auswählen, die man angeschlossen hat. Wenn man alle Flüssigkeiten gewählt hat, kommt man mit der Back Taste zum Hauptmenü. Von dort Kommt man in jedes Menu von dem Automaten. Die Einzelnen Funktionen sind Re-zepte einmal Online und Offline, nur Rezepte wo die Flüssigkeiten angeschlossen sind, lasen sich ausführen. Dann Manuelle Eingabe, wo man manuell sich ein Ge-tränk zusammen mischen kann. Das Flüssigkeiten Menu, wo man die angeschlos-senen Flüssigkeiten auswählen kann. Das Reinigungsmenu, wo man den Reini-gungsmodus starten kann, bevor man das Tut sollte man den Reinigungsadapter an die Pumpe und an den Luftanschluss anschließen und alle Schläuche in einen Be-hälter mit Wasser tun. Wenn das Display dann anzeigt das man es nochmal bestäti-gen soll nimmt man alle Schläuche außer, denn von der Pumpe aus dem Behälter raus Sodas nur noch Luft angesaugt werden kann und Drückt OK. Als letztes noch die Manuelle Bedienung dort kann man die meisten Funktionen manuell bedienen z.B., um Rest Flüssigkeit zu entfernen, wenn das Rezept abgebrochen wurde.
+Online verbinden, um sich Online zu verbinden muss man die IP-Adresse eingeben, die auf dem Bildschirm erscheint bei dem Hochfahren (192.168.31.17) diese gibt man in einen Browser ein, um sich die Website anzuzeigen zu lasen ( Man muss im gleichen Netzwerk sein ). Der Unterschied von Online zu Offline ist das man Online neue Rezepte erstellen kann und den Aktuellen Status des Automaten, dies kann man unter Status und Manuell machen unter Manuell ist auch der Reinigungsmo-dus. Um neue Rezepte zu erstellen Füllt man aus was man haben will und Drückt GitHub, um es zu speichern. Bei den anderen Sachen bitte nichts verstellen.
 GitHub Token
 Das GitHub Token ist ein Schlüssel, den man verwenden kann, um auf mein GitHub Konto zuzugreifen, dieses Token hat die Berechtigung auf das Repository Ab-schlussprojekt_Gerstner zuzugreifen und dort Sachen zu schreiben und zu lesen. Dies wird verwendet um auf eine Datei namens recipes.json zuzugreifen, dort sind die Online-Rezepte gespeichert.
 Wichtig ist für das Speichern neuer Rezepte:
-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
+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
 Verbesserungsvorschläge
 Verbesserungsvorschlag 1: LCD → OLED-Touchscreen
 Problem: Das aktuelle 4×20 LCD-Display zeigt nur Text und wird über Drehgeber + Taster bedient.
@@ -1179,7 +1278,6 @@ Vorteile:
 Softwareänderungen:
 •	Bibliothek greiman/SdFat hinzufügen
 •	recipes.json per SD.open() einlesen statt per HTTP/MQTT
-
 Gefahrenanalyse
 Gefahrenanalyse – Getränkeautomat (Cocktailautomat)
 Projekt:	Getränkeautomat / Cocktailautomat
@@ -1350,9 +1448,15 @@ Bediener eingewiesen
 Gefahrenanalyse erstellt nach dem BAuA-Handbuch zur Gefährdungsbeurtei-lung (Bundesanstalt für Arbeitsschutz und Arbeitsmedizin) sowie dem STOP-Prinzip gemäß DIN EN ISO 12100, ergänzt durch funktionale Sicherheitsbewer-tung nach ISO 13849-1 und EN 62061.
 Ergebnis
 Hier ist festgehalten, wie Präzise und schnell der Cocktail Automat seine Aufgabe erfüllt. 
-Noch weiter machen
+Test
+Ich habe ein Testrezept erstellt 
 
-Test-Cocktails
+Abbildung 48: Testrezept
+Ich habe diesen Testrezept um die 10 mahl wiederholt und die Ergebnisse wahren immer im Bereich Pro Flüssigkeit von plus minus 3 ml. Der Automat hat dieses Re-zept innerhalb von 8 Sekunden abgearbeitet.
+Weiteres Testbild
+Überprüfung mit Waage
+Der Test mit großen Mengen funktioniert auch sehr gut, wenn man 500 ml einer Flüssigkeit pumpen will, macht er es mit derselben Toleranz und in ungefähr 25 Se-kunden. Der Test mit Kohlensäure haltigen Getränken wahr eher nicht so gut, dadurch das der Automat einen Unterdruck mit der Pumpe erzeugt wird alle Kohlen-säure aus der Flüssigkeit herausgezogen und es schäumt schon im schlauch auf, es Fördert diese Flüssigkeiten aber die Fördermenge nimmt stark ab.
+Test-Cocktails für Präsentation
 
 
 
@@ -1476,7 +1580,9 @@ Gesamtpreis
 
 Quellen
 Ki
-GITHUB 😊 , die Heilige Gemini 😊und der Gute Cloud Opus 😊 
+GITHUB
+•	Cloud Opus 4.7
+•	GPT-5.4
 
 ESP32-S3
 o	Espressif Systems: ESP32-S3 Technical Reference Manual, Version 1.4 (2023)
@@ -1486,7 +1592,6 @@ o	https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet
 o	Produktseite Amazon
 https://www.amazon.de/ESP32-S3-WROOM-1-N16R8-ESP32-S3-DevKitC-1-Entwicklung-Bluetooth/dp/B0C6KN35L2
 Schaltnetzteil
-o	Mohan, N.; Undeland, T. M.; Robbins, W. P.: Power Electronics – Con-verters, Applications, and Design, 3. Auflage, John Wiley & Sons, 2003, Kapitel 7
 o	IEC 60529: Degrees of protection provided by enclosures (IP Code), 2013
 o	Produktseite Amazon
 https://www.amazon.de/BRIMETI-Wasserdicht-Schaltnetzteil-Transformator-Niedervolttrafo/dp/B09TXQZFCM
@@ -1506,17 +1611,12 @@ https://www.amazon.de/Kamoer-KDS3000-ST-Schrittmotor-einstellbarer-Laborfabriken
 Schrittmotortreiber
 o	Toshiba Semiconductor: TB6600HG Datasheet, Rev. 3.0
 https://toshiba.semicon-storage.com/info/TB6600HG_datasheet_en_20160525.pdf
-o	Acarnley, P. P.: Stepping Motors: A Guide to Theory and Practice, 4. Auflage, IET, 2002
 o	Produktseite Amazon
 https://www.amazon.de/COVVY-TB6600-Schrittmotorsteuerung-Schrittmotorsteuerplatine/dp/B07MJ29LWT
 Magnetventil
-o	Parker Hannifin: Solenoid Valve Catalog 4100
-https://ph.parker.com/us/en/solenoid-valves
 o	AliExpress Produktseite
 https://de.aliexpress.com/item/1005003084621654.html
-o	Bollée, R.: Pneumatische und hydraulische Steuerungen, Vogel Fach-buch, 2011
 Relaismodul
-o	Boylestad, R.; Nashelsky, L.: Electronic Devices and Circuit Theory, 11. Auflage, Pearson, 2013
 o	MakerMind Produktseite Amazon
 https://www.amazon.de/MakerMind-Low-Level-Trigger-kompatibel-Raspberry/dp/B099BNQ2LW
 o	Espressif: ESP32-S3 GPIO Reference
@@ -1524,7 +1624,6 @@ https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peri
 Wägezelle + HX711
 o	AVIA Semiconductor: HX711 Datasheet
 https://cdn.sparkfun.com/datasheets/Sensors/ForceFlex/hx711_english.pdf
-o	Hoffmann, K.: Eine Einführung in die Technik des Messens mit Deh-nungsmessstreifen, HBM Messtechnik, 1987
 o	ALAMSCN Produktseite Amazon
 https://www.amazon.de/ALAMSCN-Wägezelle-Gewichtssensoren-Mikrocontroller/dp/B09BVKFKYN
 LCD-Display
@@ -1537,126 +1636,84 @@ https://www.amazon.de/AZDelivery-Display-Arduino-Raspberry-inklusive/dp/B01GPUMP
 Drehgeber
 •	Bourns: PEC11R Series Incremental Encoder Datasheet
 https://www.bourns.com/docs/Product-Datasheets/PEC11R.pdf
-•	Fraden, J.: Handbook of Modern Sensors, 5. Auflage, Springer, 2016, Kapitel 6
 •	GIAK Produktseite Amazon
 https://www.amazon.de/GIAK-KY-040-Rotary-Encoder-Drehgeber/dp/B07RCKSXBX
-
 Literaturverzeichnis
-Acarnley, P. P. (2002): Stepping Motors: A Guide to Theory and Practice. 4. Auflage. IET.
 ALAMSCN (o. J.): Produktseite Wägezelle/Gewichtssensor. Online verfügbar unter: https://www.amazon.de/ALAMSCN-Wägezelle-Gewichtssensoren-Mikrocontroller/dp/B09BVKFKYN (abgerufen am 23.04.2026).
 AVIA Semiconductor (o. J.): HX711 Datasheet. Online verfügbar unter: https://cdn.sparkfun.com/datasheets/Sensors/ForceFlex/hx711_english.pdf (abgeru-fen am 23.04.2026).
 AZDelivery (o. J.): Produktseite HD44780 2004 LCD-Display. Online verfügbar unter: https://www.amazon.de/AZDelivery-Display-Arduino-Raspberry-inklusive/dp/B01GPUMP9C (abgerufen am 23.04.2026).
-Bollée, R. (2011): Pneumatische und hydraulische Steuerungen. Vogel Fachbuch.
 Bourns (o. J.): PEC11R Series Incremental Encoder Datasheet. Online verfügbar unter: https://www.bourns.com/docs/Product-Datasheets/PEC11R.pdf (abgerufen am 23.04.2026).
-Boylestad, R.; Nashelsky, L. (2013): Electronic Devices and Circuit Theory. 11. Auf-lage. Pearson.
 BRIMETI (o. J.): Produktseite LED Trafo 24 V / 150 W. Online verfügbar unter: https://www.amazon.de/BRIMETI-Wasserdicht-Schaltnetzteil-Transformator-Niedervolttrafo/dp/B09TXQZFCM (abgerufen am 23.04.2026).
 COVVY (o. J.): Produktseite TB6600 Schrittmotortreiber. Online verfügbar unter: https://www.amazon.de/COVVY-TB6600-Schrittmotorsteuerung-Schrittmotorsteuerplatine/dp/B07MJ29LWT (abgerufen am 23.04.2026).
-Durst, F.; Melling, A.; Whitelaw, J. H. (1976): Principles and Practice of Laser-Doppler Anemometry. Academic Press.
-Erickson, R. W.; Maksimović, D. (2020): Fundamentals of Power Electronics. 3. Auf-lage. Springer.
 Espressif Systems (2023): ESP32-S3 Technical Reference Manual. Version 1.4. On-line verfügbar unter: https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf (abgerufen am 23.04.2026).
 Espressif Systems (o. J.): ESP32-S3 Datasheet. Version 1.4. Online verfügbar unter: https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf (abgerufen am 23.04.2026).
 Espressif Systems (o. J.): ESP32-S3 GPIO Reference. Online verfügbar unter: https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/gpio.html (abgerufen am 23.04.2026).
-Fraden, J. (2016): Handbook of Modern Sensors. 5. Auflage. Springer.
 GIAK (o. J.): Produktseite KY-040 Rotary Encoder. Online verfügbar unter: https://www.amazon.de/GIAK-KY-040-Rotary-Encoder-Drehgeber/dp/B07RCKSXBX (abgerufen am 23.04.2026).
 Hitachi Semiconductor (o. J.): HD44780U LCD-II Datasheet. Online verfügbar unter: https://www.sparkfun.com/datasheets/LCD/HD44780.pdf (abgerufen am 23.04.2026).
-Hoffmann, K. (1987): Eine Einführung in die Technik des Messens mit Dehnungs-messstreifen. HBM Messtechnik.
 IEC 60529 (2013): Degrees of protection provided by enclosures (IP Code).
 Kamoer Fluid Tech (o. J.): KDS Series Peristaltic Pump User Manual. Online verfüg-bar unter: https://www.kamoer.com/en/products/stepper-motor-pump/kds3000 (ab-gerufen am 23.04.2026).
 Kamoer (o. J.): Produktseite KDS3000-ST Schlauchpumpe. Online verfügbar unter: https://www.amazon.de/Kamoer-KDS3000-ST-Schrittmotor-einstellbarer-Laborfabriken/dp/B09TP3SXVY (abgerufen am 23.04.2026).
 MakerMind (o. J.): Produktseite Low-Level Trigger Relaismodul. Online verfügbar unter: https://www.amazon.de/MakerMind-Low-Level-Trigger-kompatibel-Raspberry/dp/B099BNQ2LW (abgerufen am 23.04.2026).
-Mohan, N.; Undeland, T. M.; Robbins, W. P. (2003): Power Electronics – Converters, Applications, and Design. 3. Auflage. John Wiley & Sons.
 Parker Hannifin (o. J.): Solenoid Valve Catalog 4100. Online verfügbar unter: https://ph.parker.com/us/en/solenoid-valves (abgerufen am 23.04.2026).
 Philips Semiconductors (o. J.): PCF8574 Remote 8-bit I/O Expander for I2C-Bus Datasheet. Online verfügbar unter: https://www.nxp.com/docs/en/data-sheet/PCF8574_PCF8574A.pdf (abgerufen am 23.04.2026).
-Texas Instruments (2000): Introduction to Power Supplies – Application Report SLVA000B.
 Toshiba Semiconductor (2016): TB6600HG Datasheet. Rev. 3.0. Online verfügbar unter: https://toshiba.semicon-storage.com/info/TB6600HG_datasheet_en_20160525.pdf (abgerufen am 23.04.2026).
 XTVTX (o. J.): Produktseite ESP32-S3-DevKitC-1 N16R8. Online verfügbar unter: https://www.amazon.de/ESP32-S3-WROOM-1-N16R8-ESP32-S3-DevKitC-1-Entwicklung-Bluetooth/dp/B0C6KN35L2 (abgerufen am 23.04.2026).
 Youmile (o. J.): Produktseite Buck-Konverter 24 V auf 5 V. Online verfügbar unter: https://www.amazon.de/Youmile-Konverter-Spannungsregler-Ladegerät-Knopfkappe/dp/B07WNSC5HB (abgerufen am 23.04.2026).
 Unbekannter Hersteller (o. J.): Produktseite Buck-Konverter 24 V auf 12 V. Online verfügbar unter: https://www.amazon.de/dp/B0CTFJD6XF (abgerufen am 23.04.2026).
 Unbekannter Hersteller (o. J.): Produktseite Buck-Konverter 12 V auf 3,3 V. Online verfügbar unter: https://www.amazon.de/dp/B0DS7C6HXV (abgerufen am 23.04.2026).
 AliExpress (o. J.): Produktseite Normally Open Micro-Magnetventil. Online verfügbar unter: https://de.aliexpress.com/item/1005003084621654.html (abgerufen am 23.04.2026).
-
 Abbildungsverzeichnis:
-Abbildung 1: Planung Bild 2	13
-Abbildung 2: Planung Bild 3	13
-Abbildung 3: Planung Bild 1	13
-Abbildung 4: Planung Bild 5	14
-Abbildung 5: Planung Bild 4	14
-Abbildung 6: Blockdiagramm	20
-Abbildung 7: Modul 0/1	21
-Abbildung 8: Zeichnung Modul 0/1	21
-Abbildung 9: Modul 2	22
-Abbildung 10: Zeichnung Modul 2	22
-Abbildung 11: Modul 3	23
-Abbildung 12: Zeichnung Modul 3	23
-Abbildung 13: Modul 4	24
-Abbildung 14: Zeichnung Modul 4	24
-Abbildung 15: Modul 5	25
-Abbildung 16: Zeichnung Modul 5	26
-Abbildung 17: Modul 6	27
-Abbildung 18: Zeichnung Modul 6	27
-Abbildung 19: Schraube 1	28
-Abbildung 20: Zeichnung Schraube 1	28
-Abbildung 21: Schraube 2	29
-Abbildung 22: Zeichnung Schraube 2	29
-Abbildung 23: Planung Programm 1	40
-Abbildung 24: Planung Programm 2	41
-Abbildung 25: Programm enum MenuState	43
-Abbildung 26: Programm MenuState	44
-Abbildung 27: Programm switch case	44
-Abbildung 28: Programm struct Fluid	45
-Abbildung 29: Programm Fluid fluids	45
-Abbildung 30: Programm Erkennung Flüssigkeit	46
-Abbildung 31: Programm const String Fluid_Names	47
-Abbildung 32: Programm struct Recipe	49
-Abbildung 33: Recipe recipes Aray	49
-Abbildung 34: Recipe recipes Aray	50
-Abbildung 35: Programm Blockschaltbild	57
-Abbildung 36: Programm Gesamtprogramm Ablauf	59
-Abbildung 37: Schaltplan S 1	59
-Abbildung 38: Schaltplan S 2	60
-Abbildung 39: Schaltplan S 3	61
-Abbildung 40: Schaltplan S 4	62
-Abbildung 41: Schaltplan S 5	63
-Abbildung 42: Schaltplan S 6	64
-Abbildung 43: Schaltplan S 7	65
-Abbildung 44: Anleitung 1	66
-Abbildung 45: Anleitung 2	66
-Abbildung 46: Anleitung 3	67
-Abbildung 47: : Anleitung 4	67
-Abbildung 48: Anleitung 5	67
-Abbildung 49: Anleitung 6	68
-Abbildung 50: Anleitung 7	68
-Abbildung 51: Anleitung 8	68
-Abbildung 52: Anleitung 9	69
-Abbildung 53: Anleitung 10	69
-Abbildung 54: Anleitung 11	69
-Abbildung 55: Anleitung 12	70
-Abbildung 56: Anleitung 13	70
-Abbildung 57: Anleitung 14	70
-Abbildung 58: Anleitung 16	71
-Abbildung 59: Anleitung 15	71
-Abbildung 60: Anleitung 17	71
-Abbildung 61: Anleitung 18	71
-Abbildung 62: Anleitung 19	72
-Abbildung 63: Anleitung 20	72
-Abbildung 64: Anleitung 21	72
-Abbildung 65: Anleitung 22	73
-Abbildung 66: Anleitung 23	73
-Abbildung 67: Anleitung 24	74
-Abbildung 68: Anleitung 25	74
-Abbildung 69: Anleitung 26	75
-Abbildung 70: Anleitung 27	75
-Abbildung 71: Anleitung 28	76
-Abbildung 72: Anleitung 29	76
-Abbildung 73: Anleitung 30	77
-Abbildung 74: Anleitung 31	77
-Abbildung 75: Risikobewertung Tabelle	80
+Abbildung 1: Planung Bild 2	11
+Abbildung 2: Planung Bild 3	11
+Abbildung 3: Planung Bild 1	11
+Abbildung 4: Planung Bild 5	12
+Abbildung 5: Planung Bild 4	12
+Abbildung 6: Blockdiagramm	18
+Abbildung 7: Modul 0/1	19
+Abbildung 8: Zeichnung Modul 0/1	19
+Abbildung 9: Modul 2	20
+Abbildung 10: Zeichnung Modul 2	20
+Abbildung 11: Modul 3	21
+Abbildung 12: Zeichnung Modul 3	21
+Abbildung 13: Modul 4	22
+Abbildung 14: Zeichnung Modul 4	22
+Abbildung 15: Modul 5	23
+Abbildung 16: Zeichnung Modul 5	24
+Abbildung 17: Modul 6	25
+Abbildung 18: Zeichnung Modul 6	25
+Abbildung 19: Schraube 1	26
+Abbildung 20: Zeichnung Schraube 1	26
+Abbildung 21: Schraube 2	27
+Abbildung 22: Zeichnung Schraube 2	27
+Abbildung 23: Planung Programm 1	39
+Abbildung 24: Planung Programm 2	40
+Abbildung 25: Programm enum MenuState	42
+Abbildung 26: Programm MenuState	43
+Abbildung 27: Programm switch case	43
+Abbildung 28: Programm struct Fluid	44
+Abbildung 29: Programm Fluid fluids	44
+Abbildung 30: Programm Erkennung Flüssigkeit	45
+Abbildung 31: Programm const String Fluid_Names	46
+Abbildung 32: Programm struct Recipe	48
+Abbildung 33: Recipe recipes Aray	48
+Abbildung 34: Recipe recipes Aray	49
+Abbildung 35: Programm Pending Flag	53
+Abbildung 36: Programm Kompatibilitätsprüfung	58
+Abbildung 37: Programm Blockschaltbild	72
+Abbildung 38: Programm Gesamtprogramm Ablauf	74
+Abbildung 39: Schaltplan S 1	74
+Abbildung 40: Schaltplan S 2	75
+Abbildung 41: Schaltplan S 3	76
+Abbildung 42: Schaltplan S 4	77
+Abbildung 43: Schaltplan S 5	78
+Abbildung 44: Schaltplan S 6	79
+Abbildung 45: Schaltplan S 7	80
+Abbildung 46: Anleitung 1	81
+Abbildung 47: Risikobewertung Tabelle	84
+Abbildung 48: Testrezept	91
+Abbildung 49: Test 1	92
+Abbildung 50: Überprüfung Waage	92
+Abbildung 51: Test 2	92
+Abbildung 52: Test-Cocktail 1	93
+Abbildung 53: Test-Cocktail 2	94
 
-
-Präsentation
-Über das Projekt und nicht die Doku 
-Was tut es
-Vergleich mit anderen Automaten
-Zugang geben
-Vorführen 
-Wie funktioniert es
