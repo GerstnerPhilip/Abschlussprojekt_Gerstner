@@ -489,5 +489,14 @@
         "amount": 120
       }
     ]
+  },
+  {
+    "name": "testdfg",
+    "ingredients": [
+      {
+        "fluid": "Vodka",
+        "amount": 50
+      }
+    ]
   }
 ]
